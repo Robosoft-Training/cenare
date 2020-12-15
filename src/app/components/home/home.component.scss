@@ -1,0 +1,28 @@
+.home {
+    display: inline-flex;
+
+.display1{
+    .button1{
+    margin-top: 10px;
+    margin-left: 100px;
+    background-color: white;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+    }
+}
+.display2 {
+    .button2 {
+    margin-top: 10px;
+    margin-left: 90px;
+    background-color: white;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+    
+}
+}
+
+}

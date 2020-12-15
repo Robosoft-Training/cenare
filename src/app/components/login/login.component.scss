@@ -1,0 +1,303 @@
+@import '../../../variables.scss';
+@import '../../../mixin.scss';
+
+.login {
+  display: inline-flex;
+
+  .image {
+    height: 510px;
+    width: 380px;
+    position: relative;
+
+    .lorem {
+      position: absolute;
+      top: 130px;
+      margin-left: 30px;
+      color: #ffff;
+      font-size: 45px;
+      font-family: $bebas;
+      letter-spacing: 0.1px;
+    }
+
+    .text {
+      position: absolute;
+      top: 220px;
+      margin-left: 30px;
+      color: #ffff;
+      font-size: 28px;
+      font-weight: normal;
+      line-height: 37px;
+    }
+  }
+
+  .login-form {
+    width: 430px;
+    height: 510px;
+    position: relative;
+
+    .start {
+      margin-left: 40px;
+      margin-top: 45px;
+      font-size: 24px;
+      font-weight: bolder;
+    }
+
+    .email {
+      margin-top: 15px;
+      width: 330px;
+      margin-left: 40px;
+
+      mat-label {
+        color: #858585;
+        opacity: 0.7;
+      }
+
+    }
+
+    .password {
+      width: 330px;
+      margin-left: 40px;
+      margin-top: 20px;
+
+      mat-label {
+        color: #858585;
+        font-weight: lighter;
+        opacity: 0.7;
+      }
+    }
+
+    .eye {
+      right: 15px;
+      position: absolute;
+      color: #858585;
+      font-weight: lighter;
+
+    }
+
+    .forgot {
+      font-size: 12px;
+      font-weight: lighter;
+      margin-left: 260px;
+      cursor: pointer;
+
+    }
+
+    .close {
+      background: none;
+      border: none;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+      @include focus;
+    }
+
+    .theme-button {
+      height: 50px;
+      width: 335px;
+      border-radius: 6px;
+      margin-left: 40px;
+      margin-top: 15px;
+      color: #ffff;
+      font-weight: bold;
+      font-size: 14px;
+      filter: blur(0.1px);
+      background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+      border: none;
+      box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .social {
+      display: inline-flex;
+
+      .facebook {
+        border: 1px solid #02A7FD;
+        border-radius: 6px;
+        color: #02A7FD;
+        background: #ffff;
+        font-weight: normal;
+        font-size: 14px;
+        width: 160px;
+        height: 50px;
+        margin-left: 40px;
+        margin-top: 30px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .google {
+        border: 1px solid #FF8C7D;
+        border-radius: 6px;
+        color: #FF8C7D;
+        background: #ffff;
+        font-weight: normal;
+        font-size: 14px;
+        width: 160px;
+        height: 50px;
+        margin-top: 30px;
+        margin-left: 20px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .account {
+      font-weight: lighter;
+      font-size: 12px;
+      margin-top: 30px;
+      text-align: center;
+      letter-spacing: 0.24px;
+    }
+
+    mark.color {
+      font-weight: normal;
+      font-size: 12px;
+      color: #F67E03;
+      background: none;
+      cursor: pointer;
+    }
+  }
+
+  .background {
+    width: 430px;
+    height: 510px;
+    position: relative;
+
+    .email {
+      margin-left: 50px;
+      width: 330px;
+      mat-label {
+        color: #858585;
+        opacity: 0.7;
+      }
+    }
+    .eye {
+      right: 80px;
+      margin-top: 10px;
+      position: absolute;
+      color: #858585;
+      font-weight: lighter;
+
+    }
+    .back-arrow {
+      width: 17px;
+      top: 20px;
+      position: absolute;
+      left: 20px;
+    }
+
+    .icon{
+      text-align: center;
+      margin-top: 58px;
+    }
+
+    h1 {
+       font-weight:bold ;
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-right: 10px;
+    }
+
+    p {
+      font-weight: lighter;
+      margin-left: 80px;
+      color: #4A4A4A;
+      font-size: 12px;
+      margin-left: 90px;
+      
+    }
+
+    h6 {
+      font-weight: 500;
+      text-align: left;
+      font-size: 14px;
+      margin-top: 20px;
+      margin-left: 40px;
+      opacity: 0.9;
+
+    }
+
+    .email {
+      margin-left: 40px;
+      width: 330px;
+    
+      mat-label {
+        color: #858585;
+        opacity: 0.7;
+        margin-top: 20px;
+      }
+      .input {
+        margin-top: 20px;
+      }
+    }
+      
+    .theme-button {
+      height: 45px;
+      width: 335px;
+      border-radius: 6px;
+      margin-left: 40px;
+      margin-top: 15px;
+      color: #ffff;
+      font-weight: bold;
+      font-size: 14px;
+      filter: blur(0.1px);
+      background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+      border: none;
+      box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+
+      &:focus {
+        outline: none;
+      }
+    }
+    .close {
+      background: none;
+      border: none;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+
+      @include focus;
+    }
+    .verify-button {
+      @include theme-button;
+      margin-top: 50px;
+    }
+    .reset-button {
+      @include theme-button;
+      margin-top: 60px;
+    }
+    .login-button {
+      @include theme-button;
+      margin-top: 60px;
+      @include focus;
+    }
+  }
+  .create-account {
+
+   
+      margin-top: 80px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bolder; 
+    
+   }
+  .share{
+
+     font-weight: lighter ;
+      color: #4A4A4A;
+      font-size: 12px ;
+      margin-left: 110px;
+      margin-top: 20px;
+  }
+
+  }
+
