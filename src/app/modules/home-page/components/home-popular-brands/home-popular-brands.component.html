@@ -6,7 +6,8 @@
         <div class="col-12 col-md-6">
             <span class="popular-brands-heading">Popular Brands</span>
             <h3 class="d-none d-md-block popular-brands-about pb-3">Find out more about the world's top food brands are available all over the world today.</h3>
-    
+            <span *ngIf="!isLoading">
+
             <!---------------- Only For Mobile Devices ------------->
             <div class="brand-details d-block d-md-none">
                 <div class="detailia">
@@ -21,12 +22,12 @@
             </div>
             <!----------------------------------------------------->
 
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="popular-brands">
+                <div *ngFor="let brand of popularBrands; index as i;" [ngClass]="{'carousel-item': true, 'active': i===0 }">
+                    <div class="popular-brands" (click)="getDetails(brand.brand_id)">
                         <div class="brand-image-container w-sm-100">
-                        <img src="../../../../assets/images/Bitmap Copy 4.png" class="brand-image"/>
+                            <img src="../../../../assets/images/Bitmap Copy 4.png" class="brand-image"/>
                         </div>
                         <div class="brand-details d-none d-md-block">
                         <div class="details-container">
@@ -34,13 +35,13 @@
                             <img class="avatar-image" src="../../../../assets/images/Oval 6 Copy.png" />
                             </div>
                             <div class="details mt-4">
-                            <span class="brand-name pt-3">KFC</span>
-                            <span class="brand-title">Lattine American chicken</span>
+                            <span class="brand-name pt-3">{{brand.brand_name}}</span>
+                            <span class="brand-title">{{brand.title}}</span>
                             </div>
                         </div>
                         <div class="description mt-3">
                             <mat-divider></mat-divider>
-                            <div class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat purus sit amet lectus bibendum finbus vel.</div>
+                            <div class="product-description">{{ brand.description }}</div>
                         </div>
                         </div>
                     </div>
@@ -49,7 +50,7 @@
         
                 <div class="controlls">
                 <div class="container-fluid">
-                    <div class="small-orange-text">All Brands <mat-icon>keyboard_arrow_right</mat-icon></div>
+                    <div class="small-orange-text" (click)="getAllBrandsList()">All Brands <mat-icon>keyboard_arrow_right</mat-icon></div>
                     <div class="p-2">
                     <div class="controll-btn btn-group pt-1" role="group" aria-label="Basic example">
                         <a href="#carouselExampleControls" role="button" data-bs-slide="prev" class="arrow-btn btn btn-light shadow">
@@ -63,11 +64,19 @@
                 </div>
                 </div>
             </div>
+            </span>
+            <span *ngIf="isLoading">
+                <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status"></div>
+            </span>
         </div>
 
-        <div class="col-0 col-md-3 d-flex align-items-center justify-content-end">
+        <div class="col-0 col-md-3 d-flex align-items-center justify-content-end right-green-fill">
             <img src="../../../../../assets/images/Fill 1.png" />
         </div>
     </div>
 </div>
+
+<!-- <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+  <span class="sr-only">Loading...</span>
+</div> -->
   

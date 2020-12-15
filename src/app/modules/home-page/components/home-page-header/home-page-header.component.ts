@@ -50,6 +50,8 @@ export class HomePageHeaderComponent implements OnInit {
   serachName = '';
   dateTime = '';
   timeOut: any;
+  latitude = 0.0;
+  longitude = 0.0;
 
   stateForm: FormGroup = this.formBuilder.group({
     stateGroup: '',
@@ -65,9 +67,9 @@ export class HomePageHeaderComponent implements OnInit {
 
   loadCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      this.locationDetaService.getLocationDetails(latitude, longitude).subscribe(
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.locationDetaService.getLocationDetails(this.latitude, this.longitude).subscribe(
         (details) => {
           this.locationName = details.addresses[0].address.municipality;
         }
@@ -104,7 +106,7 @@ export class HomePageHeaderComponent implements OnInit {
       if (!(dateTime)) {
         dateTime = new Date();
       }
-      console.log(value, this.locationName, dateTime);
+      console.log(value, this.locationName, this.latitude, this.longitude, dateTime);
     }
   }
 

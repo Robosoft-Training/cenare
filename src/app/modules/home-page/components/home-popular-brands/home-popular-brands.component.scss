@@ -28,9 +28,12 @@
         flex-direction: row;
         background-color: $white;
         border-radius: 5px;
+        cursor: all-scroll;
 
         .brand-image-container {
             .brand-image {
+                // width: 105%;
+                // height: 13em;
                 width: 22em;
                 height: 13em;
             }
@@ -70,6 +73,11 @@
     .controlls {
         @include small-orange-text();
         @include arrow-controll-btn();
+    }
+
+    .right-green-fill {
+        position: relative;
+        left: 1em;
     }
 }
 
