@@ -110,6 +110,85 @@
     }
 }
 
+@mixin descriptions {
+    .product-description {
+        color:$descriptionColor;
+        font-family: $openSans;
+        font-size: 0.8em;
+        letter-spacing: 0;
+        line-height: 1.7em;
+        margin-top: 0.6em;
+    }
+}
+
+@mixin brand-name {
+    .brand-name {
+        color: $darkBlue;
+        font-family: $openSans;
+        font-size: 1.5em;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1em;
+    }
+}
+
+@mixin brand-title  {
+    .brand-title {
+        color: $descriptionColor;
+        font-family: $openSans;
+        font-size: 0.8em;
+        letter-spacing: 0;
+    }
+}
+
+@mixin small-orange-text {
+    .small-orange-text {
+        float: left;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        left: -2em;
+        color: $orange;
+        font-family: $openSans;
+        font-size: 0.8em;
+        font-weight: 600;
+        padding-top: 0.6em;
+        cursor: default;
+    }
+}
+
+@mixin arrow-controll-btn {
+    .controll-btn {
+        float: right;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        right: -2.2em;
+        box-sizing: border-box;
+
+        .arrow-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            width: 3em;
+            height: 2.5em;
+            &:active {
+                color: $darkGray;
+            }
+        }
+    }
+}
+
+@mixin avatar-image {
+    .avatar-image {
+        vertical-align: middle;
+        width: 4.3em;
+        height: 4.3em;
+        border-radius: 50%;
+    }
+}
+
 @mixin overriding-angular-materials {
     ::ng-deep {
         .mat-datepicker-toggle .mat-icon-button {
