@@ -79,5 +79,22 @@
         position: relative;
         left: 1em;
     }
+
+    .error-field-container {
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .error-image {
+            width: 10em;
+            height: 6em;
+        }
+        .error-title {
+            font-weight: bold;
+            font-family: $openSans;
+        }
+        @include descriptions();
+    }
 }
 

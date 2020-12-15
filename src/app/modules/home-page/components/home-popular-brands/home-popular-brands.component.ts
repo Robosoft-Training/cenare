@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
@@ -13,6 +12,7 @@ export class HomePopularBrandsComponent implements OnInit {
 
   popularBrands: IPopularBrands[] = [];
   isLoading = true;
+  isErrorLoading = false;
 
   constructor(
     private popularProductsService: PopularProductsService
@@ -29,12 +29,16 @@ export class HomePopularBrandsComponent implements OnInit {
   }
 
   loadProducts = () => {
+    this.isErrorLoading = false;
     this.popularProductsService.getPopularBrands().subscribe(
       (products:IPopularBrands[]) => {
         console.log(products);
         this.popularBrands = products;
         this.isLoading = false;
-      }
+      },
+      err => {
+        this.isErrorLoading = true;
+      },
     );
   }
 

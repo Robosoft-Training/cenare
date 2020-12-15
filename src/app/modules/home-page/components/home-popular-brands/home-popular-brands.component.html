@@ -6,7 +6,16 @@
         <div class="col-12 col-md-6">
             <span class="popular-brands-heading">Popular Brands</span>
             <h3 class="d-none d-md-block popular-brands-about pb-3">Find out more about the world's top food brands are available all over the world today.</h3>
-            <span *ngIf="!isLoading">
+            
+            <span *ngIf="isErrorLoading">
+                <div class="error-field-container mb-5">
+                    <img src="../../../../../assets/images/icn_no_restaurants@2x.jpg" class="error-image my-3" />
+                    <span class="error-title">Oops!</span>
+                    <span class="product-description">No brands nearby change to other locations and try.</span>
+                </div>
+            </span>
+
+            <span *ngIf="!isLoading && !isErrorLoading">
 
             <!---------------- Only For Mobile Devices ------------->
             <div class="brand-details d-block d-md-none">
@@ -65,7 +74,7 @@
                 </div>
             </div>
             </span>
-            <span *ngIf="isLoading">
+            <span *ngIf="isLoading && !isErrorLoading">
                 <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status"></div>
             </span>
         </div>
