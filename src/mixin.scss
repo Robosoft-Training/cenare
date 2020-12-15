@@ -1,0 +1,129 @@
+@import './variables.scss';
+
+@mixin header-text($padding-top:90px, $fontSize:40px) {
+    .header-text {
+        padding-top: $padding-top;
+        color: $headerText;
+        font-family: $openSans;
+        font-size: $fontSize;
+        line-height: 60px;
+        text-shadow: 0 0 9px 0 $white;
+        word-wrap: none;
+    }
+}
+
+@mixin icon-style {
+    .search-icon {
+        height: 0.8em;
+        width: 0.8em;
+    }
+}
+
+@mixin gps-icon {
+    .gps-icon{
+        width: 1.2em;
+        z-index: 2;
+    }
+}
+
+@mixin form-controles {
+    .form-control {
+        display: block;
+        width: 100%;
+        z-index: 2;
+        border: none;
+        outline: none;
+
+        color: $headerText;
+        font-family: $openSans;
+        font-size: 12px;
+        letter-spacing: -0.24px;
+        line-height: 19px;
+
+        &:focus {
+            outline: 5px solid $white;
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}
+
+@mixin mediam-imput-box($width) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $width;
+    box-shadow: 0px 2px 10px 0px $inputBoxShadow;
+    width: $width;
+    height: 3.5em;
+    border-radius: 0.4em;
+}
+
+@mixin left-green-fill(
+        $fillHeight:30em, $fillWidth:16em, $fillRadius:8em, $fillTop:6em, $fillLeft:-8em,
+        $imageSize:10em, $imageTop:-15em, $imageLeft: 0em 
+    ) {
+    .left-green-fill {
+        position: relative;
+        background-color: $leftFillGreen;
+        height: $fillHeight;
+        width: $fillWidth;
+        border-radius: $fillRadius;
+        transform: rotate(15deg);
+        top: $fillTop;
+        left: $fillLeft;
+      }
+    
+      .left-image {
+        position: relative;
+        z-index: 1;
+        height: $imageSize;
+        width: $imageSize;
+        top: $imageTop;
+        left: $imageLeft;
+    }    
+}
+
+@mixin right-gradient-fill(
+        $fillHeight:42rem, $fillWidth:28rem, $fillLeftRadius:18em, $fillRightRadius:18em, $fillTop:-5em, $fillLeft:6em,
+        $imageHeight:44em, $imageWidth:38em, $imageTop:-47em, $imageLeft: 1.2em 
+    ) {
+    .right-fill-container {
+        .right-gradient-fill {
+            position: relative;
+            left: $fillLeft;
+            top: $fillTop;
+            background: $rightFillGradient;
+            height: $fillHeight;
+            width: $fillWidth;
+            border-bottom-left-radius: $fillLeftRadius;
+            border-bottom-right-radius: $fillRightRadius;
+            transform: rotate(13deg); 
+          }
+          // overflow: hidden;
+    
+          .right-image {
+            position: relative;
+            z-index: 1;
+            height: $imageHeight;
+            width: $imageWidth;
+            top: $imageTop;
+            left: $imageLeft;
+          }
+    }
+}
+
+@mixin overriding-angular-materials {
+    ::ng-deep {
+        .mat-datepicker-toggle .mat-icon-button {
+            outline: none;
+        }
+        .mat-calendar-body-selected {
+            background: $calenderTheme;
+        }
+    }
+
+    ::ng-deep .cdk-overlay-pane {
+        min-width: 35em;
+    }
+}
