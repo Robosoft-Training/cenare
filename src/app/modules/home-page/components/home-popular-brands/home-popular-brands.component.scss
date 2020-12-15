@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.popular-brands-container {
+    background-image: url("../../../../../assets/images/logo_pattern copy.png");
+    background-size: auto;
+    overflow: hidden;
+
+    .popular-brands-heading {
+        color: #4C4C4C;
+        font-family: "Open Sans";
+        font-size: 2.6em;
+        letter-spacing: 0;
+        line-height: 2.1em;
+        text-shadow: 0 0 1.2em 0 #FFFFFF;
+    }
+
+    .popular-brands-about {
+        color: #4C4C4C;
+        font-family: "Open Sans";
+        font-size: 0.9em;
+        letter-spacing: 0.58px;
+        line-height: 1.2em;
+    }
+
+    .popular-brands {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border-radius: 5px;
+
+        .brand-image-container {
+            .brand-image {
+                width: 22em;
+                height: 13em;
+            }
+        }
+
+        .brand-details {
+            display: flex;
+            flex-direction: column;
+            .details-container {
+                display: flex;
+                flex-direction: row;
+                .avatar-image-container {
+                    margin: 0em 1em 0em 2em;
+                    .avatar-image {
+                        vertical-align: middle;
+                        width: 4.3em;
+                        height: 4.3em;
+                        border-radius: 50%;
+                    }
+                }
+                .details {
+                    display: flex;
+                    flex-direction: column;
+                    .brand-name {
+                        color: #223136;
+                        font-family: "Open Sans";
+                        font-size: 1.5em;
+                        font-weight: 600;
+                        letter-spacing: 0;
+                        line-height: 1em;
+                    }
+                    .brand-title {
+                        color: #757575;
+                        font-family: "Open Sans";
+                        font-size: 0.8em;
+                        letter-spacing: 0;
+                    }
+                }
+            }
+            .description {
+                margin: 0em 1.8em;
+                .product-description {
+                    color: #6A6A6A;
+                    font-family: "Open Sans";
+                    font-size: 0.8em;
+                    letter-spacing: 0;
+                    line-height: 1.7em;
+                    margin-top: 0.6em;
+                }
+            }
+        }
+    }
+
+    .controlls {
+        .all-brand-text {
+            float: left;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: relative;
+            left: -2em;
+            color: #F67E03;
+            font-family: "Open Sans";
+            font-size: 0.8em;
+            font-weight: 600;
+            padding-top: 0.6em;
+            cursor: default;
+        }
+
+        .controll-btn {
+            float: right;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: relative;
+            right: -2.2em;
+            box-sizing: border-box;
+
+            .arrow-btn {
+                text-decoration: none;
+                padding: 8px 16px;
+                width: 3em;
+                height: 2.5em;
+                &:active {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+

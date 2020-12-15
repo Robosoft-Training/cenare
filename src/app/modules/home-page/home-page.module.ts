@@ -6,10 +6,11 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { HomePageHeaderComponent } from './components/home-page-header/home-page-header.component';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomePopularBrandsComponent } from './components/home-popular-brands/home-popular-brands.component';
 
 
 @NgModule({
-  declarations: [HomePageComponent, HomePageHeaderComponent],
+  declarations: [HomePageComponent, HomePageHeaderComponent, HomePopularBrandsComponent],
   imports: [
     CommonModule,
     HomePageRoutingModule,

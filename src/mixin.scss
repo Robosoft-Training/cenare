@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-@mixin header-text($padding-top:90px, $fontSize:40px) {
+@mixin header-text($padding-top:90px, $fontSize:39px) {
     .header-text {
         padding-top: $padding-top;
         color: $headerText;
