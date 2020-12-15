@@ -7,10 +7,11 @@ import { HomePageHeaderComponent } from './components/home-page-header/home-page
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePopularBrandsComponent } from './components/home-popular-brands/home-popular-brands.component';
+import { HomeDealsOffersComponent } from './components/home-deals-offers/home-deals-offers.component';
 
 
 @NgModule({
-  declarations: [HomePageComponent, HomePageHeaderComponent, HomePopularBrandsComponent],
+  declarations: [HomePageComponent, HomePageHeaderComponent, HomePopularBrandsComponent, HomeDealsOffersComponent],
   imports: [
     CommonModule,
     HomePageRoutingModule,
