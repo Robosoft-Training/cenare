@@ -20,7 +20,7 @@
 }
 
 @mixin gps-icon {
-    .gps-icon{
+    .gps-icon {
         width: 1.2em;
         z-index: 2;
     }
@@ -59,10 +59,8 @@
     border-radius: 0.4em;
 }
 
-@mixin left-green-fill(
-        $fillHeight:30em, $fillWidth:16em, $fillRadius:8em, $fillTop:6em, $fillLeft:-8em,
-        $imageSize:10em, $imageTop:-15em, $imageLeft: 0em 
-    ) {
+@mixin left-green-fill($fillHeight:30em, $fillWidth:16em, $fillRadius:8em, $fillTop:6em, $fillLeft:-8em,
+    $imageSize:10em, $imageTop:-15em, $imageLeft: 0em) {
     .left-green-fill {
         position: relative;
         background-color: $leftFillGreen;
@@ -72,22 +70,20 @@
         transform: rotate(15deg);
         top: $fillTop;
         left: $fillLeft;
-      }
-    
-      .left-image {
+    }
+
+    .left-image {
         position: relative;
         z-index: 1;
         height: $imageSize;
         width: $imageSize;
         top: $imageTop;
         left: $imageLeft;
-    }    
+    }
 }
 
-@mixin right-gradient-fill(
-        $fillHeight:42rem, $fillWidth:28rem, $fillLeftRadius:18em, $fillRightRadius:18em, $fillTop:-5em, $fillLeft:6em,
-        $imageHeight:44em, $imageWidth:38em, $imageTop:-47em, $imageLeft: 1.2em 
-    ) {
+@mixin right-gradient-fill($fillHeight:42rem, $fillWidth:28rem, $fillLeftRadius:18em, $fillRightRadius:18em, $fillTop:-5em, $fillLeft:6em,
+    $imageHeight:44em, $imageWidth:38em, $imageTop:-47em, $imageLeft: 1.2em) {
     .right-fill-container {
         .right-gradient-fill {
             position: relative;
@@ -98,18 +94,19 @@
             width: $fillWidth;
             border-bottom-left-radius: $fillLeftRadius;
             border-bottom-right-radius: $fillRightRadius;
-            transform: rotate(13deg); 
-          }
-          // overflow: hidden;
-    
-          .right-image {
+            transform: rotate(13deg);
+        }
+
+        // overflow: hidden;
+
+        .right-image {
             position: relative;
             z-index: 1;
             height: $imageHeight;
             width: $imageWidth;
             top: $imageTop;
             left: $imageLeft;
-          }
+        }
     }
 }
 
@@ -118,6 +115,7 @@
         .mat-datepicker-toggle .mat-icon-button {
             outline: none;
         }
+
         .mat-calendar-body-selected {
             background: $calenderTheme;
         }

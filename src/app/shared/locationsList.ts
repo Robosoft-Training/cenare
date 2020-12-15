@@ -1,9 +1,10 @@
-import { ILocation } from "./interfaces/Ilocation";
+import { ILocation } from './interfaces/Ilocation';
 
-export const locationsList: ILocation[] = [{
+export const locationsList: ILocation[] = [
+  {
     letter: 'Near by places',
     names: ['Mangaluru', 'Mysuru', 'Manipal', 'Udupi']
-  }, 
+  },
   {
     letter: 'B',
     names: ['Bengaluru']
