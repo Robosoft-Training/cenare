@@ -32,7 +32,7 @@ export class HomeDealsOffersComponent implements OnInit {
     this.isErrorLoading = false;
     this.dealsOfferService.getDealsOffers().subscribe(
       (products: IDealsOffers[]) => {
-        console.log(products);
+        // console.log(products);
         this.dealsOffers = products;
         this.isLoading = false;
       },

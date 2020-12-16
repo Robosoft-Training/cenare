@@ -96,7 +96,7 @@ export class HomePageHeaderComponent implements OnInit {
           this.executeSearch(event.target.value);
         }
       }
-      , 1000);
+      , 1500);
   }
 
   executeSearch = (value: any) => {
@@ -114,7 +114,12 @@ export class HomePageHeaderComponent implements OnInit {
     clearTimeout(this.timeOut);
     this.timeOut = setTimeout(
       () => {
-        console.log("Premnath");
+        this.locationDetaService.getLatitudeLongitude(event.target.value).subscribe(
+          (details) => {
+            this.latitude = details.results[0].position.lat;
+            this.longitude = details.results[0].position.lon;
+          }
+        );
       }
     , 1500);
   }

@@ -32,7 +32,7 @@ export class HomePopularBrandsComponent implements OnInit {
     this.isErrorLoading = false;
     this.popularProductsService.getPopularBrands().subscribe(
       (products: IPopularBrands[]) => {
-        console.log(products);
+        // console.log(products);
         this.popularBrands = products;
         this.isLoading = false;
       },
