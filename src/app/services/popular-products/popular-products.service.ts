@@ -17,7 +17,7 @@ export class PopularProductsService {
     const url = `${this.apiBaseUrl}`;
     return this.httpClient.get<IPopularBrands[]>(url)
     .pipe(
-        tap(_ => console.log("Items Fetched")),
+        tap(_ => console.log('Items Fetched')),
         retry(3),
         catchError(this.handleError)
     );

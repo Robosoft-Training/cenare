@@ -25,13 +25,13 @@ export class HomePopularBrandsComponent implements OnInit {
 
   getAllBrandsList = () => {
     // Move to all brands list
-    console.log("All Brands");
+    console.log('All Brands');
   }
 
   loadProducts = () => {
     this.isErrorLoading = false;
     this.popularProductsService.getPopularBrands().subscribe(
-      (products:IPopularBrands[]) => {
+      ( products: IPopularBrands[] ) => {
         console.log(products);
         this.popularBrands = products;
         this.isLoading = false;

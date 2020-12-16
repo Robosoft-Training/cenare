@@ -17,13 +17,13 @@ export class DealsOffersService {
     const url = `${this.apiBaseUrl}`;
     return this.httpClient.get<IDealsOffers[]>(url)
     .pipe(
-        tap(_ => console.log("Items Fetched")),
+        tap(_ => console.log('Items Fetched')),
         retry(3),
         catchError(this.handleError)
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError( error: HttpErrorResponse ) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.log('An error occurred:', error.error.message);
