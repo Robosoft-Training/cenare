@@ -24,7 +24,6 @@
           [(ngModel)]="email.value" [class.invalid]="email.error">
         <mat-hint></mat-hint>
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
         </mat-error>
       </mat-form-field>
       <div *ngIf="email.error" class="error">{{email.error}}</div>
@@ -75,7 +74,6 @@
           [(ngModel)]="email.value" [class.invalid]="email.error">
         <mat-hint></mat-hint>
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
         </mat-error>
 
       </mat-form-field>
@@ -162,7 +160,6 @@
             placeholder="Email" [(ngModel)]="email.value" [class.invalid]="email.error">
           <mat-hint></mat-hint>
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
           </mat-error>
 
         </mat-form-field>
