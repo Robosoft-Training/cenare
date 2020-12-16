@@ -189,6 +189,81 @@
     }
 }
 
+@mixin  brands-heading {
+    .popular-brands-heading {
+        color: $darkGray;
+        font-family: $openSans;
+        font-size: 2.6em;
+        letter-spacing: 0;
+        line-height: 2.1em;
+        text-shadow: 0 0 1.2em 0 $white;
+    }
+}
+
+@mixin  brands-about {
+    popular-brands-about {
+        color: $darkGray;
+        font-family: $openSans;
+        font-size: 0.9em;
+        letter-spacing: 0.58px;
+        line-height: 1.2em;
+    }
+}
+
+@mixin offer-code {
+    .offer-code {
+        cursor: auto;
+        box-sizing: border-box;
+        height: 2.2em;
+        width: 7em;
+        border: 1px solid rgba(255,255,255,0.4);
+        border-radius: 0.1em;
+        background-color: rgba(255,255,255,0.07);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .offer-text {
+            color: #FFFFFF;
+            font-family: "Open Sans";
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 3.27px;
+            line-height: 28px;
+        }
+    }
+}
+
+@mixin offer-title {
+    .offer-title-1 {
+        color: $white;
+        font-family: $openSans;
+        font-size: 1.6em;;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 1.5em;
+    }
+    .offer-title-2 {
+        font-family: "Open Sans";
+        letter-spacing: 0;
+        line-height: 2.2em;
+        .offer-text-1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFE848;
+        }
+        .offer-text-2 {
+            font-size: 1.5em;
+            font-weight: bolder;
+            color: $white;
+        }
+        .offer-text-3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFE848;
+        }
+    }
+}
+
 @mixin overriding-angular-materials {
     ::ng-deep {
         .mat-datepicker-toggle .mat-icon-button {

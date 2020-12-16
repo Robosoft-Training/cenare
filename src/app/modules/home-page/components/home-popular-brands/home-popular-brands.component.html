@@ -33,28 +33,28 @@
 
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner">
-                <div *ngFor="let brand of popularBrands; index as i;" [ngClass]="{'carousel-item': true, 'active': i===0 }">
-                    <div class="popular-brands" (click)="getDetails(brand.brand_id)">
-                        <div class="brand-image-container w-sm-100">
-                            <img src="../../../../assets/images/Bitmap Copy 4.png" class="brand-image"/>
-                        </div>
-                        <div class="brand-details d-none d-md-block">
-                        <div class="details-container">
-                            <div class="avatar-image-container mt-4">
-                            <img class="avatar-image" src="../../../../assets/images/Oval 6 Copy.png" />
+                    <div *ngFor="let brand of popularBrands; index as i;" [ngClass]="{'carousel-item': true, 'active': i===0 }">
+                        <div class="popular-brands" (click)="getDetails(brand.brand_id)">
+                            <div class="brand-image-container w-sm-100">
+                                <img src="../../../../assets/images/Bitmap Copy 4.png" class="brand-image"/>
                             </div>
-                            <div class="details mt-4">
-                            <span class="brand-name pt-3">{{brand.brand_name}}</span>
-                            <span class="brand-title">{{brand.title}}</span>
+                            <div class="brand-details d-none d-md-block">
+                            <div class="details-container">
+                                <div class="avatar-image-container mt-4">
+                                <img class="avatar-image" src="../../../../assets/images/Oval 6 Copy.png" />
+                                </div>
+                                <div class="details mt-4">
+                                <span class="brand-name pt-3">{{brand.brand_name}}</span>
+                                <span class="brand-title">{{brand.title}}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="description mt-3">
-                            <mat-divider></mat-divider>
-                            <div class="product-description">{{ brand.description }}</div>
-                        </div>
+                            <div class="description mt-3">
+                                <mat-divider></mat-divider>
+                                <div class="product-description">{{ brand.description }}</div>
+                            </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
         
                 <div class="controlls">

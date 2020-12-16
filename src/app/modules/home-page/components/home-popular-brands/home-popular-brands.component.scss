@@ -6,22 +6,8 @@
     background-size: auto;
     overflow: hidden;
 
-    .popular-brands-heading {
-        color: $darkGray;
-        font-family: $openSans;
-        font-size: 2.6em;
-        letter-spacing: 0;
-        line-height: 2.1em;
-        text-shadow: 0 0 1.2em 0 $white;
-    }
-
-    .popular-brands-about {
-        color: $darkGray;
-        font-family: $openSans;
-        font-size: 0.9em;
-        letter-spacing: 0.58px;
-        line-height: 1.2em;
-    }
+    @include brands-heading();
+    @include brands-about();
 
     .popular-brands {
         display: flex;

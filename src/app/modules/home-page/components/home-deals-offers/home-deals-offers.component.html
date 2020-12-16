@@ -1,1 +1,89 @@
-<p>home-deals-offers works!</p>
+
+<div class="container-fluid pb-5 pt-0 pt-md-5 deals-offer-container" >
+    <div class="row">
+        <div class="col-0 col-md-3">
+            <img src="../../../../../assets/images/grad copy.png" class="left-gradient-fill">
+            <img src="../../../../../assets/images/Image 3.png" class="left-food-image">
+        </div>
+
+        <div class="col-12 col-md-6">
+            <span class="popular-brands-heading">Best Deals & Offers</span>
+            <h3 class="d-none d-md-block popular-brands-about pb-3">Endless deals near you! Grab the best deals and offers.</h3>
+            
+            <span *ngIf="isErrorLoading" class="error-field">
+                <div class="error-field-container mb-5">
+                    <img src="../../../../../assets/images/icn_no_restaurants@2x.jpg" class="error-image my-3" />
+                    <span class="error-title">Oops!</span>
+                    <span class="product-description">Offer is not available at restuarants near by
+                        change to other locations and try..</span>
+                </div>
+            </span>
+
+            <span *ngIf="!isLoading && !isErrorLoading">
+
+            <div id="carouselDealsControls" class="carousel slide" data-bs-interval="false">
+                <div class="carousel-inner">
+                <div *ngFor="let offer of dealsOffers | slice:0:dealsOffers.length-1; index as i;" [ngClass]="{'carousel-item': true, 'active': i===0 }">
+                    <div class="two-cards">
+                        <div class="offer-deal-1">
+                            <div class="offer-card">
+                            <div class="brand-image-container w-sm-100">
+                                <img src="../../../../assets/images/card.png" class="brand-image"/>
+                            </div>
+                                <div class="offer-details mt-3">
+                                    <span class="offer-title-1">So good Wednesday Flat 39% Off</span>
+                                    <span class="offer-description"></span>
+                                    <div class="offer-code mt-3">
+                                        <span class="offer-text">{{ dealsOffers[i].code }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer-deal-2">
+                            <div class="offer-card">
+                            <div class="brand-image-container w-sm-100">
+                                <img src="../../../../assets/images/card.png" class="brand-image"/>
+                            </div>
+                                <div class="offer-details mt-3">
+                                    <span class="offer-title-2">
+                                        <span class="offer-text-1"> Everyday<br /></span>
+                                        <span class="offer-text-2"> WOW!</span>
+                                        <span class="offer-text-3"> Value</span>
+                                    </span>
+                                    <div class="offer-description">Any 2 Chicken Biryani 50%</div>
+                                    <div class="offer-code mt-3">
+                                        <span class="offer-text">{{ dealsOffers[i+1].code }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        
+                <div class="controlls">
+                <div class="container-fluid">
+                    <div class="small-orange-text" (click)="getAllOffersList()">All Brands <mat-icon>keyboard_arrow_right</mat-icon></div>
+                    <div class="p-2">
+                    <div class="controll-btn btn-group pt-1" role="group" aria-label="Basic example">
+                        <a href="#carouselDealsControls" role="button" data-bs-slide="prev" class="arrow-btn btn btn-light shadow">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                        </a>
+                        <a href="#carouselDealsControls" role="button" data-bs-slide="next" class="arrow-btn btn btn-light shadow">
+                            <mat-icon>keyboard_arrow_right</mat-icon>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </span>
+            <span *ngIf="isLoading && !isErrorLoading">
+                <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status"></div>
+            </span>
+        </div>
+
+        <div class="col-0 col-md-3">
+        </div>
+    </div>
+</div>
