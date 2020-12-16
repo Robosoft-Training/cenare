@@ -112,7 +112,7 @@
 
 @mixin descriptions {
     .product-description {
-        color:$descriptionColor;
+        color: $descriptionColor;
         font-family: $openSans;
         font-size: 0.8em;
         letter-spacing: 0;
@@ -132,7 +132,7 @@
     }
 }
 
-@mixin brand-title  {
+@mixin brand-title {
     .brand-title {
         color: $descriptionColor;
         font-family: $openSans;
@@ -173,6 +173,7 @@
             padding: 8px 16px;
             width: 3em;
             height: 2.5em;
+
             &:active {
                 color: $darkGray;
             }
@@ -189,7 +190,7 @@
     }
 }
 
-@mixin  brands-heading {
+@mixin brands-heading {
     .popular-brands-heading {
         color: $darkGray;
         font-family: $openSans;
@@ -200,7 +201,7 @@
     }
 }
 
-@mixin  brands-about {
+@mixin brands-about {
     popular-brands-about {
         color: $darkGray;
         font-family: $openSans;
@@ -216,12 +217,13 @@
         box-sizing: border-box;
         height: 2.2em;
         width: 7em;
-        border: 1px solid rgba(255,255,255,0.4);
+        border: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 0.1em;
-        background-color: rgba(255,255,255,0.07);
+        background-color: rgba(255, 255, 255, 0.07);
         display: flex;
         align-items: center;
         justify-content: center;
+
         .offer-text {
             color: #FFFFFF;
             font-family: "Open Sans";
@@ -237,25 +239,30 @@
     .offer-title-1 {
         color: $white;
         font-family: $openSans;
-        font-size: 1.6em;;
+        font-size: 1.6em;
+        ;
         font-weight: bold;
         letter-spacing: 0;
         line-height: 1.5em;
     }
+
     .offer-title-2 {
         font-family: "Open Sans";
         letter-spacing: 0;
         line-height: 2.2em;
+
         .offer-text-1 {
             font-size: 1.5em;
             font-weight: bold;
             color: #FFE848;
         }
+
         .offer-text-2 {
             font-size: 1.5em;
             font-weight: bolder;
             color: $white;
         }
+
         .offer-text-3 {
             font-size: 1.5em;
             font-weight: bold;

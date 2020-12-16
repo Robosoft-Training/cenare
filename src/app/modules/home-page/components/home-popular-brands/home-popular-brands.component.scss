@@ -28,16 +28,20 @@
         .brand-details {
             display: flex;
             flex-direction: column;
+
             .details-container {
                 display: flex;
                 flex-direction: row;
+
                 .avatar-image-container {
                     margin: 0em 1em 0em 2em;
                     @include avatar-image();
                 }
+
                 .details {
                     display: flex;
                     flex-direction: column;
+
                     .brand-name {
                         color: $darkBlue;
                         font-family: $openSans;
@@ -46,9 +50,11 @@
                         letter-spacing: 0;
                         line-height: 1em;
                     }
+
                     @include brand-title();
                 }
             }
+
             .description {
                 margin: 0em 1.8em;
                 @include descriptions();
@@ -72,15 +78,21 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
         .error-image {
             width: 10em;
             height: 6em;
         }
+
         .error-title {
             font-weight: bold;
             font-family: $openSans;
         }
+
         @include descriptions();
     }
 }
 
+@media only screen and (max-width: 768px) {
+    
+}

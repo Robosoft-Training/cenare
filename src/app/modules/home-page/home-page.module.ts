@@ -8,6 +8,7 @@ import { AngularMaterialsModule } from '../angular-materials/angular-materials.m
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePopularBrandsComponent } from './components/home-popular-brands/home-popular-brands.component';
 import { HomeDealsOffersComponent } from './components/home-deals-offers/home-deals-offers.component';
+import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HomeDealsOffersComponent } from './components/home-deals-offers/home-de
     HomePageRoutingModule,
     AngularMaterialsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedComponentsModule
   ]
 })
 export class HomePageModule { }

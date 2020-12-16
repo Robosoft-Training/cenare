@@ -7,6 +7,7 @@ import { AngularMaterialsModule } from './modules/angular-materials/angular-mate
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedComponentsModule } from './components/shared-components/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

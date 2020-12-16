@@ -16,11 +16,11 @@ export class PopularProductsService {
   getPopularBrands = (): Observable<IPopularBrands[]> => {
     const url = `${this.apiBaseUrl}`;
     return this.httpClient.get<IPopularBrands[]>(url)
-    .pipe(
+      .pipe(
         tap(_ => console.log('Items Fetched')),
         retry(3),
         catchError(this.handleError)
-    );
+      );
   }
 
   private handleError(error: HttpErrorResponse) {

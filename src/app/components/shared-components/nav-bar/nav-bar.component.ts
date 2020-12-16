@@ -1,0 +1,48 @@
+import { Component, HostListener, Input, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+
+@Component({
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.scss']
+})
+export class NavBarComponent implements OnInit {
+
+  @Input() pageName: any;
+
+  constructor() { }
+
+  ngOnInit(): void {
+    if (this.pageName === 'home') {
+      $('.navbar').removeClass('navbar-inverse');
+      $('.navbar').addClass('navbar-style');
+      $('.cart-place').removeClass('after-scroll');
+      $('.cart-place').addClass('before-scroll');
+      console.log('Hello');
+    }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+
+  onWindowScroll(e: any) {
+    let element = document.querySelector('.navbar');
+    if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {
+      element!.classList.add('navbar-inverse');
+      element!.classList.remove('navbar-style');
+    } else {
+      element!.classList.remove('navbar-inverse');
+      element!.classList.add('navbar-style');
+    }
+
+    element = document.querySelector('.cart-place');
+    if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {
+      element!.classList.add('after-scroll');
+      element!.classList.remove('before-scroll');
+    } else {
+      element!.classList.remove('after-scroll');
+      element!.classList.add('before-scroll');
+    }
+  }
+
+
+}

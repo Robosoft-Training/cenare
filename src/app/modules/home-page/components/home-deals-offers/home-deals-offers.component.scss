@@ -11,7 +11,9 @@
 
     .two-cards {
         display: flex;
-        .offer-deal-1, .offer-deal-2 {
+
+        .offer-deal-1,
+        .offer-deal-2 {
             display: flex;
             flex-direction: row;
             background-color: $white;
@@ -30,17 +32,19 @@
                     text-align: left;
 
                     @include offer-title();
+
                     .offer-description {
-                        color:$white;
+                        color: $white;
                         font-family: $openSans;
                         font-size: 0.8em;
                         letter-spacing: 0;
                         line-height: 1.7em;
                     }
+
                     @include offer-code();
                 }
             }
-            
+
             .brand-image-container {
 
                 .brand-image {
@@ -99,14 +103,17 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
         .error-image {
             width: 10em;
             height: 6em;
         }
+
         .error-title {
             font-weight: bold;
             font-family: $openSans;
         }
+
         @include descriptions();
     }
 }
