@@ -9,6 +9,8 @@ import * as $ from 'jquery';
 export class NavBarComponent implements OnInit {
 
   @Input() pageName: any;
+  isLoggedIn = false;
+  userName = 'ASHLEY';
 
   constructor() { }
 

@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <div class="form-group prem-2 location-date-input pt-3">
+        <div class="form-group location-date-input pt-3">
           <div class="location p-3 mr-0 mr-sm-3">
             <div class="icon-style">
               <img src="../../../../../assets/images/icn_pin.png" />
@@ -28,7 +28,7 @@
 
             <!-- <input class="form-control" placeholder="Search" aria-label="Search"> -->
             <form [formGroup]="stateForm">
-              <input type="text" matInput [(ngModel)]="locationName" placeholder="States Group" class="form-control"
+              <input type="text" matInput (keyup)="getLocationData($event)"  [(ngModel)]="locationName" placeholder="States Group" class="form-control"
                 formControlName="stateGroup" required [matAutocomplete]="autoGroup">
               <mat-autocomplete #autoGroup="matAutocomplete" class="mt-4">
                 <mat-optgroup *ngFor="let group of stateGroupOptions | async"

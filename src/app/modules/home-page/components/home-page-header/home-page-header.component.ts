@@ -46,7 +46,7 @@ export class HomePageHeaderComponent implements OnInit {
   minDate = new Date();
   currentDate = 'Today, ' + new Date().toLocaleString('en-in', { month: 'long', day: 'numeric' }) + ', ' + new Date().getFullYear();
   date: any;
-  locationName = 'Location';
+  locationName = 'Your Location';
   serachName = '';
   dateTime = '';
   timeOut: any;
@@ -108,6 +108,15 @@ export class HomePageHeaderComponent implements OnInit {
       }
       console.log(value, this.locationName, this.latitude, this.longitude, dateTime);
     }
+  }
+
+  getLocationData = (event: any) => {
+    clearTimeout(this.timeOut);
+    this.timeOut = setTimeout(
+      () => {
+        console.log("Premnath");
+      }
+    , 1500);
   }
 
   ngOnInit(): void {

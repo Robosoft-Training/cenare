@@ -117,3 +117,9 @@
         @include descriptions();
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .deals-offer-container {
+        height: 20em;
+    }
+}

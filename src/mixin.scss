@@ -1,9 +1,26 @@
 @import './variables.scss';
 
-@mixin header-text($padding-top:90px, $fontSize:39px) {
+
+@mixin overriding-angular-materials {
+    ::ng-deep {
+        .mat-datepicker-toggle .mat-icon-button {
+            outline: none;
+        }
+
+        .mat-calendar-body-selected {
+            background: $calenderTheme;
+        }
+    }
+
+    ::ng-deep .cdk-overlay-pane {
+        min-width: 35em;
+    }
+}
+
+@mixin header-text($padding-top:90px, $fontSize:39px, $color: $headerText) {
     .header-text {
         padding-top: $padding-top;
-        color: $headerText;
+        color: $color;
         font-family: $openSans;
         font-size: $fontSize;
         line-height: 60px;
@@ -36,7 +53,7 @@
 
         color: $headerText;
         font-family: $openSans;
-        font-size: 12px;
+        font-size: 0.8em;
         letter-spacing: -0.24px;
         line-height: 19px;
 
@@ -98,7 +115,6 @@
         }
 
         // overflow: hidden;
-
         .right-image {
             position: relative;
             z-index: 1;
@@ -271,18 +287,69 @@
     }
 }
 
-@mixin overriding-angular-materials {
-    ::ng-deep {
-        .mat-datepicker-toggle .mat-icon-button {
-            outline: none;
-        }
-
-        .mat-calendar-body-selected {
-            background: $calenderTheme;
-        }
+@mixin add-banner-left-image($width: 26em, $height: 22em, $top: 18em, $left: -0.8em) {
+    .left-image {
+        width: $width;
+        height: $height;
+        position: relative;
+        top: $top;
+        left: $left;
     }
+}
 
-    ::ng-deep .cdk-overlay-pane {
-        min-width: 35em;
+@mixin add-banner-right-image($width: 35em, $height: 55em, $top: -18em, $left: 4.2em) {
+    .right-fill {
+        width: $width;
+        height: $height;
+        position: relative;
+        top: $top;
+        left: $left;
+    }
+}
+
+@mixin add-banner-iphone-image($width: 27em, $height: 41em, $top: -53em, $left: -5em)  {
+    .iphone-image {
+        width: $width;
+        height: $height;
+        position: relative;
+        top: $top;
+        left: $left;
+    }
+}
+
+@mixin app-add-sub-header($fontSize:1.5em, $lineHeight: 2em, $marginTop: 0em, $paddingBottom: 0em) {
+    .app-sub-header {
+        color: $black;
+        font-family: $openSans;
+        font-size: $fontSize;
+        line-height: $lineHeight;
+        font-weight: bold;
+        margin-top: $marginTop;
+        padding-bottom: $paddingBottom;
+    }
+}
+
+@mixin app-add-description($fontSize: 0.8em, $paddingBottom: 1em) {
+    .app-description {
+        color: $descriptionColor;
+        font-family: $openSans;
+        font-size: $fontSize;
+        line-height: 1.7em;
+        margin-top: 0.2em;
+        padding-bottom: $paddingBottom;
+        font-weight: bold;
+    }
+}
+
+@mixin app-add-link($width: 10em) {
+    .app-link-contaner {
+        display: flex;
+        flex-direction: row;
+
+        .app-link-image {
+            width: $width;
+            margin-right: 1em;
+            cursor: all-scroll;
+        }
     }
 }

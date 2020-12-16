@@ -4,7 +4,7 @@
     a {
         font-size: 0.8em;
         color: $naveBarFontColor;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.01em;
     }
 
     .nav-item {
@@ -13,19 +13,49 @@
 
     .cart-place {
         border-left: 0.1em solid $naveBarBorderColor;
-        padding-left: 1.2em;
+        margin-left: 0.8em;
+        padding-left: 2em;
+    }
+
+    .username-text {
+        border-right: 0.1em solid $naveBarBorderColor;
+        margin-right: 1em;
+        padding-right: 1.7em;
+    }
+
+    .dropdown-item {
+        &:active {
+            background: $rightFillGradient;
+        }
+    }
+
+    .language-font {
+        a {
+            font-size: 0.6em;
+        }
+    }
+
+    .profile-placeholder-container {
+        background-color: #D8D8D8;
+        height: 2em;
+        width: 2em;
+        border-radius: 2em;
+        .profile-placeholder {
+            height: 1em;
+            width: 1em;
+        }
     }
 }
 
 .navbar-inverse {
     background-color: $white;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: $naveBarShadow;
 
     .navbar-brand {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 35px;
+        font-family: $bebas;
+        font-size: 1.8em;
         letter-spacing: 0;
-        line-height: 43px;
+        line-height: 0.6em;
         text-align: center;
         margin-left: 1em;
         background: $textGradient;
@@ -39,14 +69,14 @@
     padding-top: 1.5em;
 
     .navbar-brand {
-        font-size: 3em;
+        font-size: 2.8em;
     }
 
     .navbar-brand {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 35px;
+        font-family: $bebas;
+        font-size: 2.8em;
         letter-spacing: 0;
-        line-height: 43px;
+        line-height: 1em;
         text-align: center;
         margin-left: 1em;
         background: $textGradient;
@@ -59,9 +89,9 @@
     .cart-icon-top {
         position: relative;
         box-sizing: border-box;
-        height: 10px;
-        width: 11px;
-        border: 2px solid $white;
+        height: 0.6em;
+        width: 0.65em;
+        border: 0.18em solid $white;
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
         top: 2.8px;
@@ -70,8 +100,8 @@
 
     .cart-icon-body {
         box-sizing: border-box;
-        height: 16px;
-        width: 18px;
+        height: 1.2em;
+        width: 1.2em;
         border-radius: 3px;
         border: 2px solid $white;
 
@@ -93,19 +123,19 @@
     .cart-icon-top {
         position: relative;
         box-sizing: border-box;
-        height: 10px;
-        width: 11px;
+        height: 0.6em;
+        width: 0.65em;
         border: 2px solid #F3698E;
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
         top: 3px;
-        left: 4px;
+        left: 3px;
     }
 
     .cart-icon-body {
         box-sizing: border-box;
-        height: 16px;
-        width: 18px;
+        height: 1.1em;
+        width: 1.1em;
         border-radius: 3px;
         border: 2px solid $darkPink;
         background: $rightFillGradient;
@@ -117,13 +147,9 @@
     }
 
     .cart-text {
-        color: $darkPink
-    }
-}
-
-.language-font {
-    a {
-        font-size: 0.8em;
+        color: $darkPink;
+        margin-right: 1em;
+        margin-right: 1em;
     }
 }
 

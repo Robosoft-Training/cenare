@@ -6,7 +6,7 @@
 .header {
     overflow: hidden;
     height: 45em;
-    // background-image: url("../../../../../assets/images/pattern-3.png");
+    background-image: url("../../../../../assets/images/pattern-3.png");
     background-color: $headerBackgroundColor;
 
     @include left-green-fill();
@@ -61,10 +61,10 @@
 
                 .calender-container {
                     background: $calenderTheme;
-                    width: 3em;
+                    width: 2.6em;
                     height: 2.5em;
                     border-radius: 0.5em;
-                    z-index: 2;
+                    z-index: 0;
                     box-shadow: $inputBoxShadow;
                     border: none;
                     outline: none;
@@ -98,5 +98,11 @@
 
         @include right-gradient-fill(60rem, 40rem, 26em, 20em, -6em, 1.5em, 65em, 55em, -68em, -6em);
         @include left-green-fill(42em, 24em, 12em, 11em, -13em, 15em, -18em, -1em);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        height: 35em;
     }
 }
