@@ -17,22 +17,35 @@
     <div class="start">
       Lets get started!
     </div>
-    <mat-form-field class="email">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email ">
-    </mat-form-field>
+    <form class="example-form">
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Email"
+          [(ngModel)]="email.value" [class.invalid]="email.error">
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+      <div *ngIf="email.error" class="error">{{email.error}}</div>
+    </form>
     <mat-form-field class="password">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="Password" type="{{type}}" id="myInput">
+      <input matInput placeholder="Password" type="{{type}}" id="myInput" [(ngModel)]="password.value"
+        [class.invalid]="password.error">
       <span class="eye" (click)="togglePassword()">
         <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
         <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
       </span>
     </mat-form-field>
+    <div *ngIf="password.error" class="error">{{password.error}}</div>
+
     <div class="forgot" (click)="showFormType('forgotpassword')">
       Forgot password?
     </div>
-    <button class="theme-button">LOGIN</button>
+    <div class="home" (click)="verifylogin()">
+      <button class="theme-button">LOGIN</button>
+    </div>
     <div class="social">
       <button class="facebook">Facebook</button>
       <button class="google">Google+</button>
@@ -54,11 +67,21 @@
       reset your password
     </p>
     <h2>Email</h2>
-    <mat-form-field class="email">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="Email">
-    </mat-form-field>
-    <button class="theme-button" (click)="showFormType('otpverification')">SEND OTP</button>
+
+    <form class="example-form">
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Email"
+          [(ngModel)]="email.value" [class.invalid]="email.error">
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+
+      </mat-form-field>
+      <div *ngIf="email.error" class="error">{{email.error}}</div>
+    </form>
+    <button class="theme-button" (click)="verify()">SEND OTP</button>
   </div>
   <!--OTP Vertification-->
 
@@ -74,7 +97,7 @@
     </p>
     <mat-form-field class="email">
       <mat-label>Enter OTP</mat-label>
-      <input matInput placeholder="Enter OTP" type="number">
+      <input matInput placeholder="Enter OTP">
     </mat-form-field>
     <button class="verify-button" (click)="showFormType('verified')">VERIFY</button>
   </div>
@@ -95,6 +118,7 @@
       <mat-label>Enter New Password</mat-label>
       <input matInput placeholder="Enter New Password" type="{{type}}" id="myInput">
     </mat-form-field>
+    <div *ngIf="password.error" class="error">{{password.error}}</div>
     <span class="eye" (click)="togglePassword()">
       <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
       <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
@@ -131,12 +155,21 @@
       </p>
     </div>
     <div class="email1">
-      <mat-form-field class="email2">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email">
-      </mat-form-field>
+      <form class="example-form">
+        <mat-form-field class="email2">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+            placeholder="Email" [(ngModel)]="email.value" [class.invalid]="email.error">
+          <mat-hint></mat-hint>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+
+        </mat-form-field>
+        <div *ngIf="email.error" class="error">{{email.error}}</div>
+      </form>
     </div>
-    <button class="theme-button" (click)="showFormType('create')">CREATE ACCOUNT</button>
+    <button class="theme-button" (click)="createAccount()">CREATE ACCOUNT</button>
     <div class="register">
       By registering you agree to the <mark class="color">Terms & Conditions</mark>
     </div>
@@ -162,7 +195,7 @@
     </p>
     <mat-form-field class="email">
       <mat-label>Enter OTP</mat-label>
-      <input matInput placeholder="Enter OTP" type="number">
+      <input matInput placeholder="Enter OTP">
     </mat-form-field>
     <button class="verify-button" (click)="showFormType('verification')">VERIFY</button>
   </div>
@@ -176,15 +209,18 @@
     </p>
     <mat-form-field class="name">
       <mat-label>First Name</mat-label>
-      <input matInput placeholder="First Name" type="text">
+      <input matInput placeholder="First Name" type="text" [(ngModel)]="firstName.value"
+        [class.invalid]="firstName.error">
     </mat-form-field>
+    <div *ngIf="firstName.error" class="error1">{{firstName.error}}</div>
     <mat-form-field class="email">
       <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Last Name" type="text">
+      <input matInput placeholder="Last Name" type="text" [(ngModel)]="lastName.value" [class.invalid]="lastName.error">
     </mat-form-field>
+    <div *ngIf="lastName.error" class="error1">{{lastName.error}}</div>
     <mat-form-field class="email">
-      <mat-label>Enter Email</mat-label>
-      <input matInput placeholder="Enter Email">
+      <mat-label>Enter mobile number(optional)</mat-label>
+      <input matInput placeholder="Enter Mobile Number">
     </mat-form-field>
     <mat-form-field class="password">
       <mat-label>Create Password</mat-label>
@@ -194,7 +230,7 @@
         <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
       </span>
     </mat-form-field>
-    <button class="verify-button" (click)="showFormType('successful')">DONE</button>
+    <button class="verify-button" (click)="registration()">DONE</button>
   </div>
   <!--Registered-->
 
@@ -205,7 +241,7 @@
     <div class="icon">
       <img src="../../../assets/icn_register_success.png">
     </div>
-    <h1>Hi Abdullah<br>
+    <h1>Hi Abdullah,<br>
       Welcome to Crave</h1>
     <p> We’ve sent you an email on<br>
       abdulla.mohammad for verification.

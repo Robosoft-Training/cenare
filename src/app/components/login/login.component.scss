@@ -51,7 +51,6 @@
         color: #858585;
         opacity: 0.7;
       }
-
     }
 
     .password {
@@ -71,7 +70,6 @@
       position: absolute;
       color: #858585;
       font-weight: lighter;
-
     }
 
     .forgot {
@@ -79,7 +77,6 @@
       font-weight: lighter;
       margin-left: 260px;
       cursor: pointer;
-
     }
 
     .close {
@@ -88,7 +85,6 @@
       position: absolute;
       right: 10px;
       top: 10px;
-
       @include focus;
     }
 
@@ -187,7 +183,6 @@
       position: absolute;
       color: #858585;
       font-weight: lighter;
-
     }
 
     .back-arrow {
@@ -206,7 +201,7 @@
       font-weight: bold;
       text-align: center;
       font-size: 20px;
-      margin-top: 20px;
+      margin-top: 10px;
       margin-right: 10px;
     }
 
@@ -292,7 +287,6 @@
       position: absolute;
       right: 10px;
       top: 10px;
-
       @include focus;
     }
 
@@ -316,8 +310,6 @@
   }
 
   .create-account {
-
-
     margin-top: 80px;
     text-align: center;
     font-size: 22px;
@@ -367,7 +359,6 @@
     }
 
     .eyeslash {
-
       right: 25px;
       margin-top: 5px;
       position: absolute;
@@ -453,7 +444,16 @@
       margin-top: 30px;
       @include focus;
     }
-
   }
 
+  .error {
+    color: red;
+    margin-left: 40px;
+    font-size: 11px;
+  }
+
+  .error1 {
+    color: red;
+    margin-left: 50px;
+  }
 }
