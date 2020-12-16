@@ -121,7 +121,7 @@ export class HomePageHeaderComponent implements OnInit {
           }
         );
       }
-    , 1500);
+      , 1500);
   }
 
   ngOnInit(): void {

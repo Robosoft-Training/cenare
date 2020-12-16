@@ -9,7 +9,7 @@ export class LocationDataService {
 
   apiKey = 'AVVcB8jjfmf7eYftCZAdiyFzAyMnrVLO';
   getAdressBaseUrl = 'https://api.tomtom.com/search/2/reverseGeocode/';
-  getLatitudeLongitudeBaseUrl = 'https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IN&limit=1&streetName='; //Bantwal&municipality=Bantwal&view=IN&key=AVVcB8jjfmf7eYftCZAdiyFzAyMnrVLO';
+  getLatitudeLongitudeBaseUrl = 'https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IN&limit=1&streetName=';
 
   constructor(private httpClient: HttpClient) { }
 

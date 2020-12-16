@@ -9,8 +9,8 @@ export class MobileAppAddComponent implements OnInit {
 
   constructor() { }
 
-  goToPlayStore = () => {};
-  goToAppStore = () => {};
+  goToPlayStore = () => { };
+  goToAppStore = () => { };
 
   ngOnInit(): void {
   }

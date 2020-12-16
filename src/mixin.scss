@@ -307,7 +307,7 @@
     }
 }
 
-@mixin add-banner-iphone-image($width: 27em, $height: 41em, $top: -53em, $left: -5em)  {
+@mixin add-banner-iphone-image($width: 27em, $height: 41em, $top: -53em, $left: -5em) {
     .iphone-image {
         width: $width;
         height: $height;

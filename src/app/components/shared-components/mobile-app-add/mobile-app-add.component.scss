@@ -20,6 +20,7 @@
             @include header-text(90px, 39px, 'black');
             padding-left: 8em;
         }
+
         @include app-add-sub-header();
         @include app-add-description();
         @include app-add-link();
@@ -61,8 +62,10 @@
 @media only screen and (max-width: 768px) {
     .add-banner {
         height: 25em;
+
         .heading-area {
             display: flex;
+
             .header-items {
                 width: 28em;
                 @include header-text(90px, 39px, 'black');
