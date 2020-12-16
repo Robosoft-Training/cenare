@@ -8,15 +8,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   constructor(public dialog: MatDialog) { }
-
-  ngOnInit(): void {
+  ngOnInit(): void{}
+  openDialog(formType): void {
+    this.dialog.open(LoginComponent, { panelClass: 'custom-dialog-container', data: { formType: formType } });
   }
-
-  openDialog(formType) {
-    this.dialog.open(LoginComponent, { panelClass: 'custom-dialog-container', data: { formType: formType }});
-  }
-
- 
 }

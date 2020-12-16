@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AngularMaterialsModule } from './modules/angular-materials/angular-materials.module';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,12 +14,13 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularMaterialsModule
+    AngularMaterialsModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

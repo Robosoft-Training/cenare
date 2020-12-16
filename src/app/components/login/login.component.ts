@@ -1,7 +1,9 @@
 import { Input } from '@angular/core';
 import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HomeComponent } from '../home/home.component';
 
 @Component({
@@ -10,17 +12,17 @@ import { HomeComponent } from '../home/home.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   @Input() formType: string = 'login';
   type = 'password';
-  
-
-  constructor(public dialogRef: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data: {formType: string}) { 
-    this.formType=data.formType;
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  constructor(public dialogRef: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data: { formType: string }) {
+    this.formType = data.formType;
   }
-
   ngOnInit(): void {
-    
+
   }
   closeDialog(): void {
     this.dialogRef.close();
@@ -36,8 +38,5 @@ export class LoginComponent implements OnInit {
   showFormType(formName): void {
     this.formType = formName;
   }
-  
-
-  
-  }
+}
 

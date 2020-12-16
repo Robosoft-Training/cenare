@@ -5,10 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-
-import { from } from 'rxjs';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [],
   imports: [
@@ -19,15 +16,13 @@ import { from } from 'rxjs';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-  
   ],
-  exports : [
+  exports: [
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    
   ],
 })
 export class AngularMaterialsModule { }

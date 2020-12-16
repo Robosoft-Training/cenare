@@ -1,20 +1,21 @@
 @mixin focus {
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
   }
-@mixin theme-button{
-    height: 50px;
-      width: 335px;
-      border-radius: 6px;
-      margin-left: 40px;
-      margin-top: 15px;
-      color: #ffff;
-      font-weight: bold;
-      font-size: 14px;
-      filter: blur(0.1px);
-      background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
-      border: none;
-      box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+}
 
-}  
+@mixin theme-button {
+  height: 50px;
+  width: 335px;
+  border-radius: 6px;
+  margin-left: 40px;
+  margin-top: 15px;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 14px;
+  filter: blur(0.1px);
+  background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+  border: none;
+  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+
+}
