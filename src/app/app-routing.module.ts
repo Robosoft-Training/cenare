@@ -12,7 +12,10 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'restaurant-list', loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule) }
+  {
+    path: 'restaurant-list',
+    loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule)
+  }
 ];
 
 @NgModule({

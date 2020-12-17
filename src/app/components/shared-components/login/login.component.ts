@@ -30,7 +30,13 @@ export class LoginComponent implements OnInit {
   password = { value: '', error: '' };
   firstName = { value: '', error: '' };
   lastName = { value: '', error: '' };
-  constructor(private route: Router, public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: { formType: string }) { this.formType = data.formType; }
+  constructor(
+    private route: Router,
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: { formType: string }
+  ) { this.formType = data.formType; }
+
   ngOnInit(): void { }
   closeDialog(): void {
     this.dialogRef.close();
@@ -101,8 +107,8 @@ export class LoginComponent implements OnInit {
       this.showFormType('successful');
     }
 
-  
+
   }
-  
+
 }
 

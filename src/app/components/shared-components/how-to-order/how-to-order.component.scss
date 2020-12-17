@@ -1,0 +1,74 @@
+@import '../../../../mixin.scss';
+
+.how-to-order {
+    height: 30em;
+    overflow: hidden;
+
+    @include brands-heading();
+    @include brands-about();
+
+    .how-order {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .how-to-order-items {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 35em;
+            text-align: center;
+
+            .avatar-image {
+                vertical-align: middle;
+                width: 5em;
+                height: 6em;
+                // border-radius: 50%;
+            }
+
+            @include brands-about();
+        }
+
+        .path-image {
+            display: flex;
+            height: 2em;
+            width: 10em;
+        }
+    }
+
+    .left-image {
+        position: relative;
+        bottom: -15em;
+        width: 14em;
+        height: 15em;
+    }
+
+    .right-image {
+        position: relative;
+        top: -0em;
+        left: 10em;
+        width: 14em;
+        height: 15em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .how-to-order {
+        height: 13em;
+
+        .how-order {
+            .avatar-image {
+                vertical-align: middle;
+                width: 4em;
+                height: 6em;
+            }
+
+            .path-image {
+                height: 2em;
+                width: 4em;
+            }
+        }
+    }
+}

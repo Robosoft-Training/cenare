@@ -5,6 +5,7 @@
     background-size: auto;
     overflow: hidden;
     height: 40em;
+    background: $lightGradient;
 
     @include brands-heading();
     @include brands-about();
@@ -95,6 +96,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     .error-field-container {
         width: 20em;
@@ -103,6 +105,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        padding-bottom: 1em;
 
         .error-image {
             width: 10em;

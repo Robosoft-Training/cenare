@@ -218,7 +218,7 @@
 }
 
 @mixin brands-about {
-    popular-brands-about {
+    .popular-brands-about {
         color: $darkGray;
         font-family: $openSans;
         font-size: 0.9em;

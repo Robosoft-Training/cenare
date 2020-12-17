@@ -16,9 +16,10 @@ export class NavBarComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog(formType): void {
-    this.dialog.open(LoginComponent, { panelClass: 'custom-dialog-container', data: { formType: formType } });
+  openDialog(formType: any): void {
+    this.dialog.open(LoginComponent, { panelClass: 'custom-dialog-container', data: { formType } });
   }
+
   ngOnInit(): void {
     if (this.pageName === 'home') {
       $('.navbar').removeClass('navbar-inverse');
