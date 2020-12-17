@@ -1,0 +1,251 @@
+<div class="login">
+  <div class="cover-image">
+    <img src="../../../assets/Image.png" style="width:100%;height:100%;">
+    <div class="crave">
+      CRAVE
+    </div>
+    <div class="text">Experience the<br>
+      easiest a way to get<br>
+      <strong>great food</strong> delivered</div>
+  </div>
+  <!--LOGIN-->
+
+  <div *ngIf="formType==='login'" class="login-form">
+    <button mat-icon-button class="close" aria-label="Dismiss" mat-dialog-close (click)='closeDialog()'>
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="start">
+      Lets get started!
+    </div>
+    <form class="example-form">
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Email"
+          [(ngModel)]="email.value" [class.invalid]="email.error">
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        </mat-error>
+      </mat-form-field>
+      <div *ngIf="email.error" class="error">{{email.error}}</div>
+    </form>
+    <mat-form-field class="password">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" type="{{type}}" id="myInput" [(ngModel)]="password.value"
+        [class.invalid]="password.error">
+      <span class="eye" (click)="togglePassword()">
+        <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
+        <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
+      </span>
+    </mat-form-field>
+    <div *ngIf="password.error" class="error">{{password.error}}</div>
+
+    <div class="forgot" (click)="showFormType('forgotpassword')">
+      Forgot password?
+    </div>
+    <div class="home" (click)="verifylogin()">
+      <button class="theme-button">LOGIN</button>
+    </div>
+    <div class="social">
+      <button class="facebook">Facebook</button>
+      <button class="google">Google+</button>
+    </div>
+    <div class="account">
+      Dont have an account?<mark class="color" (click)="showFormType('register')">Get one now!</mark>
+    </div>
+  </div>
+  <!--Forgot Password-->
+
+  <div *ngIf="formType==='forgotpassword'" class="form">
+    <img class="back-arrow" src="../../../assets/Shape@2x.png" (click)="showFormType('login')">
+    <div class="icon">
+      <img src="../../../assets/icn_forgot_p_word.png">
+    </div>
+    <h1>Forgot password!</h1>
+    <p>
+      Share your registered either email address or <br> mobile number to send you the OTP to<br>
+      reset your password
+    </p>
+    <h2>Email</h2>
+
+    <form class="example-form">
+      <mat-form-field class="email">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Email"
+          [(ngModel)]="email.value" [class.invalid]="email.error">
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        </mat-error>
+
+      </mat-form-field>
+      <div *ngIf="email.error" class="error">{{email.error}}</div>
+    </form>
+    <button class="theme-button" (click)="verify()">SEND OTP</button>
+  </div>
+  <!--OTP Vertification-->
+
+  <div *ngIf="formType==='otpverification'" class="form">
+    <img class="back-arrow" src="../../../assets/Shape@2x.png" (click)="showFormType('login')">
+    <div class="icon">
+      <img src="../../../assets/icn_verify_icon.png">
+    </div>
+    <h1>Verification</h1>
+    <p>
+      We just sent you the OTP via SMS to<br>your email address/mobile
+      no.<br>You should get it soon!
+    </p>
+    <mat-form-field class="email">
+      <mat-label>Enter OTP</mat-label>
+      <input matInput placeholder="Enter OTP">
+    </mat-form-field>
+    <button class="verify-button" (click)="showFormType('verified')">VERIFY</button>
+  </div>
+  <!--Verified-->
+
+  <div *ngIf="formType==='verified'" class="form">
+    <img class="back-arrow" src="../../../assets/Shape@2x.png" (click)="showFormType('login')">
+    <div class="icon">
+      <img src="../../../assets/icn_verified_icon.png">
+    </div>
+    <h1>Verified</h1>
+    <div class="verify">
+      <p> Your mobile no. is verified.<br>
+        Enter the new password to reset you account.
+      </p>
+    </div>
+    <mat-form-field class="reset">
+      <mat-label>Enter New Password</mat-label>
+      <input matInput placeholder="Enter New Password" type="{{type}}" id="myInput">
+    </mat-form-field>
+    <div *ngIf="password.error" class="error">{{password.error}}</div>
+    <span class="eye" (click)="togglePassword()">
+      <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
+      <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
+    </span>
+    <button class="reset-button" (click)="showFormType('success')">RESET PASSWORD</button>
+  </div>
+  <!--Password Reset-->
+
+  <div *ngIf="formType==='success'" class="form">
+    <button mat-icon-button class="close" aria-label="Dismiss" mat-dialog-close (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="icon">
+      <img src="../../../assets/icn_password_success.png">
+    </div>
+    <h1>Great</h1>
+    <p> Your password has been successfully reset.<br>
+
+    </p>
+    <button class="login-button" (click)="showFormType('login')">LOGIN NOW</button>
+  </div>
+  <!--Register-->
+
+  <div *ngIf="formType==='register'" class="login-form">
+    <button mat-icon-button class="close" aria-label="Dismiss" mat-dialog-close (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="create-account">
+      Create your account
+    </div>
+    <div class="share">
+      <p>
+        Share your email address to send you the<br>OTP to get yourself registered!
+      </p>
+    </div>
+    <div class="email1">
+      <form class="example-form">
+        <mat-form-field class="email2">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+            placeholder="Email" [(ngModel)]="email.value" [class.invalid]="email.error">
+          <mat-hint></mat-hint>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          </mat-error>
+
+        </mat-form-field>
+        <div *ngIf="email.error" class="error">{{email.error}}</div>
+      </form>
+    </div>
+    <button class="theme-button" (click)="createAccount()">CREATE ACCOUNT</button>
+    <div class="register">
+      By registering you agree to the <mark class="color">Terms & Conditions</mark>
+    </div>
+    <div class="social">
+      <button class="facebook">Facebook</button>
+      <button class="google">Google+</button>
+    </div>
+    <div class="account">
+      Already have an account?<mark class="color" (click)="showFormType('login')">Login</mark>
+    </div>
+  </div>
+  <!--Verification-->
+
+  <div *ngIf="formType==='create'" class="form">
+    <img class="back-arrow" src="../../../assets/Shape@2x.png" (click)="showFormType('register')">
+    <div class="icon">
+      <img src="../../../assets/icn_verify_icon.png">
+    </div>
+    <h1>Verification</h1>
+    <p>
+      We just sent you the OTP via SMS to<br>your email address/mobile
+      no.<br>You should get it soon!
+    </p>
+    <mat-form-field class="email">
+      <mat-label>Enter OTP</mat-label>
+      <input matInput placeholder="Enter OTP">
+    </mat-form-field>
+    <button class="verify-button" (click)="showFormType('verification')">VERIFY</button>
+  </div>
+  <!--Verified-->
+
+  <div *ngIf="formType==='verification'" class="verification">
+    <img class="back-arrow" src="../../../assets/Shape@2x.png" (click)="showFormType('register')">
+    <h1>Verified!</h1>
+    <p>
+      Your Email is verified.<br> Finally enter details below to create account.
+    </p>
+
+    <mat-form-field class="name">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" type="text" [(ngModel)]="firstName.value"
+        [class.invalid]="firstName.error">
+    </mat-form-field>
+    <div *ngIf="firstName.error" class="error1">{{firstName.error}}</div>
+    <mat-form-field class="email">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" type="text" [(ngModel)]="lastName.value" [class.invalid]="lastName.error">
+    </mat-form-field>
+    <div *ngIf="lastName.error" class="error1">{{lastName.error}}</div>
+    <mat-form-field class="email">
+      <mat-label>Enter mobile number(optional)</mat-label>
+      <input matInput placeholder="Enter Mobile Number">
+    </mat-form-field>
+    <mat-form-field class="password">
+      <mat-label>Create Password</mat-label>
+      <input matInput placeholder="Create Password" type="{{type}}" id="myInput" [(ngModel)]="password.value"
+        [class.invalid]="password.error">
+      <span class="eyeslash" (click)="togglePassword()">
+        <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
+        <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
+      </span>
+    </mat-form-field>
+    <div *ngIf="password.error" class="error2">{{password.error}}</div>
+    <button class="verify-button" (click)="registration()">DONE</button>
+  </div>
+  <!--Registered-->
+
+  <div *ngIf="formType==='successful'" class="form">
+    <button mat-icon-button class="close" aria-label="Dismiss" mat-dialog-close (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="icon">
+      <img src="../../../assets/icn_register_success.png">
+    </div>
+    <h1>Hi Abdullah,<br>
+      Welcome to Crave</h1>
+    <p> We’ve sent you an email on<br>
+      abdulla.mohammad for verification.
+    </p>
+    <button class="login-button">BROWSE TO START ORDERING</button>
+  </div>
+</div>
