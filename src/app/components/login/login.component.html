@@ -204,6 +204,7 @@
     <p>
       Your Email is verified.<br> Finally enter details below to create account.
     </p>
+
     <mat-form-field class="name">
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" type="text" [(ngModel)]="firstName.value"
@@ -221,12 +222,14 @@
     </mat-form-field>
     <mat-form-field class="password">
       <mat-label>Create Password</mat-label>
-      <input matInput placeholder="Create Password" type="{{type}}" id="myInput">
+      <input matInput placeholder="Create Password" type="{{type}}" id="myInput" [(ngModel)]="password.value"
+        [class.invalid]="password.error">
       <span class="eyeslash" (click)="togglePassword()">
         <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
         <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
       </span>
     </mat-form-field>
+    <div *ngIf="password.error" class="error2">{{password.error}}</div>
     <button class="verify-button" (click)="registration()">DONE</button>
   </div>
   <!--Registered-->

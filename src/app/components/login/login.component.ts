@@ -12,7 +12,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -51,7 +50,9 @@ export class LoginComponent implements OnInit {
     if (!this.email.value) {
       this.email.error = 'Email is required';
     }
-
+    else if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.email.value))) {
+      this.email.error = 'Enter valid Email';
+    }
     else {
       this.email.error = '';
       this.showFormType('otpverification');
@@ -76,11 +77,12 @@ export class LoginComponent implements OnInit {
     if (!this.email.value) {
       this.email.error = 'Email is required';
     }
-
+    else if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.email.value))) {
+      this.email.error = 'Enter valid Email';
+    }
     else {
       this.email.error = '';
       this.showFormType('verification');
-
     }
   }
   registration(): void {
@@ -89,6 +91,9 @@ export class LoginComponent implements OnInit {
     }
     else if (!this.lastName.value) {
       this.lastName.error = 'Last name is required';
+    }
+    else if (!this.password.value) {
+      this.password.error = 'Password is required';
     }
     else {
       this.firstName.error = '';
