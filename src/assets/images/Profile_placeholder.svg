@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>EEE4D05E-5226-4677-8ABE-9B41F3E94F26</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M18.509018,18 C20.997996,18 23,15.984 23,13.5 C23,11.016 20.997996,9 18.509018,9 C16.0200401,9 14,11.016 14,13.5 C14,15.984 16.0200401,18 18.509018,18 L18.509018,18 Z M18.5,19 C15.3390909,19 9,20.656 9,23.95 L9,28 L28,28 L28,23.95 C28,20.656 21.6609091,19 18.5,19 L18.5,19 Z" id="path-1"></path>
+    </defs>
+    <g id="2.Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.5.Home_logged-in" transform="translate(-1477.000000, -24.000000)">
+            <g id="header" transform="translate(-1.000000, -1.000000)">
+                <g id="header-white-logined">
+                    <g id="Bitmap">
+                        <g transform="translate(1469.000000, 16.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Profile_placeholder" fill="#A6A6A6" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

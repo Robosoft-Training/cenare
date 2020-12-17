@@ -1,0 +1,96 @@
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
+
+.popular-brands-container {
+    background-image: url("../../../../../assets/images/logo_pattern copy.png");
+    background-size: auto;
+    overflow: hidden;
+
+    @include brands-heading();
+    @include brands-about();
+
+    .popular-brands {
+        display: flex;
+        flex-direction: row;
+        background-color: $white;
+        border-radius: 5px;
+        cursor: all-scroll;
+
+        .brand-image-container {
+            .brand-image {
+                // width: 105%;
+                // height: 13em;
+                width: 22em;
+                height: 13em;
+            }
+        }
+
+        .brand-details {
+            display: flex;
+            flex-direction: column;
+
+            .details-container {
+                display: flex;
+                flex-direction: row;
+
+                .avatar-image-container {
+                    margin: 0em 1em 0em 2em;
+                    @include avatar-image();
+                }
+
+                .details {
+                    display: flex;
+                    flex-direction: column;
+
+                    .brand-name {
+                        color: $darkBlue;
+                        font-family: $openSans;
+                        font-size: 1.5em;
+                        font-weight: 600;
+                        letter-spacing: 0;
+                        line-height: 1em;
+                    }
+
+                    @include brand-title();
+                }
+            }
+
+            .description {
+                margin: 0em 1.8em;
+                @include descriptions();
+            }
+        }
+    }
+
+    .controlls {
+        @include small-orange-text();
+        @include arrow-controll-btn();
+    }
+
+    .right-green-fill {
+        position: relative;
+        left: 1em;
+    }
+
+    .error-field-container {
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .error-image {
+            width: 10em;
+            height: 6em;
+        }
+
+        .error-title {
+            font-weight: bold;
+            font-family: $openSans;
+        }
+
+        @include descriptions();
+    }
+}
+
+@media only screen and (max-width: 768px) {}

@@ -1,0 +1,68 @@
+<div class="container-fluid header">
+  <div class="row">
+
+    <div class="col-2 d-none d-md-block">
+      <div class="left-green-fill">
+      </div>
+      <img class="left-image" src="../../../../assets/images/Image 2.png" />
+    </div>
+
+    <div class="col-12 col-md-5 heading-area">
+      <div class="header-items pl-0 pl-sm-3">
+        <div class="header-text pb-5 mt-md-5">Order your food <br /> from the best Restaurants</div>
+        <div class="form-group small-input">
+          <div class="search-box p-0 p-md-3">
+            <div class="search-icon-area">
+              <img class="icon-style" src="../../../../../assets/images/icn_search_home copy.png" />
+            </div>
+            <input [(ngModel)]="serachName" (keyup)="searchAction($event)" class="form-control pl-4 border-0"
+              type="search" placeholder="Search your restaurant or cuisines" aria-label="Search">
+          </div>
+        </div>
+
+        <div class="form-group location-date-input pt-3">
+          <div class="location p-3 mr-0 mr-sm-3">
+            <div class="icon-style">
+              <img src="../../../../../assets/images/icn_pin.png" />
+            </div>
+
+            <!-- <input class="form-control" placeholder="Search" aria-label="Search"> -->
+            <form [formGroup]="stateForm">
+              <input type="text" matInput (keyup)="getLocationData($event)" [(ngModel)]="locationName"
+                placeholder="States Group" class="form-control" formControlName="stateGroup" required
+                [matAutocomplete]="autoGroup">
+              <mat-autocomplete #autoGroup="matAutocomplete" class="mt-4">
+                <mat-optgroup *ngFor="let group of stateGroupOptions | async"
+                  [label]="locationName===''?group.letter:''">
+                  <mat-option *ngFor="let name of group.names" [value]="name">
+                    {{name}}
+                    <mat-divider></mat-divider>
+                  </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+            </form>
+
+            <div class="icon-style">
+              <img src="../../../../../assets/images/icn_gps_indicator.png" />
+            </div>
+          </div>
+
+          <div class="date-picker-container">
+            <input class="form-control" [min]="minDate" [(ngModel)]="dateTime" [matDatepicker]="picker"
+              [placeholder]="currentDate" />
+            <mat-datepicker disablePast #picker></mat-datepicker>
+            <button class="calender-container d-flex align-items-center justify-content-center" (click)="picker.open()">
+              <mat-icon class="clock-icon">access_time</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 col-md-5 d-none d-md-block right-fill-container ">
+      <div class="right-gradient-fill">
+      </div>
+      <img class="right-image" src="../../../../../assets/images/Image 1.png" />
+    </div>
+  </div>
+</div>

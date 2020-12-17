@@ -1,0 +1,125 @@
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
+
+.deals-offer-container {
+    background-size: auto;
+    overflow: hidden;
+    height: 40em;
+
+    @include brands-heading();
+    @include brands-about();
+
+    .two-cards {
+        display: flex;
+
+        .offer-deal-1,
+        .offer-deal-2 {
+            display: flex;
+            flex-direction: row;
+            background-color: $white;
+            border-radius: 5px;
+            cursor: all-scroll;
+
+            .offer-card {
+                position: relative;
+                text-align: center;
+
+                .offer-details {
+                    position: relative;
+                    top: -13em;
+                    left: 2em;
+                    width: 18em;
+                    text-align: left;
+
+                    @include offer-title();
+
+                    .offer-description {
+                        color: $white;
+                        font-family: $openSans;
+                        font-size: 0.8em;
+                        letter-spacing: 0;
+                        line-height: 1.7em;
+                    }
+
+                    @include offer-code();
+                }
+            }
+
+            .brand-image-container {
+
+                .brand-image {
+                    width: 100%;
+                    height: 13em;
+                }
+
+                @media only screen and (min-width: 1400px) {
+                    .brand-image {
+                        width: 27em;
+                        height: 15em;
+                    }
+                }
+            }
+        }
+    }
+
+    .controlls {
+        position: relative;
+        top: -9em;
+        @include small-orange-text();
+        @include arrow-controll-btn();
+    }
+
+    .left-gradient-fill {
+        position: relative;
+        width: 21em;
+        height: 35em;
+        top: 10em;
+        left: -1em;
+        transform: rotate(-0deg);
+    }
+
+    .left-food-image {
+        position: relative;
+        width: 22em;
+        height: 30em;
+        top: -27em;
+        left: -1em;
+    }
+
+    .offer-deal-2 {
+        margin-left: 2em;
+    }
+}
+
+.error-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error-field-container {
+        width: 20em;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .error-image {
+            width: 10em;
+            height: 6em;
+        }
+
+        .error-title {
+            font-weight: bold;
+            font-family: $openSans;
+        }
+
+        @include descriptions();
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .deals-offer-container {
+        height: 20em;
+    }
+}

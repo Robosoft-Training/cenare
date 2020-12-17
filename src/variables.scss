@@ -1,20 +1,30 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 // Fonts 
-$openSans: 'Open Sans', sans-serif;
-$bebas: 'Bebas Neue', cursive;
+$openSans: 'Open Sans',
+sans-serif;
+$bebas: 'Bebas Neue',
+cursive;
 
 // colors 
 $white: #FFFF;
 $headerText: #4C4C4C;
-$inputBoxShadow: rgba(0,0,0,0.1);
+$inputBoxShadow: rgba(0, 0, 0, 0.1);
 $leftFillGreen: #15c167;
 $rightFillGradient: linear-gradient(138.33deg, #FEB456 0%, #F3698E 100%);
 $calenderTheme: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
 $orange: #F67E03;
 $yellow: #FFE848;
 $darkGray: #4C4C4C;
-$grayTranperent: rgba(255,255,255,0.4);
+$grayTranperent: rgba(255, 255, 255, 0.4);
 $green: #7ACA6C;
+$headerBackgroundColor: #f7f8ff;
+$darkBlue: #223136;
+$descriptionColor: #757575;
+$naveBarFontColor: #303134;
+$naveBarBorderColor: #d1cdcd;
+$textGradient: -webkit-linear-gradient(138.33deg, #FEB456 30%, #F3698E 50%, #d95d65 70%);
+$darkPink: #F3698E;
+$black: #000;
+$naveBarShadow: 0 2px 4px 0px rgba(0, 0, 0, 0.08);

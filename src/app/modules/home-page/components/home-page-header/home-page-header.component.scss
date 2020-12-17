@@ -1,0 +1,108 @@
+@import "../../../../../variables.scss";
+@import "../../../../../mixin.scss";
+
+@include overriding-angular-materials();
+
+.header {
+    overflow: hidden;
+    height: 45em;
+    background-image: url("../../../../../assets/images/pattern-3.png");
+    background-color: $headerBackgroundColor;
+
+    @include left-green-fill();
+    @include right-gradient-fill();
+
+    .heading-area {
+        display: flex;
+
+        .header-items {
+            @include header-text();
+            padding-left: 4em;
+            ;
+
+            .search-box {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: $white;
+                box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.14);
+                width: 93%;
+                height: 3.5em;
+                border-radius: 0.4em;
+
+                .search-icon-area {
+                    width: 1.2em;
+                    z-index: 2;
+                    padding-right: 2em;
+                    @include icon-style();
+                }
+
+                @include form-controles();
+            }
+        }
+
+        .location-date-input {
+            display: flex;
+            flex-direction: row;
+
+            .location {
+                @include mediam-imput-box(48%);
+                @include gps-icon();
+                @include form-controles();
+                background-color: $white;
+            }
+
+            .date-picker-container {
+                background-color: $white;
+                @include mediam-imput-box(42%);
+                margin-left: 1em;
+
+                @include form-controles();
+
+                .calender-container {
+                    background: $calenderTheme;
+                    width: 2.6em;
+                    height: 2.5em;
+                    border-radius: 0.5em;
+                    z-index: 0;
+                    box-shadow: $inputBoxShadow;
+                    border: none;
+                    outline: none;
+                    margin-right: 0.18em;
+
+                    .clock-icon {
+                        outline: none;
+                        color: $white;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .header {
+        height: 65em;
+
+        .heading-area {
+            display: flex;
+
+            .header-items {
+                @include header-text(250px, 46px);
+            }
+        }
+
+        @include right-gradient-fill(60rem, 40rem, 26em, 20em, -6em, 1.5em, 65em, 55em, -68em, -6em);
+        @include left-green-fill(42em, 24em, 12em, 11em, -13em, 15em, -18em, -1em);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        height: 35em;
+    }
+}

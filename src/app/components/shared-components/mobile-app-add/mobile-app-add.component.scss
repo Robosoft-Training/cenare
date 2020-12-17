@@ -1,0 +1,76 @@
+@import "../../../../variables.scss";
+@import "../../../../mixin.scss";
+
+@include overriding-angular-materials();
+
+.add-banner {
+    overflow: hidden;
+    height: 42em;
+    background-color: $headerBackgroundColor;
+
+    @include add-banner-left-image();
+    @include add-banner-right-image();
+    @include add-banner-iphone-image();
+
+    .heading-area {
+        display: flex;
+
+        .header-items {
+            width: 28em;
+            @include header-text(90px, 39px, 'black');
+            padding-left: 8em;
+        }
+
+        @include app-add-sub-header();
+        @include app-add-description();
+        @include app-add-link();
+    }
+
+}
+
+@media only screen and (min-width: 1400px) {
+    .add-banner {
+        height: 55em;
+
+        .heading-area {
+            padding-left: 6em;
+            display: flex;
+
+            .header-items {
+                width: 38em;
+                @include header-text(100px, 46px, 'black');
+            }
+
+            @include app-add-sub-header(1.8em, 1em, 0.2em, 1em);
+            @include app-add-description(1em, 0em);
+            @include app-add-link(12em);
+
+            .app-description {
+                color: $descriptionColor;
+                font-family: $openSans;
+                font-size: 1em;
+                font-weight: bold;
+            }
+        }
+
+        @include add-banner-left-image(38em, 28em, 18em, -0.8em);
+        @include add-banner-right-image(44em, 65em, -20em, 4em);
+        @include add-banner-iphone-image(35em, 55em, -64em, -5em);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .add-banner {
+        height: 25em;
+
+        .heading-area {
+            display: flex;
+
+            .header-items {
+                width: 28em;
+                @include header-text(90px, 39px, 'black');
+                padding-left: 1em;
+            }
+        }
+    }
+}

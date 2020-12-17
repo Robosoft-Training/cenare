@@ -1,0 +1,355 @@
+@import './variables.scss';
+
+
+@mixin overriding-angular-materials {
+    ::ng-deep {
+        .mat-datepicker-toggle .mat-icon-button {
+            outline: none;
+        }
+
+        .mat-calendar-body-selected {
+            background: $calenderTheme;
+        }
+    }
+
+    ::ng-deep .cdk-overlay-pane {
+        min-width: 35em;
+    }
+}
+
+@mixin header-text($padding-top:90px, $fontSize:39px, $color: $headerText) {
+    .header-text {
+        padding-top: $padding-top;
+        color: $color;
+        font-family: $openSans;
+        font-size: $fontSize;
+        line-height: 60px;
+        text-shadow: 0 0 9px 0 $white;
+        word-wrap: none;
+    }
+}
+
+@mixin icon-style {
+    .search-icon {
+        height: 0.8em;
+        width: 0.8em;
+    }
+}
+
+@mixin gps-icon {
+    .gps-icon {
+        width: 1.2em;
+        z-index: 2;
+    }
+}
+
+@mixin form-controles {
+    .form-control {
+        display: block;
+        width: 100%;
+        z-index: 2;
+        border: none;
+        outline: none;
+
+        color: $headerText;
+        font-family: $openSans;
+        font-size: 0.8em;
+        letter-spacing: -0.24px;
+        line-height: 19px;
+
+        &:focus {
+            outline: 5px solid $white;
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}
+
+@mixin mediam-imput-box($width) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $width;
+    box-shadow: 0px 2px 10px 0px $inputBoxShadow;
+    width: $width;
+    height: 3.5em;
+    border-radius: 0.4em;
+}
+
+@mixin left-green-fill($fillHeight:30em, $fillWidth:16em, $fillRadius:8em, $fillTop:6em, $fillLeft:-8em,
+    $imageSize:10em, $imageTop:-15em, $imageLeft: 0em) {
+    .left-green-fill {
+        position: relative;
+        background-color: $leftFillGreen;
+        height: $fillHeight;
+        width: $fillWidth;
+        border-radius: $fillRadius;
+        transform: rotate(15deg);
+        top: $fillTop;
+        left: $fillLeft;
+    }
+
+    .left-image {
+        position: relative;
+        z-index: 1;
+        height: $imageSize;
+        width: $imageSize;
+        top: $imageTop;
+        left: $imageLeft;
+    }
+}
+
+@mixin right-gradient-fill($fillHeight:42rem, $fillWidth:28rem, $fillLeftRadius:18em, $fillRightRadius:18em, $fillTop:-5em, $fillLeft:6em,
+    $imageHeight:44em, $imageWidth:38em, $imageTop:-47em, $imageLeft: 1.2em) {
+    .right-fill-container {
+        .right-gradient-fill {
+            position: relative;
+            left: $fillLeft;
+            top: $fillTop;
+            background: $rightFillGradient;
+            height: $fillHeight;
+            width: $fillWidth;
+            border-bottom-left-radius: $fillLeftRadius;
+            border-bottom-right-radius: $fillRightRadius;
+            transform: rotate(13deg);
+        }
+
+        // overflow: hidden;
+        .right-image {
+            position: relative;
+            z-index: 1;
+            height: $imageHeight;
+            width: $imageWidth;
+            top: $imageTop;
+            left: $imageLeft;
+        }
+    }
+}
+
+@mixin descriptions {
+    .product-description {
+        color: $descriptionColor;
+        font-family: $openSans;
+        font-size: 0.8em;
+        letter-spacing: 0;
+        line-height: 1.7em;
+        margin-top: 0.6em;
+    }
+}
+
+@mixin brand-name {
+    .brand-name {
+        color: $darkBlue;
+        font-family: $openSans;
+        font-size: 1.5em;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1em;
+    }
+}
+
+@mixin brand-title {
+    .brand-title {
+        color: $descriptionColor;
+        font-family: $openSans;
+        font-size: 0.8em;
+        letter-spacing: 0;
+    }
+}
+
+@mixin small-orange-text {
+    .small-orange-text {
+        float: left;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        left: -2em;
+        color: $orange;
+        font-family: $openSans;
+        font-size: 0.8em;
+        font-weight: 600;
+        padding-top: 0.6em;
+        cursor: all-scroll;
+    }
+}
+
+@mixin arrow-controll-btn {
+    .controll-btn {
+        float: right;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        right: -2.2em;
+        box-sizing: border-box;
+
+        .arrow-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            width: 3em;
+            height: 2.5em;
+
+            &:active {
+                color: $darkGray;
+            }
+        }
+    }
+}
+
+@mixin avatar-image {
+    .avatar-image {
+        vertical-align: middle;
+        width: 4.3em;
+        height: 4.3em;
+        border-radius: 50%;
+    }
+}
+
+@mixin brands-heading {
+    .popular-brands-heading {
+        color: $darkGray;
+        font-family: $openSans;
+        font-size: 2.6em;
+        letter-spacing: 0;
+        line-height: 2.1em;
+        text-shadow: 0 0 1.2em 0 $white;
+    }
+}
+
+@mixin brands-about {
+    popular-brands-about {
+        color: $darkGray;
+        font-family: $openSans;
+        font-size: 0.9em;
+        letter-spacing: 0.58px;
+        line-height: 1.2em;
+    }
+}
+
+@mixin offer-code {
+    .offer-code {
+        cursor: auto;
+        box-sizing: border-box;
+        height: 2.2em;
+        width: 7em;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 0.1em;
+        background-color: rgba(255, 255, 255, 0.07);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .offer-text {
+            color: #FFFFFF;
+            font-family: "Open Sans";
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 3.27px;
+            line-height: 28px;
+        }
+    }
+}
+
+@mixin offer-title {
+    .offer-title-1 {
+        color: $white;
+        font-family: $openSans;
+        font-size: 1.6em;
+        ;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 1.5em;
+    }
+
+    .offer-title-2 {
+        font-family: "Open Sans";
+        letter-spacing: 0;
+        line-height: 2.2em;
+
+        .offer-text-1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFE848;
+        }
+
+        .offer-text-2 {
+            font-size: 1.5em;
+            font-weight: bolder;
+            color: $white;
+        }
+
+        .offer-text-3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFE848;
+        }
+    }
+}
+
+@mixin add-banner-left-image($width: 26em, $height: 22em, $top: 18em, $left: -0.8em) {
+    .left-image {
+        width: $width;
+        height: $height;
+        position: relative;
+        top: $top;
+        left: $left;
+    }
+}
+
+@mixin add-banner-right-image($width: 35em, $height: 55em, $top: -18em, $left: 4.2em) {
+    .right-fill {
+        width: $width;
+        height: $height;
+        position: relative;
+        top: $top;
+        left: $left;
+    }
+}
+
+@mixin add-banner-iphone-image($width: 27em, $height: 41em, $top: -53em, $left: -5em) {
+    .iphone-image {
+        width: $width;
+        height: $height;
+        position: relative;
+        top: $top;
+        left: $left;
+    }
+}
+
+@mixin app-add-sub-header($fontSize:1.5em, $lineHeight: 2em, $marginTop: 0em, $paddingBottom: 0em) {
+    .app-sub-header {
+        color: $black;
+        font-family: $openSans;
+        font-size: $fontSize;
+        line-height: $lineHeight;
+        font-weight: bold;
+        margin-top: $marginTop;
+        padding-bottom: $paddingBottom;
+    }
+}
+
+@mixin app-add-description($fontSize: 0.8em, $paddingBottom: 1em) {
+    .app-description {
+        color: $descriptionColor;
+        font-family: $openSans;
+        font-size: $fontSize;
+        line-height: 1.7em;
+        margin-top: 0.2em;
+        padding-bottom: $paddingBottom;
+        font-weight: bold;
+    }
+}
+
+@mixin app-add-link($width: 10em) {
+    .app-link-contaner {
+        display: flex;
+        flex-direction: row;
+
+        .app-link-image {
+            width: $width;
+            margin-right: 1em;
+            cursor: all-scroll;
+        }
+    }
+}
