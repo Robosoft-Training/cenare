@@ -1,5 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import * as $ from 'jquery';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,8 +14,11 @@ export class NavBarComponent implements OnInit {
   isLoggedIn = false;
   userName = 'ASHLEY';
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
+  openDialog(formType): void {
+    this.dialog.open(LoginComponent, { panelClass: 'custom-dialog-container', data: { formType: formType } });
+  }
   ngOnInit(): void {
     if (this.pageName === 'home') {
       $('.navbar').removeClass('navbar-inverse');

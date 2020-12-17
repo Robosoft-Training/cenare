@@ -5,7 +5,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   password = { value: '', error: '' };
   firstName = { value: '', error: '' };
   lastName = { value: '', error: '' };
-  constructor(private route: Router, public dialogRef: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data: { formType: string }) { this.formType = data.formType; }
+  constructor(private route: Router, public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: { formType: string }) { this.formType = data.formType; }
   ngOnInit(): void { }
   closeDialog(): void {
     this.dialogRef.close();
