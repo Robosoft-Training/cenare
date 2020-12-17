@@ -1,0 +1,267 @@
+@import '../../../mixin.scss';
+@import '../../../variables.scss';
+
+.box {
+  position: relative;
+  height: 1160px;
+  width: 100%;
+  background: #F1F3FB;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  top: 0;
+
+  .downloadSection {
+    background-image: url(../../../assets/images/bg_pattern.png);
+    border: 1px solid transparent;
+    width: 100%;
+    height: 134px;
+
+    .rectangle {
+      width: 960px;
+      height: 64px;
+      margin: auto;
+      margin-top: 33px;
+      display: flex;
+      justify-content: space-between;
+
+      .downloadMessage {
+        height: 64px;
+        width: 501px;
+
+        .text {
+          height: 64px;
+          width: 501px;
+          color: #000000;
+          font-family: $openSansSemibold;
+          font-size: 22px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 32px;
+        }
+      }
+
+      .buttons {
+        width: 410px;
+        display: flex;
+        justify-content: space-between;
+
+        .button1 {
+          height: 55px;
+          width: 195px;
+          margin-top: 8px;
+        }
+
+        .button2 {
+          height: 55px;
+          width: 195px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  .about {
+    height: 935px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 65px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+
+    .imageContainer {
+      height: 355px;
+      width: 982px;
+      margin-left: -10px;
+      background-image: url(../../../assets/images/about_banner.png);
+
+      .quote {
+        height: 92px;
+        width: 489px;
+        color: white;
+        font-family: sans-serif;
+        font-weight: lighter;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: 46px;
+        text-align: center;
+        position: absolute;
+        margin-top: 102px;
+        margin-left: 59px;
+      }
+
+      .robertUrich {
+        height: 32px;
+        width: 98px;
+        color: #FFFFFF;
+        font-family: $openSansSemibold;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 32px;
+        text-align: right;
+        position: absolute;
+        margin-top: 200px;
+        margin-left: 372px;
+      }
+    }
+
+    .whoWeAre {
+      height: 33px;
+      width: 137px;
+      color: #000000;
+      font-family: $openSansSemibold;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 33px;
+      margin-left: 33px;
+      margin-top: 22px;
+    }
+
+    .message {
+      margin-left: 33px;
+      margin-top: 18px;
+      height: 186px;
+      width: 894px;
+      color: #000000;
+      font-family: "Open Sans";
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 31px;
+    }
+
+    .howWeWork {
+      height: 33px;
+      width: 169px;
+      color: #000000;
+      font-family: $openSansSemibold;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 33px;
+      margin-left: 33px;
+      margin-top: 10px;
+      margin-bottom: 54px;
+    }
+
+    .block {
+
+      .shop {
+        height: 182px;
+        width: 827px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        .left {
+          height: 182px;
+          width: 207px;
+          display: block;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          .image1 {
+            margin-left: 59px;
+            height: 106.32px;
+            width: 89.64px;
+          }
+
+          .text1 {
+            height: 63px;
+            width: 207px;
+            color: #7C7C7C;
+            font-family: "Open Sans";
+            font-size: 16px;
+            letter-spacing: 0.57px;
+            line-height: 27px;
+            text-align: center;
+            text-align: center;
+            left: 0px;
+            margin-top: 12px;
+          }
+        }
+
+        .middle {
+          height: 165px;
+          width: 211px;
+          display: block;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          .image2 {
+            margin-left: 61px;
+            height: 96.36px;
+            width: 88.84px;
+          }
+
+          .text2 {
+            height: 54px;
+            width: 211px;
+            color: #7C7C7C;
+            font-family: "Open Sans";
+            font-size: 16px;
+            letter-spacing: 0.57px;
+            line-height: 27px;
+            text-align: center;
+            bottom: 0px;
+            margin-top: 13px;
+          }
+        }
+
+        .right {
+          height: 168px;
+          width: 224px;
+          display: block;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          .image3 {
+            margin-left: 69px;
+            height: 99.24px;
+            width: 86.08px;
+          }
+
+          .text3 {
+            height: 54px;
+            width: 224px;
+            color: #7C7C7C;
+            font-family: "Open Sans";
+            font-size: 16px;
+            letter-spacing: 0.57px;
+            line-height: 27px;
+            text-align: center;
+            right: 0px;
+            margin-top: 14px;
+          }
+        }
+      }
+
+      .path {
+        margin-left: auto;
+        margin-right: auto;
+        height: 24px;
+        width: 827px;
+        display: flex;
+        margin-top: -145px;
+
+        .image4 {
+          margin-left: 165px;
+          height: 24px;
+          width: 162.54px;
+        }
+
+        .image5 {
+          margin-left: 165px;
+          height: 24px;
+          width: 162.54px;
+        }
+      }
+    }
+  }
+}

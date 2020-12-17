@@ -1,0 +1,178 @@
+@import '../../../mixin.scss';
+@import '../../../variables.scss';
+
+.box {
+  position: relative;
+  height: 1200px;
+  width: 100%;
+  background: #F1F3FB;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  top: 0;
+  
+  .downloadSection {
+    background-image: url(../../../assets/images/bg_pattern.png);
+    border: 1px solid transparent;
+    width: 100%;
+    height: 134px;
+
+    .rectangle {
+      width: 960px;
+      height: 64px;
+      margin: auto;
+      margin-top: 33px;
+      display: flex;
+      justify-content: space-between;
+
+      .downloadMessage {
+        height: 64px;
+        width: 501px;
+
+        .text {
+          height: 64px;
+          width: 501px;
+          color: #000000;
+          font-family: $openSansSemibold;
+          font-size: 22px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 32px;
+        }
+      }
+
+      .buttons {
+        width: 410px;
+        display: flex;
+        justify-content: space-between;
+
+        .button1 {
+          height: 55px;
+          width: 195px;
+          margin-top: 8px;
+        }
+
+        .button2 {
+          height: 55px;
+          width: 195px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  .privacyPolicy {
+    height: 1016px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 27px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+
+    img{
+      height: 21px;
+      width: 15px;
+      position: absolute;
+      margin-left: 895px;
+      margin-top: 44px;
+    }
+
+    .bar{
+      box-sizing: border-box;
+      background: #A4A4A4;
+      height: 1px;
+      width: 46px;
+      opacity: 0.4;
+      position: absolute;
+      margin-left: 881px;
+      margin-top: 81px;
+    }
+
+    .text1 {
+      height: 34px;
+      width: 100%;
+      text-align: left;
+      color: #6B84FF;
+      font-family: $openSansSemibold;
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 34px;
+      margin-top: 36px;
+      margin-left: 33px;
+    }
+
+    .block1 {
+      height: 839px;
+      width: 895px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .text2 {
+        height: 30px;
+        width: 100%;
+        font-size: 22px;
+        letter-spacing: 0;
+        line-height: 30px;
+        color: #000000;
+        font-family: $openSans;
+        margin-top: 40px;
+      }
+
+      .text3 {
+        width: 100%;
+        color: #000000;
+        font-family: $openSans;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 31px;
+        margin-top: 20px;
+      }
+
+      .text4 {
+        height: 30px;
+        width: 100%;
+        font-size: 22px;
+        letter-spacing: 0;
+        line-height: 30px;
+        color: #000000;
+        font-family: $openSans;
+        margin-top: 20px;
+      }
+
+      .text5{
+        width: 100%;
+        color: #000000;
+        font-family: $openSans;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 31px;
+        margin-top: 20px;
+      }
+
+      .text6{
+        height: 30px;
+        width: 100%;
+        font-size: 22px;
+        letter-spacing: 0;
+        line-height: 30px;
+        color: #000000;
+        font-family: $openSans;
+        margin-top: 20px;
+      }
+
+      .text7{
+        width: 100%;
+        color: #000000;
+        font-family: $openSans;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 31px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
