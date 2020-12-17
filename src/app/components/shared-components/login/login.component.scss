@@ -230,7 +230,6 @@
       margin-top: 20px;
       margin-left: 40px;
       opacity: 0.9;
-
     }
 
     .email {
@@ -249,17 +248,27 @@
       }
     }
 
-    .reset {
+    .reset1 {
       margin-left: 40px;
       width: 330px;
-      margin-top: 90px;
-
+      margin-top: 40px;
+      
       mat-label {
         color: #858585;
         opacity: 0.7;
-        margin-top: 90px;
+        
+      
       }
-
+    }
+    .reset2{
+      margin-left: 40px;
+      width: 330px;
+      margin-top: 10px;
+      mat-label {
+        color: #858585;
+        opacity: 0.7;
+        
+      } 
     }
 
     .theme-button {
@@ -447,20 +456,27 @@
   }
 
   .error {
+
     color: red;
     margin-left: 40px;
     font-size: 11px;
+    margin-top: -18px;
+
   }
 
   .error1 {
     color: red;
     margin-left: 50px;
     font-size: 11px;
+    margin-top: -18px;
+
   }
 
   .error2 {
     color: red;
     margin-left: 50px;
     font-size: 11px;
+    margin-top: -18px;
+
   }
 }

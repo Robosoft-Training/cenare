@@ -101,6 +101,8 @@ export class LoginComponent implements OnInit {
       this.showFormType('successful');
     }
 
+  
   }
+  
 }
 

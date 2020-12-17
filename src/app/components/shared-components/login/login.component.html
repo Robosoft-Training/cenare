@@ -112,15 +112,16 @@
         Enter the new password to reset you account.
       </p>
     </div>
-    <mat-form-field class="reset">
+    <mat-form-field class="reset1">
       <mat-label>Enter New Password</mat-label>
       <input matInput placeholder="Enter New Password" type="{{type}}" id="myInput">
     </mat-form-field>
-    <div *ngIf="password.error" class="error">{{password.error}}</div>
-    <span class="eye" (click)="togglePassword()">
-      <i id="hide1" *ngIf="type==='text'" class="fa fa-eye"></i>
-      <i id="hide2" *ngIf="type==='password'" class="fa fa-eye-slash"></i>
-    </span>
+    
+    <mat-form-field class="reset2">
+      <mat-label>Re-Enter New Password</mat-label>
+      <input matInput placeholder="Re-Enter New Password" type="{{type}}" id="myInput">
+    </mat-form-field>
+   
     <button class="reset-button" (click)="showFormType('success')">RESET PASSWORD</button>
   </div>
   <!--Password Reset-->
