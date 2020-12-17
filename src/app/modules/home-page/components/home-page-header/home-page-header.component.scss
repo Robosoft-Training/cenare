@@ -18,7 +18,6 @@
         .header-items {
             @include header-text();
             padding-left: 4em;
-            ;
 
             .search-box {
                 display: flex;
@@ -38,6 +37,12 @@
                 }
 
                 @include form-controles();
+            }
+            .scroll-mouse {
+                position: relative;
+                top: 10em;
+                left: 28em;
+                transition: 5s;
             }
         }
 

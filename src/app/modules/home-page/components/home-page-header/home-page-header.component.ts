@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
 import { LocationDataService } from 'src/app/services/location/location-data.service';
@@ -64,6 +64,15 @@ export class HomePageHeaderComponent implements OnInit {
     private locationDetaService: LocationDataService,
     private formBuilder: FormBuilder
   ) { }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e: any) {
+    let element = document.querySelector('.scroll-mouse');
+    if (window.pageYOffset > element!.clientHeight) {
+      element!.classList.remove('d-block');
+      element!.classList.add('d-none');
+    }
+  }
 
   loadCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
