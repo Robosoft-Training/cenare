@@ -1,31 +1,9 @@
-import { formatDate } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { DateAdapter, MAT_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
 import { LocationDataService } from 'src/app/services/location/location-data.service';
 import { startWith, map } from 'rxjs/operators';
 import { ILocation } from 'src/app/shared/interfaces/Ilocation';
 import { locationsList } from 'src/app/shared/locationsList';
-
-export const PICK_FORMATS = {
-  parse: { dateInput: { month: 'short', year: 'numeric', day: 'numeric' } },
-  display: {
-    dateInput: 'input',
-    monthYearLabel: { year: 'numeric', month: 'short' },
-    dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
-    monthYearA11yLabel: { year: 'numeric', month: 'long' }
-  }
-};
-
-class PickDateAdapter extends NativeDateAdapter {
-  format(date: Date, displayFormat: any): string {
-    if (displayFormat === 'input') {
-      return formatDate(date, 'dd  MMMM, yyyy', this.locale);
-    } else {
-      return date.toDateString();
-    }
-  }
-}
 
 export const myFilter = (opt: string[], value: string): string[] => {
   const filterValue = value.toLowerCase();
@@ -36,10 +14,7 @@ export const myFilter = (opt: string[], value: string): string[] => {
   selector: 'app-home-page-header',
   templateUrl: './home-page-header.component.html',
   styleUrls: ['./home-page-header.component.scss'],
-  providers: [
-    { provide: DateAdapter, useClass: PickDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: PICK_FORMATS }
-  ]
+  
 })
 export class HomePageHeaderComponent implements OnInit {
 

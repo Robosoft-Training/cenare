@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePopularBrandsComponent } from './components/home-popular-brands/home-popular-brands.component';
 import { HomeDealsOffersComponent } from './components/home-deals-offers/home-deals-offers.component';
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { PICK_FORMATS } from '../../shared/date-picker-formate';
+import { DatePickerService } from '../../services/date-picker/date-picker.service';
 
 
 @NgModule({
@@ -20,6 +23,10 @@ import { SharedComponentsModule } from 'src/app/components/shared-components/sha
     FormsModule,
     ReactiveFormsModule,
     SharedComponentsModule
-  ]
+  ],
+  providers: [
+    { provide: DateAdapter, useClass: DatePickerService },
+    { provide: MAT_DATE_FORMATS, useValue: PICK_FORMATS }
+  ],
 })
 export class HomePageModule { }

@@ -12,6 +12,9 @@ import { AboutComponent } from './components/about/about.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { PICK_FORMATS } from './shared/date-picker-formate';
+import { DatePickerService } from './services/date-picker/date-picker.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ContactComponent } from './components/contact/contact.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: DateAdapter, useClass: DatePickerService },
+    { provide: MAT_DATE_FORMATS, useValue: PICK_FORMATS }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

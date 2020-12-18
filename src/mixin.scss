@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 
-@mixin overriding-angular-materials {
+@mixin overriding-angular-materials() {
     ::ng-deep {
         .mat-datepicker-toggle .mat-icon-button {
             outline: none;
@@ -11,9 +11,11 @@
             background: $calenderTheme;
         }
     }
+}
 
+@mixin overriding-angular-materials-filter-input($overlayPanWidth) {
     ::ng-deep .cdk-overlay-pane {
-        min-width: 35em;
+            min-width: $overlayPanWidth;
     }
 }
 
@@ -29,24 +31,27 @@
     }
 }
 
-@mixin icon-style {
+@mixin icon-style($size: 1.2em) {
+    padding-bottom: 5em;
+    // width: 1.2em;
+    z-index: 2;
+    padding-right: 2em;
     .search-icon {
-        height: 0.8em;
-        width: 0.8em;
+        height: $size;
+        width: $size;
     }
-}
-
-@mixin gps-icon {
     .gps-icon {
-        width: 1.2em;
-        z-index: 2;
+        position: relative;
+        width: 0.5em;
+        height: 0.8em;
+        z-index: 1;
     }
 }
 
-@mixin form-controles {
+@mixin form-controles($width: 100%) {
     .form-control {
         display: block;
-        width: 100%;
+        width: $width;
         z-index: 2;
         border: none;
         outline: none;
@@ -65,14 +70,14 @@
     }
 }
 
-@mixin mediam-imput-box($width) {
+@mixin mediam-imput-box($width, $height: 3.5em) {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: $width;
     box-shadow: 0px 2px 10px 0px $inputBoxShadow;
     width: $width;
-    height: 3.5em;
+    height: $height;
     border-radius: 0.4em;
 }
 
@@ -126,7 +131,7 @@
     }
 }
 
-@mixin descriptions {
+@mixin descriptions($paddingLeft: 0%) {
     .product-description {
         color: $descriptionColor;
         font-family: $openSans;
@@ -134,6 +139,7 @@
         letter-spacing: 0;
         line-height: 1.7em;
         margin-top: 0.6em;
+        padding-left: $paddingLeft;
     }
 }
 
@@ -373,4 +379,53 @@
   border: none;
   box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
 
+}
+
+@mixin calender-container() {
+    .calender-container {
+        background: $calenderTheme;
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 0.5em;
+        z-index: 0;
+        box-shadow: $inputBoxShadow;
+        border: none;
+        outline: none;
+        margin-right: 0.18em;
+
+        .clock-icon {
+            outline: none;
+            color: $white;
+    
+            &:focus {
+                outline: none;
+            }
+        }          
+    }
+}
+
+@mixin  gps-form-control($padding: 3em) {
+    .gps-form-control {
+        display: block;
+        width: 100%;
+        z-index: 0;
+        border: none;
+        outline: none;
+
+        color: $headerText;
+        font-family: $openSans;
+        font-size: 0.8em;
+        letter-spacing: -0.24px;
+        line-height: 19px;
+
+        position: relative;
+        left: -2em; 
+        padding-left: $padding;
+
+        &:focus {
+            outline: 5px solid $white;
+            box-shadow: none;
+            outline: none;
+        }
+    }
 }
