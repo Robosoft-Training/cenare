@@ -40,8 +40,8 @@ export class RestaurantListService {
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
-          this.currentretaurantDataList = {...data};
-          this.retaurantDataListSource.next(this.currentretaurantDataList );
+          this.currentretaurantDataList = { ...data };
+          this.retaurantDataListSource.next(this.currentretaurantDataList);
         }),
         retry(3),
         catchError(this.handleError)
