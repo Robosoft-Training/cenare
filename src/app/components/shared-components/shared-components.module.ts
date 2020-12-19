@@ -10,6 +10,7 @@ import { TopSearchBarComponent } from './top-search-bar/top-search-bar.component
 import { PICK_FORMATS } from '../../shared/date-picker-formate';
 import { DatePickerService } from '../../services/date-picker/date-picker.service';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
     MobileAppAddComponent,
     LoginComponent,
     HowToOrderComponent,
-    TopSearchBarComponent
+    TopSearchBarComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
     NavBarComponent,
     MobileAppAddComponent,
     HowToOrderComponent,
-    TopSearchBarComponent
+    TopSearchBarComponent,
+    BreadcrumbsComponent
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },
