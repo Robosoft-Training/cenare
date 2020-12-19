@@ -26,11 +26,12 @@
         }
     }
 
-    
+
 }
 
 @media only screen and (min-width: 1400px) {
     @include overriding-angular-materials-filter-input(15.6em);
+
     .breadcrumb-container {
         .breadcrumb-area {
             display: flex;
@@ -43,6 +44,7 @@
 
 @media only screen and (max-width: 768px) {
     @include overriding-angular-materials-filter-input(26.8em);
+
     .breadcrumb-container {
         height: 2em;
 

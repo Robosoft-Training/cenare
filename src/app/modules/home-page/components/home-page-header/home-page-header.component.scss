@@ -33,6 +33,7 @@
                 @include icon-style();
                 @include form-controles();
             }
+
             .scroll-mouse {
                 position: relative;
                 top: 10em;
@@ -87,5 +88,6 @@
     .header {
         height: 40em;
     }
+
     @include overriding-angular-materials-filter-input(20em);
 }

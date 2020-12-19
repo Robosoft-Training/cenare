@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LocationDataService } from 'src/app/services/location/location-data.service';
-import { startWith, map, flatMap } from 'rxjs/operators';
+import { startWith, map, flatMap, mergeMap } from 'rxjs/operators';
 import { ILocation } from 'src/app/shared/interfaces/Ilocation';
 import { locationsList } from 'src/app/shared/locationsList';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
@@ -16,7 +16,7 @@ export const myFilter = (opt: string[], value: string): string[] => {
   selector: 'app-home-page-header',
   templateUrl: './home-page-header.component.html',
   styleUrls: ['./home-page-header.component.scss'],
-  
+
 })
 export class HomePageHeaderComponent implements OnInit {
 
@@ -24,10 +24,10 @@ export class HomePageHeaderComponent implements OnInit {
   currentDate = 'Today, ' + new Date().toLocaleString('en-in', { month: 'long', day: 'numeric' }) + ', ' + new Date().getFullYear();
   date: any;
   userSearchSelections = {
-    locationName : 'Your Location',
-    searchName : '',
-    dateTime :  ''
-  }
+    locationName: 'Your Location',
+    searchName: '',
+    dateTime: ''
+  };
   timeOut: any;
 
   stateForm: FormGroup = this.formBuilder.group({
@@ -87,17 +87,17 @@ export class HomePageHeaderComponent implements OnInit {
 
   executeSearch = (value: any) => {
     if (!(this.userSearchSelections.searchName === '' || this.userSearchSelections.locationName === '')) {
-      let dateTime: any = this.userSearchSelections.dateTime;
+      const dateTime: any = this.userSearchSelections.dateTime;
       if (!(dateTime)) {
         this.userSearchSelections.dateTime = new Date().toString();
       }
-     
+
       this.userSearchSelections.searchName = value;
       this.locationDetaService.getLatitudeLongitude(this.userSearchSelections.locationName).pipe(
-        flatMap((coordinates) => this.restaurantLisService.searchRestaurants(this.userSearchSelections, coordinates))
+        mergeMap((coordinates) => this.restaurantLisService.searchRestaurants(this.userSearchSelections, coordinates))
       ).subscribe((result) => {
-          this.router.navigate(['/restaurant-list']);
-        },
+        this.router.navigate(['/restaurant-list']);
+      },
         (err) => {
           console.log(err);
         }
@@ -119,7 +119,7 @@ export class HomePageHeaderComponent implements OnInit {
       , 1500);
   } */
 
-  
+
   ngOnInit(): void {
     this.loadCurrentLocation();
     this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges

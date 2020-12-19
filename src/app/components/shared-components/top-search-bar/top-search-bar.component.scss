@@ -68,6 +68,7 @@
 
 @media only screen and (min-width: 1400px) {
     @include overriding-angular-materials-filter-input(15.6em);
+
     .search-bar-container {
         .search-bar-area {
             .location-date-input {
@@ -90,6 +91,7 @@
 
 @media only screen and (max-width: 768px) {
     @include overriding-angular-materials-filter-input(26.8em);
+
     .search-bar-container {
         height: 22.5em;
 
@@ -105,6 +107,7 @@
                     margin-top: 5%;
                     margin-right: 20em;
                     @include mediam-imput-box(100%, 3em);
+
                     .location-input {
                         outline: 5px solid $white;
                         box-shadow: none;

@@ -15,7 +15,7 @@
 
 @mixin overriding-angular-materials-filter-input($overlayPanWidth) {
     ::ng-deep .cdk-overlay-pane {
-            min-width: $overlayPanWidth;
+        min-width: $overlayPanWidth;
     }
 }
 
@@ -36,10 +36,12 @@
     // width: 1.2em;
     z-index: 2;
     padding-right: 2em;
+
     .search-icon {
         height: $size;
         width: $size;
     }
+
     .gps-icon {
         position: relative;
         width: 0.5em;
@@ -359,25 +361,26 @@
         }
     }
 }
+
 @mixin focus {
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 @mixin theme-button {
-  height: 50px;
-  width: 335px;
-  border-radius: 6px;
-  margin-left: 40px;
-  margin-top: 15px;
-  color: #ffff;
-  font-weight: bold;
-  font-size: 14px;
-  filter: blur(0.1px);
-  background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
-  border: none;
-  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+    height: 50px;
+    width: 335px;
+    border-radius: 6px;
+    margin-left: 40px;
+    margin-top: 15px;
+    color: #ffff;
+    font-weight: bold;
+    font-size: 14px;
+    filter: blur(0.1px);
+    background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+    border: none;
+    box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
 
 }
 
@@ -396,15 +399,15 @@
         .clock-icon {
             outline: none;
             color: $white;
-    
+
             &:focus {
                 outline: none;
             }
-        }          
+        }
     }
 }
 
-@mixin  gps-form-control($padding: 3em) {
+@mixin gps-form-control($padding: 3em) {
     .gps-form-control {
         display: block;
         width: 100%;
@@ -419,7 +422,7 @@
         line-height: 19px;
 
         position: relative;
-        left: -2em; 
+        left: -2em;
         padding-left: $padding;
 
         &:focus {

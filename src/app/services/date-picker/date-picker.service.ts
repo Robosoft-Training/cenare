@@ -5,7 +5,7 @@ import { NativeDateAdapter } from '@angular/material/core';
 @Injectable({
   providedIn: 'root'
 })
-export class DatePickerService extends NativeDateAdapter{
+export class DatePickerService extends NativeDateAdapter {
 
   format(date: Date, displayFormat: any): string {
     if (displayFormat === 'input') {

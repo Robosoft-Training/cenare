@@ -13,10 +13,9 @@ export class RestaurantListService {
     searchName: '',
     locationName: '',
     dateTime: ''
-  }
-  
-  baseUrl = "http://192.168.225.87:3000/reataurantList";
-  
+  };
+  baseUrl = 'http://192.168.225.87:3000/reataurantList';
+
   dataListSource = new BehaviorSubject({});
   currentDataList = this.dataListSource.asObservable();
 
@@ -25,8 +24,8 @@ export class RestaurantListService {
     private localStorageService: LocalStorageService
   ) { }
 
-  searchRestaurants = (searchDetails, coordinates): Observable<any[]>  => {
-    this.searchDetails = {...searchDetails};
+  searchRestaurants = (searchDetails, coordinates): Observable<any[]> => {
+    this.searchDetails = { ...searchDetails };
     this.dataListSource.next(this.searchDetails);
     // console.log(coordinates.results[0].position.lat, coordinates.results[0].position.lon);
     this.localStorageService.setUserSearchDetails(this.searchDetails);
@@ -49,5 +48,4 @@ export class RestaurantListService {
     }
     return throwError(error);
   }
-  
 }

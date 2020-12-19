@@ -10,14 +10,14 @@ import { RestaurantListService } from 'src/app/services/restaurant-list/restaura
 export class BreadcrumbsComponent implements OnInit {
 
   @Input() pageName;
-  
+
   searchName = '';
-  storageData:any;
+  storageData: any;
   initialItems = [
-      'Home'
+    'Home'
   ];
-  
-  breadCrumbList:any = [];
+
+  breadCrumbList: any = [];
 
   constructor(
     private reataurantListService: RestaurantListService,
@@ -32,12 +32,12 @@ export class BreadcrumbsComponent implements OnInit {
   }
 
   setData = () => {
-    if(this.pageName === 'restaurant-list'){
+    if (this.pageName === 'restaurant-list') {
       this.initializeList();
       this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
     }
 
-    if(this.pageName === 'restaurant-details'){
+    if (this.pageName === 'restaurant-details') {
       this.initializeList();
       this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
       this.breadCrumbList[4] = 'Chicke dinner';
@@ -55,5 +55,5 @@ export class BreadcrumbsComponent implements OnInit {
     this.storageData = this.localstorageSerivice.getUserSearchDetails();
     this.storageData = JSON.parse(this.storageData);
     this.setData();
-  };
+  }
 }

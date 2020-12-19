@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { startWith, map, flatMap } from 'rxjs/operators';
+import { startWith, map, flatMap, mergeMap } from 'rxjs/operators';
 import { myFilter } from 'src/app/modules/home-page/components/home-page-header/home-page-header.component';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { LocationDataService } from 'src/app/services/location/location-data.service';
@@ -20,15 +20,15 @@ export class TopSearchBarComponent implements OnInit {
   date: any;
 
   userSearchSelections = {
-    locationName : 'Your Location',
-    searchName : '',
-    dateTime :  ''
-  }
+    locationName: 'Your Location',
+    searchName: '',
+    dateTime: ''
+  };
 
   timeOut: any;
   latitude = 0.0;
   longitude = 0.0;
-  
+
   stateForm: FormGroup = this.formBuilder.group({
     stateGroup: '',
   });
@@ -57,10 +57,10 @@ export class TopSearchBarComponent implements OnInit {
 
   setData = (userSearchSelections) => {
     // console.log(this.userSearchSelections);
-    if(!userSearchSelections) {
+    if (!userSearchSelections) {
       this.router.navigate(['/home-page']);
     }
-    this.userSearchSelections = {...JSON.parse(userSearchSelections)};
+    this.userSearchSelections = { ...JSON.parse(userSearchSelections) };
   }
 
   searchAction = (event: any) => {
@@ -81,13 +81,12 @@ export class TopSearchBarComponent implements OnInit {
       if (!(dateTime)) {
         dateTime = new Date();
       }
-     
       this.userSearchSelections.searchName = value;
       this.locationDetaService.getLatitudeLongitude(this.userSearchSelections.locationName).pipe(
-        flatMap((coordinates) => this.restaurantLisService.searchRestaurants(this.userSearchSelections, coordinates))
+        mergeMap((coordinates) => this.restaurantLisService.searchRestaurants(this.userSearchSelections, coordinates))
       ).subscribe((result) => {
-          this.setData(this.localStorageService.getUserSearchDetails());
-        },
+        this.setData(this.localStorageService.getUserSearchDetails());
+      },
         (err) => {
           console.log(err);
         }
@@ -101,7 +100,7 @@ export class TopSearchBarComponent implements OnInit {
         startWith(''),
         map(value => this._filterGroup(value))
       );
-      this.setData(this.localStorageService.getUserSearchDetails());
+    this.setData(this.localStorageService.getUserSearchDetails());
   }
 
 }
