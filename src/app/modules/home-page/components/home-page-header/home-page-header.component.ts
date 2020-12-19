@@ -1,9 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LocationDataService } from 'src/app/services/location/location-data.service';
-import { startWith, map } from 'rxjs/operators';
+import { startWith, map, flatMap } from 'rxjs/operators';
 import { ILocation } from 'src/app/shared/interfaces/Ilocation';
 import { locationsList } from 'src/app/shared/locationsList';
+import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export const myFilter = (opt: string[], value: string): string[] => {
   const filterValue = value.toLowerCase();
@@ -21,12 +23,12 @@ export class HomePageHeaderComponent implements OnInit {
   minDate = new Date();
   currentDate = 'Today, ' + new Date().toLocaleString('en-in', { month: 'long', day: 'numeric' }) + ', ' + new Date().getFullYear();
   date: any;
-  locationName = 'Your Location';
-  serachName = '';
-  dateTime = '';
+  userSearchSelections = {
+    locationName : 'Your Location',
+    searchName : '',
+    dateTime :  ''
+  }
   timeOut: any;
-  latitude = 0.0;
-  longitude = 0.0;
 
   stateForm: FormGroup = this.formBuilder.group({
     stateGroup: '',
@@ -37,7 +39,9 @@ export class HomePageHeaderComponent implements OnInit {
 
   constructor(
     private locationDetaService: LocationDataService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private restaurantLisService: RestaurantListService,
+    private router: Router
   ) { }
 
   @HostListener('window:scroll', ['$event'])
@@ -51,11 +55,9 @@ export class HomePageHeaderComponent implements OnInit {
 
   loadCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      this.latitude = position.coords.latitude;
-      this.longitude = position.coords.longitude;
-      this.locationDetaService.getLocationDetails(this.latitude, this.longitude).subscribe(
+      this.locationDetaService.getLocationDetails(position.coords.latitude, position.coords.longitude).subscribe(
         (details) => {
-          this.locationName = details.addresses[0].address.municipality;
+          this.userSearchSelections.locationName = details.addresses[0].address.municipality;
         }
       );
     });
@@ -84,21 +86,30 @@ export class HomePageHeaderComponent implements OnInit {
   }
 
   executeSearch = (value: any) => {
-    if (!(this.serachName === '' || this.locationName === '')) {
-      // Move to Restourent list page
-      let dateTime: any = this.dateTime;
+    if (!(this.userSearchSelections.searchName === '' || this.userSearchSelections.locationName === '')) {
+      let dateTime: any = this.userSearchSelections.dateTime;
       if (!(dateTime)) {
-        dateTime = new Date();
+        this.userSearchSelections.dateTime = new Date().toString();
       }
-      console.log(value, this.locationName, this.latitude, this.longitude, dateTime);
+     
+      this.userSearchSelections.searchName = value;
+      this.locationDetaService.getLatitudeLongitude(this.userSearchSelections.locationName).pipe(
+        flatMap((coordinates) => this.restaurantLisService.searchRestaurants(this.userSearchSelections, coordinates))
+      ).subscribe((result) => {
+          this.router.navigate(['/restaurant-list']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
     }
   }
 
-  getLocationData = (event: any) => {
+  /*  = (event: any) => {
     clearTimeout(this.timeOut);
     this.timeOut = setTimeout(
       () => {
-        this.locationDetaService.getLatitudeLongitude(event.target.value).subscribe(
+        this.locationDetaService.getLatitudeLongitude(this.locationName).subscribe(
           (details) => {
             this.latitude = details.results[0].position.lat;
             this.longitude = details.results[0].position.lon;
@@ -106,8 +117,9 @@ export class HomePageHeaderComponent implements OnInit {
         );
       }
       , 1500);
-  }
+  } */
 
+  
   ngOnInit(): void {
     this.loadCurrentLocation();
     this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
@@ -116,4 +128,5 @@ export class HomePageHeaderComponent implements OnInit {
         map(value => this._filterGroup(value))
       );
   }
+
 }

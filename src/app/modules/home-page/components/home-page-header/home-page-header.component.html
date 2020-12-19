@@ -15,7 +15,7 @@
             <div class="icon-style">
               <img class="search-icon" src="../../../../../assets/images/icn_search_home copy.png" />
             </div>
-            <input [(ngModel)]="serachName" (keyup)="searchAction($event)" class="form-control pl-4 border-0"
+            <input [(ngModel)]="userSearchSelections.searchName" (keyup)="searchAction($event)" class="form-control pl-4 border-0"
               type="search" placeholder="Search your restaurant or cuisines" aria-label="Search">
           </div>
         </div>
@@ -28,12 +28,12 @@
 
             <!-- <input class="form-control" placeholder="Search" aria-label="Search"> -->
             <form [formGroup]="stateForm">
-              <input type="text" matInput (keyup)="getLocationData($event)" [(ngModel)]="locationName"
+              <input type="text" matInput [(ngModel)]="userSearchSelections.locationName"
                 placeholder="States Group" class="gps-form-control" formControlName="stateGroup" required
                 [matAutocomplete]="autoGroup">
               <mat-autocomplete #autoGroup="matAutocomplete" class="mt-4">
                 <mat-optgroup *ngFor="let group of stateGroupOptions | async"
-                  [label]="locationName===''?group.letter:''">
+                  [label]="userSearchSelections.locationName===''?group.letter:''">
                   <mat-option *ngFor="let name of group.names" [value]="name">
                     {{name}}
                     <mat-divider></mat-divider>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="date-picker-container">
-            <input class="form-control" [min]="minDate" [(ngModel)]="dateTime" [matDatepicker]="picker"
+            <input class="form-control" [min]="minDate" [(ngModel)]="userSearchSelections.dateTime" [matDatepicker]="picker"
               [placeholder]="currentDate" />
             <mat-datepicker disablePast #picker></mat-datepicker>
             <button class="calender-container d-flex align-items-center justify-content-center" (click)="picker.open()">

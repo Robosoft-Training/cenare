@@ -9,7 +9,7 @@ import { catchError, filter, map, retry, tap } from 'rxjs/operators';
 })
 export class PopularProductsService {
 
-  apiBaseUrl = 'http://192.168.225.87:3001/popularBrands';
+  apiBaseUrl = 'http://192.168.225.87:3000/popularBrands';
 
   constructor(private httpClient: HttpClient) { }
 

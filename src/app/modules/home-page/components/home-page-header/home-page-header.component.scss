@@ -2,6 +2,7 @@
 @import '../../../../../mixin.scss';
 
 @include overriding-angular-materials-filter-input(31.3em);
+@include overriding-angular-materials();
 
 .header {
     overflow: hidden;

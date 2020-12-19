@@ -1,6 +1,7 @@
 @import '../../../../variables.scss';
 @import '../../../../mixin.scss';
 
+@include overriding-angular-materials();
 @include overriding-angular-materials-filter-input(13.5em);
 
 .search-bar-container {

@@ -12,12 +12,12 @@
                     <!-- <input class="form-control" placeholder="Search" aria-label="Search"> -->
 
                     <form [formGroup]="stateForm" class="gps-form-control"  >
-                        <input type="text" class="location-input" matInput [(ngModel)]="locationName"
+                        <input type="text" class="location-input" matInput [(ngModel)]="userSearchSelections.locationName"
                           placeholder="States Group" formControlName="stateGroup" required
                           [matAutocomplete]="autoGroup">
                         <mat-autocomplete #autoGroup="matAutocomplete" class="mt-4">
                           <mat-optgroup *ngFor="let group of stateGroupOptions | async"
-                            [label]="locationName===''?group.letter:''">
+                            [label]="userSearchSelections.locationName===''?group.letter:''">
                             <mat-option *ngFor="let name of group.names" [value]="name">
                               {{name}}
                               <mat-divider></mat-divider>
@@ -27,13 +27,13 @@
                       </form>
 
                     <div class="icon-style">
-                        <img [(ngModel)]="serachName" class="search-icon"
+                        <img class="search-icon"
                             src="../../../../../assets/images/icn_gps_indicator.png" />
                     </div>
                 </div>
 
                 <div class="search-box p-0 p-md-3 col-md-6">
-                    <input class="form-control border-0" type="text" placeholder="Search your restaurant or cuisines"
+                    <input class="form-control border-0" type="text" (keyup)="searchAction($event)" [ngModel]="userSearchSelections.searchName"
                         aria-label="Search">
                     <div class="icon-style">
                         <img class="search-icon" src="../../../../../assets/images/icn_search_home copy.png" />
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <input [hidden]="false" class="hidden-input" [min]="minDate" [(ngModel)]="dateTime"
+                    <input [hidden]="false" class="hidden-input" [min]="minDate" [(ngModel)]="userSearchSelections.dateTime"
                         [matDatepicker]="picker" />
                     <mat-datepicker disablePast #picker></mat-datepicker>
                     <button class="calender-container d-flex align-items-center justify-content-center"
