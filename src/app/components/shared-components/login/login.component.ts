@@ -31,11 +31,10 @@ export class LoginComponent implements OnInit {
   firstName = { value: '', error: '' };
   lastName = { value: '', error: '' };
   constructor(
-    private route: Router,
-    public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA)
-    public data: { formType: string }
-  ) { this.formType = data.formType; }
+  private route: Router,
+  public dialogRef: MatDialogRef<any>,
+  @Inject(MAT_DIALOG_DATA) public data: { formType: string })
+ { this.formType = data.formType; }
 
   ngOnInit(): void { }
   closeDialog(): void {

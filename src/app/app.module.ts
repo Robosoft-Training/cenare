@@ -13,6 +13,7 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { ContactComponent } from './components/contact/contact.component';
     AboutComponent,
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
