@@ -18,4 +18,15 @@ export class LocalStorageService {
     return localStorage.getItem('searchDetails');
   }
 
+  setUserCoordinates = (userSearchDetails) => {
+    localStorage.setItem('userCoordinated', JSON.stringify(userSearchDetails));
+  }
+
+  getUserCoordinates = () => {
+    if (localStorage.getItem('userCoordinated') === null) {
+      return null;
+    }
+    return localStorage.getItem('userCoordinated');
+  }
+
 }

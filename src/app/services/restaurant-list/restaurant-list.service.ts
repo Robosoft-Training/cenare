@@ -14,10 +14,16 @@ export class RestaurantListService {
     locationName: '',
     dateTime: ''
   };
+  searchData: any;
+  coordinatesData: any;
   baseUrl = 'http://192.168.225.87:3000/reataurantList';
 
   dataListSource = new BehaviorSubject({});
   currentDataList = this.dataListSource.asObservable();
+
+  retaurantDataListSource = new BehaviorSubject({});
+  currentretaurantDataListSource = this.retaurantDataListSource.asObservable();
+  currentretaurantDataList: any;
 
   constructor(
     private httpClient: HttpClient,
@@ -29,13 +35,29 @@ export class RestaurantListService {
     this.dataListSource.next(this.searchDetails);
     // console.log(coordinates.results[0].position.lat, coordinates.results[0].position.lon);
     this.localStorageService.setUserSearchDetails(this.searchDetails);
+    this.localStorageService.setUserCoordinates(coordinates);
     const url = `${this.baseUrl}`;
     return this.httpClient.get<any[]>(url)
       .pipe(
-        tap(_ => console.log('Items Fetched')),
+        tap(data => {
+          this.currentretaurantDataList = {...data};
+          this.retaurantDataListSource.next(this.currentretaurantDataList );
+        }),
         retry(3),
         catchError(this.handleError)
       );
+  }
+
+  loadRestaurants = () => {
+    this.searchData = this.localStorageService.getUserSearchDetails();
+    this.searchData = JSON.parse(this.searchData);
+    this.coordinatesData = this.localStorageService.getUserSearchDetails();
+    this.coordinatesData = JSON.parse(this.coordinatesData);
+    this.searchRestaurants(this.searchData, this.coordinatesData).subscribe(
+      res => {
+        // console.log(res);
+      }
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

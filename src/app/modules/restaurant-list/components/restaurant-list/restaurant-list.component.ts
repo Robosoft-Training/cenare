@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private restaurantListService: RestaurantListService
+  ) { }
 
   ngOnInit(): void {
+    this.restaurantListService.currentretaurantDataListSource.subscribe(
+      (retaurantDataList) => {
+        console.log(retaurantDataList);
+      }
+    );
+    this.restaurantListService.loadRestaurants();
   }
-
 }
