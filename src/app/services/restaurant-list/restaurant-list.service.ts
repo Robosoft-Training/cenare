@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, map, retry, tap } from 'rxjs/operators';
@@ -31,13 +31,20 @@ export class RestaurantListService {
   ) { }
 
   searchRestaurants = (searchDetails, coordinates): Observable<any[]> => {
+    this.coordinatesData = coordinates;
     this.searchDetails = { ...searchDetails };
     this.dataListSource.next(this.searchDetails);
-    // console.log(coordinates.results[0].position.lat, coordinates.results[0].position.lon);
     this.localStorageService.setUserSearchDetails(this.searchDetails);
     this.localStorageService.setUserCoordinates(coordinates);
+
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
+    httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
+    httpParams = httpParams.append('city', searchDetails.locationName);
+    httpParams = httpParams.append('searchBy', searchDetails.searchName);
+
     const url = `${this.baseUrl}`;
-    return this.httpClient.get<any[]>(url)
+    return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
           this.currentretaurantDataList = { ...data };
@@ -51,13 +58,47 @@ export class RestaurantListService {
   loadRestaurants = () => {
     this.searchData = this.localStorageService.getUserSearchDetails();
     this.searchData = JSON.parse(this.searchData);
-    this.coordinatesData = this.localStorageService.getUserSearchDetails();
+    this.coordinatesData = this.localStorageService.getUserCoordinates();
     this.coordinatesData = JSON.parse(this.coordinatesData);
     this.searchRestaurants(this.searchData, this.coordinatesData).subscribe(
       res => {
         // console.log(res);
       }
     );
+  }
+
+  filterRetaurants = (filterData: any) => {
+
+    this.searchData = this.localStorageService.getUserSearchDetails();
+    this.searchData = JSON.parse(this.searchData);
+    this.coordinatesData = this.localStorageService.getUserCoordinates();
+    this.coordinatesData = JSON.parse(this.coordinatesData);
+
+    let httpParams = new HttpParams();
+
+    // Appending Loaction and Search by
+    httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
+    httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
+    httpParams = httpParams.append('city', this.searchData.locationName);
+    httpParams = httpParams.append('searchBy', this.searchData.searchName);
+
+    // Appending filterdata
+    httpParams = httpParams.append('reaturentWith', filterData.reaturentWith);
+    httpParams = httpParams.append('deliveryIn', filterData.deliveryIn);
+    httpParams = httpParams.append('avgMealCoast', filterData.avgMealCoast);
+    httpParams = httpParams.append('minOrder', filterData.minOrder);
+    httpParams = httpParams.append('cuisines', filterData.cuisines);
+
+    const url = `${this.baseUrl}/filter`;
+    return this.httpClient.get<any[]>(url, { params: httpParams })
+      .pipe(
+        tap(data => {
+          this.currentretaurantDataList = { ...data };
+          this.retaurantDataListSource.next(this.currentretaurantDataList);
+        }),
+        retry(3),
+        catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse) {
