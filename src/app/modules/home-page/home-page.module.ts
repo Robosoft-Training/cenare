@@ -12,10 +12,10 @@ import { SharedComponentsModule } from 'src/app/components/shared-components/sha
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { PICK_FORMATS } from '../../shared/date-picker-formate';
 import { DatePickerService } from '../../services/date-picker/date-picker.service';
-
+import { CustomScrollDirective } from './components/home-deals-offers/custom-scroll-directive';
 
 @NgModule({
-  declarations: [HomePageComponent, HomePageHeaderComponent, HomePopularBrandsComponent, HomeDealsOffersComponent],
+  declarations: [HomePageComponent, HomePageHeaderComponent, HomePopularBrandsComponent, HomeDealsOffersComponent, CustomScrollDirective],
   imports: [
     CommonModule,
     HomePageRoutingModule,

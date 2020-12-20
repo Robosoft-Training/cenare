@@ -202,6 +202,19 @@
                 color: $darkGray;
             }
         }
+
+        .disabled-arrow-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            width: 3em;
+            height: 2.5em;
+            color: $disabledButton;
+            pointer-events: none;
+
+            &:active {
+                color: $darkGray;
+            }
+        }
     }
 }
 

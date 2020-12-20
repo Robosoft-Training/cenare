@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 import { IPopularBrands } from 'src/app/shared/interfaces/IPopularBrands';
 
@@ -13,10 +12,28 @@ export class HomePopularBrandsComponent implements OnInit {
   popularBrands: IPopularBrands[] = [];
   isLoading = true;
   isErrorLoading = false;
+  hasNextItem = true;
+  hasPreviousItem = false;
+  carouselCount = 0;
 
   constructor(
     private popularProductsService: PopularProductsService
   ) { }
+
+  carouselControl = (count) => {
+    this.carouselCount += count;
+    const listLength = this.popularBrands.length;
+    if (this.carouselCount === listLength) {
+      this.hasNextItem = false;
+    }
+    else if (this.carouselCount === 0) {
+      this.hasPreviousItem = false;
+    }
+    else {
+      this.hasNextItem = true;
+      this.hasPreviousItem = true;
+    }
+  }
 
   getDetails = (brandId: any) => {
     // Move to Brand details

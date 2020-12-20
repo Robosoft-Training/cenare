@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
-import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 
 @Component({
@@ -13,6 +12,17 @@ export class HomeDealsOffersComponent implements OnInit {
   dealsOffers: IDealsOffers[] = [];
   isLoading = true;
   isErrorLoading = false;
+  disableBtn1: boolean = true;
+  disableBtn2: boolean = false;
+  top: any;
+  offSetHeight: any;
+  scrollHeight: any;
+
+  @ViewChild(
+    'widgetsContent',
+    { read: ElementRef }
+  )
+  public widgetsContent: any;
 
   constructor(
     private dealsOfferService: DealsOffersService
@@ -44,6 +54,14 @@ export class HomeDealsOffersComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
+  }
+
+  public scrollRight(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft + 550), behavior: 'smooth' });
+  }
+
+  public scrollLeft(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 550), behavior: 'smooth' });
   }
 
 }

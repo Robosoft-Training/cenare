@@ -10,14 +10,24 @@
     @include brands-heading();
     @include brands-about();
 
+    .scroll-widget {
+        display: inline-flex;
+        overflow: hidden;
+    }
+
+    .scroll-view-container {
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
     .two-cards {
         display: flex;
 
-        .offer-deal-1,
-        .offer-deal-2 {
+        .offer-deals {
             display: flex;
             flex-direction: row;
-            background-color: $white;
             border-radius: 5px;
             cursor: all-scroll;
 
@@ -47,15 +57,17 @@
             }
 
             .brand-image-container {
+                display: flex;
+                margin-right: 1.2em;
 
                 .brand-image {
-                    width: 100%;
-                    height: 13em;
+                    width: 22.7em;
+                    height: 13.8em;
                 }
 
                 @media only screen and (min-width: 1400px) {
                     .brand-image {
-                        width: 27em;
+                        width: 27.8em;
                         height: 15em;
                     }
                 }
@@ -124,5 +136,17 @@
 @media only screen and (max-width: 768px) {
     .deals-offer-container {
         height: 20em;
+
+        .scroll-widget {
+            display: inline-flex;
+            overflow: auto;
+        }
+
+        .scroll-view-container {
+            float: left;
+            width: 100%;
+            overflow: auto;
+            white-space: nowrap;
+        }
     }
 }
