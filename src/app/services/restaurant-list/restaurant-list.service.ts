@@ -30,6 +30,16 @@ export class RestaurantListService {
     private localStorageService: LocalStorageService
   ) { }
 
+  getDate = (dateTime) => {
+    let date: any = new Date(dateTime);
+    date = ((
+      date.getMonth() > 8) ?
+      date.getFullYear() + '-' + (date.getMonth() + 1) :
+      ('0' + (date.getMonth() + 1))) + '-' + ((date.getDate() > 9) ? date.getDate() :
+      ('0' + date.getDate()));
+    return date;
+  }
+
   searchRestaurants = (searchDetails, coordinates): Observable<any[]> => {
     this.coordinatesData = coordinates;
     this.searchDetails = { ...searchDetails };
@@ -37,11 +47,13 @@ export class RestaurantListService {
     this.localStorageService.setUserSearchDetails(this.searchDetails);
     this.localStorageService.setUserCoordinates(coordinates);
 
+    const date = this.getDate(searchDetails.dateTime);
     let httpParams = new HttpParams();
     httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
     httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
     httpParams = httpParams.append('city', searchDetails.locationName);
     httpParams = httpParams.append('searchBy', searchDetails.searchName);
+    httpParams = httpParams.append('date', date);
 
     const url = `${this.baseUrl}`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
@@ -74,6 +86,7 @@ export class RestaurantListService {
     this.coordinatesData = this.localStorageService.getUserCoordinates();
     this.coordinatesData = JSON.parse(this.coordinatesData);
 
+    const date = this.getDate(this.searchDetails.dateTime);
     let httpParams = new HttpParams();
 
     // Appending Loaction and Search by
@@ -88,6 +101,7 @@ export class RestaurantListService {
     httpParams = httpParams.append('avgMealCoast', filterData.avgMealCoast);
     httpParams = httpParams.append('minOrder', filterData.minOrder);
     httpParams = httpParams.append('cuisines', filterData.cuisines);
+    httpParams = httpParams.append('date', date);
 
     const url = `${this.baseUrl}/filter`;
     return this.httpClient.get<any[]>(url, { params: httpParams })

@@ -17,14 +17,14 @@ export class RestaurantListComponent implements OnInit {
   loadData = () => {
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (retaurantDataList) => {
-        console.log(retaurantDataList);
+        // console.log(retaurantDataList);
       }
     );
     this.restaurantListService.loadRestaurants();
 
     this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
       (retaurantDataList) => {
-        console.log(retaurantDataList);
+        // console.log(retaurantDataList);
       }
     );
     this.popularProductsService.loadNearbyBrands();
