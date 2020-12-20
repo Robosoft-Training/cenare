@@ -12,6 +12,7 @@ import { DatePickerService } from '../../services/date-picker/date-picker.servic
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
+
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -25,7 +26,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     CommonModule,
     AngularMaterialsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     NavBarComponent,

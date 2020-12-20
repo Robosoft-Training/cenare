@@ -11,5 +11,4 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
