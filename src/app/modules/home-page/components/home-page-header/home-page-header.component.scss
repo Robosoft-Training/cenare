@@ -1,6 +1,7 @@
-@import "../../../../../variables.scss";
-@import "../../../../../mixin.scss";
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
 
+@include overriding-angular-materials-filter-input(31.3em);
 @include overriding-angular-materials();
 
 .header {
@@ -29,15 +30,10 @@
                 height: 3.5em;
                 border-radius: 0.4em;
 
-                .search-icon-area {
-                    width: 1.2em;
-                    z-index: 2;
-                    padding-right: 2em;
-                    @include icon-style();
-                }
-
+                @include icon-style();
                 @include form-controles();
             }
+
             .scroll-mouse {
                 position: relative;
                 top: 10em;
@@ -52,8 +48,9 @@
 
             .location {
                 @include mediam-imput-box(48%);
-                @include gps-icon();
                 @include form-controles();
+                @include icon-style();
+                @include gps-form-control();
                 background-color: $white;
             }
 
@@ -61,29 +58,8 @@
                 background-color: $white;
                 @include mediam-imput-box(42%);
                 margin-left: 1em;
-
                 @include form-controles();
-
-                .calender-container {
-                    background: $calenderTheme;
-                    width: 2.6em;
-                    height: 2.5em;
-                    border-radius: 0.5em;
-                    z-index: 0;
-                    box-shadow: $inputBoxShadow;
-                    border: none;
-                    outline: none;
-                    margin-right: 0.18em;
-
-                    .clock-icon {
-                        outline: none;
-                        color: $white;
-
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-                }
+                @include calender-container();
             }
         }
     }
@@ -104,10 +80,14 @@
         @include right-gradient-fill(60rem, 40rem, 26em, 20em, -6em, 1.5em, 65em, 55em, -68em, -6em);
         @include left-green-fill(42em, 24em, 12em, 11em, -13em, 15em, -18em, -1em);
     }
+
+    @include overriding-angular-materials-filter-input(37em);
 }
 
 @media only screen and (max-width: 768px) {
     .header {
-        height: 35em;
+        height: 40em;
     }
+
+    @include overriding-angular-materials-filter-input(20em);
 }

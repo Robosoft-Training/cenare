@@ -1,0 +1,55 @@
+<div class="container-fluid search-bar-container">
+    <div class="container">
+        <div class="search-bar-area">
+            <span class="product-description">Delivery ASAP</span>
+            <div
+                class="form-group location-date-input pt-2 row d-block d-md-flex align-items-center justify-content-center">
+
+                <div class="location p-3 mr-sm-3 col-12 col-md-4">
+                    <div class="icon-style">
+                        <img class="gps-icon" src="../../../../../assets/images/icn_pin.png" />
+                    </div>
+                    <!-- <input class="form-control" placeholder="Search" aria-label="Search"> -->
+
+                    <form [formGroup]="stateForm" class="gps-form-control"  >
+                        <input type="text" class="location-input" matInput [(ngModel)]="userSearchSelections.locationName"
+                          placeholder="States Group" formControlName="stateGroup" required
+                          [matAutocomplete]="autoGroup">
+                        <mat-autocomplete #autoGroup="matAutocomplete" class="mt-4">
+                          <mat-optgroup *ngFor="let group of stateGroupOptions | async"
+                            [label]="userSearchSelections.locationName===''?group.letter:''">
+                            <mat-option *ngFor="let name of group.names" [value]="name">
+                              {{name}}
+                              <mat-divider></mat-divider>
+                            </mat-option>
+                          </mat-optgroup>
+                        </mat-autocomplete>
+                      </form>
+
+                    <div class="icon-style">
+                        <img class="search-icon"
+                            src="../../../../../assets/images/icn_gps_indicator.png" />
+                    </div>
+                </div>
+
+                <div class="search-box p-0 p-md-3 col-md-6">
+                    <input class="form-control border-0" type="text" (keyup)="searchAction($event)" [ngModel]="userSearchSelections.searchName"
+                        aria-label="Search">
+                    <div class="icon-style">
+                        <img class="search-icon" src="../../../../../assets/images/icn_search_home copy.png" />
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <input [hidden]="false" class="hidden-input" [min]="minDate" [(ngModel)]="userSearchSelections.dateTime"
+                        [matDatepicker]="picker" />
+                    <mat-datepicker disablePast #picker></mat-datepicker>
+                    <button class="calender-container d-flex align-items-center justify-content-center"
+                        (click)="picker.open()">
+                        <mat-icon class="clock-icon">access_time</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

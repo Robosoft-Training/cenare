@@ -15,7 +15,7 @@ export const locationsList: ILocation[] = [
   },
   {
     letter: 'D',
-    names: ['Delaware']
+    names: ['Davanagere', 'Dharavada']
   },
   {
     letter: 'M',

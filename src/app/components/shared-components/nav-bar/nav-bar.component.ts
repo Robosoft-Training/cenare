@@ -26,7 +26,7 @@ export class NavBarComponent implements OnInit {
       $('.navbar').addClass('navbar-style');
       $('.cart-place').removeClass('after-scroll');
       $('.cart-place').addClass('before-scroll');
-      console.log('Hello');
+      // console.log('Hello');
     }
   }
 

@@ -3,11 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
 // Fonts 
-$openSans: 'Open Sans', sans-serif;
-$bebas: 'Bebas Neue',cursive;
-$openSansSemibold: 'Open Sans', sans-serif;
-$openSans: 'Open Sans', sans-serif;
-$bebas: 'Bebas Neue', cursive;
+$openSans: 'Open Sans',
+sans-serif;
+$bebas: 'Bebas Neue',
+cursive;
+$openSansSemibold: 'Open Sans',
+sans-serif;
+$openSans: 'Open Sans',
+sans-serif;
+$bebas: 'Bebas Neue',
+cursive;
 
 // colors 
 $white: #FFFF;
@@ -31,3 +36,4 @@ $darkPink: #F3698E;
 $black: #000;
 $naveBarShadow: 0 2px 4px 0px rgba(0, 0, 0, 0.08);
 $lightGradient: linear-gradient(178.89deg, #FFFFFF 0%, #F4F6FF 100%);
+$disabledButton: #d3d3d3;

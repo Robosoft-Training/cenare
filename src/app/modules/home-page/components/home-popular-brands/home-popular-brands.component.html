@@ -66,11 +66,13 @@
                             <div class="p-2">
                                 <div class="controll-btn btn-group pt-1" role="group" aria-label="Basic example">
                                     <a href="#carouselExampleControls" role="button" data-bs-slide="prev"
-                                        class="arrow-btn btn btn-light shadow">
+                                        (click)="carouselControl(-1)"
+                                        [ngClass]="{'arrow-btn':hasPreviousItem, 'disabled-arrow-btn': !hasPreviousItem, 'btn':true, 'btn-light':true, 'shadow': true}">
                                         <mat-icon>keyboard_arrow_left</mat-icon>
                                     </a>
                                     <a href="#carouselExampleControls" role="button" data-bs-slide="next"
-                                        class="arrow-btn btn btn-light shadow">
+                                        (click)="carouselControl(1)"
+                                        [ngClass]="{'arrow-btn':hasNextItem, 'disabled-arrow-btn': !hasNextItem, 'btn':true, 'btn-light':true, 'shadow': true}">
                                         <mat-icon>keyboard_arrow_right</mat-icon>
                                     </a>
                                 </div>

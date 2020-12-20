@@ -9,7 +9,7 @@ import { catchError, filter, map, retry, tap } from 'rxjs/operators';
 })
 export class DealsOffersService {
 
-  apiBaseUrl = 'http://192.168.225.87:3001/dealsOffers';
+  apiBaseUrl = 'http://192.168.225.87:3000/dealsOffers';
 
   constructor(private httpClient: HttpClient) { }
 
