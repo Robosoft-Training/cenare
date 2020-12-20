@@ -1,1 +1,109 @@
-<p>restaurant-list-filter works!</p>
+<p class="heading">Breakfast in Dubai</p>
+
+<div class="container">
+  <div class="box">
+    <div class="rectangle">
+      <p class="filters">Filters</p>
+      <button class="resetAll" (click)="reset_filter()" id="ExampleTrigger">Reset All</button>
+    </div>
+  </div>
+  <div class="wrap-1">
+    <input type="radio" class="input" id="tab-1" name="tabs">
+    <label class="label" for="tab-1">
+      <div class="tab">TIME & AVERAGE MEAL COST</div>
+      <div class="cross"></div>
+    </label>
+    <div class="questions">
+      <div class="category">
+        <p class="text">Show restaurant with</p>
+        <div class="options">
+          <div class="option">
+            <input class="radioChecked" [(ngModel)]="openNow" type="radio" id="openNow" value="openNow">
+            <label class="optionChecked" for="openNow">Open Now</label>
+          </div>
+        </div>
+      </div>
+      <div class="category">
+        <p class="text">Delivery in</p>
+        <div class="options">
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="delivery" type="radio" name="delivery" id="thirty" value="thirty">
+            <label class="optionLabel" for="thirty">30 min</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="delivery" type="radio" name="delivery" id="fortyFive"
+              value="fortyFive">
+            <label class="optionLabel" for="fortyFive">45 min</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="delivery" type="radio" name="delivery" id="sixty" value="sixty">
+            <label class="optionLabel" for="sixty">60 min</label>
+          </div>
+        </div>
+      </div>
+      <div class="category">
+        <p class="text">Average meal cost</p>
+        <div class="options">
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="averageCost" type="radio" name="averageCost" id="threeHundred"
+              value="threeHundred">
+            <label class="optionLabel" for="threeHundred">Upto 300 INR</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="averageCost" type="radio" name="averageCost" id="fiveHundred"
+              value="fiveHundred">
+            <label class="optionLabel" for="fiveHundred">Upto 500 INR</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="averageCost" type="radio" name="averageCost" id="thousand"
+              value="thousand">
+            <label class="optionLabel" for="thousand">Upto 1000 INR</label>
+          </div>
+        </div>
+      </div>
+      <div class="category" style="margin-bottom: 28px;">
+        <p class="text">Minium order</p>
+        <div class="options">
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="minimumCost" type="radio" name="minimunCost" id="minFiveHundred"
+              value="fiveHundred">
+            <label class="optionLabel" for="minFiveHundred">Upto 500 INR</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" [(ngModel)]="minimumCost" type="radio" name="minimumCost" id="minThousand"
+              value="thousand">
+            <label class="optionLabel" for="minThousand">Upto 1000 INR</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap-2">
+    <input type="radio" class="input" id="tab-2" name="tabs">
+    <label class="label" for="tab-2">
+      <div class="tab">CUISINES</div>
+      <div class="cross"></div>
+    </label>
+    <div class="questions">
+      <div class="category" style="margin-bottom: 28px;">
+        <div class="options">
+          <div class="option">
+            <input type="radio" class="radioButton" [(ngModel)]="cuisine" name="cuisine" id="indian" value="indian">
+            <label class="optionLabel" for="indian">Indian</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" type="radio" [(ngModel)]="cuisine" name="cuisine" id="chinese" value="chinese">
+            <label class="optionLabel" for="chinese">Chinese</label>
+          </div>
+          <div class="option">
+            <input class="radioButton" type="radio" [(ngModel)]="cuisine" name="cuisine" id="italian" value="italian">
+            <label class="optionLabel" for="italian">Italian</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box2">
+    <button class="applyButton" (click)="apply()">APPLY</button>
+  </div>
+</div>
