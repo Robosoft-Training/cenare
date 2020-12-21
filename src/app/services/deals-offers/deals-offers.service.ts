@@ -3,18 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 import { catchError, filter, map, retry, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DealsOffersService {
 
-  apiBaseUrl = 'http://192.168.225.87:3000/dealsOffers';
+  apiBaseUrl = environment.baseUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   getDealsOffers = (): Observable<IDealsOffers[]> => {
-    const url = `${this.apiBaseUrl}`;
+    const url = `${this.apiBaseUrl}dealsOffers`;
     return this.httpClient.get<IDealsOffers[]>(url)
       .pipe(
         tap(_ => console.log('Items Fetched')),

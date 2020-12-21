@@ -11,6 +11,7 @@ import { LoginComponent } from '../login/login.component';
 export class NavBarComponent implements OnInit {
 
   @Input() pageName: any;
+
   isLoggedIn = false;
   userName = 'ASHLEY';
 
@@ -26,7 +27,7 @@ export class NavBarComponent implements OnInit {
       $('.navbar').addClass('navbar-style');
       $('.cart-place').removeClass('after-scroll');
       $('.cart-place').addClass('before-scroll');
-      // console.log('Hello');
+      console.log(this.pageName);
     }
   }
 
@@ -37,7 +38,8 @@ export class NavBarComponent implements OnInit {
     if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {
       element!.classList.add('navbar-inverse');
       element!.classList.remove('navbar-style');
-    } else {
+    } 
+    else if(this.pageName === 'home'){
       element!.classList.remove('navbar-inverse');
       element!.classList.add('navbar-style');
     }
@@ -46,7 +48,8 @@ export class NavBarComponent implements OnInit {
     if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {
       element!.classList.add('after-scroll');
       element!.classList.remove('before-scroll');
-    } else {
+    } 
+    else if(this.pageName === 'home') {
       element!.classList.remove('after-scroll');
       element!.classList.add('before-scroll');
     }

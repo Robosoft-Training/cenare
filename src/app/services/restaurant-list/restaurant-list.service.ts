@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, map, retry, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class RestaurantListService {
   };
   searchData: any;
   coordinatesData: any;
-  baseUrl = 'http://192.168.225.87:3000/reataurantList';
+  baseUrl = environment.baseUrl;
 
   dataListSource = new BehaviorSubject({});
   currentDataList = this.dataListSource.asObservable();
@@ -55,7 +56,7 @@ export class RestaurantListService {
     httpParams = httpParams.append('searchBy', searchDetails.searchName);
     httpParams = httpParams.append('date', date);
 
-    const url = `${this.baseUrl}`;
+    const url = `${this.baseUrl}reataurantList`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
@@ -103,7 +104,7 @@ export class RestaurantListService {
     httpParams = httpParams.append('cuisines', filterData.cuisines);
     httpParams = httpParams.append('date', date);
 
-    const url = `${this.baseUrl}/filter`;
+    const url = `${this.baseUrl}/reataurantList/filter`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {

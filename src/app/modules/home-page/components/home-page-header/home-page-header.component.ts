@@ -119,7 +119,6 @@ export class HomePageHeaderComponent implements OnInit {
       , 1500);
   } */
 
-
   ngOnInit(): void {
     this.loadCurrentLocation();
     this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges

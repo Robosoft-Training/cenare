@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { IPopularBrands } from 'src/app/shared/interfaces/IPopularBrands';
 import { catchError, filter, map, retry, tap } from 'rxjs/operators';
 import { LocalStorageService } from '../local-storage/local-storage.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PopularProductsService {
 
   coordinatesData: any;
   searchData: any;
-  apiBaseUrl = 'http://192.168.225.87:3000/popularBrands';
+  apiBaseUrl = environment.baseUrl;
 
   nearbyBrandsDataListSource = new BehaviorSubject({});
   currentnearbyBrandsDataListSource = this.nearbyBrandsDataListSource.asObservable();
@@ -24,7 +25,7 @@ export class PopularProductsService {
   ) { }
 
   getPopularBrands = (): Observable<IPopularBrands[]> => {
-    const url = `${this.apiBaseUrl}`;
+    const url = `${this.apiBaseUrl}popularBrands`;
     return this.httpClient.get<IPopularBrands[]>(url)
       .pipe(
         tap(data => {
@@ -50,7 +51,7 @@ export class PopularProductsService {
     httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
     httpParams = httpParams.append('city', this.searchData.locationName);
 
-    const url = `${this.apiBaseUrl}`;
+    const url = `${this.apiBaseUrl}popularBrands`;
     return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
         tap(data => {

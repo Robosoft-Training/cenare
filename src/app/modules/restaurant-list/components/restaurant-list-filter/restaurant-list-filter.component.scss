@@ -2,15 +2,15 @@
 @import '../../../../../variables.scss';
 
 .heading{
-  height: 32px;
+  height: 34px;
   width: 224px;
   color: #636364;
   font-family: $openSansSemibold;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: 0;
   line-height: 34px;
-  margin-bottom: 26px;
+  margin-bottom: 30px;
 }
 .container {
   width: 210px;
@@ -27,27 +27,28 @@
       height: 27px;
       display: flex;
       position: absolute;
-      margin-top: 14px;
+      margin-top: 12px;
 
       .filters {
         width: 60px;
         color: #1B1C1D;
         font-family: $openSansSemibold;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;
         line-height: 27px;
+        margin-left: 16px;
       }
 
       .resetAll {
         height: 22px;
+        // width: 100px;
         color: #F57C00;
         font-family: $openSans;
         font-size: 12px;
         letter-spacing: 0;
         line-height: 22px;
-        float: right;
-        margin-left: 5em;
+        margin-left: 70px;
         margin-top: auto;
         margin-bottom: auto;
         background: white;
@@ -64,15 +65,15 @@
     .applyButton {
       background: #FFFFFF;
       font-family: $openSans;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       letter-spacing: -0.18px;
       line-height: 19px;
       text-align: center;
-      margin-left: 0px;
+      margin-left: 18px;
       margin-top: 24px;
       height: 35px;
-      width: 175px;
+      width: 180px;
       border-radius: 6px;
       color: #FDA5A3;
       border: 2px solid #FDA5A3;
@@ -81,11 +82,11 @@
   }
 }
 
-// * {
-//   padding: 0;
-//   margin: 0;
-//   box-sizing: border-box;
-// }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
   overflow: hidden;
@@ -110,21 +111,21 @@ body {
 
 .tab {
   height: 19px;
-  width: 250px;
+  width: 260px;
   line-height: 19px;
   color: #5E5E5E;
   font-family: $openSansSemibold;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0;
   line-height: 19px;
-  margin-left: 0px;
+  margin-left: 16px;
   margin-top: auto;
   margin-bottom: auto;
 }
 
 .cross {
-  margin-right: 0px;
+  margin-right: 16px;
 }
 
 .cross:before,
@@ -178,7 +179,7 @@ input:checked~.questions {
 
   .category {
     width: 90%;
-    // margin-left: 21px;
+    margin-left: 21px;
     margin-top: 13px;
 
     .text {
@@ -209,7 +210,7 @@ input:checked~.questions {
   height: 19px;
   color: #606060;
   font-family: $openSansSemibold;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.24px;
   line-height: 19px;
@@ -220,7 +221,7 @@ input:checked~.questions {
   height: 19px;
   color: #606060;
   font-family: $openSansSemibold;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.24px;
   line-height: 19px;
