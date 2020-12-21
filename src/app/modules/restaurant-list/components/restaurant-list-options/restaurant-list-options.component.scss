@@ -1,7 +1,8 @@
 @import '../../../../../mixin.scss';
 
 .restaurant-list {
-  padding: 16px 0px;
+  padding: 8px 0px;
+  // margin-left: 100px;
 
   .filter-options {
     .options {
@@ -107,7 +108,7 @@
           font-size: 12px;
           letter-spacing: 0;
           line-height: 17px;
-          padding-right: 16px;
+          padding-right: 12px;
         }
 
         .text {

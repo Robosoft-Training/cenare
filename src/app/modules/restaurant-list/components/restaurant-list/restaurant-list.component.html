@@ -2,12 +2,14 @@
 <app-top-search-bar></app-top-search-bar>
 <app-breadcrumbs pageName="restaurant-list"></app-breadcrumbs>
 <div class="main-container">
-    <div class="d-flex flex-row justify-contents-between container">
-        <div class="col-3 filter">
-            <p class="bg-success">HEllo</p>
+    <div class="d-flex flex-row container-fuild bg-danger ">
+        <div class="col-3 bg-success"></div>
+        <div class="col-2 filter bg-primary">
+            <app-restaurant-list-filter></app-restaurant-list-filter>
         </div>
-        <div class="col-6 restaurant-list">
+        <div class="col-4 restaurant-list bg-warning">
             <app-restaurant-list-options></app-restaurant-list-options>
         </div>
+        <div class="col-3 bg-success"></div>
     </div>
 </div>
