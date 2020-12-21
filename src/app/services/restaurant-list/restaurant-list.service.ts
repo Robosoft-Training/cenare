@@ -97,11 +97,11 @@ export class RestaurantListService {
     httpParams = httpParams.append('searchBy', this.searchData.searchName);
 
     // Appending filterdata
-    httpParams = httpParams.append('reaturentWith', filterData.reaturentWith);
-    httpParams = httpParams.append('deliveryIn', filterData.deliveryIn);
-    httpParams = httpParams.append('avgMealCoast', filterData.avgMealCoast);
-    httpParams = httpParams.append('minOrder', filterData.minOrder);
-    httpParams = httpParams.append('cuisines', filterData.cuisines);
+    httpParams = httpParams.append('openNow', filterData.openNow);
+    httpParams = httpParams.append('deliveryIn', filterData.delivery);
+    httpParams = httpParams.append('avgMealCoast', filterData.averageCost);
+    httpParams = httpParams.append('minOrder', filterData.minimumCost);
+    httpParams = httpParams.append('cuisine', filterData.cuisine);
     httpParams = httpParams.append('date', date);
 
     const url = `${this.baseUrl}/restaurantList/filter`;

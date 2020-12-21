@@ -18,7 +18,7 @@
         <p class="text">Show restaurant with</p>
         <div class="options">
           <div class="option">
-            <input class="radioChecked" [(ngModel)]="openNow" type="radio" id="openNow" value="openNow">
+            <input class="radioChecked" [(ngModel)]="filterData.openNow" type="radio" id="openNow" value="openNow">
             <label class="optionChecked" for="openNow">Open Now</label>
           </div>
         </div>
@@ -27,16 +27,16 @@
         <p class="text">Delivery in</p>
         <div class="options">
           <div class="option">
-            <input class="radioButton" [(ngModel)]="delivery" type="radio" name="delivery" id="thirty" value="thirty">
+            <input class="radioButton" [(ngModel)]="filterData.delivery" type="radio" name="delivery" id="thirty" value="30">
             <label class="optionLabel" for="thirty">30 min</label>
           </div>
           <div class="option">
-            <input class="radioButton" [(ngModel)]="delivery" type="radio" name="delivery" id="fortyFive"
-              value="fortyFive">
+            <input class="radioButton" [(ngModel)]="filterData.delivery" type="radio" name="delivery" id="fortyFive"
+              value="45">
             <label class="optionLabel" for="fortyFive">45 min</label>
           </div>
           <div class="option">
-            <input class="radioButton" [(ngModel)]="delivery" type="radio" name="delivery" id="sixty" value="sixty">
+            <input class="radioButton" [(ngModel)]="filterData.delivery" type="radio" name="delivery" id="sixty" value="60">
             <label class="optionLabel" for="sixty">60 min</label>
           </div>
         </div>
@@ -45,18 +45,18 @@
         <p class="text">Average meal cost</p>
         <div class="options">
           <div class="option">
-            <input class="radioButton" [(ngModel)]="averageCost" type="radio" name="averageCost" id="threeHundred"
-              value="threeHundred">
+            <input class="radioButton" [(ngModel)]="filterData.averageCost" type="radio" name="averageCost" id="threeHundred"
+              value="300">
             <label class="optionLabel" for="threeHundred">Upto 300 INR</label>
           </div>
           <div class="option">
-            <input class="radioButton" [(ngModel)]="averageCost" type="radio" name="averageCost" id="fiveHundred"
-              value="fiveHundred">
+            <input class="radioButton" [(ngModel)]="filterData.averageCost" type="radio" name="averageCost" id="fiveHundred"
+              value="500">
             <label class="optionLabel" for="fiveHundred">Upto 500 INR</label>
           </div>
           <div class="option">
-            <input class="radioButton" [(ngModel)]="averageCost" type="radio" name="averageCost" id="thousand"
-              value="thousand">
+            <input class="radioButton" [(ngModel)]="filterData.averageCost" type="radio" name="averageCost" id="thousand"
+              value="1000">
             <label class="optionLabel" for="thousand">Upto 1000 INR</label>
           </div>
         </div>
@@ -65,13 +65,13 @@
         <p class="text">Minium order</p>
         <div class="options">
           <div class="option">
-            <input class="radioButton" [(ngModel)]="minimumCost" type="radio" name="minimunCost" id="minFiveHundred"
-              value="fiveHundred">
+            <input class="radioButton" [(ngModel)]="filterData.minimumCost" type="radio" name="minimunCost" id="minFiveHundred"
+              value="500">
             <label class="optionLabel" for="minFiveHundred">Upto 500 INR</label>
           </div>
           <div class="option">
-            <input class="radioButton" [(ngModel)]="minimumCost" type="radio" name="minimumCost" id="minThousand"
-              value="thousand">
+            <input class="radioButton" [(ngModel)]="filterData.minimumCost" type="radio" name="minimumCost" id="minThousand"
+              value="1000">
             <label class="optionLabel" for="minThousand">Upto 1000 INR</label>
           </div>
         </div>
@@ -88,15 +88,15 @@
       <div class="category" style="margin-bottom: 28px;">
         <div class="options">
           <div class="option">
-            <input type="radio" class="radioButton" [(ngModel)]="cuisine" name="cuisine" id="indian" value="indian">
+            <input type="radio" class="radioButton" [(ngModel)]="filterData.cuisine" name="cuisine" id="indian" value="indian">
             <label class="optionLabel" for="indian">Indian</label>
           </div>
           <div class="option">
-            <input class="radioButton" type="radio" [(ngModel)]="cuisine" name="cuisine" id="chinese" value="chinese">
+            <input class="radioButton" type="radio" [(ngModel)]="filterData.cuisine" name="cuisine" id="chinese" value="chinese">
             <label class="optionLabel" for="chinese">Chinese</label>
           </div>
           <div class="option">
-            <input class="radioButton" type="radio" [(ngModel)]="cuisine" name="cuisine" id="italian" value="italian">
+            <input class="radioButton" type="radio" [(ngModel)]="filterData.cuisine" name="cuisine" id="italian" value="italian">
             <label class="optionLabel" for="italian">Italian</label>
           </div>
         </div>

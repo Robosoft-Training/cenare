@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantListFilterComponent implements OnInit {
 
-  delivery;
-  openNow;
-  averageCost;
-  minimumCost;
-  cuisine;
+  filterData = {
+    delivery: null,
+    openNow: null,
+    averageCost: null,
+    minimumCost: null,
+    cuisine: null
+  }
 
   constructor() { }
 
@@ -19,14 +21,15 @@ export class RestaurantListFilterComponent implements OnInit {
   }
 
   reset_filter() {
-    this.delivery = null;
-    this.openNow = null;
-    this.averageCost = null;
-    this.minimumCost = null;
-    this.cuisine = null;
+    this.filterData.delivery = null;
+    this.filterData.openNow = null;
+    this.filterData.averageCost = null;
+    this.filterData.minimumCost = null;
+    this.filterData.cuisine = null;
   }
 
   apply() {
-
+    // Apply filter from service
+    // console.log(this.filterData);
   }
 }

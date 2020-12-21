@@ -21,11 +21,13 @@ export class RestaurantListOptionsComponent implements OnInit {
     private sortingService: SortingService
   ) { }
 
-  compateDate = () => {
-    var dt = new Date();
-    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-    var prem = Date.parse('01/01/2011 20:49:45') > Date.parse(`01/01/2011 ${time}`)
-    console.log(prem, time);
+  compareDate = (openTime, closeTime) => {
+    let currentDate = new Date();
+    let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+    let time_1 = Date.parse(`01/01/1998 ${openTime}`) <= Date.parse(`01/01/1998 ${currentTime}`);
+    let time_2 = Date.parse(`01/01/1998 ${closeTime}`) > Date.parse(`01/01/1998 ${currentTime}`)
+    // console.log(openTime, closeTime, currentTime);
+    return (time_1 && time_2);
   }
 
   convertToarray = (restaurantDataList) => {

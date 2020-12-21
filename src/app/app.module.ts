@@ -24,7 +24,7 @@ import { DatePickerService } from './services/date-picker/date-picker.service';
     AboutComponent,
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
-    ContactComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
