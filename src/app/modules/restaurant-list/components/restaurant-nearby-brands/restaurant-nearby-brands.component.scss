@@ -27,6 +27,7 @@
   width: 96%;
   background-color: white;
   border-radius: 0.5em;
+  margin-bottom: 1em;
 
   .scroll-widget {
     display: inline-flex;
@@ -48,6 +49,18 @@
       cursor: all-scroll;
 
       .offer-card {
+        @include descriptions();
+        
+        .card-brand-name {
+          padding-top: 0.8em;
+          color: $darkBlue;
+          font-family: $openSans;
+          font-size: 0.8em;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 1em;
+        }
+
         position: relative;
         text-align: center;
 
@@ -57,18 +70,6 @@
           left: 2em;
           width: 18em;
           text-align: left;
-
-          @include offer-title();
-
-          .offer-description {
-            color: $white;
-            font-family: $openSans;
-            font-size: 0.8em;
-            letter-spacing: 0;
-            line-height: 1.7em;
-          }
-
-          @include offer-code();
         }
       }
 
@@ -77,8 +78,8 @@
         margin-right: 3.8em;
 
         .image {
-          height: 65px;
-          width: 65px;
+          height: 62px;
+          width: 62px;
         }
 
         @media only screen and (min-width: 1400px) {
@@ -99,9 +100,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 0.7em;
+    background-color: white;
   }
 
   .disabled-arrow-btn {
+    background-color: white;
     color: $disabledButton;
     text-decoration: none;
     padding: 8px 16px;

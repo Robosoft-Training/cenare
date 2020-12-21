@@ -23,7 +23,40 @@
             </ul>
         </div>
     </div>
-    <div class="d-flex flex-row restaurant-card mb-3" *ngFor = "let item of deatilsArray">
+    <div class="d-flex flex-row restaurant-card mb-3" *ngFor = "let item of deatilsArray.slice(0,4)">
+        <div class="card-image">
+            <img class="img" src="../assets/icn_restaurant.png">
+        </div>
+        <div class="d-flex flex-column card-content">
+            <div class="d-flex flex-row justify-content-between content-header">
+                <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
+                <div class="ratings">
+                    <label [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating}}</label>
+                </div>
+            </div>
+            <div class="d-flex flex-column content-middle">
+                <label class="subtitle-text">{{item.restaurant_city}},{{item.restaurant_address}}</label>
+                <div class="divider"></div>
+                <label class="subtitle-text">Indian, Pakistani, Kabab</label>
+            </div>
+            <div class="d-flex flex-row justify-content-between content-bottom">
+                <div class="content-bottom-text">
+                    <label class="status-text text-color-green" *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
+                    <label class="status-text text-color-red" *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
+                    <div class="">
+                        <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
+                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
+                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.avg_order_cost }} avg meal cost</span>
+                    </div>
+                </div>
+                <div class="menu-button" (click)="goToMenuScreen(item.restaurant_id)">
+                    <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-restaurant-nearby-brands></app-restaurant-nearby-brands>
+    <div class="d-flex flex-row restaurant-card mb-3" *ngFor = "let item of deatilsArray.slice(4,deatilsArray.length)">
         <div class="card-image">
             <img class="img" src="../assets/icn_restaurant.png">
         </div>

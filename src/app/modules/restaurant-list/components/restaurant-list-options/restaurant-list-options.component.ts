@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 import { SortingService } from 'src/app/services/sorting/sorting.service';
 
@@ -17,7 +16,6 @@ export class RestaurantListOptionsComponent implements OnInit {
 
   constructor(
     private restaurantListService: RestaurantListService,
-    private popularProductsService: PopularProductsService,
     private sortingService: SortingService
   ) { }
 
@@ -74,6 +72,5 @@ export class RestaurantListOptionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-
   }
 }
