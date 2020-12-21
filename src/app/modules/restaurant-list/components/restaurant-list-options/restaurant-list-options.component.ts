@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
+import { SortingService } from 'src/app/services/sorting/sorting.service';
 
 @Component({
   selector: 'app-restaurant-list-options',
@@ -15,7 +16,8 @@ export class RestaurantListOptionsComponent implements OnInit {
 
   constructor(
     private restaurantListService: RestaurantListService,
-    private popularProductsService: PopularProductsService
+    private popularProductsService: PopularProductsService,
+    private sortingService: SortingService
   ) { }
 
   compateDate = () => {
@@ -27,7 +29,7 @@ export class RestaurantListOptionsComponent implements OnInit {
 
   convertToarray = (restaurantDataList) => {
     this.deatilsArray = [];
-    for(var i in restaurantDataList){
+    for (var i in restaurantDataList) {
       this.deatilsArray.push(restaurantDataList[i]);
       // console.log(this.deatilsArray);
     }
@@ -59,14 +61,15 @@ export class RestaurantListOptionsComponent implements OnInit {
   }
 
   sortData = (sortType) => {
-    this.deatilsArray.sort(function(a, b) {
-      return parseFloat(b.rating)-parseFloat(a.rating);
-    });
-    this.deatilsArray.sort((a, b) => parseFloat(b.rating)-parseFloat(a.rating));
+    this.deatilsArray = this.sortingService.sortingFloat(this.deatilsArray, sortType);
+  }
+
+  sortinAlphabetically = (sortType) => {
+    this.deatilsArray = this.sortingService.sortinAlphabetically(this.deatilsArray, sortType);
   }
 
   ngOnInit(): void {
     this.loadData();
-    
+
   }
 }
