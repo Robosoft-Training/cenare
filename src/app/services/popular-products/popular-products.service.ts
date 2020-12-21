@@ -51,7 +51,7 @@ export class PopularProductsService {
     httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
     httpParams = httpParams.append('city', this.searchData.locationName);
 
-    const url = `${this.apiBaseUrl}popularBrands`;
+    const url = `${this.apiBaseUrl}popularBrands/nearby`;
     return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
         tap(data => {

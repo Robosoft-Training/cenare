@@ -41,9 +41,9 @@ export class HomeDealsOffersComponent implements OnInit {
   loadProducts = () => {
     this.isErrorLoading = false;
     this.dealsOfferService.getDealsOffers().subscribe(
-      (products: IDealsOffers[]) => {
-        // console.log(products);
-        this.dealsOffers = products;
+      (dealsOffers: IDealsOffers[]) => {
+        // console.log(dealsOffers);
+        this.dealsOffers = dealsOffers;
         this.isLoading = false;
       },
       err => {

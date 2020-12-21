@@ -50,13 +50,13 @@ export class RestaurantListService {
 
     const date = this.getDate(searchDetails.dateTime);
     let httpParams = new HttpParams();
-    httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
-    httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
-    httpParams = httpParams.append('city', searchDetails.locationName);
-    httpParams = httpParams.append('searchBy', searchDetails.searchName);
-    httpParams = httpParams.append('date', date);
+    // httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
+    // httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
+    // httpParams = httpParams.append('city', searchDetails.locationName);
+    // httpParams = httpParams.append('searchBy', searchDetails.searchName);
+    // httpParams = httpParams.append('date', date);
 
-    const url = `${this.baseUrl}reataurantList`;
+    const url = `${this.baseUrl}restaurantList`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
@@ -104,7 +104,7 @@ export class RestaurantListService {
     httpParams = httpParams.append('cuisines', filterData.cuisines);
     httpParams = httpParams.append('date', date);
 
-    const url = `${this.baseUrl}/reataurantList/filter`;
+    const url = `${this.baseUrl}/restaurantList/filter`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {

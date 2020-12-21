@@ -13,39 +13,39 @@
             <label class="heading-text">Sort by :</label>
             <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Ratings</label>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Rating High to Low</a></li>
-              <li><a class="dropdown-item" href="#">Rating Low to High</a></li>
-              <li><a class="dropdown-item" href="#">Avg. meal cost High</a></li>
-              <li><a class="dropdown-item" href="#">Avg. meal cost Low</a></li>
+              <li><a class="dropdown-item" (click)="sortData('rating_high_low')">Rating High to Low</a></li>
+              <li><a class="dropdown-item" (click)="sortData('rating_low_high')">Rating Low to High</a></li>
+              <li><a class="dropdown-item" (click)="sortData('avg_high_low')">Avg. meal cost High</a></li>
+              <li><a class="dropdown-item" (click)="sortData('avg_low_high')">Avg. meal cost Low</a></li>
             </ul>
         </div>
     </div>
-    <div class="d-flex flex-row restaurant-card">
+    <div class="d-flex flex-row restaurant-card mb-3" *ngFor = "let item of deatilsArray">
         <div class="card-image">
             <img class="img" src="../assets/icn_restaurant.png">
         </div>
         <div class="d-flex flex-column card-content">
             <div class="d-flex flex-row justify-content-between content-header">
-                <label class="restaurant-name-text">The Boutique Kitchen</label>
+                <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
                 <div class="ratings">
-                    <label class="ratings-text">3.8</label>
+                    <label class="ratings-text">{{item.rating}}</label>
                 </div>
             </div>
             <div class="d-flex flex-column content-middle">
                 <label class="subtitle-text">Shiekh Zayed Road, Dubai, UAE</label>
                 <div class="divider"></div>
-                <label class="subtitle-text">Indian, Pakistani, Kebab</label>
+                <label class="subtitle-text">Indian, Pakistani, Kabab</label>
             </div>
             <div class="d-flex flex-row justify-content-between content-bottom">
                 <div class="content-bottom-text">
-                    <label [ngClass]="{'status-text':true,'text-color-green':0===0}">Open Now</label>
+                    <label [ngClass]="{'status-text':true,'text-color-green':true}">Open Now</label>
                     <div class="">
-                        <span class="list-item">&#9679; 63 mins</span>
-                        <span class="list-item">&nbsp;&nbsp;&#9679; AED40 min order</span>
-                        <span class="list-item">&nbsp;&nbsp;&#9679; AED60 avg meal cost</span>
+                        <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
+                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
+                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.avg_order_cost }} avg meal cost</span>
                     </div>
                 </div>
-                <div class="menu-button">
+                <div class="menu-button" (click)="goToMenuScreen(item.restaurant_id)">
                     <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
                 </div>
             </div>
