@@ -374,3 +374,11 @@
   box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
 
 }
+@mixin subtitle-text {
+    color: #9F9F9F;
+    font-family: $openSans;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 17px;
+    padding-top: 8px;
+  }
