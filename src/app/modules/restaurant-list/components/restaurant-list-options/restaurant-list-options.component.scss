@@ -10,7 +10,7 @@
       .heading-text {
         color: #303134;
         font-family: "Open Sans";
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 600;
         letter-spacing: 0;
         line-height: 22px;
@@ -20,7 +20,7 @@
       .option-text {
         color: #FCA100;
         font-family: "Open Sans";
-        font-size: 16px;
+        font-size: 12px;
         letter-spacing: 0;
         line-height: 22px;
       }
@@ -39,6 +39,11 @@
 
   .card-image {
     padding: 16px;
+    .img{
+      height: 135.48px;
+  width: 137.82px;
+  border-radius: 4px;
+    }
   }
 
   .card-content {

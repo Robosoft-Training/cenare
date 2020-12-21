@@ -1,5 +1,4 @@
 @import '../../../../../variables.scss';
-
 h3 {
   color: #777777;
   font-family: $openSans;
@@ -7,36 +6,30 @@ h3 {
   letter-spacing: 0.27px;
   font-weight: lighter;
   line-height: 22px;
-  margin-left: 70px;
-  margin-top: 10px;
-
+  margin-top: 8px;
   &:focus {
     outline: none;
   }
 }
-
 .card {
   border-radius: 4px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.1);
   padding: 12px;
   cursor: pointer;
-  width: 560.42px;
+  width: 40em;
   height: 100%;
 }
-
 .wrapper {
   display: flex;
   flex-direction: row;
   overflow: auto;
 }
-
 .item {
   min-width: 130px;
   display: flex;
   flex-direction: row;
   overflow: auto;
 }
-
 .image {
   height: 73px;
   width: 73px;
