@@ -133,7 +133,7 @@
     }
 }
 
-@mixin descriptions($paddingLeft: 0%) {
+@mixin descriptions() {
     .product-description {
         color: $descriptionColor;
         font-family: $openSans;
@@ -141,7 +141,6 @@
         letter-spacing: 0;
         line-height: 1.7em;
         margin-top: 0.6em;
-        padding-left: $paddingLeft;
     }
 }
 

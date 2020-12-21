@@ -1,15 +1,19 @@
 <app-nav-bar pageName="restaurant"></app-nav-bar>
 <app-top-search-bar></app-top-search-bar>
 <app-breadcrumbs pageName="restaurant-list"></app-breadcrumbs>
-<div class="main-container">
-    <div class="d-flex flex-row container-fuild bg-danger ">
-        <div class="col-3 bg-success"></div>
-        <div class="col-2 filter bg-primary">
-            <app-restaurant-list-filter></app-restaurant-list-filter>
+<div class="main-container container-fluid">
+    <div class="row bg-danger ">
+        <div class="col-0 col-lg-3 bg-success"></div>
+
+        <div class="col-12 col-lg-7 row">
+            <div class="col-12 col-md-4 filter bg-primary">
+                <app-restaurant-list-filter></app-restaurant-list-filter>
+            </div>
+            <div class="col-12 col-md-7 restaurant-list bg-warning">
+                <app-restaurant-list-options></app-restaurant-list-options>
+            </div>
         </div>
-        <div class="col-4 restaurant-list bg-warning">
-            <app-restaurant-list-options></app-restaurant-list-options>
-        </div>
-        <div class="col-3 bg-success"></div>
+
+        <div class="col-0 col-lg-3 bg-success"></div>
     </div>
 </div>
