@@ -13,6 +13,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   restaurantDataList: any[] = [];
   deatilsArray: any[] = [];
   currentTime: any;
+  sortType = 'rating_high_low';
 
   constructor(
     private restaurantListService: RestaurantListService,
@@ -61,6 +62,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   }
 
   sortData = (sortType) => {
+    this.sortType = sortType;
     this.deatilsArray = this.sortingService.sortingFloat(this.deatilsArray, sortType);
   }
 

@@ -10,7 +10,11 @@
         </div>
         <div class="options">
             <label class="heading-text">Sort by :</label>
-            <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Ratings</label>
+            <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Ratings
+                <span *ngIf="sortType === 'rating_high_low' || sortType === 'avg_high_low'" class="arrow-icon">&#8593;</span>
+                <span *ngIf="sortType === 'rating_low_high' || sortType === 'avg_low_high'" class="arrow-icon">&#8595;</span>
+            </label>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <li><a class="dropdown-item" (click)="sortData('rating_high_low')">Rating High to Low</a></li>
               <li><a class="dropdown-item" (click)="sortData('rating_low_high')">Rating Low to High</a></li>
