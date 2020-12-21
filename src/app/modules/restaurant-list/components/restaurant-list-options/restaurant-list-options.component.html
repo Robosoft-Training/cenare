@@ -8,8 +8,8 @@
               <li><a class="dropdown-item" href="#">A-Z</a></li>
               <li><a class="dropdown-item" href="#">Z-A</a></li>
             </ul>
-          </div>
-          <div class="options">
+        </div>
+        <div class="options">
             <label class="heading-text">Sort by :</label>
             <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Ratings</label>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -18,7 +18,7 @@
               <li><a class="dropdown-item" href="#">Avg. meal cost High</a></li>
               <li><a class="dropdown-item" href="#">Avg. meal cost Low</a></li>
             </ul>
-          </div>
+        </div>
     </div>
     <div class="d-flex flex-row restaurant-card">
         <div class="card-image">
@@ -39,14 +39,14 @@
             <div class="d-flex flex-row justify-content-between content-bottom">
                 <div class="content-bottom-text">
                     <label [ngClass]="{'status-text':true,'text-color-green':0===0}">Open Now</label>
-                    <div>
-                        <li class="list-item">63 mins</li>
-                        <li class="list-item">AED40 min order</li>
-                        <li class="list-item">AED60 avg meal cost</li>
+                    <div class="">
+                        <span class="list-item">&#9679; 63 mins</span>
+                        <span class="list-item">&nbsp;&nbsp;&#9679; AED40 min order</span>
+                        <span class="list-item">&nbsp;&nbsp;&#9679; AED60 avg meal cost</span>
                     </div>
                 </div>
                 <div class="menu-button">
-                    <img src="../assets/images/icn_menu_button.png">
+                    <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
                 </div>
             </div>
         </div>

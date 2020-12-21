@@ -1,78 +1,130 @@
 @import '../../../../../variables.scss';
-h3 {
-  color: #777777;
-  font-family: $openSans;
-  font-size: 14px;
-  letter-spacing: 0.27px;
-  font-weight: lighter;
+@import '../../../../../mixin.scss';
+
+.side-heading {
+  color: #5b5b5c;
+  font-family: "Open Sans";
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
   line-height: 22px;
-  margin-top: 8px;
-  &:focus {
-    outline: none;
-  }
-}
-.card {
-  border-radius: 4px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  cursor: pointer;
-  width: 40em;
-  height: 100%;
-}
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  overflow: auto;
-}
-.item {
-  min-width: 130px;
-  display: flex;
-  flex-direction: row;
-  overflow: auto;
-}
-.image {
-  height: 73px;
-  width: 73px;
+  margin-bottom: 1em;
 }
 
-.card-brand-name {
-  text-align: center;
-  font-family: $openSans;
+.right-option-text {
+  float: right;
+  color: #FCA100;
+  font-family: "Open Sans";
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+  padding-right: 2em;
+  margin-bottom: 1em;
+}
 
-  &:focus {
-    outline: none;
+.brands-nearby {
+  width: 96%;
+  background-color: white;
+  border-radius: 0.5em;
+
+  .scroll-widget {
+    display: inline-flex;
+    overflow: hidden;
+  }
+
+  .scroll-view-container {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .two-cards {
+    display: flex;
+
+    .offer-deals {
+      display: flex;
+      flex-direction: row;
+      border-radius: 5px;
+      cursor: all-scroll;
+
+      .offer-card {
+        position: relative;
+        text-align: center;
+
+        .offer-details {
+          position: relative;
+          top: -13em;
+          left: 2em;
+          width: 18em;
+          text-align: left;
+
+          @include offer-title();
+
+          .offer-description {
+            color: $white;
+            font-family: $openSans;
+            font-size: 0.8em;
+            letter-spacing: 0;
+            line-height: 1.7em;
+          }
+
+          @include offer-code();
+        }
+      }
+
+      .brand-image-container {
+        display: flex;
+        margin-right: 3.8em;
+
+        .image {
+          height: 65px;
+          width: 65px;
+        }
+
+        @media only screen and (min-width: 1400px) {
+          .brand-image {
+            width: 27.8em;
+            height: 15em;
+          }
+        }
+      }
+    }
+  }
+
+  .arrow-btn {
+    padding: 8px 16px;
+    width: 2em;
+    height: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.7em;
+  }
+
+  .disabled-arrow-btn {
+    color: $disabledButton;
+    text-decoration: none;
+    padding: 8px 16px;
+    width: 2em;
+    height: 8em;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.7em;
+    align-items: center;
   }
 }
 
-h4 {
-  color: #F57C00;
-  font-size: 14px;
-  font-family: $openSans;
-  position: absolute;
-  right: 56%;
-  top: 12px;
-  cursor: pointer;
+@media only screen and (max-width: 768px) {
 
-  &:focus {
-    outline: none;
+  .scroll-widget {
+    display: inline-flex;
+    overflow: auto;
   }
-}
 
-.card-brand-outlets {
-  text-align: center;
-  font-family: $openSans;
-  font-size: 12px;
-  color: #777777;
-}
-
-.options {
-  &:focus {
-    outline: none;
+  .scroll-view-container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
   }
-}
-
-.wrapper::-webkit-scrollbar {
-  width: 0;
 }

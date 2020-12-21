@@ -1,19 +1,31 @@
-<h3>Brands Nearby</h3>
-<div class="options">
-  <h4>More ></h4>
-</div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="wrapper">
-          <div *ngFor="let i of [1,2,3,4,5,6,7,8]"
-            class="d-flex flex-column justify-content-center align-items-center item">
-            <img src="../../../../../assets/kfc.png" class="image">
-            <label class="card-brand-name">KFC</label>
-            <label class="card-brand-outlets">2 oulets</label>
+<span class="side-heading">Brands Nearby</span>
+<span class="right-option-text">More &gt;</span>
+
+<div class="d-flex align-items-center brands-nearby">
+  <a (click)="scrollLeft()" role="button" data-bs-slide="prev"
+    [ngClass]="{'arrow-btn':!appScrollElement.disableBtnLeft, 'disabled-arrow-btn': appScrollElement.disableBtnLeft, 'btn':true, 'btn-light':true}">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </a>
+
+  <div #widgetsContent class="scroll-view-container" appCustomScroll #appScrollElement="appCustomScroll">
+    <div *ngFor="let offer of [0,1,2,3,40,1,2,3,40,1,2,3,4,5];" [ngClass]="{'scroll-widget': true}">
+      <div class="two-cards">
+        <div class="offer-deals">
+          <div class="offer-card">
+            <div class="brand-image-container w-sm-100 d-flex flex-column">
+              <img src="../../../../../assets/kfc.png" class="image">
+              <label class="card-brand-name">KFC</label>
+              <label class="card-brand-outlets">2 oulets</label>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
+
+  <a (click)="scrollRight()" role="button" data-bs-slide="next"
+    [ngClass]="{'arrow-btn':!appScrollElement.disableBtnRight, 'disabled-arrow-btn': appScrollElement.disableBtnRight, 'btn':true, 'btn-light':true}">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </a>
+
+</div>

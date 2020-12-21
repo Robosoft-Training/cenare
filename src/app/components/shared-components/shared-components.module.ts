@@ -11,6 +11,7 @@ import { PICK_FORMATS } from '../../shared/date-picker-formate';
 import { DatePickerService } from '../../services/date-picker/date-picker.service';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { CustomScrollDirective } from './custom-scroll-directive';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     LoginComponent,
     HowToOrderComponent,
     TopSearchBarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    CustomScrollDirective
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     MobileAppAddComponent,
     HowToOrderComponent,
     TopSearchBarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    CustomScrollDirective
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },
