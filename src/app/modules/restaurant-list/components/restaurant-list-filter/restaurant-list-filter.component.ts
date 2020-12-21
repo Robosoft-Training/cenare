@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantListFilterComponent implements OnInit {
 
+  delivery;
+  openNow;
+  averageCost;
+  minimumCost;
+  cuisine;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  reset_filter() {
+    this.delivery = null;
+    this.openNow = null;
+    this.averageCost = null;
+    this.minimumCost = null;
+    this.cuisine = null;
+  }
+
+  apply() {
+
+  }
 }

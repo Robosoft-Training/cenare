@@ -7,6 +7,8 @@ import { RestaurantNearbyBrandsComponent } from './components/restaurant-nearby-
 import { RestaurantListOptionsComponent } from './components/restaurant-list-options/restaurant-list-options.component';
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [RestaurantListComponent, RestaurantListFilterComponent, RestaurantNearbyBrandsComponent, RestaurantListOptionsComponent],
@@ -14,7 +16,9 @@ import { AngularMaterialsModule } from '../angular-materials/angular-materials.m
     CommonModule,
     RestaurantListRoutingModule,
     SharedComponentsModule,
-    AngularMaterialsModule
+    AngularMaterialsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class RestaurantListModule { }
