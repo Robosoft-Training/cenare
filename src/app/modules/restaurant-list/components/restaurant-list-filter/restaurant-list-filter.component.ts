@@ -13,7 +13,7 @@ export class RestaurantListFilterComponent implements OnInit {
     averageCost: null,
     minimumCost: null,
     cuisine: null
-  }
+  };
 
   constructor() { }
 

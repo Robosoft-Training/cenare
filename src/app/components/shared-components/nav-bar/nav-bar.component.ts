@@ -38,8 +38,8 @@ export class NavBarComponent implements OnInit {
     if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {
       element!.classList.add('navbar-inverse');
       element!.classList.remove('navbar-style');
-    } 
-    else if(this.pageName === 'home'){
+    }
+    else if (this.pageName === 'home'){
       element!.classList.remove('navbar-inverse');
       element!.classList.add('navbar-style');
     }
@@ -48,8 +48,8 @@ export class NavBarComponent implements OnInit {
     if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {
       element!.classList.add('after-scroll');
       element!.classList.remove('before-scroll');
-    } 
-    else if(this.pageName === 'home') {
+    }
+    else if (this.pageName === 'home') {
       element!.classList.remove('after-scroll');
       element!.classList.add('before-scroll');
     }

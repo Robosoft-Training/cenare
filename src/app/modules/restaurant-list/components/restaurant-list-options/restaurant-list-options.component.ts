@@ -20,30 +20,29 @@ export class RestaurantListOptionsComponent implements OnInit {
   ) { }
 
   compareDate = (openTime, closeTime) => {
-    let currentDate = new Date();
-    let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-    let time_1 = Date.parse(`01/01/1998 ${openTime}`) <= Date.parse(`01/01/1998 ${currentTime}`);
-    let time_2 = Date.parse(`01/01/1998 ${closeTime}`) > Date.parse(`01/01/1998 ${currentTime}`)
+    const currentDate = new Date();
+    const currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
+    const time1 = Date.parse(`01/01/1998 ${openTime}`) <= Date.parse(`01/01/1998 ${currentTime}`);
+    const time2 = Date.parse(`01/01/1998 ${closeTime}`) > Date.parse(`01/01/1998 ${currentTime}`);
     // console.log(openTime, closeTime, currentTime);
-    return (time_1 && time_2);
+    return (time1 && time2);
   }
 
   convertToarray = (restaurantDataList) => {
     this.deatilsArray = [];
-    for (var i in restaurantDataList) {
+    for (let i in restaurantDataList) {
       this.deatilsArray.push(restaurantDataList[i]);
       // console.log(this.deatilsArray);
     }
 
-    let currentDate = new Date();
-    this.currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-
+    const currentDate = new Date();
+    this.currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
   }
 
   loadData = () => {
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
-        this.convertToarray(restaurantDataList);;
+        this.convertToarray( restaurantDataList );
       }
     );
 

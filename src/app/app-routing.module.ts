@@ -16,7 +16,10 @@ const routes: Routes = [
     path: 'restaurant-list',
     loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule)
   },
-  { path: 'shared-modules', loadChildren: () => import('./modules/shared-lazy-modules/shared-lazy-modules.module').then(m => m.SharedLazyModulesModule) }
+  {
+    path: 'shared-modules',
+    loadChildren: () => import('./modules/shared-lazy-modules/shared-lazy-modules.module').then(m => m.SharedLazyModulesModule)
+  }
 ];
 
 @NgModule({

@@ -12,5 +12,4 @@ export class StringSlicePipe implements PipeTransform {
     const slicedValue = value.slice(args[0], args[1]);
     return `${slicedValue}...`;
   }
-
 }
