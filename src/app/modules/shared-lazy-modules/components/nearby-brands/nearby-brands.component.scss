@@ -1,0 +1,84 @@
+@import '../../../../../variables.scss';
+h2{
+    font-weight: lighter;
+    font-family: $openSans; 
+    color: #757575; 
+    font-size: 20px;
+    margin-left: 360px;
+    margin-top: 30px;
+    
+}
+.card{
+    position: relative;
+    top:-25px;
+    margin-top: 16px;
+    margin-left: 290px;
+    border-radius: 9px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.01), 0 0 6px rgba(0,0,0,0.1);
+    padding: 14px 80px 18px 36px;
+    cursor: pointer;
+    width: 744px;
+    height:159px;
+    
+  
+    .img-fluid{
+        position: absolute;
+        margin-left: -36px;
+        margin-top: -14px;
+        width: 274px;
+        height: 158px;
+     
+    }
+    .img-kfc{
+        position: absolute;
+        right:375px;
+        
+    }
+    h3{
+        position: absolute;
+        right: 318px;
+        font-family:$openSans;
+        font-size: 22px;
+        top:34px;
+        font-family: 800;
+        
+    }
+    p{
+        position: absolute;
+        right: 247px;
+        bottom: 40px;
+        font-size: 11px;
+        font-family: $openSans; 
+        color: #757575;
+        top:61px;
+    }
+    .line{
+        position: absolute;
+        right: 35px;
+        bottom: 50px;
+        box-sizing: border-box;
+        width: 410px;
+        border: 1px solid #EDEDED;
+        opacity: 0.5;
+    }
+    h6{
+
+        position: absolute;
+        right: 120px;
+        top: 110px;
+        font-size: 11.5px;
+        font-weight: lighter;
+        font-family: $openSans; 
+        color: #6A6A6A;
+        opacity: 0.8;
+        
+    }
+    .outlets{
+
+        position: absolute;
+        right: 24px; 
+        bottom: 15px;
+        width: 85px;
+    }
+    
+}
