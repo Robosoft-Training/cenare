@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { startWith, map, flatMap, mergeMap } from 'rxjs/operators';
@@ -16,6 +16,8 @@ import { locationsList } from 'src/app/shared/locationsList';
 })
 export class TopSearchBarComponent implements OnInit {
 
+  @Input() pageName: any;
+
   minDate = new Date();
   date: any;
 
@@ -28,6 +30,7 @@ export class TopSearchBarComponent implements OnInit {
   timeOut: any;
   latitude = 0.0;
   longitude = 0.0;
+  navigateToReataurant = false;
 
   stateForm: FormGroup = this.formBuilder.group({
     stateGroup: '',
@@ -44,14 +47,12 @@ export class TopSearchBarComponent implements OnInit {
     private router: Router
   ) { }
 
-
   private _filterGroup(value: string): ILocation[] {
     if (value) {
       return this.stateGroups
         .map(group => ({ letter: group.letter, names: myFilter(group.names, value) }))
         .filter(group => group.names.length > 0);
     }
-
     return this.stateGroups;
   }
 
@@ -61,6 +62,9 @@ export class TopSearchBarComponent implements OnInit {
       this.router.navigate(['/home-page']);
     }
     this.userSearchSelections = { ...JSON.parse(userSearchSelections) };
+    if (this.navigateToReataurant){
+      this.router.navigate(['/restaurant-list']);
+    }
   }
 
   searchAction = (event: any) => {
@@ -73,6 +77,9 @@ export class TopSearchBarComponent implements OnInit {
         }
       }
       , 1500);
+      if (!(this.pageName === 'restaurant')){
+        this.navigateToReataurant = true;
+      }
   }
 
   executeSearch = (value: any) => {

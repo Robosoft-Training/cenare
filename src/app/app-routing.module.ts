@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'shared-modules',
     loadChildren: () => import('./modules/shared-lazy-modules/shared-lazy-modules.module').then(m => m.SharedLazyModulesModule)
+  },
+  {
+    path: 'menu-list',
+    loadChildren: () => import('./modules/menu-list/menu-list.module').then(m => m.MenuListModule)
   }
 ];
 
