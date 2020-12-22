@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
 
   constructor(
     private popularProductsService: PopularProductsService,
+    private router: Router
   ) { }
 
   public scrollRight(): void {
@@ -48,6 +50,10 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
         this.deatilsArray = data;
       }
     );
+  }
+
+  diaplayMoreBrands = () => {
+    this.router.navigate(['/shared-modules/nearby-brands']);
   }
 
   ngOnInit(): void {

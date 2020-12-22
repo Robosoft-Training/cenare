@@ -82,7 +82,7 @@ export class HomePageHeaderComponent implements OnInit {
           this.executeSearch(event.target.value);
         }
       }
-      , 1500);
+      , 1000);
   }
 
   executeSearch = (value: any) => {

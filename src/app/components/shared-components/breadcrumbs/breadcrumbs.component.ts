@@ -42,6 +42,12 @@ export class BreadcrumbsComponent implements OnInit {
       this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
       this.breadCrumbList[4] = 'Chicke dinner';
     }
+
+    if (this.pageName === 'all-brands') {
+      this.initializeList();
+      this.breadCrumbList[3] = 'All Brands';
+      // this.breadCrumbList[4] = 'Chicke dinner';
+    }
   }
 
   ngOnInit(): void {

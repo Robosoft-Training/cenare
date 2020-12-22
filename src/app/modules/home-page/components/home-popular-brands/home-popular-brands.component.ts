@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 import { IPopularBrands } from 'src/app/shared/interfaces/IPopularBrands';
 
@@ -17,7 +18,8 @@ export class HomePopularBrandsComponent implements OnInit {
   carouselCount = 0;
 
   constructor(
-    private popularProductsService: PopularProductsService
+    private popularProductsService: PopularProductsService,
+    private router: Router
   ) { }
 
   carouselControl = (count) => {
@@ -41,8 +43,7 @@ export class HomePopularBrandsComponent implements OnInit {
   }
 
   getAllBrandsList = () => {
-    // Move to all brands list
-    console.log('All Brands');
+    this.router.navigate(['/shared-modules/nearby-brands']);
   }
 
   loadProducts = () => {
