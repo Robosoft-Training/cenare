@@ -6,10 +6,11 @@ import { MenuListComponent } from './components/menu-list-home/menu-list.compone
 import { MenuComponent } from './components/menu/menu.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { ReviewsRatingsComponent } from './components/reviews-ratings/reviews-ratings.component';
+import { MenuHomeComponent } from './menu-home.component';
 
 const routes: Routes = [
-  { path: '', component: MenuListComponent },
-  { path: 'menu', component: MenuComponent },
+  { path: 'menu-list-component', component: MenuListComponent },
+  { path: 'menu', component: MenuComponent, outlet: 'example' },
   { path: 'overview', component: OverviewComponent },
   { path: 'reviews-ratings', component: ReviewsRatingsComponent },
   { path: 'gallery', component: GalleryComponent },

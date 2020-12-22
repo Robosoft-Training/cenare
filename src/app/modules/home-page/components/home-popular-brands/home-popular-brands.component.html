@@ -60,20 +60,20 @@
 
                     <div class="controlls">
                         <div class="container-fluid">
-                            <div class="small-orange-text" (click)="getAllBrandsList()">All Brands <mat-icon>
-                                    keyboard_arrow_right</mat-icon>
+                            <div class="small-orange-text" (click)="getAllBrandsList()">All Brands 
+                                <mat-icon class="more-icon">keyboard_arrow_right</mat-icon>
                             </div>
                             <div class="p-2">
                                 <div class="controll-btn btn-group pt-1" role="group" aria-label="Basic example">
                                     <a href="#carouselExampleControls" role="button" data-bs-slide="prev"
                                         (click)="carouselControl(-1)"
-                                        [ngClass]="{'arrow-btn':hasPreviousItem, 'disabled-arrow-btn': !hasPreviousItem, 'btn':true, 'btn-light':true, 'shadow': true}">
-                                        <mat-icon>keyboard_arrow_left</mat-icon>
+                                        [ngClass]="{'arrow-btn':hasPreviousItem, 'disabled-arrow-btn': !hasPreviousItem}">
+                                        <i class="fa fa-angle-left fa-2x arrow-icon" aria-hidden="true"></i>
                                     </a>
                                     <a href="#carouselExampleControls" role="button" data-bs-slide="next"
                                         (click)="carouselControl(1)"
-                                        [ngClass]="{'arrow-btn':hasNextItem, 'disabled-arrow-btn': !hasNextItem, 'btn':true, 'btn-light':true, 'shadow': true}">
-                                        <mat-icon>keyboard_arrow_right</mat-icon>
+                                        [ngClass]="{'arrow-btn':hasNextItem, 'disabled-arrow-btn': !hasNextItem, 'margin-right':true }">
+                                        <i class="fa fa-angle-right fa-2x arrow-icon" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>

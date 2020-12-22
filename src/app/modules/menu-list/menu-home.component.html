@@ -1,0 +1,82 @@
+<app-nav-bar pageName="menu-home"></app-nav-bar>
+<app-top-search-bar pageName="menu-home"></app-top-search-bar>
+<app-breadcrumbs pageName="menu-home"></app-breadcrumbs>
+
+<div class="container-fluid hader">
+  <div class="row">
+    <div class="col-0 col-md-3"></div>
+    <div class="col-12 col-md-7">
+      <div class="form">
+        <div class="card">
+          <div class="details">
+            <img class="cutlery"
+              src="../../../../../assets/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png">
+            <label class="name">The Boutique Kitchen</label>
+            <label class="cuisines">Indian, Pakistani, Kebab</label>
+            <img class="rating" src="../../../../../assets/Rectangle 2 Copy@3x.png">
+            <p>4.3</p>
+            <label class="time"> &#8226; 63 mins</label>
+            <label class="order"> &#8226; INR10 min order</label>
+            <img class="timings" src="../../../../../assets/time_icon.png">
+            <label class="open">11:00 AM - 10:00 PM</label>
+            <label class="delivery">Delivery for last 5 orders</label>
+            <button class="star"> &#9733; 4</button>
+            <button class="star1">&#9733; 4</button>
+            <button class="star2">&#9733; 3</button>
+            <button class="star3">&#9733; 4</button>
+            <button class="star4">&#9733; 2</button>
+            <div class="effect d-none d-md-block">
+            </div>
+          </div>
+          <img class="food d-none d-md-block" src="../../../../../assets/Resturant Image (1).png">
+        </div>
+      </div>
+    </div>
+    <div class="col-0 col-md-2"></div>
+  </div>
+</div>
+
+<div class="container-fluid options">
+  <div class="row">
+    <div class="col-0 col-md-3"></div>
+    <div class="col-7">
+      <div class="menu-list d-flex">
+      <a class="mr-5 menu" routerLink="/menu">
+        MENU
+      </a>
+      <div class="overview" >
+        OVERVIEW
+      </div>
+      <div class="reviews">
+        REVIEWS&RATINGS
+      </div>
+      <div class="gallery">
+        GALLERY
+      </div>
+      </div>
+    </div>
+    <div class="col-0 col-md-2"></div>
+  </div>
+</div>
+
+<div class="container-fluid options">
+  <div class="row">
+    <div class="col-0 col-md-3"></div>
+    <div class="col-7">
+      <router-outlet name="example"></router-outlet>
+    </div>
+    <div class="col-0 col-md-2"></div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="formType==='menuu'" class="menu-form">
+    <div class="search-box">
+      <img class="search-icon" src="../../../../../assets/icn_search_home copy@3x.png" />
+      <input class="input" placeholder="Search an item">
+    </div>
+    <label class="recom">Recommended(3)</label>
+  </div>
+  <div *ngIf="formType==='view'" class="view-form">
+
+  </div> -->

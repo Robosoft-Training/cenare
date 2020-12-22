@@ -11,7 +11,7 @@
         padding: 16px 0px 16px 0px;
         cursor: pointer;
       .heading-text {
-        color: #303134;
+        color: $headerText;
         font-family: "Open Sans";
         font-size: 10px;
         font-weight: 600;
@@ -31,6 +31,8 @@
         }
       }
       .dropdown-item{
+        color: $headerText;
+        font-size: 10px;
         &:active {
           background: $rightFillGradient;
         }
@@ -57,7 +59,7 @@
 
     .content-header {
       .restaurant-name-text {
-        color: #223136;
+        color: $headerText;
         font-family: "Open Sans";
         font-size: 16px;
         font-weight: bold;

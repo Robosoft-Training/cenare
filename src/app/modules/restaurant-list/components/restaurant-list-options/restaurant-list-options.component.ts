@@ -66,7 +66,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   }
 
   sortinAlphabetically = (sortType) => {
-    this.deatilsArray = this.sortingService.sortinAlphabetically(this.deatilsArray, sortType);
+    this.deatilsArray = this.sortingService.sortingAlphabetically(this.deatilsArray, sortType);
   }
 
   ngOnInit(): void {

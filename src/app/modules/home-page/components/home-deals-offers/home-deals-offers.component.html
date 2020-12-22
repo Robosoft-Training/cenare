@@ -20,7 +20,6 @@
             </span>
 
             <span *ngIf="!isLoading && !isErrorLoading">
-
                 <div #widgetsContent class="scroll-view-container" appCustomScroll #appScrollElement="appCustomScroll">
                     <div *ngFor="let offer of [0,1,2,3,4,5];" [ngClass]="{'scroll-widget': true}">
                         <div class="two-cards">
@@ -50,18 +49,18 @@
 
                 <div class="controlls">
                     <div class="container-fluid">
-                        <div class="small-orange-text" (click)="getAllOffersList()">All Brands <mat-icon>
-                                keyboard_arrow_right</mat-icon>
+                        <div class="small-orange-text" (click)="getAllOffersList()">All Brands 
+                            <mat-icon class="more-icon">keyboard_arrow_right</mat-icon>
                         </div>
                         <div class="p-2">
                             <div class="controll-btn btn-group pt-1" role="group" aria-label="Basic example">
                                 <a (click)="scrollLeft()" role="button" data-bs-slide="prev"
-                                    [ngClass]="{'arrow-btn':!appScrollElement.disableBtnLeft, 'disabled-arrow-btn': appScrollElement.disableBtnLeft, 'btn':true, 'btn-light':true, 'shadow': true}">
-                                    <mat-icon>keyboard_arrow_left</mat-icon>
+                                    [ngClass]="{'arrow-btn':!appScrollElement.disableBtnLeft, 'disabled-arrow-btn': appScrollElement.disableBtnLeft }">
+                                    <i class="fa fa-angle-left fa-2x arrow-icon" aria-hidden="true"></i>
                                 </a>
                                 <a (click)="scrollRight()" role="button" data-bs-slide="next"
-                                    [ngClass]="{'arrow-btn':!appScrollElement.disableBtnRight, 'disabled-arrow-btn': appScrollElement.disableBtnRight, 'btn':true, 'btn-light':true, 'shadow': true}">
-                                    <mat-icon>keyboard_arrow_right</mat-icon>
+                                    [ngClass]="{'arrow-btn':!appScrollElement.disableBtnRight, 'disabled-arrow-btn': appScrollElement.disableBtnRight, 'margin-right':true }">
+                                    <i class="fa fa-angle-right fa-2x arrow-icon" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>

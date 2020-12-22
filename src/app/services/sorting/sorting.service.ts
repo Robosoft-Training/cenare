@@ -7,34 +7,34 @@ export class SortingService {
 
   constructor() { }
 
-  sortingFloat = (deatilsArray, sortType) => {
+  sortingFloat = (detailsArray, sortType) => {
 
-    deatilsArray.sort(
+    detailsArray.sort(
       (a, b) => {
         return parseFloat(b.rating) - parseFloat(a.rating);
       }
     );
 
     if (sortType === 'rating_high_low') {
-      deatilsArray.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
-      return deatilsArray;
+      detailsArray.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+      return detailsArray;
     }
     else if (sortType === 'rating_low_high') {
-      deatilsArray.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
-      return deatilsArray;
+      detailsArray.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+      return detailsArray;
     }
 
     if (sortType === 'avg_high_low') {
-      deatilsArray.sort((a, b) => parseFloat(b.avg_order_cost) - parseFloat(a.avg_order_cost));
-      return deatilsArray;
+      detailsArray.sort((a, b) => parseFloat(b.avg_order_cost) - parseFloat(a.avg_order_cost));
+      return detailsArray;
     }
     else if (sortType === 'avg_low_high') {
-      deatilsArray.sort((a, b) => parseFloat(a.avg_order_cost) - parseFloat(b.avg_order_cost));
-      return deatilsArray;
+      detailsArray.sort((a, b) => parseFloat(a.avg_order_cost) - parseFloat(b.avg_order_cost));
+      return detailsArray;
     }
   }
 
-  sortinAlphabetically = (deatilsArray, sortType) => {
+  sortingAlphabetically = (detailsArray, sortType) => {
 
     const compareStrings = (a, b): any => {
       console.log(a);
@@ -44,19 +44,19 @@ export class SortingService {
     };
 
     if (sortType === 'a-z') {
-      deatilsArray.sort(
+      detailsArray.sort(
         (a, b) => {
           return compareStrings(a.restaurant_name, b.restaurant_name);
         }
       );
     }
     else if (sortType === 'z-a') {
-      deatilsArray.sort(
+      detailsArray.sort(
         (a, b) => {
           return compareStrings(b.restaurant_name, a.restaurant_name);
         }
       );
     }
-    return deatilsArray;
+    return detailsArray;
   }
 }
