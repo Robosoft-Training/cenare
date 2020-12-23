@@ -76,9 +76,10 @@ export class RestaurantListOptionsComponent implements OnInit {
   goToMenuScreen = (restaurantID) => {
     this.menuListService.getRestaurantMenuItems(restaurantID).subscribe(
       (msg) => {
-        this.router.navigate(['/menu-list']);
+        // this.router.navigate(['/menu-list']);
       },
       err => {
+        this.router.navigate(['/menu-list']);
       }
     );
   }

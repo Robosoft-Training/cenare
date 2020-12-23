@@ -32,7 +32,7 @@ export class MenuListService {
       .pipe(
         tap(data => {
           this.currentMenuDataList = { ...data };
-          this.menuDataListSource.next(this.currentMenuDataList);
+          // this.menuDataListSource.next(this.currentMenuDataList);
         }),
         retry(3)
       );
@@ -49,7 +49,7 @@ export class MenuListService {
       .pipe(
         tap(data => {
           this.currentMenuDataList = { ...data };
-          this.menuDataListSource.next(this.currentMenuDataList);
+          // this.menuDataListSource.next(this.currentMenuDataList);
         }),
         retry(3)
       );

@@ -8,28 +8,31 @@ import { LocalStorageService } from '../../local-storage/local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RestaurantOverviewService {
+export class GalleryService {
 
+  // searchData: any;
   apiBaseUrl = environment.baseUrl;
-  overviewDataListSource = new BehaviorSubject({});
-  currentoverviewDataListSource = this.overviewDataListSource.asObservable();
-  currentOverview: any;
+
+  galleryDataListSource = new BehaviorSubject({});
+  currentGalleryDataListSource = this.galleryDataListSource.asObservable();
+  currentGalleryDataList: any;
 
   constructor(
     private httpClient: HttpClient,
     private localStorageService: LocalStorageService
   ) { }
 
-  getRestaurantOverview = (restaurantID): Observable<any> => {
+  getRestaurantGalleryItems = (restaurantID): Observable<any> => {
     console.log(restaurantID);
-    const url = `${this.apiBaseUrl}getOverView`;
+    const url = `${this.apiBaseUrl}getGalleryImages`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurant_id', restaurantID);
 
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
-          this.currentOverview = { ...data };
+          this.currentGalleryDataList = { ...data };
+          // this.galleryDataListSource.next(this.currentGalleryDataList);
         }),
         retry(3)
       );
