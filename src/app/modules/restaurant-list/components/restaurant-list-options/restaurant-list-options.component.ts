@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuListService } from 'src/app/services/menu-list/menu-list.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 import { SortingService } from 'src/app/services/sorting/sorting.service';
 
@@ -21,6 +22,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   constructor(
     private restaurantListService: RestaurantListService,
     private sortingService: SortingService,
+    private menuListService: MenuListService,
     private router: Router
   ) { }
 
@@ -72,7 +74,13 @@ export class RestaurantListOptionsComponent implements OnInit {
   }
 
   goToMenuScreen = (restaurantID) => {
-    this.router.navigate(['/menu-list']);
+    this.menuListService.getRestaurantMenuItems(restaurantID).subscribe(
+      (msg) => {
+        this.router.navigate(['/menu-list']);
+      },
+      err => {
+      }
+    );
   }
 
   sortData = (sortType) => {
