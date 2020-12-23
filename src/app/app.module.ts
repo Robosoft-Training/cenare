@@ -42,7 +42,7 @@ import { HttpInterceptorService } from './shared/interceptors/http.interceptor';
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },
     { provide: MAT_DATE_FORMATS, useValue: PICK_FORMATS },
-    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }  
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

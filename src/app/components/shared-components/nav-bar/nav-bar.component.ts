@@ -1,6 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import * as $ from 'jquery';
+import { LoginService } from 'src/app/services/authentication/login.service';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -11,14 +12,20 @@ import { LoginComponent } from '../login/login.component';
 export class NavBarComponent implements OnInit {
 
   @Input() pageName: any;
-
   isLoggedIn = false;
-  userName = 'ASHLEY';
+  userName = '';
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private loginService: LoginService
+  ) { }
 
   openDialog(formType: any): void {
     this.dialog.open(LoginComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+  }
+
+  logout = () => {
+    this.loginService.userLogout();
   }
 
   ngOnInit(): void {
@@ -27,12 +34,23 @@ export class NavBarComponent implements OnInit {
       $('.navbar').addClass('navbar-style');
       $('.cart-place').removeClass('after-scroll');
       $('.cart-place').addClass('before-scroll');
-      console.log(this.pageName);
+      // console.log(this.pageName);
     }
+
+    this.loginService.currentUserName.subscribe(
+      userName => {
+        this.userName = userName;
+      }
+    );
+
+    this.loginService.isCurrentUserLogin.subscribe(
+      (isLogin: any) => {
+        this.isLoggedIn = isLogin;
+      }
+    );
   }
 
   @HostListener('window:scroll', ['$event'])
-
   onWindowScroll(e: any) {
     let element = document.querySelector('.navbar');
     if (window.pageYOffset > element!.clientHeight && this.pageName === 'home') {

@@ -10,10 +10,9 @@ export class LocalStorageService {
    // Reataurent list search details
    setUserSearchDetails = (userSearchDetails) => {
     localStorage.setItem('crave-searchDetails', JSON.stringify(userSearchDetails));
-    localStorage.setItem('crave-userJWTtokens', "HETTTE12342");
   }
 
-  getUserSearchDetails = () => { 
+  getUserSearchDetails = () => {
     return localStorage.getItem('crave-searchDetails');
   }
 

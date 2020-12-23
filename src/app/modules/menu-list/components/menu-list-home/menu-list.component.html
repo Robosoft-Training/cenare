@@ -41,16 +41,16 @@
         <div class="col-0 col-md-3"></div>
         <div class="col-7">
             <div class="menu-list d-flex">
-                <div class="mr-5 menu" (click)="showFormType('menu')">
+                <div class="mr-5 menu" [ngClass]="formType==='menu'?'active':''" (click)="showFormType('menu')">
                     MENU
                 </div>
-                <div class="overview" (click)="showFormType('overview')">
+                <div class="overview" [ngClass]="formType==='overview'?'active':''" (click)="showFormType('overview')">
                     OVERVIEW
                 </div>
-                <div class="reviews" (click)="showFormType('ratings')">
-                    REVIEWS&RATINGS
+                <div class="reviews" [ngClass]="formType==='ratings'?'active':''" (click)="showFormType('ratings')">
+                    REVIEWS & RATINGS
                 </div>
-                <div class="gallery" (click)="showFormType('gallery')">
+                <div class="gallery" [ngClass]="formType==='gallery'?'active':''" (click)="showFormType('gallery')">
                     GALLERY
                 </div>
             </div>

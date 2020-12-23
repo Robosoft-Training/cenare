@@ -2,7 +2,7 @@
 @import '../../../../mixin.scss';
 
 @include overriding-angular-materials();
-@include overriding-angular-materials-filter-input(13.5em);
+@include overriding-angular-materials-filter-input(14.8em);
 
 .search-bar-container {
     background-image: url("../../../../assets/images/pattern-3.png");
@@ -19,7 +19,7 @@
     .search-bar-area {
         position: relative;
         top: 4.5em;
-        
+
         .product-description {
             color: $descriptionColor;
             font-family: $openSans;
@@ -38,14 +38,37 @@
                 @include icon-style(1.2em);
                 @include gps-form-control(0em);
 
-                .location-input {
-                    outline: 5px solid $white;
-                    box-shadow: none;
-                    outline: none;
+                // .location-input {
+                //     outline: 5px solid $white;
+                //     box-shadow: none;
+                //     outline: none;
+                //     border: none;
+                //     z-index: -1;
+                //     width: 10em;
+                //     padding-left: 3em;
+                // }
+
+                .form-control {
+                    display: block;
+                    width: 100%;
+                    z-index: 2;
                     border: none;
-                    z-index: -1;
-                    width: 10em;
-                    padding-left: 3em;
+                    outline: none;
+
+                    color: $headerText;
+                    font-family: $openSans;
+                    font-size: 1em;
+                    letter-spacing: -0.24px;
+                    line-height: 19px;
+
+                    position: relative;
+                    padding-left: 4em;
+
+                    &:focus {
+                        outline: 5px solid $white;
+                        box-shadow: none;
+                        outline: none;
+                    }
                 }
 
                 margin-right: 1em;
@@ -75,11 +98,12 @@
 }
 
 @media only screen and (min-width: 1400px) {
-    @include overriding-angular-materials-filter-input(15.6em);
+    @include overriding-angular-materials-filter-input(19.8em);
 
     .search-bar-container {
         .search-bar-area {
             .location-date-input {
+
                 // width: 10em;
                 .location {
                     @include mediam-imput-box(27%, 3em);

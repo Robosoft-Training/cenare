@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationDataService {
 
-  apiKey = 'AVVcB8jjfmf7eYftCZAdiyFzAyMnrVLO';
-  getAdressBaseUrl = 'https://api.tomtom.com/search/2/reverseGeocode/';
-  getLatitudeLongitudeBaseUrl = 'https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IN&limit=1&streetName=';
+  apiKey = environment.apiKey;
+  getAdressBaseUrl = environment.getAdressBaseUrl;
+  getLatitudeLongitudeBaseUrl = environment.getLatitudeLongitudeBaseUrl;
 
   constructor(private httpClient: HttpClient) { }
 

@@ -5,6 +5,10 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/authentication/login.service';
+import { OtpverificationService } from 'src/app/services/authentication/otpverification.service';
+import { RegisterService } from 'src/app/services/authentication/register.service';
+import { ResetPasswordService } from 'src/app/services/authentication/reset-password.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -28,18 +32,29 @@ export class LoginComponent implements OnInit {
   type = 'password';
   email = { value: '', error: '' };
   password = { value: '', error: '' };
+  newPassword1 = { value: '', error: '' };
+  newPassword2 = { value: '', error: '' };
   firstName = { value: '', error: '' };
   lastName = { value: '', error: '' };
+  mobileNumber = { value: '', error: '' };
+  otp = { value: '', error: '' };
+
   constructor(
-  private route: Router,
-  public dialogRef: MatDialogRef<any>,
-  @Inject(MAT_DIALOG_DATA) public data: { formType: string })
- { this.formType = data.formType; }
+    private loginService: LoginService,
+    private registerService: RegisterService,
+    private otpVerifications: OtpverificationService,
+    private resetPasswordService: ResetPasswordService,
+    private route: Router,
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: { formType: string }
+  ) { this.formType = data.formType; }
 
   ngOnInit(): void { }
   closeDialog(): void {
     this.dialogRef.close();
   }
+
   togglePassword(): void {
     if (this.type === 'password') {
       this.type = 'text';
@@ -48,21 +63,9 @@ export class LoginComponent implements OnInit {
       this.type = 'password';
     }
   }
+
   showFormType(formName): void {
     this.formType = formName;
-  }
-  verify(): void {
-    if (!this.email.value) {
-      this.email.error = 'Email is required';
-    }
-    else if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.email.value))) {
-      this.email.error = 'Enter valid Email';
-    }
-    else {
-      this.email.error = '';
-      this.showFormType('otpverification');
-
-    }
   }
 
   verifylogin(): void {
@@ -75,9 +78,17 @@ export class LoginComponent implements OnInit {
     else {
       this.email.error = '';
       this.password.error = '';
-    }
+      this.loginService.userLogin(this.email.value, this.password.value).subscribe(
+        msg => {
 
+        },
+        err => {
+          this.email.error = 'Email and Password not Matching';
+        }
+      );
+    }
   }
+
   createAccount(): void {
     if (!this.email.value) {
       this.email.error = 'Email is required';
@@ -87,10 +98,18 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.email.error = '';
-      this.showFormType('verification');
+      this.registerService.registerEmail(this.email.value).subscribe(
+        (msg) => {
+          this.email.error = 'Something went wrong!';
+        },
+        err => {
+          this.showFormType('create');
+        }
+      );
     }
   }
-  registration(): void {
+
+    registration(): void {
     if (!this.firstName.value) {
       this.firstName.error = 'First name is required';
     }
@@ -103,11 +122,73 @@ export class LoginComponent implements OnInit {
     else {
       this.firstName.error = '';
       this.lastName.error = '';
-      this.showFormType('successful');
+      this.registerService.createAccount(this.firstName.value, this.lastName.value, this.mobileNumber.value, this.password.value).subscribe(
+        msg => {
+          this.email.error = 'Something went wrong!';
+        },
+        err => {
+          this.showFormType('successful');
+        }
+      );
     }
-
-
   }
 
+  verifyOtpForCreatingAccount = () => {
+    this.otpVerifications.verifyOtp(this.otp.value).subscribe(
+      msg => {
+        this.email.error = 'Something went wrong!';
+      },
+      err => {
+        this.showFormType('verification');
+      }
+    );
+  }
+
+  verify(): void {
+    if (!this.email.value) {
+      this.email.error = 'Email is required';
+    }
+    else if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.email.value))) {
+      this.email.error = 'Enter valid Email';
+    }
+    else {
+      this.email.error = '';
+      this.resetPasswordService.resetPassWordSendOtp(this.email.value).subscribe(
+        msg => {
+          this.email.error = 'Something went wrong!';
+        },
+        err => {
+          this.showFormType('otpverification');
+        }
+      );
+    }
+  }
+
+  resetPassword = () => {
+    if (!(this.newPassword1.value === this.newPassword2.value)){
+      this.newPassword1.error = 'Password not matching';
+    }
+    else {
+      this.newPassword1.error = '';
+      this.resetPasswordService.resetPassword(this.newPassword1).subscribe(
+        msg => {
+
+        },
+        err => {
+        }
+      );
+    }
+  }
+
+  verifyOtpForResetPassword = () => {
+    this.otpVerifications.verifyOtp(this.otp.value).subscribe(
+      msg => {
+        this.email.error = 'Something went wrong!';
+      },
+      err => {
+        this.showFormType('verified');
+      }
+    );
+  }
 }
 

@@ -19,7 +19,7 @@ export class RegisterService {
   registerEmail = (email): Observable<any[]> => {
     console.log(email);
     const postBody = {
-      email: email
+      email
     };
     this.localStorageService.setUserEmail(email);
     const url = `${this.baseUrl}register/sendotp`;
@@ -35,11 +35,11 @@ export class RegisterService {
   createAccount = (firstName, lastName, mobileNumber, password): Observable<any[]> => {
     const email = this.localStorageService.getUserEmail();
     const postBody = {
-      email: email,
-      firstName: firstName,
-      lastName: lastName,
-      mobileNumber: mobileNumber,
-      password: password
+      email,
+      firstName,
+      lastName,
+      mobileNumber,
+      password
     };
     console.log(postBody);
     const url = `${this.baseUrl}register`;

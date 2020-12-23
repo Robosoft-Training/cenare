@@ -35,7 +35,7 @@
           </span>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link">LOGOUT</a>
+          <a class="nav-link" (click)="logout()">LOGOUT</a>
         </li>
 
         <li class="nav-item cart-place d-flex align-items-start justify-content-center after-scroll">
@@ -48,7 +48,6 @@
           </div>
           <a class="pl-4 nav-link cart-text" href="#">CART</a>
         </li>
-
       </ul>
     </div>
   </div>

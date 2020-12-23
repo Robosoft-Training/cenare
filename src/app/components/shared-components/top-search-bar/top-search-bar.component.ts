@@ -62,7 +62,7 @@ export class TopSearchBarComponent implements OnInit {
       this.router.navigate(['/home-page']);
     }
     this.userSearchSelections = { ...JSON.parse(userSearchSelections) };
-    if (this.navigateToReataurant){
+    if (this.navigateToReataurant) {
       this.router.navigate(['/restaurant-list']);
     }
   }
@@ -77,9 +77,9 @@ export class TopSearchBarComponent implements OnInit {
         }
       }
       , 1500);
-      if (!(this.pageName === 'restaurant')){
-        this.navigateToReataurant = true;
-      }
+    if (!(this.pageName === 'restaurant')) {
+      this.navigateToReataurant = true;
+    }
   }
 
   executeSearch = (value: any) => {

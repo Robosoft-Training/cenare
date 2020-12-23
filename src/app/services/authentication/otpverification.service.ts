@@ -20,8 +20,8 @@ export class OtpverificationService {
     const email = this.localStorageService.getUserEmail();
     console.log(otp, email);
     const postBody = {
-      email: email,
-      otp: otp
+      email,
+      otp
     };
     const url = `${this.baseUrl}otpverify`;
     return this.httpClient.post<any[]>(url, postBody).pipe(
@@ -31,5 +31,5 @@ export class OtpverificationService {
         }
       )
     );
-  } 
+  }
 }

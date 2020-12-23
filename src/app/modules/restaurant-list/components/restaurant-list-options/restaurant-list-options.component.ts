@@ -18,7 +18,6 @@ export class RestaurantListOptionsComponent implements OnInit {
   showMoreOptionsCount = 5;
   isExistMoreItems = true;
 
-
   constructor(
     private restaurantListService: RestaurantListService,
     private sortingService: SortingService,
@@ -26,13 +25,13 @@ export class RestaurantListOptionsComponent implements OnInit {
   ) { }
 
   showMoreOptions = () => {
-    if(this.deatilsArray.length >= this.showMoreOptionsCount) {
+    if (this.deatilsArray.length >= this.showMoreOptionsCount) {
       this.showMoreOptionsCount += 1;
     }
     else {
       console.log(this.showMoreOptionsCount);
       this.isExistMoreItems = false;
-    } 
+    }
   }
 
   compareDate = (openTime, closeTime) => {
