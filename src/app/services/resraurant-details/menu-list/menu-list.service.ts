@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { LocalStorageService } from '../../local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'

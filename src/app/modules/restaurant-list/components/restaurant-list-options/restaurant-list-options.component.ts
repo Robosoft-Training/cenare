@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuListService } from 'src/app/services/menu-list/menu-list.service';
+import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 import { SortingService } from 'src/app/services/sorting/sorting.service';
 
