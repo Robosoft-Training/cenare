@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-list.component.scss']
 })
 export class MenuListComponent implements OnInit {
-  formType: any;
+  formType = 'menu';
   constructor() { }
 
   ngOnInit(): void {
   }
+
   showFormType(formName): void {
     this.formType = formName;
+    console.log(formName);
   }
 
 }

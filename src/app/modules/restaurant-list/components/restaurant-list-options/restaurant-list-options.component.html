@@ -2,28 +2,32 @@
     <div class="d-flex flex-row justify-content-end filter-options">
         <div class="options">
             <label class="heading-text">List by :</label>
-            <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">All</label>
+            <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                aria-expanded="false">All</label>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" (click)="sortinAlphabetically('a-z')">A-Z</a></li>
-              <li><a class="dropdown-item" (click)="sortinAlphabetically('z-a')">Z-A</a></li>
+                <li><a class="dropdown-item" (click)="sortinAlphabetically('a-z')">A-Z</a></li>
+                <li><a class="dropdown-item" (click)="sortinAlphabetically('z-a')">Z-A</a></li>
             </ul>
         </div>
         <div class="options">
             <label class="heading-text">Sort by :</label>
-            <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <label class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Ratings
-                <span *ngIf="sortType === 'rating_high_low' || sortType === 'avg_high_low'" class="arrow-icon">&#8593;</span>
-                <span *ngIf="sortType === 'rating_low_high' || sortType === 'avg_low_high'" class="arrow-icon">&#8595;</span>
+                <span *ngIf="sortType === 'rating_high_low' || sortType === 'avg_high_low'"
+                    class="arrow-icon">&#8593;</span>
+                <span *ngIf="sortType === 'rating_low_high' || sortType === 'avg_low_high'"
+                    class="arrow-icon">&#8595;</span>
             </label>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" (click)="sortData('rating_high_low')">Rating High to Low</a></li>
-              <li><a class="dropdown-item" (click)="sortData('rating_low_high')">Rating Low to High</a></li>
-              <li><a class="dropdown-item" (click)="sortData('avg_high_low')">Avg. meal cost High</a></li>
-              <li><a class="dropdown-item" (click)="sortData('avg_low_high')">Avg. meal cost Low</a></li>
+                <li><a class="dropdown-item" (click)="sortData('rating_high_low')">Rating High to Low</a></li>
+                <li><a class="dropdown-item" (click)="sortData('rating_low_high')">Rating Low to High</a></li>
+                <li><a class="dropdown-item" (click)="sortData('avg_high_low')">Avg. meal cost High</a></li>
+                <li><a class="dropdown-item" (click)="sortData('avg_low_high')">Avg. meal cost Low</a></li>
             </ul>
         </div>
     </div>
-    <div class="d-flex flex-row restaurant-card mb-3" *ngFor = "let item of deatilsArray.slice(0,4)">
+    <div class="d-flex flex-row restaurant-card mb-3" *ngFor="let item of deatilsArray.slice(0,4)">
         <div class="card-image">
             <img class="img" src="../assets/icn_restaurant.png">
         </div>
@@ -31,18 +35,21 @@
             <div class="d-flex flex-row justify-content-between content-header">
                 <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
                 <div class="ratings">
-                    <label [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating | number : '1.1-1'}}</label>
+                    <label [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating
+                        | number : '1.1-1'}}</label>
                 </div>
             </div>
             <div class="d-flex flex-column content-middle">
-                <label class="subtitle-text">{{item.restaurant_city}},  {{item.restaurant_address}}</label>
+                <label class="subtitle-text">{{item.restaurant_city}}, {{item.restaurant_address}}</label>
                 <div class="divider"></div>
                 <label class="subtitle-text">Indian, Pakistani, Kabab</label>
             </div>
             <div class="d-flex flex-row justify-content-between content-bottom">
                 <div class="content-bottom-text">
-                    <label class="status-text text-color-green" *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
-                    <label class="status-text text-color-red" *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
+                    <label class="status-text text-color-green"
+                        *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
+                    <label class="status-text text-color-red"
+                        *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
                     <div class="">
                         <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
                         <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
@@ -56,36 +63,44 @@
         </div>
     </div>
     <app-restaurant-nearby-brands></app-restaurant-nearby-brands>
-    <div class="d-flex flex-row restaurant-card mb-3" *ngFor = "let item of deatilsArray.slice(4,deatilsArray.length)">
-        <div class="card-image">
-            <img class="img" src="../assets/icn_restaurant.png">
-        </div>
-        <div class="d-flex flex-column card-content">
-            <div class="d-flex flex-row justify-content-between content-header">
-                <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
-                <div class="ratings">
-                    <label [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating}}</label>
-                </div>
+    <span *ngIf="deatilsArray.length>4">
+        <div class="d-flex flex-row restaurant-card mb-3"
+            *ngFor="let item of deatilsArray.slice(4,showMoreOptionsCount)">
+            <div class="card-image">
+                <img class="img" src="../assets/icn_restaurant.png">
             </div>
-            <div class="d-flex flex-column content-middle">
-                <label class="subtitle-text">{{item.restaurant_city}},{{item.restaurant_address}}</label>
-                <div class="divider"></div>
-                <label class="subtitle-text">Indian, Pakistani, Kabab</label>
-            </div>
-            <div class="d-flex flex-row justify-content-between content-bottom">
-                <div class="content-bottom-text">
-                    <label class="status-text text-color-green" *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
-                    <label class="status-text text-color-red" *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
-                    <div class="">
-                        <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
-                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
-                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.avg_order_cost }} avg meal cost</span>
+            <div class="d-flex flex-column card-content">
+                <div class="d-flex flex-row justify-content-between content-header">
+                    <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
+                    <div class="ratings">
+                        <label
+                            [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating}}</label>
                     </div>
                 </div>
-                <div class="menu-button" (click)="goToMenuScreen(item.restaurant_id)">
-                    <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
+                <div class="d-flex flex-column content-middle">
+                    <label class="subtitle-text">{{item.restaurant_city}},{{item.restaurant_address}}</label>
+                    <div class="divider"></div>
+                    <label class="subtitle-text">Indian, Pakistani, Kabab</label>
+                </div>
+                <div class="d-flex flex-row justify-content-between content-bottom">
+                    <div class="content-bottom-text">
+                        <label class="status-text text-color-green"
+                            *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
+                        <label class="status-text text-color-red"
+                            *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
+                        <div class="">
+                            <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
+                            <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
+                            <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.avg_order_cost }} avg meal
+                                cost</span>
+                        </div>
+                    </div>
+                    <div class="menu-button" (click)="goToMenuScreen(item.restaurant_id)">
+                        <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </span>
+    <div class="load-more-text" *ngIf="deatilsArray.length > showMoreOptionsCount" (click)="showMoreOptions()">Load More...</div>
 </div>

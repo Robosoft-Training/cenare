@@ -9,17 +9,14 @@ import { ReviewsRatingsComponent } from './components/reviews-ratings/reviews-ra
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
-import { MenuHomeComponent } from './menu-home.component';
-
 
 @NgModule({
-  declarations: [MenuListComponent, MenuComponent, OverviewComponent, ReviewsRatingsComponent, GalleryComponent, MenuHomeComponent],
+  declarations: [MenuListComponent, MenuComponent, OverviewComponent, ReviewsRatingsComponent, GalleryComponent],
   imports: [
     CommonModule,
     MenuListRoutingModule,
     SharedComponentsModule,
     AngularMaterialsModule
-  ],
-  bootstrap: [MenuHomeComponent]
+  ]
 })
 export class MenuListModule { }
