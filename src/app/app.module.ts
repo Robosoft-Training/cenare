@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularMaterialsModule } from './modules/angular-materials/angular-materials.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedComponentsModule } from './components/shared-components/shared-components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,6 +15,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { PICK_FORMATS } from './shared/date-picker-formate';
 import { DatePickerService } from './services/date-picker/date-picker.service';
+import { HttpInterceptorService } from './shared/interceptors/http.interceptor';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DatePickerService } from './services/date-picker/date-picker.service';
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },
-    { provide: MAT_DATE_FORMATS, useValue: PICK_FORMATS }
+    { provide: MAT_DATE_FORMATS, useValue: PICK_FORMATS },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }  
   ],
   bootstrap: [AppComponent]
 })
