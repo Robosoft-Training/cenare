@@ -7,40 +7,49 @@ export class LocalStorageService {
 
   constructor() { }
 
-  // Reataurent list search details
-  setUserSearchDetails = (userSearchDetails) => {
-    localStorage.setItem('searchDetails', JSON.stringify(userSearchDetails));
+   // Reataurent list search details
+   setUserSearchDetails = (userSearchDetails) => {
+    localStorage.setItem('crave-searchDetails', JSON.stringify(userSearchDetails));
+    localStorage.setItem('crave-userJWTtokens', "HETTTE12342");
   }
 
-  getUserSearchDetails = () => {
-    if (localStorage.getItem('searchDetails') === null) {
-      return null;
-    }
-    return localStorage.getItem('searchDetails');
+  getUserSearchDetails = () => { 
+    return localStorage.getItem('crave-searchDetails');
   }
 
   // User coordinates
   setUserCoordinates = (userSearchDetails) => {
-    localStorage.setItem('userCoordinated', JSON.stringify(userSearchDetails));
+    localStorage.setItem('crave-userCoordinates', JSON.stringify(userSearchDetails));
   }
 
   getUserCoordinates = () => {
-    if (localStorage.getItem('userCoordinated') === null) {
-      return null;
-    }
-    return localStorage.getItem('userCoordinated');
+    return localStorage.getItem('crave-userCoordinates');
   }
 
   // User JWT tokens
   setUserJWTtoken = (userSearchDetails) => {
-    localStorage.setItem('userJWTtokens', JSON.stringify(userSearchDetails));
+    localStorage.setItem('crave-userJWTtokens', JSON.stringify(userSearchDetails));
   }
 
   getUserJWTtoken = () => {
-    if (localStorage.getItem('userJWTtokens') === null) {
-      return null;
-    }
-    return localStorage.getItem('userJWTtokens');
+    return localStorage.getItem('crave-userJWTtokens');
+  }
+
+  // User Name
+  setUserName = (userSearchDetails) => {
+    localStorage.setItem('crave-userName', JSON.stringify(userSearchDetails));
+  }
+
+  getUserName = () => {
+    return localStorage.getItem('crave-userName');
+  }
+
+  setUserEmail = (userSearchDetails) => {
+    localStorage.setItem('crave-userEmail', JSON.stringify(userSearchDetails));
+  }
+
+  getUserEmail = () => {
+    return localStorage.getItem('crave-userEmail');
   }
 
 }
