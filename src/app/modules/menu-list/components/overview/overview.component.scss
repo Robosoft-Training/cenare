@@ -52,7 +52,7 @@ h3 {
 .card {
   padding: 14px 80px 18px 36px;
   cursor: pointer;
-  width: 350px;
+  width: 100%;
   height: 150px;
   border-radius: 6px;
   background-color: #FFFFFF;
@@ -98,5 +98,12 @@ h3 {
       background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+  }
+}
+
+.directions {
+  .map {
+    width: 100%;
+    height: 70%;
   }
 }

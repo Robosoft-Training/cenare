@@ -13,6 +13,7 @@ export class PopularProductsService {
 
   coordinatesData: any;
   searchData: any;
+  // apiBaseUrl = environment.awsBaseUrl;
   apiBaseUrl = environment.baseUrl;
 
   nearbyBrandsDataListSource = new BehaviorSubject({});
@@ -25,10 +26,11 @@ export class PopularProductsService {
   ) { }
 
   getPopularBrands = (): Observable<IPopularBrands[]> => {
-    const url = `${this.apiBaseUrl}popularBrands`;
+    const url = `${this.apiBaseUrl}brands/getAllBrands`;
     return this.httpClient.get<IPopularBrands[]>(url)
       .pipe(
         tap(data => {
+          console.log(data);
           this.currentnearbyBrandsDataList = { ...data };
           this.nearbyBrandsDataListSource.next(this.currentnearbyBrandsDataList);
         }),
