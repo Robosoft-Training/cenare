@@ -12,6 +12,7 @@ import { DatePickerService } from '../../services/date-picker/date-picker.servic
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CustomScrollDirective } from './custom-scroll-directive';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CustomScrollDirective } from './custom-scroll-directive';
     HowToOrderComponent,
     TopSearchBarComponent,
     BreadcrumbsComponent,
-    CustomScrollDirective
+    CustomScrollDirective,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { CustomScrollDirective } from './custom-scroll-directive';
     HowToOrderComponent,
     TopSearchBarComponent,
     BreadcrumbsComponent,
-    CustomScrollDirective
+    CustomScrollDirective,
+    LoadingComponent
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },

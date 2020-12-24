@@ -20,7 +20,7 @@ export class ResetPasswordService {
   resetPassWordSendOtp = (email): Observable<any[]> => {
     console.log(email);
     const postBody = {
-      email: email
+      email
     };
     this.localStorageService.setUserEmail(email);
     const url = `${this.baseUrl}resetpassword/sendotp`;
@@ -36,8 +36,8 @@ export class ResetPasswordService {
   resetPassword = (password): Observable<any[]> => {
     const email = this.localStorageService.getUserEmail();
     const postBody = {
-      email: email,
-      password: password
+      email,
+      password
     };
     console.log(postBody);
     const url = `${this.baseUrl}resetpassword`;

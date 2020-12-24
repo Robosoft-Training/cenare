@@ -17,7 +17,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // console.log('url :', req.url);
 
-    let mapApiUrl = req.url.toString().substring(0, 22);
+    const mapApiUrl = req.url.toString().substring(0, 22);
     let reqUrl;
 
     if (this.localStorageService.getUserJWTtoken() && !(mapApiUrl === 'https://api.tomtom.com')) {

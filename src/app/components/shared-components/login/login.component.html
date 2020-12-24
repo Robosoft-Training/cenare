@@ -53,8 +53,8 @@
       Dont have an account?<mark class="color" (click)="showFormType('register')">Get one now!</mark>
     </div>
   </div>
-  <!--Forgot Password-->
 
+  <!--Forgot Password-->
   <div *ngIf="formType==='forgotpassword'" class="form">
     <img class="back-arrow" src="../../../assets/Shape@2x.png" (click)="showFormType('login')">
     <div class="icon">
@@ -97,7 +97,7 @@
       <mat-label>Enter OTP</mat-label>
       <input matInput placeholder="Enter OTP">
     </mat-form-field>
-    <button class="verify-button" (click)="showFormType('verified')">VERIFY</button>
+    <button class="verify-button" (click)="verifyOtpForResetPassword()">VERIFY</button>
   </div>
   <!--Verified-->
 
@@ -122,7 +122,7 @@
       <input matInput placeholder="Re-Enter New Password" type="{{type}}" id="myInput">
     </mat-form-field>
 
-    <button class="reset-button" (click)="showFormType('success')">RESET PASSWORD</button>
+    <button class="reset-button" (click)="resetPassword()">RESET PASSWORD</button>
   </div>
   <!--Password Reset-->
 
@@ -195,7 +195,7 @@
       <mat-label>Enter OTP</mat-label>
       <input matInput placeholder="Enter OTP">
     </mat-form-field>
-    <button class="verify-button" (click)="showFormType('verification')">VERIFY</button>
+    <button class="verify-button" (click)="verifyOtpForCreatingAccount()">VERIFY</button>
   </div>
   <!--Verified-->
 

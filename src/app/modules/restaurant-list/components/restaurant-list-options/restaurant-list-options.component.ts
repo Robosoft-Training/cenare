@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 import { SortingService } from 'src/app/services/sorting/sorting.service';
 
@@ -18,21 +19,21 @@ export class RestaurantListOptionsComponent implements OnInit {
   showMoreOptionsCount = 5;
   isExistMoreItems = true;
 
-
   constructor(
     private restaurantListService: RestaurantListService,
     private sortingService: SortingService,
+    private menuListService: MenuListService,
     private router: Router
   ) { }
 
   showMoreOptions = () => {
-    if(this.deatilsArray.length >= this.showMoreOptionsCount) {
+    if (this.deatilsArray.length >= this.showMoreOptionsCount) {
       this.showMoreOptionsCount += 1;
     }
     else {
       console.log(this.showMoreOptionsCount);
       this.isExistMoreItems = false;
-    } 
+    }
   }
 
   compareDate = (openTime, closeTime) => {
@@ -73,7 +74,14 @@ export class RestaurantListOptionsComponent implements OnInit {
   }
 
   goToMenuScreen = (restaurantID) => {
-    this.router.navigate(['/menu-list']);
+    this.menuListService.getRestaurantMenuItems(restaurantID).subscribe(
+      (msg) => {
+        // this.router.navigate(['/menu-list']);
+      },
+      err => {
+        this.router.navigate(['/menu-list']);
+      }
+    );
   }
 
   sortData = (sortType) => {

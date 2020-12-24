@@ -76,10 +76,8 @@
     }
 
     .controlls {
-        position: relative;
-        top: -9em;
-        @include small-orange-text();
-        @include arrow-controll-btn();
+        @include small-orange-text(-10.5em);
+        @include arrow-controll-btn(-9.7em);
     }
 
     .left-gradient-fill {

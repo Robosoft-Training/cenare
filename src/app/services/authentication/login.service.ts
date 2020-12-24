@@ -26,8 +26,8 @@ export class LoginService {
   userLogin = (email, password): Observable<any[]> => {
     console.log(email, password);
     const postBody = {
-      email: email,
-      password: password
+      email,
+      password
     };
     const url = `${this.baseUrl}login`;
     return this.httpClient.post<any[]>(url, postBody).pipe(
@@ -44,7 +44,7 @@ export class LoginService {
   }
 
   isUserLoggedIn = (): void => {
-    if(this.localStorageService.getUserJWTtoken()) {
+    if (this.localStorageService.getUserJWTtoken()) {
       this.userName.next('USER_NAME');
       this.isAuthenticated = true;
       this.isUserLogin.next(true);
@@ -52,8 +52,9 @@ export class LoginService {
   }
 
   userLogout = () => {
-    localStorage.removeItem("crave-userJWTtokens");
-    localStorage.removeItem("crave-userName");
+    localStorage.removeItem('crave-userJWTtokens');
+    localStorage.removeItem('crave-userName');
+    localStorage.removeItem('crave-userEmail');
     this.userName.next('');
     this.isAuthenticated = false;
     this.isUserLogin.next(false);

@@ -1,325 +1,352 @@
 @import '../../../../../variables.scss';
 
-.hader {
-  background-image: url("../../../../../assets/Cover image Copy.png");
-  height: 15em;
-  background-repeat: no-repeat;
-}
+.menu-home {
 
-.form {
-
-  // position: relative;\
-  .effect {
-    position: absolute;
-    background-color: white;
-    width: 10em;
-    left: 320px;
-    top: 0px;
-    height: 25em;
-    bottom: 0px;
-    z-index: 10;
-    filter: blur(15px);
-
-    @media only screen and (max-width: 1400px) {
-      left: 230px;
-    }
-  }
-
-  .card {
-
-    background-image: url("../../../../../assets/Resturant Image (1).png");
+  .hader {
+    background-image: url("../../../../../assets/Cover image Copy.png");
     height: 15em;
     background-repeat: no-repeat;
-    background-position: right;
-    background-size: 50% 100%;
-    // -webkit-filter: blur(0.5px);
-    overflow: hidden;
+  }
 
+  .form {
     position: relative;
-    z-index: 1000;
-    border-radius: 9px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.01), 0 0 6px rgba(0, 0, 0, 0.1);
-    padding: 14px 80px 18px 36px;
-    cursor: pointer;
-    width: 91%;
-    height: 268px;
-    top: 30px;
-    // left: 360px;
-    background-color: white;
-    margin-left: -1em;
 
-    @media only screen and (max-width: 720px) {
-      margin-left: 1em;
+    .effect {
+      position: absolute;
+      background-color: white;
+      width: 10em;
+      left: 320px;
+      top: 0px;
+      height: 25em;
+      bottom: 0px;
+      z-index: 10;
+      filter: blur(15px);
+
+      @media only screen and (max-width: 1400px) {
+        left: 230px;
+      }
     }
 
-    .cutlery {
-      height: 68px;
-      width: 68px;
-      left: -5px;
+    .card {
+      background-color: #0835e9;
+      background-image: url("../../../../../assets/Resturant Image (1).png");
+      height: 15em;
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 50% 100%;
+      // -webkit-filter: blur(0.5px);
+      overflow: hidden;
+
       position: relative;
+      z-index: 1000;
+      border-radius: 9px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.01), 0 0 6px rgba(0, 0, 0, 0.1);
+      padding: 14px 80px 18px 36px;
+      cursor: pointer;
+      width: 91%;
+      height: 268px;
+      top: 30px;
+      // left: 360px;
+      background-color: white;
+      margin-left: -1em;
+
+      @media only screen and (max-width: 720px) {
+        margin-left: 1em;
+      }
+
+      .cutlery {
+        height: 68px;
+        width: 68px;
+        left: -5px;
+        position: relative;
+      }
+
+      .food {
+        position: absolute;
+        height: 265px;
+        width: 50%;
+        top: -1px;
+        right: -1px;
+        z-index: -1;
+      }
+
+      .name {
+        position: absolute;
+        font-size: 20px;
+        font-weight: 800;
+        font-family: $openSans;
+        top: 96px;
+        left: 29px;
+        columns: #1c1c1c;
+      }
+
+      .cuisines {
+        position: absolute;
+        color: #7c7c7c;
+        font-size: 12px;
+        font-weight: lighter;
+        font-family: $openSans;
+        top: 125px;
+        left: 31px;
+      }
+
+      .rating {
+        position: absolute;
+        width: 45px;
+        height: 23px;
+        top: 155px;
+        left: 30px;
+      }
+
+      p {
+        position: absolute;
+        top: 157px;
+        left: 42px;
+        color: white;
+        font-weight: bold;
+        font-family: $openSans;
+        font-size: 14px;
+      }
+
+      .delivery {
+        position: absolute;
+        color: #7c7c7c;
+        font-size: 11px;
+        font-weight: lighter;
+        font-family: $openSans;
+        top: 188px;
+        left: 31px;
+      }
+
+      .star {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid green;
+        border-radius: 4px;
+        color: green;
+        top: 220px;
+        left: 36px;
+        font-size: 11px;
+      }
+
+      .star1 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid green;
+        border-radius: 4px;
+        color: green;
+        top: 220px;
+        left: 92px;
+        font-size: 11px;
+      }
+
+      .star2 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid orange;
+        border-radius: 4px;
+        color: orange;
+        top: 220px;
+        left: 147px;
+        font-size: 11px;
+      }
+
+      .star3 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid green;
+        border-radius: 4px;
+        color: green;
+        top: 220px;
+        left: 201px;
+        font-size: 11px;
+      }
+
+      .star4 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid#ED1B2E;
+        border-radius: 4px;
+        color: #ED1B2E;
+        top: 220px;
+        left: 259px;
+        font-size: 11px;
+        z-index: 20;
+      }
+
+      .time {
+        position: absolute;
+        color: #A3A3A3;
+        top: 157px;
+        left: 80px;
+        font-size: 11px;
+        font-family: sans-serif;
+        z-index: 20;
+      }
+
+      .order {
+        position: absolute;
+        color: #A3A3A3;
+        top: 157px;
+        left: 131px;
+        font-size: 11px;
+        font-family: $openSans;
+        z-index: 20;
+      }
+
+      .timings {
+        position: absolute;
+        color: #A3A3A3;
+        top: 163px;
+        left: 228px;
+        font-size: 11px;
+        font-family: $openSans;
+        z-index: 20;
+      }
+
+      .open {
+        position: absolute;
+        color: #A3A3A3;
+        top: 158px;
+        left: 240px;
+        font-size: 11px;
+        font-family: $openSans;
+        z-index: 20;
+      }
     }
 
-    .food {
-      position: absolute;
-      height: 265px;
-      width: 50%;
-      top: -1px;
-      right: -1px;
-      z-index: -1;
-    }
-
-    .name {
-      position: absolute;
-      font-size: 20px;
-      font-weight: 800;
-      font-family: $openSans;
-      top: 96px;
-      left: 29px;
-      columns: #1c1c1c;
-    }
-
-    .cuisines {
+    .recom {
       position: absolute;
       color: #7c7c7c;
+      top: 110px;
       font-size: 12px;
-      font-weight: lighter;
       font-family: $openSans;
-      top: 125px;
-      left: 31px;
+      left: -3px;
     }
 
-    .rating {
+    .search-box {
       position: absolute;
-      width: 45px;
-      height: 23px;
-      top: 155px;
-      left: 30px;
-    }
-
-    p {
-      position: absolute;
-      top: 157px;
-      left: 42px;
-      color: white;
-      font-weight: bold;
-      font-family: $openSans;
-      font-size: 14px;
-    }
-
-    .delivery {
-      position: absolute;
-      color: #7c7c7c;
-      font-size: 11px;
-      font-weight: lighter;
-      font-family: $openSans;
-      top: 188px;
-      left: 31px;
-    }
-
-    .star {
-      position: absolute;
-      width: 40px;
-      height: 20px;
-      background-color: transparent;
-      border: 1px solid green;
+      top: 40px;
+      left: -3px;
+      height: 50px;
+      width: 515px;
       border-radius: 4px;
-      color: green;
-      top: 220px;
-      left: 36px;
-      font-size: 11px;
-    }
+      background-color: #FFFFFF;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.07);
 
-    .star1 {
-      position: absolute;
-      width: 40px;
-      height: 20px;
-      background-color: transparent;
-      border: 1px solid green;
-      border-radius: 4px;
-      color: green;
-      top: 220px;
-      left: 92px;
-      font-size: 11px;
-    }
+      .search-icon {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        bottom: 15px;
+        left: 27px;
+      }
 
-    .star2 {
-      position: absolute;
-      width: 40px;
-      height: 20px;
-      background-color: transparent;
-      border: 1px solid orange;
-      border-radius: 4px;
-      color: orange;
-      top: 220px;
-      left: 147px;
-      font-size: 11px;
-    }
+      .input {
+        position: absolute;
+        color: #7c7c7c;
+        font-size: 14px;
+        opacity: 0.7;
+        left: 65px;
+        bottom: 13px;
+        border: none;
+        font-family: $openSans;
+        font-size: 12px;
+        letter-spacing: 0.7px;
 
-    .star3 {
-      position: absolute;
-      width: 40px;
-      height: 20px;
-      background-color: transparent;
-      border: 1px solid green;
-      border-radius: 4px;
-      color: green;
-      top: 220px;
-      left: 201px;
-      font-size: 11px;
-    }
-
-    .star4 {
-      position: absolute;
-      width: 40px;
-      height: 20px;
-      background-color: transparent;
-      border: 1px solid#ED1B2E;
-      border-radius: 4px;
-      color: #ED1B2E;
-      top: 220px;
-      left: 259px;
-      font-size: 11px;
-      z-index: 20;
-    }
-
-    .time {
-      position: absolute;
-      color: #A3A3A3;
-      top: 157px;
-      left: 80px;
-      font-size: 11px;
-      font-family: sans-serif;
-      z-index: 20;
-    }
-
-    .order {
-      position: absolute;
-      color: #A3A3A3;
-      top: 157px;
-      left: 131px;
-      font-size: 11px;
-      font-family: $openSans;
-      z-index: 20;
-    }
-
-    .timings {
-      position: absolute;
-      color: #A3A3A3;
-      top: 163px;
-      left: 228px;
-      font-size: 11px;
-      font-family: $openSans;
-      z-index: 20;
-    }
-
-    .open {
-      position: absolute;
-      color: #A3A3A3;
-      top: 158px;
-      left: 240px;
-      font-size: 11px;
-      font-family: $openSans;
-      z-index: 20;
-    }
-  }
-
-  .recom {
-    position: absolute;
-    color: #7c7c7c;
-    top: 110px;
-    font-size: 12px;
-    font-family: $openSans;
-    left: -3px;
-  }
-
-  .search-box {
-    position: absolute;
-    top: 40px;
-    left: -3px;
-    height: 50px;
-    width: 515px;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.07);
-
-    .search-icon {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      bottom: 15px;
-      left: 27px;
-    }
-
-    .input {
-      position: absolute;
-      color: #7c7c7c;
-      font-size: 14px;
-      opacity: 0.7;
-      left: 65px;
-      bottom: 13px;
-      border: none;
-      font-family: $openSans;
-      font-size: 12px;
-      letter-spacing: 0.7px;
-
-      &:focus {
-        outline: none;
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
-}
 
-.options {
-  cursor: pointer;
-  color: rgb(80, 75, 75);
-  top: 10em;
-  position: relative;
-  font-family: $openSans;
-  font-weight: bold;
-  font-size: 11px;
-  letter-spacing: 0.9px;
-  margin-left: -1em;
-  margin-bottom: 2em;
-
-  .overview {
-    margin-left: 5em;
-  }
-
-  .reviews {
-    margin-left: 5em;
-  }
-
-  .gallery {
-    margin-left: 5em;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .menu {
-      margin-left: 2em;
-    }
-    .overview {
-      margin-left: 2em;
-    }
-  
-    .reviews {
-      margin-left: 2em;
-    }
-  
-    .gallery {
-      margin-left: 2em;
-    }
-  }
-}
-
-.fields-container {
-    top: 8em;
+  .options {
+    cursor: pointer;
+    color: #3b3b3b;
+    top: 10em;
     position: relative;
+    font-family: $openSans;
+    font-weight: bolder;
+    font-size: 11px;
+    letter-spacing: 0.9px;
     margin-left: -1em;
     margin-bottom: 2em;
-  
+
+
+    .active {
+      color: #0f0d0d;
+      font-weight: bolder;
+    }
+
+    .active:after {
+      padding: 0;
+      margin: 0;
+      display: block;
+      /* probably not really needed? */
+      content: "";
+      width: 3.2em;
+      height: 0.4em;
+      background: $calenderTheme;
+      ;
+      position: relative;
+      right: 0;
+      border-radius: 50em;
+      top: 0.5em;
+    }
+
+    .overview {
+      margin-left: 5em;
+    }
+
+    .reviews {
+      margin-left: 5em;
+    }
+
+    .gallery {
+      margin-left: 5em;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .menu {
+        margin-left: 2em;
+      }
+
+      .overview {
+        margin-left: 2em;
+      }
+
+      .reviews {
+        margin-left: 2em;
+      }
+
+      .gallery {
+        margin-left: 2em;
+      }
+    }
+  }
+
+  .fields-container {
+    top: 7.8em;
+    position: relative;
+    margin-left: -1em;
+    margin-bottom: 2.5em;
+    width: 100%;
+
     @media only screen and (max-width: 768px) {
       .fields {
         margin-left: 2em;
       }
     }
   }
+}

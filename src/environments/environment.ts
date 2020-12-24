@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000/'
+  baseUrl: 'http://192.168.225.87:3000/',
+  apiKey: 'AVVcB8jjfmf7eYftCZAdiyFzAyMnrVLO',
+  getAdressBaseUrl: 'https://api.tomtom.com/search/2/reverseGeocode/',
+  getLatitudeLongitudeBaseUrl: 'https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IN&limit=1&streetName='
 };
 
 /*
