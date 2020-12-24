@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  isHide = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  showPaymentDetails(){
+    this.isHide = !this.isHide;
+  }
+  increaseQuantityOfDish()
+  {
+      console.log("INC","clicked");
+      
   }
 
 }
