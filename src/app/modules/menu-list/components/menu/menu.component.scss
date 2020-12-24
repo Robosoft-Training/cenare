@@ -1,0 +1,380 @@
+@import '../../../../../mixin.scss';
+
+.menu {
+  .menu-left {
+    .search-box {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.07);
+      margin-bottom: 32px;
+
+      .search-icon {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        bottom: 15px;
+        left: 27px;
+      }
+
+      .input {
+        position: absolute;
+        color: #7c7c7c;
+        font-size: 14px;
+        opacity: 0.7;
+        left: 65px;
+        bottom: 13px;
+        border: none;
+        font-family: $openSans;
+        font-size: 12px;
+        letter-spacing: 0.7px;
+        
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .left-list {
+      .list-title {
+        color: #4A4A4A;
+        font-family: "Open Sans";
+        font-size: 16px;
+        letter-spacing: -0.27px;
+        line-height: 22px;
+      }
+
+      .list-card {
+        border-radius: 6px;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+        margin-top: 16px;
+
+        .card-img {
+          height: 100%;
+          width: 140px;
+
+          border-radius: 4px;
+        }
+
+        .card-content {
+          padding: 8px 16px;
+
+          .card-content-left {
+            // height: 100%;
+            // width: 100%;
+
+            .name-text {
+              color: #223136;
+              font-family: "Open Sans";
+              font-size: 16px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 22px;
+            }
+
+            .cost-text {
+              color: #2D2D2D;
+              font-family: "Open Sans";
+              font-size: 12px;
+              letter-spacing: 0;
+              line-height: 17px;
+            }
+
+            .description-text {
+              color: #9B9B9B;
+              font-family: "Open Sans";
+              font-size: 12px;
+              letter-spacing: 0;
+              line-height: 17px;
+              width: 90%;
+            }
+          }
+
+          .card-content-right {
+            .best-seller-text {
+              color: #FFFFFF;
+              background-color: #F5A623;
+              font-family: "Open Sans";
+              font-size: 10px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 14px;
+              text-align: center;
+              width: 80%;
+            }
+
+            .content-right-bottom {
+              .already-in-cart-text {
+                color: #49BB5C;
+                font-family: "Open Sans";
+                font-size: 10px;
+                letter-spacing: 0;
+                line-height: 14px;
+                text-align: center;
+                padding-bottom: 4px;
+              }
+
+              .add-btn {
+                height: 30px;
+                padding: 0px 8px;
+                color: #ff8c7d;
+                border-color: #ff8c7d;
+                font-family: "Open Sans";
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -0.2px;
+                text-align: center;
+                border-radius: 25px;
+                background-color: #FFFFFF;
+
+                @include focus;
+              }
+
+              .small-button {
+                width: 87px;
+              }
+
+              .big-button {
+                width: 107px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .cart {
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    //margin-left: 20px;
+
+    //width:50%;
+    width: 32%;
+
+    .cart-header {
+      padding: 20px 20px;
+
+      .header-text {
+        color: #000000;
+        font-family: "Open Sans";
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 30px;
+      }
+
+      .clear-cart-text {
+        color: #F57C00;
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-align: right;
+        padding-top: 10px;
+      }
+    }
+
+    .border {
+      border: 1px solid #EDEDED;
+    }
+
+    .cart-items {
+      .item {
+        border-bottom: 1px solid #EDEDED;
+        padding: 16px 20px;
+
+        .item-top {
+          justify-content: space-between;
+
+          .top-text {
+            .name {
+              color: #2D2D2D;
+              font-family: "Open Sans";
+              font-size: 14px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 19px;
+              margin-left: 8px;
+            }
+
+            .price {
+              color: #2D2D2D;
+              font-family: "Open Sans";
+              font-size: 12px;
+              letter-spacing: 0;
+              line-height: 27px;
+            }
+          }
+
+          .top-buttons {
+            justify-content: space-evenly;
+            box-sizing: border-box;
+            height: 30px;
+            width: 30%;
+            //width: 87px;
+            border: 1px solid #CECFD4;
+            border-radius: 15px;
+            background-color: #FFFFFF;
+
+            .text {
+              color: #8D909A;
+              font-family: "Open Sans";
+              font-size: 13px;
+              font-weight: bold;
+              letter-spacing: 0;
+              line-height: 27px;
+              text-align: center;
+            }
+
+            .orange-text {
+              color: #F67E03;
+
+            }
+          }
+        }
+
+        .item-bottom {
+          .bottom-left {
+            justify-content: space-between;
+
+            .description-text {
+              color: #9B9B9B;
+              font-family: "Open Sans";
+              font-size: 11px;
+              letter-spacing: 0;
+              line-height: 15px;
+              padding-top: 8px;
+              width: 80%;
+            }
+
+            .total-price-text {
+              color: #2D2D2D;
+              font-family: "Open Sans";
+              font-size: 12px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 17px;
+              text-align: center;
+            }
+
+          }
+
+          .bottom-right {
+            justify-content: space-between;
+
+            //padding-top: 4px;
+            .remove-text {
+              color: #ED1B2E;
+              font-family: "Open Sans";
+              font-size: 11px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 15px;
+              text-align: right;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .payment {
+      border-radius: 3px;
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 10px 0 rgba(198, 198, 198, 0.5);
+      margin: 30px 20px;
+      transition-property: width;
+      transition-duration: 2s;
+      transition-timing-function: linear;
+      transition-delay: 1s;
+
+      .payment-header {
+        justify-content: space-between;
+        padding: 20px 10px;
+
+        .header-price {
+          .collapse-btn {
+            height: 10px;
+            width: 15px;
+            margin-left: 8px;
+            margin-top: 4px;
+          }
+
+          .translateX {
+            transform: scaleY(1) rotate(180deg);
+          }
+
+          .translateY {
+            // transform: scaleY(-1) rotate(90deg);
+          }
+
+        }
+      }
+
+      .payment-details {
+        background-color: rgba(248, 248, 248, 1);
+
+        .item {
+          justify-content: space-between;
+
+          .text {
+            color: #9B9B9B;
+            font-family: "Open Sans";
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 27px;
+            padding: 4px 16px;
+          }
+        }
+      }
+    }
+
+    .cooking-instructions {
+      margin: 0px 20px;
+
+      .cooking-instructions-text {
+        color: #858585;
+        font-family: "Open Sans";
+        font-size: 12px;
+        letter-spacing: -0.24px;
+        line-height: 17px;
+      }
+
+      .cooking-instructions-textbox {
+        color: #4A4A4A;
+        font-family: "Open Sans";
+        font-size: 16px;
+        letter-spacing: -0.27px;
+        line-height: 22px;
+        width: 100%;
+        margin-top: 8px;
+        border: none;
+        border-bottom: 1px solid black;
+        padding-bottom: 16px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .proceed-btn {
+        width: 100%;
+        margin: 30px 0px;
+        padding: 16px 8px;
+        color: #FFFFFF;
+        border-radius: 6px;
+        background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+        border: none;
+        @include focus;
+      }
+    }
+
+
+  }
+}
