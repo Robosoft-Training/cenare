@@ -1,0 +1,102 @@
+@import '../../../../../variables.scss';
+
+h3 {
+  color: #000000;
+  font-family: $openSans;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.description {
+  color: #4A4A4A;
+  font-family: "Open Sans";
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 18px;
+  width: 91%;
+}
+
+.details {
+    display:flex;
+  justify-content: space-between;
+  margin: 30px 0px;
+  width: 91%;
+  align-items: baseline;
+
+  .cuisine {
+    color: #4A4A4A;
+    font-family: "Open Sans";
+    font-size: 11px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+
+  .Meal {
+    color: #4A4A4A;
+    font-family: "Open Sans";
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0;
+    border-right: 1px solid rgba(151, 151, 151, 0.25);
+    padding-right: 8px;
+
+  }
+  .Meal:last-child{
+      border-right: none;
+  }
+}
+
+.card {
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+  width: 350px;
+  height: 150px;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+
+  .date{
+    font-family: $openSans;
+    font-size: 10px;
+    color: #7c7c7c;
+  }
+  .open{
+      position: absolute;
+      color:#008000;
+      right:20px;
+      font-family: $openSans;
+      font-size: 11px;
+      font-weight: bold;
+  }
+  .time{
+    font-family: $openSans;
+    font-size: 12px;
+  }
+  .time1{
+      font-family: $openSans;
+      font-size: 12px;
+  }
+  .off{
+      color:red;
+      font-family: $openSans;
+      font-size: 10px;
+      margin-top: 6px;
+  }
+  .line{
+    border-bottom: 1px solid  rgba(151, 151, 151, 0.25);
+    margin-top: 10px;
+  }
+  .work{
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      font-family: $openSans;
+      background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+  }
+}
