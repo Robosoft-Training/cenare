@@ -95,7 +95,7 @@
     </p>
     <mat-form-field class="email">
       <mat-label>Enter OTP</mat-label>
-      <input matInput placeholder="Enter OTP">
+      <input matInput placeholder="Enter OTP" [(ngModel)]="otp.value">
     </mat-form-field>
     <button class="verify-button" (click)="verifyOtpForResetPassword()">VERIFY</button>
   </div>
@@ -114,12 +114,12 @@
     </div>
     <mat-form-field class="reset1">
       <mat-label>Enter New Password</mat-label>
-      <input matInput placeholder="Enter New Password" type="{{type}}" id="myInput">
+      <input matInput placeholder="Enter New Password" [(ngModel)]="newPassword1.value" type="{{type}}" id="myInput">
     </mat-form-field>
 
     <mat-form-field class="reset2">
       <mat-label>Re-Enter New Password</mat-label>
-      <input matInput placeholder="Re-Enter New Password" type="{{type}}" id="myInput">
+      <input matInput placeholder="Re-Enter New Password" [(ngModel)]="newPassword2.value" type="{{type}}" id="myInput">
     </mat-form-field>
 
     <button class="reset-button" (click)="resetPassword()">RESET PASSWORD</button>
@@ -193,7 +193,7 @@
     </p>
     <mat-form-field class="email">
       <mat-label>Enter OTP</mat-label>
-      <input matInput placeholder="Enter OTP">
+      <input matInput placeholder="Enter OTP" [(ngModel)]="otp.value">
     </mat-form-field>
     <button class="verify-button" (click)="verifyOtpForCreatingAccount()">VERIFY</button>
   </div>
@@ -242,11 +242,11 @@
     <div class="icon">
       <img src="../../../assets/icn_register_success.png">
     </div>
-    <h1>Hi Abdullah,<br>
+    <h1>Hi {{userName}},<br>
       Welcome to Crave</h1>
     <p> We’ve sent you an email on<br>
-      abdulla.mohammad for verification.
+      {{userEmail}} for verification.
     </p>
-    <button class="login-button">BROWSE TO START ORDERING</button>
+    <button class="login-button" (click)="showFormType('login')">BROWSE TO START ORDERING</button>
   </div>
 </div>

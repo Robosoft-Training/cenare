@@ -18,16 +18,16 @@ export class ResetPasswordService {
   ) { }
 
   resetPassWordSendOtp = (email): Observable<any[]> => {
-    console.log(email);
+    // console.log(email);
     const postBody = {
-      email
+      
     };
     this.localStorageService.setUserEmail(email);
-    const url = `${this.baseUrl}resetpassword/sendotp`;
+    const url = `${this.baseUrl}api/auth/forgotPassword?email=${email}`;
     return this.httpClient.post<any[]>(url, postBody).pipe(
       tap(
         (data) => {
-
+          // console.log(data);
         }
       )
     );
@@ -36,11 +36,10 @@ export class ResetPasswordService {
   resetPassword = (password): Observable<any[]> => {
     const email = this.localStorageService.getUserEmail();
     const postBody = {
-      email,
       password
     };
-    console.log(postBody);
-    const url = `${this.baseUrl}resetpassword`;
+    // console.log(postBody);
+    const url = `${this.baseUrl}api/auth/changePassword?email=${email}`;
     return this.httpClient.post<any[]>(url, postBody).pipe(
       tap(
         (data) => {

@@ -13,8 +13,8 @@ export class PopularProductsService {
 
   coordinatesData: any;
   searchData: any;
-  // apiBaseUrl = environment.awsBaseUrl;
   apiBaseUrl = environment.baseUrl;
+  // apiBaseUrl = environment.baseUrl;
 
   nearbyBrandsDataListSource = new BehaviorSubject({});
   currentnearbyBrandsDataListSource = this.nearbyBrandsDataListSource.asObservable();

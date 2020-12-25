@@ -15,7 +15,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // console.log('url :', req.url);
+    console.log('url :', req.url);
 
     const mapApiUrl = req.url.toString().substring(0, 22);
     let reqUrl;
@@ -33,19 +33,12 @@ export class HttpInterceptorService implements HttpInterceptor {
     );
   }
 
-  // tslint:disable-next-line: typedef
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
       console.log('An error occurred:', error.error.message);
     } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.log(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+      console.log(error.error);
     }
-    // Return an observable with a user-facing error message.
     return throwError(error);
   }
 }

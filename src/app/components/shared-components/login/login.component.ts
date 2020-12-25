@@ -21,11 +21,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
+
+  userName: any;
+  userEmail: any;
 
   matcher = new MyErrorStateMatcher();
   @Input() formType: string = 'login';
@@ -44,13 +48,25 @@ export class LoginComponent implements OnInit {
     private registerService: RegisterService,
     private otpVerifications: OtpverificationService,
     private resetPasswordService: ResetPasswordService,
-    private route: Router,
+    private router: Router,
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA)
     public data: { formType: string }
   ) { this.formType = data.formType; }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.registerService.currentUserName.subscribe(
+      userName => {
+        this.userName = userName;
+      }
+    );
+    this.registerService.currentUserEmail.subscribe(
+      userEmail => {
+        this.userEmail = userEmail;
+      }
+    );
+  }
+
   closeDialog(): void {
     this.dialogRef.close();
   }
@@ -65,6 +81,7 @@ export class LoginComponent implements OnInit {
   }
 
   showFormType(formName): void {
+    this.password.value = "";
     this.formType = formName;
   }
 
@@ -80,7 +97,9 @@ export class LoginComponent implements OnInit {
       this.password.error = '';
       this.loginService.userLogin(this.email.value, this.password.value).subscribe(
         msg => {
-
+          // this.router.navigate(['/home-page']);
+          // location.reload();
+          this.closeDialog();
         },
         err => {
           this.email.error = 'Email and Password not Matching';
@@ -100,16 +119,16 @@ export class LoginComponent implements OnInit {
       this.email.error = '';
       this.registerService.registerEmail(this.email.value).subscribe(
         (msg) => {
-          this.email.error = 'Something went wrong!';
+          this.showFormType('create');
         },
         err => {
-          this.showFormType('create');
+          this.email.error = err.error.message;
         }
       );
     }
   }
 
-    registration(): void {
+  registration(): void {
     if (!this.firstName.value) {
       this.firstName.error = 'First name is required';
     }
@@ -124,10 +143,10 @@ export class LoginComponent implements OnInit {
       this.lastName.error = '';
       this.registerService.createAccount(this.firstName.value, this.lastName.value, this.mobileNumber.value, this.password.value).subscribe(
         msg => {
-          this.email.error = 'Something went wrong!';
+          this.showFormType('successful');
         },
         err => {
-          this.showFormType('successful');
+          this.email.error = 'Something went wrong!';
         }
       );
     }
@@ -136,10 +155,10 @@ export class LoginComponent implements OnInit {
   verifyOtpForCreatingAccount = () => {
     this.otpVerifications.verifyOtp(this.otp.value).subscribe(
       msg => {
-        this.email.error = 'Something went wrong!';
+        this.showFormType('verification');
       },
       err => {
-        this.showFormType('verification');
+        this.otp.error = 'Invalied OTP';
       }
     );
   }
@@ -155,38 +174,39 @@ export class LoginComponent implements OnInit {
       this.email.error = '';
       this.resetPasswordService.resetPassWordSendOtp(this.email.value).subscribe(
         msg => {
-          this.email.error = 'Something went wrong!';
+          this.showFormType('otpverification');
         },
         err => {
-          this.showFormType('otpverification');
+          this.email.error = 'Something went wrong!';
         }
       );
     }
   }
 
   resetPassword = () => {
-    if (!(this.newPassword1.value === this.newPassword2.value)){
+    if (!(this.newPassword1.value === this.newPassword2.value)) {
       this.newPassword1.error = 'Password not matching';
     }
     else {
       this.newPassword1.error = '';
-      this.resetPasswordService.resetPassword(this.newPassword1).subscribe(
+      this.resetPasswordService.resetPassword(this.newPassword1.value).subscribe(
         msg => {
-
+          this.showFormType('login');
         },
         err => {
+          this.otp.error = 'Something went wrong!';
         }
       );
     }
   }
 
   verifyOtpForResetPassword = () => {
-    this.otpVerifications.verifyOtp(this.otp.value).subscribe(
+    this.otpVerifications.verifyOtpForResetPassword(this.otp.value).subscribe(
       msg => {
-        this.email.error = 'Something went wrong!';
+        this.showFormType('verified');
       },
       err => {
-        this.showFormType('verified');
+        this.otp.error = 'Invalied OTP';
       }
     );
   }

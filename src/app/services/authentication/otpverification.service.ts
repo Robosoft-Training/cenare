@@ -23,11 +23,30 @@ export class OtpverificationService {
       email,
       otp
     };
-    const url = `${this.baseUrl}otpverify`;
+    const url = `${this.baseUrl}api/auth/verifyOtp`;
     return this.httpClient.post<any[]>(url, postBody).pipe(
       tap(
-        (data) => {
+        (data: any) => {
+          this.localStorageService.setUserEmail(data.email);
+          this.localStorageService.setUserId(data.user_id);
+        }
+      )
+    );
+  }
 
+  verifyOtpForResetPassword = (otp) => {
+    const email = this.localStorageService.getUserEmail();
+    console.log(otp, email);
+    const postBody = {
+      email,
+      otp
+    };
+    const url = `${this.baseUrl}api/auth/enterOtp`;
+    return this.httpClient.post<any[]>(url, postBody).pipe(
+      tap(
+        (data: any) => {
+          this.localStorageService.setUserEmail(data.email);
+          this.localStorageService.setUserId(data.user_id);
         }
       )
     );

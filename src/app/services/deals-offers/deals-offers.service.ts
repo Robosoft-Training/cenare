@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 })
 export class DealsOffersService {
 
-  apiBaseUrl = environment.awsBaseUrl;
+  // apiBaseUrl = environment.awsBaseUrl;
+  apiBaseUrl = environment.baseUrl;
 
   constructor(private httpClient: HttpClient) { }
 
