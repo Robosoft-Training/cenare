@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsRatingsComponent implements OnInit {
 
+  count: any;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addImage() {
+
+  }
+
+  submit() {
+    
+  }
+
+  foodRatingOne() {
+  //  document.getElementById('foodRatingOne').style.border = "green";
   }
 
 }
