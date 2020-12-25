@@ -30,11 +30,11 @@
     <span *ngIf="!isLoading">
         <div class="d-flex flex-row restaurant-card mb-3" *ngFor="let item of deatilsArray | slice:0:4">
             <div class="card-image">
-                <!-- <img class="img" src="{{ item.restaurant.restaurant_image?item.restaurant.restaurant_image:imageplaceHolder }}"> -->
+                <img class="img" src="{{ item.restaurant.restaurant_image?item.restaurant.restaurant_image:imageplaceHolder }}">
             </div>
             <div class="d-flex flex-column card-content">
                 <div class="d-flex flex-row justify-content-between content-header">
-                    <label class="restaurant-name-text">{{ item?.restaurant.restaurant_name }}</label>
+                    <label class="restaurant-name-text">{{ item.restaurant.restaurant_name }}</label>
                     <div class="ratings">
                         <label
                             [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating
@@ -85,7 +85,7 @@
             <div class="d-flex flex-row restaurant-card mb-3"
                 *ngFor="let item of deatilsArray | slice:4:showMoreOptionsCount">
                 <div class="card-image">
-                    <!-- <img class="img" src="{{ item.restaurant.restaurant_image?item.restaurant.restaurant_image:imageplaceHolder }}"> -->
+                    <img class="img" src="{{ item.restaurant.restaurant_image?item.restaurant.restaurant_image:imageplaceHolder }}">
                 </div>
                 <div class="d-flex flex-column card-content">
                     <div class="d-flex flex-row justify-content-between content-header">

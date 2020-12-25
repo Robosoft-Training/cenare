@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 import { SortingService } from 'src/app/services/sorting/sorting.service';
+import { IRestaurant } from 'src/app/shared/interfaces/IRestaurant_List';
 
 @Component({
   selector: 'app-restaurant-list-options',
@@ -11,8 +12,26 @@ import { SortingService } from 'src/app/services/sorting/sorting.service';
 })
 export class RestaurantListOptionsComponent implements OnInit {
 
-  restaurantDataList: any[] = [];
-  deatilsArray: any;
+  deatilsArray: IRestaurant[] = [
+    {
+      "restaurant": {
+        "restaurant_id": 0,
+        "restaurant_name": "",
+        "restaurant_city": "",
+        "restaurant_address": "",
+        "open_time": [],
+        "close_time": [],
+        "avg_delivery_time": 0,
+        "min_order_cost": 0,
+        "avg_order_cost": 0,
+        "menu_image": "",
+        "restaurant_image": ""
+      },
+      "rating": 0,
+      "cuisines": []
+    }
+  ];
+
   currentTime: any;
   sortType = 'rating_high_low';
   arrayLength = 0;
@@ -44,30 +63,29 @@ export class RestaurantListOptionsComponent implements OnInit {
     const currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
     const time1 = Date.parse(`01/01/1998 ${openTime}`) <= Date.parse(`01/01/1998 ${currentTime}`);
     const time2 = Date.parse(`01/01/1998 ${closeTime}`) > Date.parse(`01/01/1998 ${currentTime}`);
-    // console.log(openTime, closeTime, currentTime);
     return (time1 && time2);
   }
 
-  // convertToarray = (restaurantDataList) => {
-  //   this.deatilsArray = [];
-  //   for (let i in restaurantDataList) {
-  //     this.deatilsArray.push(restaurantDataList[i]);
-  //     // console.log(this.deatilsArray);
-  //   }
-  // }
-
   loadData = () => {
     this.isLoading = true;
+
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
-        // this.convertToarray( restaurantDataList );
+        console.log(restaurantDataList);
+        this.deatilsArray = restaurantDataList.resultList;
+        this.arrayLength = this.deatilsArray?.length;
+        this.isLoading = false;
+      }
+    );
+
+    this.restaurantListService.loadRestaurants().subscribe(
+      (restaurantDataList: any) => {
         console.log(restaurantDataList.resultList);
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray.length;
         this.isLoading = false;
       }
     );
-    this.restaurantListService.loadRestaurants();
     const currentDate = new Date();
     this.currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
 

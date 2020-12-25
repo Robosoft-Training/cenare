@@ -7,22 +7,22 @@
           </div>
         <div class="d-flex flex-column left-list"> 
             <label class="list-title">Recomended (3)</label>
-            <div class="d-flex flex-row list-card" *ngFor="let i of [1,2,3,4]">
+            <div class="d-flex flex-row list-card" *ngFor="let item of menuList">
                 <div class="card-img">
-                    <img src="../../../../../assets/icn_restaurant.png">
+                    <img src="{{ item.item_image_path }}">
                 </div>
                 <div class="d-flex flex-row card-content">
                     <div class="d-flex flex-column justify-content-between card-content-left">
-                        <label class="name-text">Chili Cheese Meal</label>
+                        <label class="name-text">{{ item.item_name }}</label>
                         <label class="cost-text">AED27.00</label>
-                        <label class="description-text">Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.</label>
+                        <label class="description-text">{{ item.desrcription }}</label>
                     </div>
                     <div class="d-flex flex-column justify-content-between card-content-right">
                         <label class="flex-end align-self-end best-seller-text">BESTSELLER</label>
                         <div class="d-flex flex-column content-right-bottom">
                             <label class="already-in-cart-text">Already in cart</label>
-                            <button class="add-btn small-button" *ngIf="true">ADD</button>
-                            <button class="add-btn big-button" *ngIf="false">ADD AGAIN</button>
+                            <button class="add-btn small-button" *ngIf="true" (click)="increaseQuantityOfDish(item.menu_id)">ADD</button>
+                            <button class="add-btn big-button" *ngIf="false" (click)="increaseQuantityOfDish(item.menu_id)">ADD AGAIN</button>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     <div class="d-flex flex-row top-buttons">
                         <label class="text">-</label>
                         <label class="text orange-text">1</label>
-                        <label class="text orange-text" (click)="increaseQuantityOfDish()">+</label>
+                        <label class="text orange-text" (click)="increaseQuantityOfDish(1)">+</label>
                     </div>
                 </div>
                 <div class="d-flex flex-column item-bottom">

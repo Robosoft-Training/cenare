@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
+import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,17 @@ import { MenuListService } from 'src/app/services/resraurant-details/menu-list/m
 export class MenuComponent implements OnInit {
 
   isHide = false;
-  menuList: any[] = [];
+  menuList: IMenuList[] = [
+    {
+      "menu_id": 0,
+      "item_name": "",
+      "cook_time": 0.0,
+      "category": "",
+      "course": "",
+      "desrcription": "",
+      "item_image_path": ""
+    }
+  ];
 
   constructor(
     private menuListService: MenuListService
@@ -17,18 +28,17 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuListService.getRestaurantMenuItems(1).subscribe(
-      msg => {
-        console.log(msg);
-        this.menuList = msg;
+      (data: any) => {
+        this.menuList = data.resultList;
       }
     );
   }
 
-  showPaymentDetails(){
+  showPaymentDetails() {
     this.isHide = !this.isHide;
   }
-  increaseQuantityOfDish()
-  {
-      console.log("INC","clicked");  
+  
+  increaseQuantityOfDish(dishId) {
+    console.log(dishId);
   }
 }
