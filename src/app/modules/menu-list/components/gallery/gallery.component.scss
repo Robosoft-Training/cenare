@@ -1,0 +1,274 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.box {
+  width: 93%;
+  margin-left: 0.7%;
+  display: block;
+  margin-top: -15px;
+
+  .rectangle {
+    width: 106%;
+    margin-left: 0px;
+
+    .rectangle1 {
+      width: 95%;
+      margin-bottom: 20px;
+
+      .allPhotosButton {
+        height: 35px;
+        width: 100px;
+        display: flex;
+        margin-right: 24px;
+        background: #FFFFFF;
+        outline: none;
+        border: 0px;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+        justify-content: center;
+
+        .buttonText {
+          width: 69px;
+          color: #4A4A4A;
+          font-family: $openSansSemibold;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.1px;
+          line-height: 19px;
+          margin-top: auto;
+          margin-bottom: auto;
+          margin-left: -4px;
+        }
+
+        .arrow {
+          height: 6px;
+          width: 9px;
+          margin-left: 8px;
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+      }
+    }
+
+    .column {
+      margin-left: -10px;
+      justify-content: space-between;
+
+      img {
+        width: 96%;
+        margin-bottom: 10%;
+        border-radius: 4px;
+      }
+    }
+
+    .rectangle2 {
+      width: 95%;
+
+      .viewMore {
+        background: linear-gradient(138.33deg, #fa4878 90%, #FEB456 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: $openSansSemibold;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: -0.17px;
+        line-height: 20px;
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+// Overlay
+
+.screen {
+  height: 200vh;
+  width: 150vw;
+  margin-top: -60%;
+  margin-left: -30%;
+  position: fixed;
+  background: black;
+  opacity: 0.7;
+  z-index: 2000;
+}
+
+.box2 {
+  height: 100vh;
+  width: 100vw;
+  margin-top: -44%;
+  margin-left: -25%;
+  position: fixed;
+  background: transparent;
+  opacity: 1;
+  z-index: 2020;
+
+  .dialog {
+    height: 60vh;
+    width: 50vw;
+    content: fill;
+    margin-left: 25.5%;
+    margin-top: 8%;
+
+    .selectedImage {
+      height: 100%;
+      width: 100%;
+      border-radius: 4px;
+      margin: auto;
+      opacity: 1;
+    }
+
+    .cancel {
+      height: 16px;
+      width: 16px;
+      position: fixed;
+      margin-left: 1%;
+      margin-top: -1%;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1250px) {
+
+  .screen {
+    height: 200vh;
+    width: 150vw;
+    margin-top: -100%;
+    margin-left: -30%;
+    position: fixed;
+    background: black;
+    opacity: 0.7;
+    z-index: 2000;
+  }
+
+  .box2 {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -50%;
+    margin-left: -25%;
+    position: fixed;
+    background: transparent;
+    opacity: 1;
+    z-index: 2020;
+
+    .dialog {
+      height: 50vh;
+      width: 50vw;
+      content: fill;
+      margin-left: 25.5%;
+      margin-top: 8%;
+
+      .selectedImage {
+        height: 100%;
+        width: 100%;
+        border-radius: 4px;
+        margin: auto;
+        opacity: 1;
+      }
+
+      .cancel {
+        height: 16px;
+        width: 16px;
+        position: fixed;
+        margin-left: 1%;
+        margin-top: -1%;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1000px) {
+
+  .screen {
+    height: 350vh;
+    width: 150vw;
+    margin-top: -130%;
+    margin-left: -30%;
+    position: fixed;
+    background: black;
+    opacity: 0.7;
+    z-index: 2000;
+  }
+
+  .box2 {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -75%;
+    margin-left: -25%;
+    position: fixed;
+    background: transparent;
+    opacity: 1;
+    z-index: 2020;
+
+    .dialog {
+      height: 50vh;
+      width: 50vw;
+      content: fill;
+      margin-left: 25.5%;
+      margin-top: 8%;
+
+      .selectedImage {
+        height: 100%;
+        width: 100%;
+        border-radius: 4px;
+        margin: auto;
+        opacity: 1;
+      }
+
+      .cancel {
+        height: 16px;
+        width: 16px;
+        position: fixed;
+        margin-left: 1%;
+        margin-top: -1%;
+      }
+    }
+  }
+}
+
+@media (max-width: 710px) {
+
+  .screen {
+    height: 400vh;
+    width: 150vw;
+    margin-top: -150%;
+    margin-left: -30%;
+    position: fixed;
+    background: black;
+    opacity: 0.7;
+    z-index: 2000;
+  }
+
+  .box2 {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -100%;
+    margin-left: -25%;
+    position: fixed;
+    background: transparent;
+    opacity: 1;
+    z-index: 2020;
+
+    .dialog {
+      height: 50vh;
+      width: 50vw;
+      content: fill;
+      margin-left: 25.5%;
+      margin-top: 8%;
+
+      .selectedImage {
+        height: 100%;
+        width: 100%;
+        border-radius: 4px;
+        margin: auto;
+        opacity: 1;
+      }
+
+      .cancel {
+        height: 16px;
+        width: 16px;
+        position: fixed;
+        margin-left: 1%;
+        margin-top: -1%;
+      }
+    }
+  }
+}
