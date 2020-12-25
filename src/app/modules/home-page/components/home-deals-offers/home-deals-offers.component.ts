@@ -53,7 +53,7 @@ export class HomeDealsOffersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadProducts();
+    // this.loadProducts();
   }
 
   public scrollRight(): void {

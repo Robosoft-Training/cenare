@@ -25,11 +25,11 @@ export class SortingService {
     }
 
     if (sortType === 'avg_high_low') {
-      detailsArray.sort((a, b) => parseFloat(b.avg_order_cost) - parseFloat(a.avg_order_cost));
+      detailsArray.sort((a, b) => parseFloat(b.restaurant.avg_order_cost) - parseFloat(a.restaurant.avg_order_cost));
       return detailsArray;
     }
     else if (sortType === 'avg_low_high') {
-      detailsArray.sort((a, b) => parseFloat(a.avg_order_cost) - parseFloat(b.avg_order_cost));
+      detailsArray.sort((a, b) => parseFloat(a.restaurant.avg_order_cost) - parseFloat(b.restaurant.avg_order_cost));
       return detailsArray;
     }
   }
@@ -37,7 +37,7 @@ export class SortingService {
   sortingAlphabetically = (detailsArray, sortType) => {
 
     const compareStrings = (a, b): any => {
-      console.log(a);
+      // console.log(a);
       a = a.toLowerCase();
       b = b.toLowerCase();
       return (a < b) ? -1 : (a > b) ? 1 : 0;
@@ -46,14 +46,14 @@ export class SortingService {
     if (sortType === 'a-z') {
       detailsArray.sort(
         (a, b) => {
-          return compareStrings(a.restaurant_name, b.restaurant_name);
+          return compareStrings(a.restaurant.restaurant_name, b.restaurant.restaurant_name);
         }
       );
     }
     else if (sortType === 'z-a') {
       detailsArray.sort(
         (a, b) => {
-          return compareStrings(b.restaurant_name, a.restaurant_name);
+          return compareStrings(b.restaurant.restaurant_name, a.restaurant.restaurant_name);
         }
       );
     }

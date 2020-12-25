@@ -35,6 +35,7 @@ export class BreadcrumbsComponent implements OnInit {
     if (this.pageName === 'restaurant-list') {
       this.initializeList();
       this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
+      // console.log(this.breadCrumbList);
     }
 
     if (this.pageName === 'restaurant-details') {

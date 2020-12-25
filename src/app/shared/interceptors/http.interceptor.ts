@@ -15,7 +15,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('url :', req.url);
+    // console.log('url :', req.url);
 
     const mapApiUrl = req.url.toString().substring(0, 22);
     let reqUrl;

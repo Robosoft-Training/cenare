@@ -59,4 +59,12 @@ export class LocalStorageService {
     return localStorage.getItem('crave-userId');
   }
 
+  setRestId = (restId) => {
+    localStorage.setItem('crave-restId', restId);
+  }
+
+  getRestId = () => {
+    return localStorage.getItem('crave-restId');
+  }
+
 }

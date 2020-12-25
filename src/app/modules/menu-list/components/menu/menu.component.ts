@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,17 +9,26 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   isHide = false;
-  constructor() { }
+  menuList: any[] = [];
+
+  constructor(
+    private menuListService: MenuListService
+  ) { }
 
   ngOnInit(): void {
+    this.menuListService.getRestaurantMenuItems(1).subscribe(
+      msg => {
+        console.log(msg);
+        this.menuList = msg;
+      }
+    );
   }
+
   showPaymentDetails(){
     this.isHide = !this.isHide;
   }
   increaseQuantityOfDish()
   {
-      console.log("INC","clicked");
-      
+      console.log("INC","clicked");  
   }
-
 }

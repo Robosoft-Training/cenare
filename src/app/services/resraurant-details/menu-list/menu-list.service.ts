@@ -13,8 +13,8 @@ export class MenuListService {
   // searchData: any;
   apiBaseUrl = environment.baseUrl;
 
-  menuDataListSource = new BehaviorSubject({});
-  currentMenuDataListSource = this.menuDataListSource.asObservable();
+  // menuDataListSource = new BehaviorSubject({});
+  // currentMenuDataListSource = this.menuDataListSource.asObservable();
   currentMenuDataList: any;
 
   constructor(
@@ -23,16 +23,15 @@ export class MenuListService {
   ) { }
 
   getRestaurantMenuItems = (restaurantID): Observable<any> => {
-    console.log(restaurantID);
+    this.localStorageService.setRestId(restaurantID);;
     const url = `${this.apiBaseUrl}getMenu`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurant_id', restaurantID);
 
-    return this.httpClient.get<any[]>(url)
+    return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
         tap(data => {
           this.currentMenuDataList = { ...data };
-          // this.menuDataListSource.next(this.currentMenuDataList);
         }),
         retry(3)
       );

@@ -12,12 +12,15 @@ import { SortingService } from 'src/app/services/sorting/sorting.service';
 export class RestaurantListOptionsComponent implements OnInit {
 
   restaurantDataList: any[] = [];
-  deatilsArray: any[] = [];
+  deatilsArray: any;
   currentTime: any;
   sortType = 'rating_high_low';
+  arrayLength = 0;
+  imageplaceHolder = '../assets/images/Resturant Image_placeholder.png';
 
   showMoreOptionsCount = 5;
   isExistMoreItems = true;
+  isLoading = true;
 
   constructor(
     private restaurantListService: RestaurantListService,
@@ -45,25 +48,28 @@ export class RestaurantListOptionsComponent implements OnInit {
     return (time1 && time2);
   }
 
-  convertToarray = (restaurantDataList) => {
-    this.deatilsArray = [];
-    for (let i in restaurantDataList) {
-      this.deatilsArray.push(restaurantDataList[i]);
-      // console.log(this.deatilsArray);
-    }
-
-    const currentDate = new Date();
-    this.currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
-  }
+  // convertToarray = (restaurantDataList) => {
+  //   this.deatilsArray = [];
+  //   for (let i in restaurantDataList) {
+  //     this.deatilsArray.push(restaurantDataList[i]);
+  //     // console.log(this.deatilsArray);
+  //   }
+  // }
 
   loadData = () => {
+    this.isLoading = true;
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
-        this.convertToarray( restaurantDataList );
+        // this.convertToarray( restaurantDataList );
+        console.log(restaurantDataList.resultList);
+        this.deatilsArray = restaurantDataList.resultList;
+        this.arrayLength = this.deatilsArray.length;
+        this.isLoading = false;
       }
     );
-
     this.restaurantListService.loadRestaurants();
+    const currentDate = new Date();
+    this.currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
 
     // this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
     //   (nearByPopularDataList) => {
@@ -76,10 +82,10 @@ export class RestaurantListOptionsComponent implements OnInit {
   goToMenuScreen = (restaurantID) => {
     this.menuListService.getRestaurantMenuItems(restaurantID).subscribe(
       (msg) => {
-        // this.router.navigate(['/menu-list']);
+        this.router.navigate(['/menu-list']);
       },
       err => {
-        this.router.navigate(['/menu-list']);
+        alert('something went wrong');
       }
     );
   }

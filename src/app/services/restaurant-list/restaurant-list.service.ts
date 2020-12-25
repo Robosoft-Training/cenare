@@ -37,32 +37,31 @@ export class RestaurantListService {
       date.getMonth() > 8) ?
       date.getFullYear() + '-' + (date.getMonth() + 1) :
       ('0' + (date.getMonth() + 1))) + '-' + ((date.getDate() > 9) ? date.getDate() :
-      ('0' + date.getDate()));
+        ('0' + date.getDate()));
     return date;
   }
 
   searchRestaurants = (searchDetails, coordinates): Observable<any[]> => {
     this.coordinatesData = coordinates;
-    let cityName = this.coordinatesData.results[0].address.municipality
-    console.log(this.coordinatesData.results[0]);
-    this.searchDetails = { ...searchDetails };
-    this.dataListSource.next(this.searchDetails);
-    this.localStorageService.setUserSearchDetails(this.searchDetails);
+    this.localStorageService.setUserSearchDetails(searchDetails);
     this.localStorageService.setUserCoordinates(coordinates);
+    this.dataListSource.next(searchDetails);
+    var adress = searchDetails.locationName;
+    var cityName = adress.replace(/ .*/, '');
 
     // const date = this.getDate(searchDetails.dateTime);
     let httpParams = new HttpParams();
-    httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lat);
-    httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lon);
-    httpParams = httpParams.append('city', cityName);
-    httpParams = httpParams.append('searchBy', searchDetails.searchName);
+    httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
+    httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
+    httpParams = httpParams.append('City', cityName);
+    httpParams = httpParams.append('SearchBy', searchDetails.searchName);
     // httpParams = httpParams.append('date', date);
 
     const url = `${this.baseUrl}restaurants/getNearByRestaurants`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
-        tap(data => {
-          console.log(data);
+        tap((data: any) => {
+          // console.log(data.resultList);
           this.currentretaurantDataList = { ...data };
           this.retaurantDataListSource.next(this.currentretaurantDataList);
         }),
@@ -75,6 +74,7 @@ export class RestaurantListService {
     this.searchData = JSON.parse(this.searchData);
     this.coordinatesData = this.localStorageService.getUserCoordinates();
     this.coordinatesData = JSON.parse(this.coordinatesData);
+    // console.log(this.searchData);
     this.searchRestaurants(this.searchData, this.coordinatesData).subscribe(
       res => {
         // console.log(res);

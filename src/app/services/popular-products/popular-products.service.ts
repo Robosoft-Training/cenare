@@ -30,7 +30,7 @@ export class PopularProductsService {
     return this.httpClient.get<IPopularBrands[]>(url)
       .pipe(
         tap(data => {
-          console.log(data);
+          // console.log(data);
           this.currentnearbyBrandsDataList = { ...data };
           this.nearbyBrandsDataListSource.next(this.currentnearbyBrandsDataList);
         }),
