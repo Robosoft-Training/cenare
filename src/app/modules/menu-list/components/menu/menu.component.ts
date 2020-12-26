@@ -10,7 +10,7 @@ import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 export class MenuComponent implements OnInit {
 
   isHide = false;
-  menuList: any[] = [
+  menuList: IMenuList[] = [
     {
       "menu": {
         "menu_id": 0,
@@ -30,6 +30,9 @@ export class MenuComponent implements OnInit {
     "key": 0
   };
 
+  menuSearch = "";
+  timeOut: any;
+
   constructor(
     private menuListService: MenuListService,
   ) { }
@@ -38,21 +41,55 @@ export class MenuComponent implements OnInit {
     this.groupedMenuList = {};
     for (let [key, value] of Object.entries(menuList)) {
       if (!(this.groupedMenuList[menuList[key].menu.course])) {
-          this.groupedMenuList[menuList[key].menu.course] = [];
-          this.groupedMenuList[menuList[key].menu.course] = 0;
+        this.groupedMenuList[menuList[key].menu.course] = 0;
       }
       this.groupedMenuList[menuList[key].menu.course] += 1;
     }
-    console.log(this.groupedMenuList);
+    // console.log(this.groupedMenuList);
+  }
+
+  groupByCourseSearch = (menuList) => {
+    this.groupedMenuList = {};
+    for (let [key, value] of Object.entries(menuList)) {
+      // console.log(key);
+    }
+    // console.log(this.groupedMenuList);
+  }
+
+  searchAction = (event: any) => {
+    clearTimeout(this.timeOut);
+    this.timeOut = setTimeout(
+      () => {
+        if (event.keyCode !== 13) {
+          this.executeSearch(event.target.value);
+        }
+      }
+      , 1000);
+  }
+
+  executeSearch = (value: any) => {
+    this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
+      (data: any) => {
+        if (value) {
+          let tempArray: any = [];
+          if (data.menuResponse) {
+            tempArray.push(data.menuResponse);
+            this.groupByCourse(tempArray);
+          }
+          console.log(tempArray);
+          this.menuList = tempArray;
+        }
+      }
+    );
   }
 
   ngOnInit(): void {
     this.menuListService.currentMenuDataListSource.subscribe(
       (data: any) => {
-        if(data.resultList){
-         this.groupByCourse(data.resultList)
+        if (data.resultList) {
+          this.groupByCourse(data.resultList)
         }
-        console.log(typeof data.resultList);
+        console.log(data.resultList);
         this.menuList = data.resultList;
       }
     );

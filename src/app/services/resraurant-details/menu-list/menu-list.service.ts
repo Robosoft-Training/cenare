@@ -14,6 +14,7 @@ export class MenuListService {
   // searchData: any;
   apiBaseUrl = environment.baseUrl;
 
+  restaurantID: any = 0;
   menuDataListSource = new BehaviorSubject({});
   currentMenuDataListSource = this.menuDataListSource.asObservable();
   currentMenuDataList: any;
@@ -24,12 +25,13 @@ export class MenuListService {
   ) { }
 
   getRestaurantMenuItems = (restaurantID): Observable<IMenuList[]> => {
+    this.restaurantID = restaurantID;
     this.localStorageService.setRestId(restaurantID);;
     const url = `${this.apiBaseUrl}menu/getMenu`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurant_id', restaurantID);
 
-    return this.httpClient.get<IMenuList[]>(url, {params: httpParams})
+    return this.httpClient.get<IMenuList[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
           // this.currentMenuDataList = { ...data };
@@ -39,21 +41,34 @@ export class MenuListService {
       );
   }
 
-  getRestaurantMenuItemsBySearch = (restaurantID, searchData): Observable<any> => {
+  getRestaurantMenuItemsBySearch = (searchData): Observable<any> => {
+    console.log(searchData);
+    if (searchData) {
+      const url = `${this.apiBaseUrl}menu/getSearchMenu`;
+      let httpParams = new HttpParams();
+      httpParams = httpParams.append('restaurantId', this.restaurantID);
+      httpParams = httpParams.append('itemName', searchData);
 
-    const url = `${this.apiBaseUrl}getMenu/search`;
-    let httpParams = new HttpParams();
-    httpParams = httpParams.append('restaurant_id', restaurantID);
-    httpParams = httpParams.append('searchData', searchData);
-
-    return this.httpClient.get<any[]>(url)
-      .pipe(
-        tap(data => {
-          this.currentMenuDataList = { ...data };
-          // this.menuDataListSource.next(this.currentMenuDataList);
-        }),
-        retry(3)
-      );
+      return this.httpClient.get<any[]>(url, { params: httpParams })
+        .pipe(
+          tap(data => {
+            // console.log(data);
+          }),
+          retry(3)
+        );
+    }
+    else {
+      console.log(this.restaurantID);
+      const url = `${this.apiBaseUrl}menu/getMenu`;
+      let httpParams = new HttpParams();
+      httpParams = httpParams.append('restaurant_id', this.restaurantID);
+      return this.httpClient.get<any[]>(url, { params: httpParams })
+        .pipe(
+          tap(data => {
+            this.menuDataListSource.next(data);
+          }),
+          retry(3)
+        );
+    }
   }
-
 }
