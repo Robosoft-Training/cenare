@@ -7,8 +7,8 @@ export class LocalStorageService {
 
   constructor() { }
 
-   // Reataurent list search details
-   setUserSearchDetails = (userSearchDetails) => {
+  // Reataurent list search details
+  setUserSearchDetails = (userSearchDetails) => {
     localStorage.setItem('crave-searchDetails', JSON.stringify(userSearchDetails));
   }
 
@@ -26,8 +26,8 @@ export class LocalStorageService {
   }
 
   // User JWT tokens
-  setUserJWTtoken = (userSearchDetails) => {
-    localStorage.setItem('crave-userJWTtokens', JSON.stringify(userSearchDetails));
+  setUserJWTtoken = (userJWTtokens) => {
+    localStorage.setItem('crave-userJWTtokens', userJWTtokens);
   }
 
   getUserJWTtoken = () => {
@@ -35,20 +35,36 @@ export class LocalStorageService {
   }
 
   // User Name
-  setUserName = (userSearchDetails) => {
-    localStorage.setItem('crave-userName', JSON.stringify(userSearchDetails));
+  setUserName = (userName) => {
+    localStorage.setItem('crave-userName', userName);
   }
 
   getUserName = () => {
     return localStorage.getItem('crave-userName');
   }
 
-  setUserEmail = (userSearchDetails) => {
-    localStorage.setItem('crave-userEmail', JSON.stringify(userSearchDetails));
+  setUserEmail = (userEmail) => {
+    localStorage.setItem('crave-userEmail', userEmail);
   }
 
   getUserEmail = () => {
     return localStorage.getItem('crave-userEmail');
+  }
+
+  setUserId = (userId) => {
+    localStorage.setItem('crave-userId', userId);
+  }
+
+  getUserId = () => {
+    return localStorage.getItem('crave-userId');
+  }
+
+  setRestId = (restId) => {
+    localStorage.setItem('crave-restId', restId);
+  }
+
+  getRestId = () => {
+    return localStorage.getItem('crave-restId');
   }
 
 }

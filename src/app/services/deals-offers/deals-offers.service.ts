@@ -10,12 +10,13 @@ import { environment } from 'src/environments/environment';
 })
 export class DealsOffersService {
 
+  // apiBaseUrl = environment.awsBaseUrl;
   apiBaseUrl = environment.baseUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   getDealsOffers = (): Observable<IDealsOffers[]> => {
-    const url = `${this.apiBaseUrl}dealsOffers`;
+    const url = `${this.apiBaseUrl}offers/getAllOffers`;
     return this.httpClient.get<IDealsOffers[]>(url)
       .pipe(
         tap(_ => console.log('Items Fetched')),

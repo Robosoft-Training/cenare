@@ -9,6 +9,7 @@ import { ReviewsRatingsComponent } from './components/reviews-ratings/reviews-ra
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MenuListComponent, MenuComponent, OverviewComponent, ReviewsRatingsComponent, GalleryComponent],
@@ -16,7 +17,9 @@ import { AngularMaterialsModule } from '../angular-materials/angular-materials.m
     CommonModule,
     MenuListRoutingModule,
     SharedComponentsModule,
-    AngularMaterialsModule
+    AngularMaterialsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MenuListModule { }

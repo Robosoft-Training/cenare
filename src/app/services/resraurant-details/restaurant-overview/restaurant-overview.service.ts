@@ -26,7 +26,7 @@ export class RestaurantOverviewService {
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurant_id', restaurantID);
 
-    return this.httpClient.get<any[]>(url)
+    return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
         tap(data => {
           this.currentOverview = { ...data };

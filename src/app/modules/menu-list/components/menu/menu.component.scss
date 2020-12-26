@@ -54,9 +54,19 @@
 
         .card-img {
           height: 100%;
-          width: 140px;
-
-          border-radius: 4px;
+          width: 25%;
+          .img {
+            width: 10em;
+            height: 8em;
+            padding: 1em;
+            border-radius: 1em;
+          }
+          .categoury-img {
+            position: relative;
+            top: -2.8em;
+            left: 1.5em;
+            z-index: 5;
+          }
         }
 
         .card-content {
@@ -65,7 +75,6 @@
           .card-content-left {
             // height: 100%;
             // width: 100%;
-
             .name-text {
               color: #223136;
               font-family: "Open Sans";
@@ -89,7 +98,7 @@
               font-size: 12px;
               letter-spacing: 0;
               line-height: 17px;
-              width: 90%;
+              width: 100%;
             }
           }
 
@@ -119,16 +128,16 @@
 
               .add-btn {
                 height: 30px;
-                padding: 0px 8px;
+                padding: 4px 8px;
                 color: #ff8c7d;
-                border-color: #ff8c7d;
+                border: 1px solid#ff8c7d;
                 font-family: "Open Sans";
                 font-size: 14px;
                 font-weight: 400;
                 letter-spacing: -0.2px;
                 text-align: center;
                 border-radius: 25px;
-                background-color: #FFFFFF;
+                cursor: pointer;
 
                 @include focus;
               }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 
 @Component({
   selector: 'app-restaurant-list-filter',
@@ -15,7 +16,9 @@ export class RestaurantListFilterComponent implements OnInit {
     cuisine: null
   };
 
-  constructor() { }
+  constructor(
+    private reataurantService: RestaurantListService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +32,14 @@ export class RestaurantListFilterComponent implements OnInit {
   }
 
   apply() {
-    // Apply filter from service
-    // console.log(this.filterData);
+    if (
+      this.filterData.delivery &&
+      this.filterData.averageCost &&
+      this.filterData.minimumCost
+    ) {
+      this.reataurantService.filterRetaurants(this.filterData).subscribe(
+        msg => {}
+      );
+    }
   }
 }

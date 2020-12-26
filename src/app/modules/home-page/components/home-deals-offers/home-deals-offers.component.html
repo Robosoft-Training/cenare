@@ -21,25 +21,26 @@
 
             <span *ngIf="!isLoading && !isErrorLoading">
                 <div #widgetsContent class="scroll-view-container" appCustomScroll #appScrollElement="appCustomScroll">
-                    <div *ngFor="let offer of [0,1,2,3,4,5];" [ngClass]="{'scroll-widget': true}">
+                    <div *ngFor="let offer of dealsOffers;" [ngClass]="{'scroll-widget': true}">
                         <div class="two-cards">
                             <div class="offer-deals">
                                 <div class="offer-card">
                                     <div class="brand-image-container w-sm-100">
-                                        <img src="../../../../assets/images/card.png" class="brand-image" />
+                                        <img src="{{offer.offerImagePath}}" class="brand-image" />
                                     </div>
                                     <div class="offer-details mt-3">
-                                        <span *ngIf="false" class="offer-title-1">So good Wednesday <br /> Flat 39%
+                                        <span *ngIf="offer.offerTitle.length>=31" class="offer-title-1">So good Wednesday <br /> Flat 39%
                                             Off</span>
-                                        <span class="offer-title-2">
+                                        <span *ngIf="offer.offerTitle.length<31" class="offer-title-2">
                                             <span class="offer-text-1"> Everyday<br /></span>
                                             <span class="offer-text-2"> WOW!</span>
                                             <span class="offer-text-3"> Value</span>
                                         </span>
-                                        <div class="offer-description">Any 2 medium pizza for</div>
-                                        <div class="offer-code mt-3">
-                                            <span class="offer-text">wow123</span>
+                                        <div *ngIf="offer.offerTitle.length<31" class="offer-description">{{offer.offerTitle}}</div>
+                                        <div class="offer-code mt-3 mb-3">
+                                            <span class="offer-text">{{ offer.code }}</span>
                                         </div>
+                                        <span class="offer-description">View details</span>
                                     </div>
                                 </div>
                             </div>

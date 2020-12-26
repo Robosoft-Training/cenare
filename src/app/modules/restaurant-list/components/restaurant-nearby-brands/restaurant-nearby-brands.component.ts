@@ -32,9 +32,10 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
 
   convertToarray = (nearByPopularDataList) => {
     this.deatilsArray = [];
-    for (let i in nearByPopularDataList) {
-      this.deatilsArray.push(nearByPopularDataList[i]);
-      // console.log(this.deatilsArray);
+    for (const i in nearByPopularDataList) {
+      if (nearByPopularDataList[i]) {
+        this.deatilsArray.push(nearByPopularDataList[i]);
+      }
     }
   }
 

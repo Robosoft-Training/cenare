@@ -27,80 +27,115 @@
             </ul>
         </div>
     </div>
-    <div class="d-flex flex-row restaurant-card mb-3" *ngFor="let item of deatilsArray.slice(0,4)">
-        <div class="card-image">
-            <img class="img" src="../assets/icn_restaurant.png">
-        </div>
-        <div class="d-flex flex-column card-content">
-            <div class="d-flex flex-row justify-content-between content-header">
-                <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
-                <div class="ratings">
-                    <label [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating
-                        | number : '1.1-1'}}</label>
-                </div>
-            </div>
-            <div class="d-flex flex-column content-middle">
-                <label class="subtitle-text">{{item.restaurant_city}}, {{item.restaurant_address}}</label>
-                <div class="divider"></div>
-                <label class="subtitle-text">Indian, Pakistani, Kabab</label>
-            </div>
-            <div class="d-flex flex-row justify-content-between content-bottom">
-                <div class="content-bottom-text">
-                    <label class="status-text text-color-green"
-                        *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
-                    <label class="status-text text-color-red"
-                        *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
-                    <div class="">
-                        <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
-                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
-                        <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.avg_order_cost }} avg meal cost</span>
-                    </div>
-                </div>
-                <div class="menu-button" (click)="goToMenuScreen(item.restaurant_id)">
-                    <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
-                </div>
-            </div>
-        </div>
-    </div>
-    <app-restaurant-nearby-brands></app-restaurant-nearby-brands>
-    <span *ngIf="deatilsArray.length>4">
-        <div class="d-flex flex-row restaurant-card mb-3"
-            *ngFor="let item of deatilsArray.slice(4,showMoreOptionsCount)">
+    <span *ngIf="!isLoading">
+        <div class="d-flex flex-row restaurant-card mb-3" *ngFor="let item of deatilsArray | slice:0:4">
             <div class="card-image">
-                <img class="img" src="../assets/icn_restaurant.png">
+                <img class="img" src="{{ item.restaurant.restaurant_image?item.restaurant.restaurant_image:imageplaceHolder }}">
             </div>
             <div class="d-flex flex-column card-content">
                 <div class="d-flex flex-row justify-content-between content-header">
-                    <label class="restaurant-name-text">{{ item.restaurant_name }}</label>
+                    <label class="restaurant-name-text">{{ item.restaurant.restaurant_name }}</label>
                     <div class="ratings">
                         <label
-                            [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating}}</label>
+                            [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating
+                            | number : '1.1-1'}}</label>
                     </div>
                 </div>
                 <div class="d-flex flex-column content-middle">
-                    <label class="subtitle-text">{{item.restaurant_city}},{{item.restaurant_address}}</label>
+                    <label class="subtitle-text">{{item.restaurant.restaurant_city}},
+                        {{item.restaurant.restaurant_address}}</label>
                     <div class="divider"></div>
-                    <label class="subtitle-text">Indian, Pakistani, Kabab</label>
+                    <label class="subtitle-text">
+                        <span *ngFor="let cuisine of item.cuisines">
+                            {{
+                            cuisine+", "
+                            }}
+                        </span>
+                    </label>
                 </div>
                 <div class="d-flex flex-row justify-content-between content-bottom">
                     <div class="content-bottom-text">
-                        <label class="status-text text-color-green"
-                            *ngIf="compareDate(item.open_time, item.close_time)">Open Now</label>
-                        <label class="status-text text-color-red"
-                            *ngIf="!compareDate(item.open_time, item.close_time)">Closed</label>
+                        <label class="status-text text-color-green" *ngIf="compareDate(
+                                item.restaurant.open_time[0]+':'+item.restaurant.open_time[1]+':'+'00',
+                                item.restaurant.close_time[0]+':'+item.restaurant.close_time[1]+':'+'00'
+                            )">
+                            Open Now
+                        </label>
+                        <label class="status-text text-color-red" *ngIf="!compareDate(
+                                item.restaurant.open_time[0]+':'+item.restaurant.open_time[1]+':'+'00',
+                                item.restaurant.close_time[0]+':'+item.restaurant.close_time[1]+':'+'00'
+                            )">
+                            Closed
+                        </label>
                         <div class="">
-                            <span class="list-item">&#9679; {{ item.avg_delivery_time }} mins</span>
-                            <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.min_order_cost }} min order</span>
-                            <span class="list-item">&nbsp;&nbsp;&#9679; AED{{ item.avg_order_cost }} avg meal
+                            <span class="list-item">&#9679; {{ item.restaurant.avg_delivery_time }} mins</span>
+                            <span class="list-item">&nbsp;&nbsp;&#9679; INR{{ item.restaurant.min_order_cost }} min
+                                order</span>
+                            <span class="list-item">&nbsp;&nbsp;&#9679; INR{{ item.restaurant.avg_order_cost }} avg meal
                                 cost</span>
                         </div>
                     </div>
-                    <div class="menu-button" (click)="goToMenuScreen(item.restaurant_id)">
+                    <div class="menu-button" routerLink="/menu-list/{{item.restaurant.restaurant_id}}">
                         <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
                     </div>
                 </div>
             </div>
         </div>
+        <app-restaurant-nearby-brands></app-restaurant-nearby-brands>
+            <div class="d-flex flex-row restaurant-card mb-3"
+                *ngFor="let item of deatilsArray | slice:4:showMoreOptionsCount">
+                <div class="card-image">
+                    <img class="img" src="{{ item.restaurant.restaurant_image?item.restaurant.restaurant_image:imageplaceHolder }}">
+                </div>
+                <div class="d-flex flex-column card-content">
+                    <div class="d-flex flex-row justify-content-between content-header">
+                        <label class="restaurant-name-text">{{ item.restaurant.restaurant_name }}</label>
+                        <div class="ratings">
+                            <label
+                                [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating}}</label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column content-middle">
+                        <label
+                            class="subtitle-text">{{item.restaurant.restaurant_city}},{{item.restaurant.restaurant_address}}</label>
+                        <div class="divider"></div>
+                        <label class="subtitle-text">
+                            <span *ngFor="let cuisine of item.cuisines">
+                                {{
+                                cuisine+", "
+                                }}
+                            </span>
+                        </label>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between content-bottom">
+                        <div class="content-bottom-text">
+                            <label class="status-text text-color-green" *ngIf="compareDate(
+                                item.restaurant.open_time[0]+':'+item.restaurant.open_time[1]+':'+'00',
+                                item.restaurant.close_time[0]+':'+item.restaurant.close_time[1]+':'+'00'
+                            )">
+                                Open Now
+                            </label>
+                            <label class="status-text text-color-red" *ngIf="!compareDate(
+                                item.restaurant.open_time[0]+':'+item.restaurant.open_time[1]+':'+'00',
+                                item.restaurant.close_time[0]+':'+item.restaurant.close_time[1]+':'+'00'
+                            )">
+                                Closed
+                            </label>
+                            <div class="">
+                                <span class="list-item">&#9679; {{ item.restaurant.avg_delivery_time }} mins</span>
+                                <span class="list-item">&nbsp;&nbsp;&#9679; INR{{ item.restaurant.min_order_cost }} min
+                                    order</span>
+                                <span class="list-item">&nbsp;&nbsp;&#9679; INR{{ item.restaurant.avg_order_cost }} avg
+                                    meal cost</span>
+                            </div>
+                        </div>
+                        <div class="menu-button" routerLink="/menu-list/{{item.restaurant.restaurant_id}}">
+                            <img class="menu-btn-img" src="../assets/images/icn_menu_button.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="load-more-text" *ngIf="arrayLength > showMoreOptionsCount" (click)="showMoreOptions()">Load
+            More...</div>
     </span>
-    <div class="load-more-text" *ngIf="deatilsArray.length > showMoreOptionsCount" (click)="showMoreOptions()">Load More...</div>
 </div>
