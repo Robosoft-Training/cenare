@@ -4,32 +4,36 @@
         <div class="search-box">
             <img class="search-icon" src="../../../../../assets/icn_search_home copy@3x.png" />
             <input class="input" placeholder="Search an item">
-          </div>
-        <div class="d-flex flex-column left-list"> 
-            <label class="list-title">Recomended (3)</label>
-            <div class="d-flex flex-row list-card" *ngFor="let item of menuList">
-                <div class="card-img">
-                    <img src="{{ item.item_image_path }}">
-                </div>
-                <div class="d-flex flex-row card-content">
-                    <div class="d-flex flex-column justify-content-between card-content-left">
-                        <label class="name-text">{{ item.item_name }}</label>
-                        <label class="cost-text">AED27.00</label>
-                        <label class="description-text">{{ item.desrcription }}</label>
+        </div>
+        <div class="d-flex flex-column left-list" *ngFor="let main_item of groupedMenuList | keyvalue">
+            <label class="list-title mt-4">{{main_item.key}} ({{main_item.value}})</label>
+            <div *ngFor="let item of menuList">
+                <span  class="d-flex flex-row list-card" *ngIf="main_item.key === item.menu.course">
+                    <div class="card-img">
+                        <img src="{{ item.menu.item_image_path }}">
                     </div>
-                    <div class="d-flex flex-column justify-content-between card-content-right">
-                        <label class="flex-end align-self-end best-seller-text">BESTSELLER</label>
-                        <div class="d-flex flex-column content-right-bottom">
-                            <label class="already-in-cart-text">Already in cart</label>
-                            <div class="add-btn small-button" *ngIf="true" (click)="increaseQuantityOfDish(item.menu_id)">ADD</div>
-                            <div class="add-btn big-button" *ngIf="false" (click)="increaseQuantityOfDish(item.menu_id)">ADD AGAIN</div>
+                    <div class="d-flex flex-row card-content">
+                        <div class="d-flex flex-column justify-content-between card-content-left">
+                            <label class="name-text">{{ item.menu.item_name }}</label>
+                            <label class="cost-text">INR{{item.price}}</label>
+                            <label class="description-text">{{ item.menu.desrcription }}</label>
+                        </div>
+                        <div class="d-flex flex-column justify-content-between card-content-right">
+                            <!-- <label class="flex-end align-self-end best-seller-text">BESTSELLER</label> -->
+                            <div class="d-flex flex-column content-right-bottom">
+                                <label class="already-in-cart-text">Already in cart</label>
+                                <div class="add-btn small-button" *ngIf="true"
+                                    (click)="increaseQuantityOfDish(item.menu.menu_id)">ADD</div>
+                                <div class="add-btn big-button" *ngIf="false"
+                                    (click)="increaseQuantityOfDish(item.menu.menu_id)">ADD AGAIN</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </span>
             </div>
         </div>
     </div>
-    
+
     <div class="d-flex flex-column col-12 col-lg-4 cart">
         <div class="d-flex flex-row justify-content-between cart-header">
             <label class="header-text">My Order</label>
@@ -54,7 +58,8 @@
                 </div>
                 <div class="d-flex flex-column item-bottom">
                     <div class="d-flex flex-row bottom-left">
-                        <label class="description-text">Add On : Avacado, Seasoned Grilled Chicken, Grilled Salmon</label>
+                        <label class="description-text">Add On : Avacado, Seasoned Grilled Chicken, Grilled
+                            Salmon</label>
                         <label class="total-price-text">AED54.00</label>
                     </div>
                     <div class="d-flex flex-end bottom-right">
@@ -65,11 +70,12 @@
             </div>
         </div>
         <div class="payment">
-            <div class="d-flex flex-row payment-header" >
+            <div class="d-flex flex-row payment-header">
                 <label>To Pay</label>
                 <div class="d-flex flex-row header-price">
                     <label>AED56.99</label>
-                    <img class="collapse-btn" src="../../../../../assets/images/icn_collapse.png" [ngClass]="isHide?'translateY':'translateX'" (click)="showPaymentDetails()">
+                    <img class="collapse-btn" src="../../../../../assets/images/icn_collapse.png"
+                        [ngClass]="isHide?'translateY':'translateX'" (click)="showPaymentDetails()">
                 </div>
             </div>
             <div class="d-flex flex-column payment-details" [ngClass]="isHide?'d-none':'d-block'">
