@@ -93,34 +93,25 @@ export class RestaurantListService {
 
   filterRetaurants = (filterData: any) => {
 
-    this.searchData = this.localStorageService.getUserSearchDetails();
-    this.searchData = JSON.parse(this.searchData);
-    this.coordinatesData = this.localStorageService.getUserCoordinates();
-    this.coordinatesData = JSON.parse(this.coordinatesData);
+    console.log(filterData);
 
     const date = this.getDate(this.searchDetails.dateTime);
     let httpParams = new HttpParams();
 
-    // Appending Loaction and Search by
-    httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
-    httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
-    httpParams = httpParams.append('city', this.searchData.locationName);
-    httpParams = httpParams.append('searchBy', this.searchData.searchName);
-
     // Appending filterdata
-    httpParams = httpParams.append('openNow', filterData.openNow);
-    httpParams = httpParams.append('deliveryIn', filterData.delivery);
-    httpParams = httpParams.append('avgMealCoast', filterData.averageCost);
-    httpParams = httpParams.append('minOrder', filterData.minimumCost);
-    httpParams = httpParams.append('cuisine', filterData.cuisine);
-    httpParams = httpParams.append('date', date);
+    // httpParams = httpParams.append('openNow', filterData.openNow);
+    httpParams = httpParams.append('Time', filterData.delivery);
+    httpParams = httpParams.append('avgCost', filterData.averageCost);
+    httpParams = httpParams.append('minimumCost', filterData.minimumCost);
+    // httpParams = httpParams.append('cuisine', filterData.cuisine);
+    // httpParams = httpParams.append('date', date);
 
-    const url = `${this.baseUrl}/restaurantList/filter`;
+    const url = `${this.baseUrl}restaurants/getFilteredRestaurants`;
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
-          this.currentretaurantDataList = { ...data };
-          this.retaurantDataListSource.next(this.currentretaurantDataList);
+          // console.log(data)
+          this.retaurantDataListSource.next(data);
         }),
         retry(3)
       );

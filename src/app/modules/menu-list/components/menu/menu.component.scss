@@ -119,16 +119,15 @@
 
               .add-btn {
                 height: 30px;
-                padding: 0px 8px;
+                padding: 4px 8px;
                 color: #ff8c7d;
-                border-color: #ff8c7d;
+                border: 1px solid#ff8c7d;
                 font-family: "Open Sans";
                 font-size: 14px;
                 font-weight: 400;
                 letter-spacing: -0.2px;
                 text-align: center;
                 border-radius: 25px;
-                background-color: #FFFFFF;
 
                 @include focus;
               }

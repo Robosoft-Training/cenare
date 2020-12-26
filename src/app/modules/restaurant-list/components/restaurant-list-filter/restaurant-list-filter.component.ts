@@ -34,10 +34,8 @@ export class RestaurantListFilterComponent implements OnInit {
   apply() {
     if (
       this.filterData.delivery &&
-      this.filterData.openNow &&
       this.filterData.averageCost &&
-      this.filterData.minimumCost &&
-      this.filterData.cuisine
+      this.filterData.minimumCost
     ) {
       this.reataurantService.filterRetaurants(this.filterData).subscribe(
         msg => {}

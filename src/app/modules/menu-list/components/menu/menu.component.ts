@@ -21,13 +21,14 @@ export class MenuComponent implements OnInit {
       "item_image_path": ""
     }
   ];
+  restaurentId: any;
 
   constructor(
-    private menuListService: MenuListService
+    private menuListService: MenuListService,
   ) { }
 
   ngOnInit(): void {
-    this.menuListService.getRestaurantMenuItems(1).subscribe(
+    this.menuListService.currentMenuDataListSource.subscribe(
       (data: any) => {
         this.menuList = data.resultList;
       }

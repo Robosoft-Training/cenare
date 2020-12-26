@@ -21,8 +21,8 @@
                         <label class="flex-end align-self-end best-seller-text">BESTSELLER</label>
                         <div class="d-flex flex-column content-right-bottom">
                             <label class="already-in-cart-text">Already in cart</label>
-                            <button class="add-btn small-button" *ngIf="true" (click)="increaseQuantityOfDish(item.menu_id)">ADD</button>
-                            <button class="add-btn big-button" *ngIf="false" (click)="increaseQuantityOfDish(item.menu_id)">ADD AGAIN</button>
+                            <div class="add-btn small-button" *ngIf="true" (click)="increaseQuantityOfDish(item.menu_id)">ADD</div>
+                            <div class="add-btn big-button" *ngIf="false" (click)="increaseQuantityOfDish(item.menu_id)">ADD AGAIN</div>
                         </div>
                     </div>
                 </div>

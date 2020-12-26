@@ -48,6 +48,8 @@ export class NavBarComponent implements OnInit {
         this.isLoggedIn = isLogin;
       }
     );
+
+    this.loginService.isUserLoggedIn();
   }
 
   @HostListener('window:scroll', ['$event'])

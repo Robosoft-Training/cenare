@@ -14,8 +14,8 @@ export class MenuListService {
   // searchData: any;
   apiBaseUrl = environment.baseUrl;
 
-  // menuDataListSource = new BehaviorSubject({});
-  // currentMenuDataListSource = this.menuDataListSource.asObservable();
+  menuDataListSource = new BehaviorSubject({});
+  currentMenuDataListSource = this.menuDataListSource.asObservable();
   currentMenuDataList: any;
 
   constructor(
@@ -32,7 +32,8 @@ export class MenuListService {
     return this.httpClient.get<IMenuList[]>(url, {params: httpParams})
       .pipe(
         tap(data => {
-          this.currentMenuDataList = { ...data };
+          // this.currentMenuDataList = { ...data };
+          this.menuDataListSource.next(data);
         }),
         retry(3)
       );

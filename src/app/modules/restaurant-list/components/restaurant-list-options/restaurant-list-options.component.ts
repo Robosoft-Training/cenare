@@ -71,7 +71,7 @@ export class RestaurantListOptionsComponent implements OnInit {
 
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
-        console.log(restaurantDataList);
+        // console.log(restaurantDataList);
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray?.length;
         this.isLoading = false;
@@ -100,7 +100,8 @@ export class RestaurantListOptionsComponent implements OnInit {
   goToMenuScreen = (restaurantID) => {
     this.menuListService.getRestaurantMenuItems(restaurantID).subscribe(
       (msg) => {
-        this.router.navigate(['/menu-list']);
+        // this.router.navigate(['/menu-list', {id: restaurantID}]);
+        // this.router.navigate(['/menu-list', { id: restaurantID }]);
       },
       err => {
         alert('something went wrong');
