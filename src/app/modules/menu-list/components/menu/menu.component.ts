@@ -12,25 +12,25 @@ export class MenuComponent implements OnInit {
   isHide = false;
   menuList: IMenuList[] = [
     {
-      "menu": {
-        "menu_id": 0,
-        "item_name": "",
-        "cook_time": 0,
-        "category": "",
-        "course": "",
-        "desrcription": "",
-        "item_image_path": ""
+      menu: {
+        menu_id: 0,
+        item_name: '',
+        cook_time: 0,
+        category: '',
+        course: '',
+        desrcription: '',
+        item_image_path: ''
       },
-      "price": 0
+      price: 0
     }
   ];
 
   restaurentId: any;
   groupedMenuList: any = {
-    "key": 0
+    key: 0
   };
 
-  menuSearch = "";
+  menuSearch = '';
   timeOut: any;
 
   constructor(
@@ -39,7 +39,7 @@ export class MenuComponent implements OnInit {
 
   groupByCourse = (menuList) => {
     this.groupedMenuList = {};
-    for (let [key, value] of Object.entries(menuList)) {
+    for (const [key, value] of Object.entries(menuList)) {
       if (!(this.groupedMenuList[menuList[key].menu.course])) {
         this.groupedMenuList[menuList[key].menu.course] = 0;
       }
@@ -50,7 +50,7 @@ export class MenuComponent implements OnInit {
 
   groupByCourseSearch = (menuList) => {
     this.groupedMenuList = {};
-    for (let [key, value] of Object.entries(menuList)) {
+    for (const [key, value] of Object.entries(menuList)) {
       // console.log(key);
     }
     // console.log(this.groupedMenuList);
@@ -71,7 +71,7 @@ export class MenuComponent implements OnInit {
     this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
       (data: any) => {
         if (value) {
-          let tempArray: any = [];
+          const tempArray: any = [];
           if (data.menuResponse) {
             tempArray.push(data.menuResponse);
             this.groupByCourse(tempArray);
@@ -87,7 +87,7 @@ export class MenuComponent implements OnInit {
     this.menuListService.currentMenuDataListSource.subscribe(
       (data: any) => {
         if (data.resultList) {
-          this.groupByCourse(data.resultList)
+          this.groupByCourse(data.resultList);
         }
         console.log(data.resultList);
         this.menuList = data.resultList;

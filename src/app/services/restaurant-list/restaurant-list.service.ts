@@ -47,8 +47,8 @@ export class RestaurantListService {
     this.localStorageService.setUserSearchDetails(searchDetails);
     this.localStorageService.setUserCoordinates(coordinates);
     this.dataListSource.next(searchDetails);
-    var adress = searchDetails.locationName;
-    var cityName = adress.replace(/ .*/, '');
+    const adress = searchDetails.locationName;
+    const cityName = adress.replace(/ .*/, '');
 
     // const date = this.getDate(searchDetails.dateTime);
     let httpParams = new HttpParams();
@@ -73,8 +73,8 @@ export class RestaurantListService {
     this.searchData = JSON.parse(this.searchData);
     this.coordinatesData = this.localStorageService.getUserCoordinates();
     this.coordinatesData = JSON.parse(this.coordinatesData);
-    var adress = this.searchData.locationName;
-    var cityName = adress.replace(/ .*/, '');
+    const adress = this.searchData.locationName;
+    const cityName = adress.replace(/ .*/, '');
     let httpParams = new HttpParams();
     console.log(cityName);
     httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);

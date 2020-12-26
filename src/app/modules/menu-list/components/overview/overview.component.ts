@@ -17,7 +17,7 @@ export class OverviewComponent implements OnInit {
   map: any;
 
   addPoint(lat: number, lng: number) {
-    var vectorLayer = new ol.layer.Vector({
+    const vectorLayer = new ol.layer.Vector({
       source: new ol.source.Vector({
         features: [new ol.Feature({
           geometry: new ol.geom.Point(ol.proj.transform([lng, lat], 'EPSG:4326', 'EPSG:3857')),
@@ -26,19 +26,19 @@ export class OverviewComponent implements OnInit {
       style: new ol.style.Style({
         image: new ol.style.Icon({
           anchor: [0.5, 0.5],
-          anchorXUnits: "fraction",
-          anchorYUnits: "fraction",
-          src: "../assets/images/location.png"
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'fraction',
+          src: '../assets/images/location.png'
         })
       })
     });
     this.map.addLayer(vectorLayer);
-    }
-    
+  }
+
   ngOnInit() {
     this.map = new ol.Map({
       target: 'map',
-      controls: [] ,
+      controls: [],
       layers: [
         new ol.layer.Tile({
           source: new ol.source.OSM()
@@ -50,6 +50,5 @@ export class OverviewComponent implements OnInit {
       })
     });
     this.addPoint(12.9141, 74.8560);
-  }  
-
+  }
 }

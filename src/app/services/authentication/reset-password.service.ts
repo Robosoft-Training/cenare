@@ -19,9 +19,7 @@ export class ResetPasswordService {
 
   resetPassWordSendOtp = (email): Observable<any[]> => {
     // console.log(email);
-    const postBody = {
-      
-    };
+    const postBody = {};
     this.localStorageService.setUserEmail(email);
     const url = `${this.baseUrl}api/auth/forgotPassword?email=${email}`;
     return this.httpClient.post<any[]>(url, postBody).pipe(

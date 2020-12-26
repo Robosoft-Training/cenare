@@ -16,7 +16,7 @@ export class LoginService {
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   // };
-  
+
   userName = new BehaviorSubject('');
   currentUserName = this.userName.asObservable();
   isUserLogin = new BehaviorSubject(false);
@@ -36,7 +36,7 @@ export class LoginService {
     const url = `${this.baseUrl}api/auth/signin`;
     return this.httpClient.post<any[]>(url, postBody).pipe(
       tap(
-        (data:any) => {
+        (data: any) => {
           console.log(data.token);
           this.localStorageService.setUserJWTtoken(data.token);
           this.localStorageService.setUserName(data.first_name);
@@ -50,7 +50,7 @@ export class LoginService {
 
   isUserLoggedIn = (): void => {
     if (this.localStorageService.getUserJWTtoken()) {
-      let userName: any = this.localStorageService.getUserName()
+      const userName: any = this.localStorageService.getUserName();
       this.userName.next(userName.toString());
       this.isAuthenticated = true;
       this.isUserLogin.next(true);

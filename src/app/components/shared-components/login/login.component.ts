@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     public data: { formType: string }
   ) { this.formType = data.formType; }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.registerService.currentUserName.subscribe(
       userName => {
         this.userName = userName;
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
   }
 
   showFormType(formName): void {
-    this.password.value = "";
+    this.password.value = '';
     this.formType = formName;
   }
 

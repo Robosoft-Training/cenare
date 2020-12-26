@@ -49,7 +49,7 @@ export class RegisterService {
       first_name: firstName,
       last_name: lastName,
       mobile_number: mobileNumber,
-      password: password,
+      password,
       user_id: userId
     };
     console.log(postBody);

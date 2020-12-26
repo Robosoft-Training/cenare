@@ -26,7 +26,7 @@ export class MenuListService {
 
   getRestaurantMenuItems = (restaurantID): Observable<IMenuList[]> => {
     this.restaurantID = restaurantID;
-    this.localStorageService.setRestId(restaurantID);;
+    this.localStorageService.setRestId(restaurantID);
     const url = `${this.apiBaseUrl}menu/getMenu`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurant_id', restaurantID);

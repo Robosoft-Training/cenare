@@ -14,21 +14,21 @@ export class RestaurantListOptionsComponent implements OnInit {
 
   deatilsArray: IRestaurant[] = [
     {
-      "restaurant": {
-        "restaurant_id": 0,
-        "restaurant_name": "",
-        "restaurant_city": "",
-        "restaurant_address": "",
-        "open_time": [],
-        "close_time": [],
-        "avg_delivery_time": 0,
-        "min_order_cost": 0,
-        "avg_order_cost": 0,
-        "menu_image": "",
-        "restaurant_image": ""
+      restaurant: {
+        restaurant_id: 0,
+        restaurant_name: '',
+        restaurant_city: '',
+        restaurant_address: '',
+        open_time: [],
+        close_time: [],
+        avg_delivery_time: 0,
+        min_order_cost: 0,
+        avg_order_cost: 0,
+        menu_image: '',
+        restaurant_image: ''
       },
-      "rating": 0,
-      "cuisines": []
+      rating: 0,
+      cuisines: []
     }
   ];
 

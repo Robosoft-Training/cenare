@@ -61,7 +61,7 @@ export class HomePopularBrandsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loadProducts();
+    this.loadProducts();
   }
 
 }

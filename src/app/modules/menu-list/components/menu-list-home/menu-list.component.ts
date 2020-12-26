@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
 
@@ -7,7 +7,7 @@ import { MenuListService } from 'src/app/services/resraurant-details/menu-list/m
   templateUrl: './menu-list.component.html',
   styleUrls: ['./menu-list.component.scss']
 })
-export class MenuListComponent implements OnInit {
+export class MenuListComponent implements OnInit, AfterViewInit{
   formType = 'menu';
 
   constructor(
@@ -29,7 +29,7 @@ export class MenuListComponent implements OnInit {
       }
     );
   }
-  
+
   showFormType(formName): void {
     this.formType = formName;
     console.log(formName);
