@@ -10,7 +10,17 @@ import { IPopularBrands } from 'src/app/shared/interfaces/IPopularBrands';
 })
 export class HomePopularBrandsComponent implements OnInit {
 
-  popularBrands: IPopularBrands[] = [];
+  popularBrands: IPopularBrands[] = [
+    {
+      brand_id: 0,
+      brand_name: "",
+      city: "",
+      title: "",
+      description: "",
+      logo_image_path: "",
+      food_image_path: ""
+    }
+  ];
   isLoading = true;
   isErrorLoading = false;
   hasNextItem = true;
@@ -49,9 +59,9 @@ export class HomePopularBrandsComponent implements OnInit {
   loadProducts = () => {
     this.isErrorLoading = false;
     this.popularProductsService.getPopularBrands().subscribe(
-      (products: IPopularBrands[]) => {
+      (products: any) => {
         // console.log(products);
-        this.popularBrands = products;
+        this.popularBrands = products.resultList;
         this.isLoading = false;
       },
       err => {
