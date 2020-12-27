@@ -62,6 +62,7 @@ export class RestaurantListService {
     return this.httpClient.get<IRestaurant[]>(url, { params: httpParams })
       .pipe(
         tap((data: IRestaurant[]) => {
+          this.currentretaurantDataList = {...data}
           this.retaurantDataListSource.next(data);
         }),
         retry(3)
@@ -85,6 +86,7 @@ export class RestaurantListService {
     return this.httpClient.get<IRestaurant[]>(url, { params: httpParams })
       .pipe(
         tap((data: IRestaurant[]) => {
+          this.currentretaurantDataList = {...data}
           this.retaurantDataListSource.next(data);
         }),
         retry(3)
@@ -110,7 +112,7 @@ export class RestaurantListService {
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
-          // console.log(data)
+          this.currentretaurantDataList = {...data}
           this.retaurantDataListSource.next(data);
         }),
         retry(3)

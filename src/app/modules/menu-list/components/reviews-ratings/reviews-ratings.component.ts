@@ -19,7 +19,7 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   submit() {
-    
+
   }
 
   foodRatingOne() {

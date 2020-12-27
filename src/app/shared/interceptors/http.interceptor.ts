@@ -21,6 +21,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     let reqUrl;
 
     if (this.localStorageService.getUserJWTtoken() && !(mapApiUrl === 'https://api.tomtom.com')) {
+      console.log("Bearer Token : " + this.localStorageService.getUserJWTtoken());
       reqUrl = req.clone({
         setHeaders: { Authorization: `Bearer ${this.localStorageService.getUserJWTtoken()}`}
       });

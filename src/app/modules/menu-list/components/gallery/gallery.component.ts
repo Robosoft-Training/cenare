@@ -40,5 +40,4 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

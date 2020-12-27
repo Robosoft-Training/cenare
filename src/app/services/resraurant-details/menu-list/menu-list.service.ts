@@ -15,6 +15,9 @@ export class MenuListService {
   apiBaseUrl = environment.baseUrl;
 
   restaurantID: any = 0;
+  // restaurantIDManagger = new BehaviorSubject('');
+  // restaurantIDObserver = this.restaurantIDManagger.asObservable();
+
   menuDataListSource = new BehaviorSubject({});
   currentMenuDataListSource = this.menuDataListSource.asObservable();
   currentMenuDataList: any;
