@@ -35,7 +35,7 @@ export class MenuListComponent implements OnInit, AfterViewInit{
         
       }
     );
-    console.log(this.restaurantListService.currentretaurantDataList);
+    // console.log(this.restaurantListService.currentretaurantDataList);
   }
 
   showFormType(formName): void {

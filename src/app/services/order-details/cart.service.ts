@@ -15,15 +15,14 @@ export class CartService {
     private httpClient: HttpClient
   ) { }
 
-  getAllCartData = (orderNumber): Observable<any> => {
+  addToCart = (orderNumber, restaurantId, menuId): Observable<any> => {
     console.log(orderNumber);
-    const url = `${this.apiBaseUrl}orders/getAllOrders`;
-
-    let httpParams = new HttpParams();
-    httpParams = httpParams.append('orderNumber', "3630212");
-    console.log(httpParams);
-
-    return this.httpClient.get<any[]>(url, { params: httpParams })
+    const url = `${this.apiBaseUrl}orders/addOrder?orderNumber=${orderNumber}`;
+    const postBody = {
+      menuId,
+      restaurantId
+    };
+    return this.httpClient.post<any[]>(url, postBody)
       .pipe(
         tap(data => {
           console.log(data);
@@ -31,4 +30,34 @@ export class CartService {
         retry(3)
       );
   }
+
+  getAllCartData = (orderNumber): Observable<any> => {
+    console.log(orderNumber);
+    const url = `${this.apiBaseUrl}orders/getAllOrders`;
+
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('orderNumber', "3630212");
+    // console.log(httpParams);
+
+    return this.httpClient.get<any[]>(url, { params: httpParams })
+      .pipe(
+        tap(data => {
+          // console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
+  clearCart = (orderNumber): Observable<any> => {
+    console.log(orderNumber);
+    const url = `${this.apiBaseUrl}orders/clearCart?orderNumber=${orderNumber}`;
+    return this.httpClient.delete<any[]>(url)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
 }

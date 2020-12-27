@@ -46,6 +46,7 @@ export class MenuComponent implements OnInit {
     }
   ];
   menuIdList: any = [];
+  orderNo: any;
 
   restaurentId: any;
   groupedMenuList: any = {
@@ -113,33 +114,11 @@ export class MenuComponent implements OnInit {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
           console.log(data.resultList);
-          this.cartList = data.resultList;
-          this.prepareMenuIdList(data.resultList);
+          // this.cartList = data.resultList;
+          // this.prepareMenuIdList(data.resultList);
         }
       );
     }
-    console.log(['1', '2 gh', '3'].includes('2 gh'));
-  }
-
-  ngOnInit(): void {
-    this.menuListService.currentMenuDataListSource.subscribe(
-      (data: any) => {
-        if (data.resultList) {
-          this.groupByCourse(data.resultList);
-        }
-        this.menuList = data.resultList;
-        // this.getAllCartData(data.order_num);
-      }
-    );
-
-    this.loginService.isCurrentUserLogin.subscribe(
-      (isLogin: any) => {
-        this.isLoggedIn = isLogin;
-      }
-    );
-
-    this.loginService.isUserLoggedIn();
-
   }
 
   showPaymentDetails() {
@@ -148,20 +127,24 @@ export class MenuComponent implements OnInit {
 
   addTocart(dishId) {
     this.restaurentId = this.localStorageService.getRestId();
-    // console.log(dishId);
-    this.menuIdList.push(dishId);
-    let newCartItem = {
-      order_number: '',
-      item_name: dishId,
-      price: '',
-      menu_price: '',
-      quantity: 1
-    }
-    this.cartList.push(
-      newCartItem
-    )
+    // // console.log(dishId);
+    // this.menuIdList.push(dishId);
+    // let newCartItem = {
+    //   order_number: '',
+    //   item_name: dishId,
+    //   price: '',
+    //   menu_price: '',
+    //   quantity: 1
+    // }
+    // this.cartList.push(
+    //   newCartItem
+    // )
+   this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
+     data => {
+      this.getAllCartData(this.orderNo);
+     }
+   );
   }
-
 
   addTocartAgain(dishId, count) {
     this.restaurentId = this.localStorageService.getRestId();
@@ -173,5 +156,35 @@ export class MenuComponent implements OnInit {
         }
       }
     )
+  }
+
+  clearCart = () => {
+    this.cartService.clearCart(this.orderNo).subscribe(
+      msg => {
+        this.getAllCartData(this.orderNo);
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.menuListService.currentMenuDataListSource.subscribe(
+      (data: any) => {
+        if (data.resultList) {
+          this.groupByCourse(data.resultList);
+        }
+        this.menuList = data.resultList;
+        this.orderNo = data.order_num
+        this.getAllCartData(this.orderNo);
+      }
+    );
+
+    this.loginService.isCurrentUserLogin.subscribe(
+      (isLogin: any) => {
+        this.isLoggedIn = isLogin;
+      }
+    );
+
+    this.loginService.isUserLoggedIn();
+
   }
 }

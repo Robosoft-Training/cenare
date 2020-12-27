@@ -26,7 +26,7 @@
                             <!-- <label class="flex-end align-self-end best-seller-text">BESTSELLER</label> -->
                             <div *ngIf="isLoggedIn" class="d-flex flex-column content-right-bottom">
                                 <div class="add-btn small-button" *ngIf="!(menuIdList.includes(item.menu.item_name))"
-                                    (click)="addTocart(item.menu.item_name)">ADD</div>
+                                    (click)="addTocart(item.menu.menu_id)">ADD</div>
                                 <span *ngIf="menuIdList.includes(item.menu.item_name)">
                                     <label class="already-in-cart-text pl-3">Already in cart</label>
                                     <div class="add-btn big-button" (click)="addTocartAgain(item.menu.item_name, 1)">
@@ -43,7 +43,7 @@
     <div class="d-flex flex-column col-12 col-lg-4 cart">
         <div class="d-flex flex-row justify-content-between cart-header">
             <label class="header-text">My Order</label>
-            <label class="clear-cart-text">Clear cart</label>
+            <label class="clear-cart-text" (click)="clearCart()">Clear cart</label>
         </div>
         <div class="border"></div>
         <span *ngIf="isLoggedIn">
