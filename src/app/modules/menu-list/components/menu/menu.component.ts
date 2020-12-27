@@ -32,17 +32,10 @@ export class MenuComponent implements OnInit {
   cartList: any[] = [
     {
       order_number: '',
-      item_name: 'Payasam',
+      item_name: 'Ice cream',
       price: '',
       menu_price: '',
-      quantity: 2
-    },
-    {
-      order_number: '',
-      item_name: 'Patrade',
-      price: '',
-      menu_price: '',
-      quantity: 5
+      quantity: 1
     }
   ];
   menuIdList: any = [];
@@ -94,7 +87,7 @@ export class MenuComponent implements OnInit {
             tempArray.push(data.menuResponse);
             this.groupByCourse(tempArray);
           }
-          console.log(tempArray);
+          // console.log(tempArray);
           this.menuList = tempArray;
         }
       }
@@ -105,7 +98,7 @@ export class MenuComponent implements OnInit {
     this.menuIdList = [];
     menuList.forEach((element: any) => {
       this.menuIdList.push(element.item_name);
-      console.log(this.menuIdList);
+      // console.log(this.menuIdList);
     });
   }
 
@@ -115,7 +108,7 @@ export class MenuComponent implements OnInit {
         data => {
           console.log(data.resultList);
           // this.cartList = data.resultList;
-          // this.prepareMenuIdList(data.resultList);
+          this.prepareMenuIdList(data.resultList);
         }
       );
     }
@@ -127,18 +120,19 @@ export class MenuComponent implements OnInit {
 
   addTocart(dishId) {
     this.restaurentId = this.localStorageService.getRestId();
-    // // console.log(dishId);
-    // this.menuIdList.push(dishId);
-    // let newCartItem = {
-    //   order_number: '',
-    //   item_name: dishId,
-    //   price: '',
-    //   menu_price: '',
-    //   quantity: 1
-    // }
-    // this.cartList.push(
-    //   newCartItem
-    // )
+    this.menuIdList.push(dishId);
+    let newCartItem = {
+      order_number: this.orderNo,
+      item_name: "Item Name",
+      price: 20,
+      menu_price: 50,
+      quantity: 1
+    }
+    this.cartList.push(
+       newCartItem
+    )
+
+    
    this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
      data => {
       this.getAllCartData(this.orderNo);
@@ -148,14 +142,20 @@ export class MenuComponent implements OnInit {
 
   addTocartAgain(dishId, count) {
     this.restaurentId = this.localStorageService.getRestId();
-    // console.log(dishId, count);
+    let quantity = 0;
     this.cartList.forEach(
       item => {
-        if (item.item_name === dishId) {
+        if (item.item_name === "Ice cream") {
           item.quantity += count
+          quantity = item.quantity;
+          this.cartService.addToCartAgain(this.orderNo, this.restaurentId, dishId, quantity).subscribe(
+            data => {
+             this.getAllCartData(this.orderNo);
+            }
+          );
         }
       }
-    )
+    );
   }
 
   clearCart = () => {

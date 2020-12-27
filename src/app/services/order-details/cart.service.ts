@@ -16,7 +16,7 @@ export class CartService {
   ) { }
 
   addToCart = (orderNumber, restaurantId, menuId): Observable<any> => {
-    console.log(orderNumber);
+    // console.log(orderNumber);
     const url = `${this.apiBaseUrl}orders/addOrder?orderNumber=${orderNumber}`;
     const postBody = {
       menuId,
@@ -31,12 +31,29 @@ export class CartService {
       );
   }
 
+  addToCartAgain = (orderNumber, restaurantId, menuId, quantity): Observable<any> => {
+    console.log(quantity);
+    const url = `${this.apiBaseUrl}orders/addOrderAgain?orderNumber=${orderNumber}`;
+    const putBody = {
+      menuId,
+      quantity,
+      restaurantId
+    };
+    return this.httpClient.put<any[]>(url, putBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
   getAllCartData = (orderNumber): Observable<any> => {
     console.log(orderNumber);
     const url = `${this.apiBaseUrl}orders/getAllOrders`;
 
     let httpParams = new HttpParams();
-    httpParams = httpParams.append('orderNumber', "3630212");
+    httpParams = httpParams.append('orderNumber', orderNumber);
     // console.log(httpParams);
 
     return this.httpClient.get<any[]>(url, { params: httpParams })

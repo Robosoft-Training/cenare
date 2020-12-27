@@ -29,7 +29,7 @@
                                     (click)="addTocart(item.menu.menu_id)">ADD</div>
                                 <span *ngIf="menuIdList.includes(item.menu.item_name)">
                                     <label class="already-in-cart-text pl-3">Already in cart</label>
-                                    <div class="add-btn big-button" (click)="addTocartAgain(item.menu.item_name, 1)">
+                                    <div class="add-btn big-button" (click)="addTocartAgain(item.menu.menu_id, 1)">
                                         ADD AGAIN</div>
                                 </span>
                             </div>
