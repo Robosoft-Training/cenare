@@ -80,7 +80,7 @@ export class RestaurantListOptionsComponent implements OnInit {
 
     this.restaurantListService.loadRestaurants().subscribe(
       (restaurantDataList: any) => {
-        console.log(restaurantDataList.resultList);
+        // console.log(restaurantDataList.resultList);
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray.length;
         this.isLoading = false;

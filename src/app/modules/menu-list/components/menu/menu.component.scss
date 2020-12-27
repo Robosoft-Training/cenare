@@ -123,6 +123,7 @@
                 line-height: 14px;
                 text-align: center;
                 padding-bottom: 4px;
+                margin-left: 1.8em;
               }
 
               .add-btn {
@@ -238,6 +239,17 @@
               letter-spacing: 0;
               line-height: 27px;
               text-align: center;
+            }
+
+            .disable-action-text {
+              color: #8D909A;
+              font-family: "Open Sans";
+              font-size: 13px;
+              font-weight: bold;
+              letter-spacing: 0;
+              line-height: 27px;
+              text-align: center;
+              pointer-events: none;
             }
 
             .orange-text {
