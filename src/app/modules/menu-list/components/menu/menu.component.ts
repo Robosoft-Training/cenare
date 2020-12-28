@@ -132,9 +132,8 @@ export class MenuComponent implements OnInit {
        newCartItem
     )
 
-    
    this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
-     data => {
+     (data) => {
       this.getAllCartData(this.orderNo);
      }
    );
@@ -145,7 +144,7 @@ export class MenuComponent implements OnInit {
     let quantity = 0;
     this.cartList.forEach(
       item => {
-        if (item.item_name === "Ice cream") {
+        if (item.item_name === dishId) {
           item.quantity += count
           quantity = item.quantity;
           this.cartService.addToCartAgain(this.orderNo, this.restaurentId, dishId, quantity).subscribe(
