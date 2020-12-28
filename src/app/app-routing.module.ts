@@ -24,7 +24,8 @@ const routes: Routes = [
     path: 'menu-list/:id',
     loadChildren: () => import('./modules/menu-list/menu-list.module').then(m => m.MenuListModule)
   },
-  { path: 'user-profile', loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule) }
+  { path: 'user-profile', loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule) },
+  { path: 'payment', loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule) }
 ];
 
 @NgModule({

@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
       price: 0
     }
   ];
-  cartList: any[] = [
+  cartList: ICartItems[] = [
     {
       order_number: "",
       item_name: "",
@@ -106,7 +106,19 @@ export class MenuComponent implements OnInit {
     });
   }
 
+  getTotalAmmount = (orderNumber) => {
+    if (orderNumber && this.isLoggedIn) {
+      this.cartService.getTotalAmmount(orderNumber).subscribe(
+        data => {
+          console.log(data);
+          this.totalAmmount = data["To Pay"];
+        }
+      );
+    }
+  }
+
   getAllCartData = (orderNumber) => {
+    this.cartList = [];
     if (orderNumber && this.isLoggedIn) {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
@@ -116,17 +128,6 @@ export class MenuComponent implements OnInit {
           if(data.resultList.length >= 1){
             this.getTotalAmmount(orderNumber);
           }
-        }
-      );
-    }
-  }
-
-  getTotalAmmount = (orderNumber) => {
-    if (orderNumber && this.isLoggedIn) {
-      this.cartService.getTotalAmmount(orderNumber).subscribe(
-        data => {
-          console.log(data);
-          this.totalAmmount = data["To Pay"];
         }
       );
     }
@@ -171,6 +172,7 @@ export class MenuComponent implements OnInit {
     this.cartService.clearCart(this.orderNo).subscribe(
       msg => {
         this.getAllCartData(this.orderNo);
+        this.totalAmmount = 0;
       }
     );
   }
@@ -192,8 +194,7 @@ export class MenuComponent implements OnInit {
         this.isLoggedIn = isLogin;
       }
     );
-
+    this.getAllCartData(this.orderNo);
     this.loginService.isUserLoggedIn();
-
   }
 }

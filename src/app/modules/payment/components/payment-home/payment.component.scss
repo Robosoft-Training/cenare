@@ -1,0 +1,28 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.main-container {
+    .contents {
+        margin-left: -0.9em;
+        margin-top: 2em;
+
+        .item-heder {
+            height: 34px;
+            width: 224px;
+            color: #636364;
+            font-family: $openSansSemibold;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 34px;
+            margin-bottom: 30px;
+        }
+
+        .cart-data-container {
+            width: 92%;
+            .cart-data {
+                border-right: 2px solid green;
+            }
+        }
+    }
+}

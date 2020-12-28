@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { IPopularBrands } from 'src/app/shared/interfaces/IPopularBrands';
-import { catchError, filter, map, retry, tap } from 'rxjs/operators';
+import { retry, tap } from 'rxjs/operators';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { environment } from 'src/environments/environment';
 
