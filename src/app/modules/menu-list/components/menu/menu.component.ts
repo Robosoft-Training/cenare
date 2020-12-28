@@ -128,6 +128,9 @@ export class MenuComponent implements OnInit {
           if(data.resultList.length >= 1){
             this.getTotalAmmount(orderNumber);
           }
+          else {
+            this.totalAmmount = 0;
+          }
         }
       );
     }
@@ -173,6 +176,14 @@ export class MenuComponent implements OnInit {
       msg => {
         this.getAllCartData(this.orderNo);
         this.totalAmmount = 0;
+      }
+    );
+  }
+
+  removeItem = (menuId) => {
+    this.cartService.removeItem(this.orderNo, menuId).subscribe(
+      (msg) => {
+        this.getAllCartData(this.orderNo);
       }
     );
   }

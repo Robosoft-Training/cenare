@@ -77,7 +77,6 @@ export class RestaurantListService {
     const adress = this.searchData.locationName;
     const cityName = adress.replace(/ .*/, '');
     let httpParams = new HttpParams();
-    console.log(cityName);
     httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
     httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
     httpParams = httpParams.append('City', cityName);
