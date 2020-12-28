@@ -1,0 +1,53 @@
+@import "../../../variables.scss";
+.error{
+    position: relative;
+    width: 380px;
+    height: 150px;
+    margin-top: 270px;
+    margin-left: 500px;
+}
+.page{
+    position: absolute;
+   bottom: 270px;
+   left: 580px;
+   font-family:$openSans;
+color: #3E3E3E;
+
+}
+.home{
+    position: absolute;
+    bottom: 200px;
+    left: 640px;
+    cursor: pointer;
+    width: 130px;
+}
+@media  screen and (max-width: 500px) {
+    .error {
+      margin-left: 50px;
+    }
+    .page{
+        position: absolute;
+        left: 90px;
+        bottom: 10px;
+    }
+    .home{
+        position: absolute;
+        left: 160px;
+        bottom: 50px; 
+    }
+  }
+  @media  screen and (max-width: 720px) {
+    .error {
+      margin-left: 50px;
+    }
+    .page{
+        position: absolute;
+        left: 90px;
+        bottom: 130px;
+    }
+    .home{
+        position: absolute;
+        left: 160px;
+        bottom: 50px; 
+    }
+  }

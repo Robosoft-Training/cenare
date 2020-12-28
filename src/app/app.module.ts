@@ -16,6 +16,7 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { PICK_FORMATS } from './shared/date-picker-formate';
 import { DatePickerService } from './services/date-picker/date-picker.service';
 import { HttpInterceptorService } from './shared/interceptors/http.interceptor';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HttpInterceptorService } from './shared/interceptors/http.interceptor';
     AboutComponent,
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
-    ContactComponent
+    ContactComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
