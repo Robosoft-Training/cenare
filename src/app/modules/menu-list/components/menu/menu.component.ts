@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
 
   isHide = false;
   isLoggedIn = false;
+  totalAmmount: any = 0.0;
   menuList: IMenuList[] = [
     {
       menu: {
@@ -31,16 +32,19 @@ export class MenuComponent implements OnInit {
   ];
   cartList: any[] = [
     {
-      order_number: '',
-      item_name: 'Ice cream',
-      price: '',
-      menu_price: '',
-      quantity: 1
+      order_number: "",
+      item_name: "",
+      price: "",
+      menu_price: "",
+      menu_id: "",
+      category: "",
+      restaurant_id: "",
+      quantity: ""
     }
   ];
+
   menuIdList: any = [];
   orderNo: any;
-
   restaurentId: any;
   groupedMenuList: any = {
     key: 0
@@ -107,8 +111,22 @@ export class MenuComponent implements OnInit {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
           console.log(data.resultList);
-          // this.cartList = data.resultList;
+          this.cartList = data.resultList;
           this.prepareMenuIdList(data.resultList);
+          if(data.resultList.length >= 1){
+            this.getTotalAmmount(orderNumber);
+          }
+        }
+      );
+    }
+  }
+
+  getTotalAmmount = (orderNumber) => {
+    if (orderNumber && this.isLoggedIn) {
+      this.cartService.getTotalAmmount(orderNumber).subscribe(
+        data => {
+          console.log(data);
+          this.totalAmmount = data["To Pay"];
         }
       );
     }
@@ -121,16 +139,6 @@ export class MenuComponent implements OnInit {
   addTocart(dishId) {
     this.restaurentId = this.localStorageService.getRestId();
     this.menuIdList.push(dishId);
-    let newCartItem = {
-      order_number: this.orderNo,
-      item_name: "Item Name",
-      price: 20,
-      menu_price: 50,
-      quantity: 1
-    }
-    this.cartList.push(
-       newCartItem
-    )
 
    this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
      (data) => {
@@ -144,7 +152,9 @@ export class MenuComponent implements OnInit {
     let quantity = 0;
     this.cartList.forEach(
       item => {
-        if (item.item_name === dishId) {
+        console.log(item.menu_id, dishId);
+        if (item.menu_id === dishId.toString()) {
+          item.quantity = parseInt(item.quantity);
           item.quantity += count
           quantity = item.quantity;
           this.cartService.addToCartAgain(this.orderNo, this.restaurentId, dishId, quantity).subscribe(

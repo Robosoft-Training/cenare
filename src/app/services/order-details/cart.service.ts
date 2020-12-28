@@ -77,4 +77,18 @@ export class CartService {
       );
   }
 
+  getTotalAmmount = (orderNumber) => {
+    console.log(orderNumber);
+    const url = `${this.apiBaseUrl}orders/TotalAmount?orderNumber=${orderNumber}`;
+    const postBody = {
+    };
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
 }

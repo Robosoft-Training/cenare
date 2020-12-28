@@ -4,7 +4,7 @@
 <div class="d-flex align-items-center brands-nearby">
   <a (click)="scrollLeft()" role="button" data-bs-slide="prev"
     [ngClass]="{'arrow-btn':!appScrollElement.disableBtnLeft, 'disabled-arrow-btn': appScrollElement.disableBtnLeft, 'btn':true, 'btn-light':true}">
-    <mat-icon>keyboard_arrow_left</mat-icon>
+    <!-- <mat-icon>keyboard_arrow_left</mat-icon> -->
   </a>
 
   <div #widgetsContent class="scroll-view-container" appCustomScroll #appScrollElement="appCustomScroll">
@@ -13,7 +13,7 @@
         <div class="offer-deals">
           <div class="offer-card">
             <div class="brand-image-container w-sm-100 d-flex flex-column">
-              <img src="../../../../../assets/kfc.png" class="image">
+              <img src="{{brand.logo_image_path}}" class="image">
               <label class="card-brand-name">{{ brand.brand_name}}</label>
               <label class="product-description">2 oulets</label>
             </div>
@@ -25,7 +25,7 @@
 
   <a (click)="scrollRight()" role="button" data-bs-slide="next"
     [ngClass]="{'arrow-btn':!appScrollElement.disableBtnRight, 'disabled-arrow-btn': appScrollElement.disableBtnRight, 'btn':true, 'btn-light':true}">
-    <mat-icon>keyboard_arrow_right</mat-icon>
+    <!-- <mat-icon>keyboard_arrow_right</mat-icon> -->
   </a>
 
 </div>

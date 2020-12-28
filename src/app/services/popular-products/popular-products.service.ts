@@ -44,19 +44,23 @@ export class PopularProductsService {
     this.searchData = JSON.parse(this.searchData);
     this.coordinatesData = this.localStorageService.getUserCoordinates();
     this.coordinatesData = JSON.parse(this.coordinatesData);
+    const adress = this.searchData.locationName;
+    const cityName = adress.replace(/ .*/, '');
+
 
     let httpParams = new HttpParams();
 
     // Appending Loaction and Search by
     httpParams = httpParams.append('latitude', this.coordinatesData.results[0].position.lat);
     httpParams = httpParams.append('longitude', this.coordinatesData.results[0].position.lon);
-    httpParams = httpParams.append('city', this.searchData.locationName);
+    httpParams = httpParams.append('city', cityName);
 
-    const url = `${this.apiBaseUrl}popularBrands/nearby`;
+    const url = `${this.apiBaseUrl}brands/getNearbyBrands`;
     return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
         tap(data => {
           this.currentnearbyBrandsDataList = { ...data };
+          // console.log(data);
           this.nearbyBrandsDataListSource.next(this.currentnearbyBrandsDataList);
         }),
         retry(3)
