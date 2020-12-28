@@ -6,10 +6,11 @@ import { PaymentComponent } from './components/payment-home/payment.component';
 import { CartItemsComponent } from './components/cart-items/cart-items.component';
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 
 @NgModule({
-  declarations: [PaymentComponent, CartItemsComponent],
+  declarations: [PaymentComponent, CartItemsComponent, ProgressBarComponent],
   imports: [
     CommonModule,
     PaymentRoutingModule,

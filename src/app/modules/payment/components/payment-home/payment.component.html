@@ -6,16 +6,33 @@
     <div class="main-container">
         <div class="row">
             <div class="col-0 col-lg-3"></div>
-            <div class="col-12 col-lg-7 contents">
+            <!-- <div class="col-12 col-lg-7 contents">
                 <span class="item-heder">My Cart (3)</span>
                 <div class="cart-data-container row">
-                    <div *ngFor="let i of [1,2,3]" class="cart-data col-4 bg-danger">
-                        {{i}}
+                    <div *ngFor="let i of [1,2,3]" class="cart-data mt-4 mt-md-0 col-12 col-md-4">
+                        <div class="cart-iem-card">
+                            <div class="card-heading">
+                                <span class="card-heading-text">The Boutique Kitchen</span>
+                                <span class="remove-text">Remove</span>
+                            </div>
+                            <div class="adress-text">
+                                <span>Prems, Dubai, UAE</span>
+                            </div>
+                            <div class="cart-details">
+                                <span>3 Items</span>
+                                <span class="price-text">INR85.76</span>
+                            </div>
+                            <div class="add-btn big-button">
+                                PROCEED
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="col-12 col-lg-7">
+                <app-cart-items></app-cart-items>
             </div>
             <div class="col-0 col-lg-2"></div>
         </div>
-
     </div>
 </div>
