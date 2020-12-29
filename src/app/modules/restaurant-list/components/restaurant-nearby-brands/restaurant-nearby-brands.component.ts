@@ -12,12 +12,12 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
   deatilsArray: any[] = [
     {
       brand_id: 0,
-      brand_name: "",
-      city: "",
-      description: "",
-      food_image_path: "",
-      logo_image_path: "",
-      title: ""
+      brand_name: '',
+      city: '',
+      description: '',
+      food_image_path: '',
+      logo_image_path: '',
+      title: ''
     }
   ];
 

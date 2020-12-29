@@ -13,12 +13,12 @@ export class HomePopularBrandsComponent implements OnInit {
   popularBrands: IPopularBrands[] = [
     {
       brand_id: 0,
-      brand_name: "",
-      city: "",
-      title: "",
-      description: "",
-      logo_image_path: "",
-      food_image_path: ""
+      brand_name: '',
+      city: '',
+      title: '',
+      description: '',
+      logo_image_path: '',
+      food_image_path: ''
     }
   ];
   isLoading = true;

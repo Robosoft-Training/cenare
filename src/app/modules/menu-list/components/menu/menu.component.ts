@@ -32,14 +32,14 @@ export class MenuComponent implements OnInit {
   ];
   cartList: ICartItems[] = [
     {
-      order_number: "",
-      item_name: "",
-      price: "",
-      menu_price: "",
-      menu_id: "",
-      category: "",
-      restaurant_id: "",
-      quantity: ""
+      order_number: '',
+      item_name: '',
+      price: '',
+      menu_price: '',
+      menu_id: '',
+      category: '',
+      restaurant_id: '',
+      quantity: ''
     }
   ];
 
@@ -111,7 +111,7 @@ export class MenuComponent implements OnInit {
       this.cartService.getTotalAmmount(orderNumber).subscribe(
         data => {
           console.log(data);
-          this.totalAmmount = data["To Pay"];
+          this.totalAmmount = data['To Pay'];
         }
       );
     }
@@ -125,7 +125,7 @@ export class MenuComponent implements OnInit {
           console.log(data.resultList);
           this.cartList = data.resultList;
           this.prepareMenuIdList(data.resultList);
-          if(data.resultList.length >= 1){
+          if (data.resultList.length >= 1) {
             this.getTotalAmmount(orderNumber);
           }
           else {
@@ -144,11 +144,11 @@ export class MenuComponent implements OnInit {
     this.restaurentId = this.localStorageService.getRestId();
     this.menuIdList.push(dishId);
 
-   this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
-     (data) => {
-      this.getAllCartData(this.orderNo);
-     }
-   );
+    this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
+      (data) => {
+        this.getAllCartData(this.orderNo);
+      }
+    );
   }
 
   addTocartAgain(dishId, count) {
@@ -158,12 +158,12 @@ export class MenuComponent implements OnInit {
       item => {
         console.log(item.menu_id, dishId);
         if (item.menu_id === dishId.toString()) {
-          item.quantity = parseInt(item.quantity);
-          item.quantity += count
+          item.quantity = parseInt(item.quantity, 10);
+          item.quantity += count;
           quantity = item.quantity;
           this.cartService.addToCartAgain(this.orderNo, this.restaurentId, dishId, quantity).subscribe(
             data => {
-             this.getAllCartData(this.orderNo);
+              this.getAllCartData(this.orderNo);
             }
           );
         }
@@ -195,7 +195,7 @@ export class MenuComponent implements OnInit {
           this.groupByCourse(data.resultList);
         }
         this.menuList = data.resultList;
-        this.orderNo = data.order_num
+        this.orderNo = data.order_num;
         this.getAllCartData(this.orderNo);
       }
     );

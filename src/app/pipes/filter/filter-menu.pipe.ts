@@ -5,11 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterMenuPipe implements PipeTransform {
 
-  
-transform(items: any[], filter: Object): any {
-  if (!items || !filter) {
+  transform(items: any[], filter: any): any {
+    if (!items || !filter) {
       return items;
+    }
+    return items.filter(item => item.menu.item_name.indexOf(filter) !== -1);
   }
-  return items.filter(item => item.menu.item_name.indexOf(filter) !== -1);
-}
 }

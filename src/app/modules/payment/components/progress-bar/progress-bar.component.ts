@@ -14,15 +14,13 @@ export class ProgressBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(this.pageName === 'adress-page'){
+    if (this.pageName === 'adress-page'){
       this.step1 = true;
     }
-    else if(this.pageName === 'payment-method') {
+    else if (this.pageName === 'payment-method') {
       this.step1 = true;
       this.step2 = true;
     }
   }
 
 }
-
-// vD2#sD0%yR

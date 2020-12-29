@@ -5,6 +5,6 @@ export interface ICartItems {
     item_name: string;
     price: string;
     menu_price: string;
-    restaurant_id: string,
-    quantity: any
+    restaurant_id: string;
+    quantity: any;
 }
