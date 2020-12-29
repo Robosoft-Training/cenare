@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  formType = 'orders';
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
-
+  showFormType(formName): void {
+    this.formType = formName;
+    console.log(formName);
+  }
 }

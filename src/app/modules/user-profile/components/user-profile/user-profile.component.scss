@@ -1,0 +1,127 @@
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
+
+.user-profile {
+  background-image: url('../../../../../assets/images/user_profile_cover_image.png');
+
+  .profile {
+    padding-top: 38px;
+    .profile-img {
+      box-sizing: border-box;
+      border: 3px solid $white;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+    }
+
+    .profile-details {
+      justify-content: space-between;
+      margin-left: 54px;
+
+      .details-top {
+        .name {
+          color: $white;
+          font-family: $openSans;
+          font-size: 31px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 42px;
+        }
+
+        .edit {
+          color: $orangeLight;
+          font-family: "SF UI Text";
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0;
+          line-height: 19px;
+          text-align: right;
+          padding-left: 32px;
+          padding-top: 16px;
+          @include focus;
+        }
+      }
+
+      .details-full-name {
+        color: $white;
+        font-family: $openSans;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 22px;
+      }
+
+      .details-bottom {
+        width: 100%;
+        .text {
+          color: $white;
+          font-family: $openSans;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 22px;
+        }
+
+        .img {
+          padding-right: 16px;
+        }
+
+        .border {
+          box-sizing: border-box;
+          border: 1px solid $white;
+          opacity: 0.37;
+          margin: 0px 16px;
+        }
+
+        .credit-score-text {
+          color: $white;
+          font-family: $openSans;
+          font-size: 24px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 22px;
+          padding: 0px 8px;
+        }
+      }
+    }
+    
+  }
+  .options {
+    cursor: pointer;
+    color: $white;
+    position: relative;
+    font-family: $openSans;
+    font-weight: bolder;
+    font-size: 11px;
+    letter-spacing: 0.9px;
+    margin-top: 75px;
+    margin-bottom: 8px;
+
+    .active {
+      font-weight: bolder;
+    }
+
+    .active:after {
+      padding: 0;
+      margin: 0;
+      margin-bottom: 8px;
+      display: block;
+      content: "";
+      width: 3.2em;
+      height: 0.4em;
+      background: $calenderTheme;
+      position: relative;
+      right: 0;
+      border-radius: 50em;
+      top: 0.5em;
+    }
+
+    .menu-item {
+      margin-right: 5em;
+    }
+    @media only screen and (max-width: 768px) {
+      .menu-item {
+        margin-left: 2em;
+      }
+    }
+  }
+  
+}
+
