@@ -1,0 +1,227 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.cart-items-container {
+    padding-top: 2em;
+    margin-left: -3em;
+    margin-bottom: 5em;
+
+    .heading {
+        height: 30px;
+        width: 228px;
+        color: #000000;
+        font-family: $openSans;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+    .sub-heading {
+        height: 17px;
+        width: 205px;
+        color: #6F6E6E;
+        font-family: $openSans;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 1.8em;
+    }
+
+    .cart-items-fields {
+        width: 98%;
+        padding-top: 1em;
+
+        .cart-items {
+            background-color: $white;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+
+            .item {
+                border-bottom: 1px solid #EDEDED;
+                padding: 16px 20px;
+
+                .item-top {
+                    justify-content: space-between;
+
+                    .top-text {
+                        .name {
+                            color: #2D2D2D;
+                            font-family: $openSans;
+                            font-size: 14px;
+                            font-weight: 600;
+                            letter-spacing: 0;
+                            margin-left: 8px;
+                        }
+
+                        .price {
+                            color: #2D2D2D;
+                            font-family: $openSans;
+                            font-size: 10px;
+                            letter-spacing: 0;
+                        }
+                    }
+
+                    .top-buttons {
+                        justify-content: space-evenly;
+                        box-sizing: border-box;
+                        height: 30px;
+                        width: 15%;
+                        border: 1px solid #CECFD4;
+                        border-radius: 15px;
+                        background-color: #FFFFFF;
+
+                        .text {
+                            color: #8D909A;
+                            font-family: $openSans;
+                            font-size: 13px;
+                            font-weight: bold;
+                            letter-spacing: 0;
+                            line-height: 27px;
+                            text-align: center;
+                        }
+
+                        .disable-action-text {
+                            color: #8D909A;
+                            font-family: $openSans;
+                            font-size: 13px;
+                            font-weight: bold;
+                            letter-spacing: 0;
+                            text-align: center;
+                            pointer-events: none;
+                        }
+
+                        .orange-text {
+                            color: #F67E03;
+                        }
+                    }
+                }
+
+                .item-bottom {
+                    .bottom-left {
+                        justify-content: space-between;
+
+                        .description-text {
+                            color: #9B9B9B;
+                            font-family: $openSans;
+                            font-size: 11px;
+                            letter-spacing: 0;
+                            width: 80%;
+                        }
+
+                        .total-price-text {
+                            color: #2D2D2D;
+                            font-family: $openSans;
+                            font-size: 10px;
+                            font-weight: 600;
+                            letter-spacing: 0;
+                            text-align: center;
+                            margin-top: -0.8em;
+                        }
+                    }
+
+                    .bottom-right {
+                        justify-content: space-between;
+
+                        //padding-top: 4px;
+                        .remove-text {
+                            color: #ED1B2E;
+                            font-family: $openSans;
+                            font-size: 11px;
+                            font-weight: 600;
+                            letter-spacing: 0;
+                            line-height: 15px;
+                            text-align: right;
+                            width: 100%;
+                            padding-top: 20px;
+
+                           
+                        }
+                    }
+                }
+            }
+
+            .cooking-instructions {
+                margin: 0px 20px;
+                padding-top: 1em;
+                .cooking-instructions-text {
+                  color: #858585;
+                  font-family: $openSans;
+                  font-size: 12px;
+                  letter-spacing: -0.24px;
+                  line-height: 17px;
+                }
+          
+                .cooking-instructions-textbox {
+                  color: #4A4A4A;
+                  font-family: $openSans;
+                  font-size: 14px;
+                  letter-spacing: -0.27px;
+                  line-height: 22px;
+                  width: 100%;
+                  margin-top: 8px;
+                  border: none;
+                  border-bottom: 1px solid rgb(189, 185, 185);
+                  padding-bottom: 16px;
+          
+                  &:focus {
+                    outline: none;
+                  }
+                }
+              }
+
+            .buttons-field {
+                display: flex;
+                justify-content: flex-end;
+                padding: 1.5em;
+
+                .add-btn {
+                    display: flex;
+                    margin-right: 1.5em;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: border-box;
+                    height: 45px;
+                    width: 130px;
+                    border: 1px solid #979797;
+                    border-radius: 6px;
+                    box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+                    cursor: pointer;
+                    .btn-text {
+                        height: 19px;
+                        width: 40.69px;
+                        color: #979797;
+                        font-family: $openSans;
+                        font-size: 14px;
+                        font-weight: bold;
+                        letter-spacing: 0;
+                        line-height: 19px;
+                    }
+                }
+
+                .choose-btn {
+                    padding-top: 0.8em;
+                    margin-right: 0em;
+                    background: $calenderTheme;
+                    color: $white;
+                    font-family: $openSans;
+                    font-size: 14px;
+                    font-weight: 600;
+                    letter-spacing: -0.2px;
+                    text-align: center;
+                    height: 45px;
+                    width: 198px;
+                    border-radius: 6px;
+                    background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+                    box-shadow: 0 4px 10px 0 rgba(246,126,126,0.38);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 999px) {
+    .cart-items-container {
+        padding-left: 4em;
+        margin-top: 2em;
+    }
+}

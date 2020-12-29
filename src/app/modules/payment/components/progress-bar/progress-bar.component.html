@@ -1,9 +1,11 @@
-<ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li class="active">4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-  </ul>
+<ul class="progress-indicator">
+  <li class="line completed">
+    <span class="bubble"></span> Cart
+  </li>
+  <li class="line" [ngClass]="step1?'completed':''">
+    <span class="bubble"></span> Address Details
+  </li>
+  <li class="line" [ngClass]="step2?'completed':''">
+    <span class="bubble"></span> Payment
+  </li>
+</ul>

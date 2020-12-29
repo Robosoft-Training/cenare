@@ -71,32 +71,32 @@ export class MenuComponent implements OnInit {
     // console.log(this.groupedMenuList);
   }
 
-  searchAction = (event: any) => {
-    clearTimeout(this.timeOut);
-    this.timeOut = setTimeout(
-      () => {
-        if (event.keyCode !== 13) {
-          this.executeSearch(event.target.value);
-        }
-      }
-      , 1000);
-  }
+  // searchAction = (event: any) => {
+  //   clearTimeout(this.timeOut);
+  //   this.timeOut = setTimeout(
+  //     () => {
+  //       if (event.keyCode !== 13) {
+  //         this.executeSearch(event.target.value);
+  //       }
+  //     }
+  //     , 1000);
+  // }
 
-  executeSearch = (value: any) => {
-    this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
-      (data: any) => {
-        if (value) {
-          const tempArray: any = [];
-          if (data.menuResponse) {
-            tempArray.push(data.menuResponse);
-            this.groupByCourse(tempArray);
-          }
-          // console.log(tempArray);
-          this.menuList = tempArray;
-        }
-      }
-    );
-  }
+  // executeSearch = (value: any) => {
+  //   this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
+  //     (data: any) => {
+  //       if (value) {
+  //         const tempArray: any = [];
+  //         if (data.menuResponse) {
+  //           tempArray.push(data.menuResponse);
+  //           this.groupByCourse(tempArray);
+  //         }
+  //         // console.log(tempArray);
+  //         this.menuList = tempArray;
+  //       }
+  //     }
+  //   );
+  // }
 
   prepareMenuIdList = (menuList) => {
     this.menuIdList = [];

@@ -3,11 +3,11 @@
     <div class="d-flex flex-column col-12 col-lg-7 menu-left">
         <div class="search-box">
             <img class="search-icon" src="../../../../../assets/icn_search_home copy@3x.png" />
-            <input class="input" placeholder="Search an item" (keyup)="searchAction($event)" [(ngModel)]="menuSearch">
+            <input class="input" placeholder="Search an item"  [(ngModel)]="menuSearch">
         </div>
         <div class="d-flex flex-column left-list" *ngFor="let main_item of groupedMenuList | keyvalue">
             <label class="list-title mt-4">{{main_item.key}} ({{main_item.value}})</label>
-            <div *ngFor="let item of menuList">
+            <div *ngFor="let item of menuList | filterMenu:menuSearch">
                 <span class="d-flex flex-row list-card" *ngIf="main_item.key === item.menu.course">
                     <div class="card-img">
                         <img class="img" src="{{ item.menu.item_image_path }}">

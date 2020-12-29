@@ -6,7 +6,7 @@
     <div class="main-container">
         <div class="row">
             <div class="col-0 col-lg-3"></div>
-            <!-- <div class="col-12 col-lg-7 contents">
+            <!-- <div *ngIf="componentName === 'cart-list'" class="col-12 col-lg-7 contents">
                 <span class="item-heder">My Cart (3)</span>
                 <div class="cart-data-container row">
                     <div *ngFor="let i of [1,2,3]" class="cart-data mt-4 mt-md-0 col-12 col-md-4">
@@ -22,14 +22,14 @@
                                 <span>3 Items</span>
                                 <span class="price-text">INR85.76</span>
                             </div>
-                            <div class="add-btn big-button">
+                            <div class="add-btn big-button" (click)="showCartItems()">
                                 PROCEED
                             </div>
                         </div>
                     </div>
                 </div>
             </div> -->
-            <div class="col-12 col-lg-7">
+            <div *ngIf="true" class="col-12 col-lg-7">
                 <app-cart-items></app-cart-items>
             </div>
             <div class="col-0 col-lg-2"></div>

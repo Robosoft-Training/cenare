@@ -1,41 +1,94 @@
-li {
-    width: 2em;
-    height: 2em;
+@import '../../../../../variables.scss';
+
+.progress-indicator {
+  display: flex;
+  margin-left: -12em;
+  margin-top: 3em;
+  width: 58em;
+
+  .line {
+    flex: 1;
+    list-style: none;
     text-align: center;
-    line-height: 2em;
-    border-radius: 1em;
-    background: dodgerblue;
-    margin: 0 1em;
-    display: inline-block;
-    color: white;
+    width: auto;
+    padding: 0;
+    margin: 0;
     position: relative;
+    text-overflow: ellipsis;
+    color: #bbb;
+    display: block;
+    font-family: $openSans;
+    font-size: 0.8em;
+
+    .bubble {
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      display: block;
+      margin: 0 auto .5em;
+      border-bottom: 1px solid #888;
+      background-color: #C9C6C6;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #C9C6C6;
+
+      &::after,
+      &::before {
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 12px;
+        width: 50%;
+        height: 3px;
+        content: '';
+        background-color: #bbb
+      }
+
+      &::before {
+        left: 0
+      }
+
+      &::after {
+        right: 0
+      }
+    }
+
   }
-  
-  li::before{
-    content: '';
-    position: absolute;
-    top: .9em;
-    left: -4em;
-    width: 4em;
-    height: .2em;
-    background: dodgerblue;
-    z-index: -1;
+
+  .completed {
+    .bubble {
+      color: #65d074;
+      background: $calenderTheme;
+      border: 2px solid $white;
+      box-shadow: 0 0 0 2px $darkPink;
+
+      &::after,
+      &::before {
+        background: $calenderTheme;
+        ;
+        border-color: #707824
+      }
+
+    }
   }
-  
-  
-  li:first-child::before {
-    display: none;
+}
+
+.progress-indicator>li:first-child .bubble:after,
+.progress-indicator>li:first-child .bubble:before {
+  width: 50%;
+  margin-left: 50%
+}
+
+.progress-indicator>li:last-child .bubble:after,
+.progress-indicator>li:last-child .bubble:before {
+  width: 50%;
+  margin-right: 50%
+}
+
+@media only screen and (max-width: 999px) {
+  .progress-indicator {
+    display: flex;
+    margin-left: -5em;
+    margin-top: 2em;
+    width: 35em;
   }
-  
-  .active {
-    background: dodgerblue;
-  }
-  
-  .active ~ li {
-    background: lightblue;
-  }
-  
-  .active ~ li::before {
-    background: lightblue;
-  }
-  
+}

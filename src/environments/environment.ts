@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // baseUrl: 'http://192.168.225.87:3000/',
-  baseUrl: 'http://ec2-65-0-203-150.ap-south-1.compute.amazonaws.com:8080/',
+  baseUrl: 'http://ec2-13-232-153-228.ap-south-1.compute.amazonaws.com:8080/',
   apiKey: 'AVVcB8jjfmf7eYftCZAdiyFzAyMnrVLO',
   getAdressBaseUrl: 'https://api.tomtom.com/search/2/reverseGeocode/',
   getLatitudeLongitudeBaseUrl: 'https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IN&limit=1&streetName='

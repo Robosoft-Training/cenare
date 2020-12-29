@@ -7,12 +7,18 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
 
+  componentName = "cart-list";
   constructor(
     private elementRef: ElementRef
   ) { }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
+  }
+
+  showCartItems = () => {
+    // Update cart items
+    this.componentName = 'cart-items';
   }
 
   ngOnInit(): void {
