@@ -12,14 +12,14 @@
                         <div class="details">
                             <img class="cutlery"
                                 src="../../../../../assets/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png">
-                            <label class="name">The Boutique Kitchen</label>
-                            <label class="cuisines">Indian, Pakistani, Kebab</label>
+                            <label class="name">{{name}}</label>
+                            <label class="cuisines">{{cuisines}}</label>
                             <img class="rating" src="../../../../../assets/Rectangle 2 Copy@3x.png">
                             <p>4.3</p>
-                            <label class="time"> &#8226; 63 mins</label>
-                            <label class="order"> &#8226; INR10 min order</label>
+                            <label class="time"> &#8226; {{time}} mins</label>
+                            <label class="order"> &#8226; INR{{cost}} min order</label>
                             <img class="timings" src="../../../../../assets/time_icon.png">
-                            <label class="open">11:00 AM - 10:00 PM</label>
+                            <label class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
                             <label class="delivery">Delivery for last 5 orders</label>
                             <button class="star"> &#9733; 4</button>
                             <button class="star1">&#9733; 4</button>
@@ -29,7 +29,7 @@
                             <div class="effect d-none d-md-block">
                             </div>
                         </div>
-                        <img class="food d-none d-md-block" src="../../../../../assets/Resturant Image (1).png">
+                        <img class="food d-none d-md-block" src="{{image}}">
                     </div>
                 </div>
             </div>

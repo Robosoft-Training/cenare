@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { data } from 'jquery';
+import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
 
 declare var ol: any;
 
@@ -9,12 +11,18 @@ declare var ol: any;
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private restaurantOverview: RestaurantOverviewService) { }
+  
   latitude: number = 18.5204;
   longitude: number = 73.8567;
-
+  description: any ='';
+  cuisines: any=[];
+  phone: any='';
   map: any;
+  address:any='';
+  cost:any='';
+  openTime:any=[];
+  closeTime:any=[];
 
   addPoint(lat: number, lng: number) {
     const vectorLayer = new ol.layer.Vector({
@@ -35,7 +43,21 @@ export class OverviewComponent implements OnInit {
     this.map.addLayer(vectorLayer);
   }
 
-  ngOnInit() {
+  ngOnInit()
+   {
+     this.restaurantOverview.currentoverviewDataListSource.subscribe(
+       (data:any)=> {console.log(data)
+      this.description=data.restaurant_description
+      this.cuisines=data.cuisines
+      this.phone=data.phone
+      this.address=data.restaurant_address
+      this.cost=data.min_order_cost
+      this.openTime=data.open_time
+      this.closeTime=data.close_time
+      }
+
+     )
+     
     this.map = new ol.Map({
       target: 'map',
       controls: [],
@@ -51,4 +73,5 @@ export class OverviewComponent implements OnInit {
     });
     this.addPoint(12.9141, 74.8560);
   }
+  
 }
