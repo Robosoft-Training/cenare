@@ -14,6 +14,7 @@ export class RestaurantOverviewService {
   overviewDataListSource = new BehaviorSubject({});
   currentoverviewDataListSource = this.overviewDataListSource.asObservable();
   currentOverview: any;
+  
 
   constructor(
     private httpClient: HttpClient,
@@ -22,14 +23,15 @@ export class RestaurantOverviewService {
 
   getRestaurantOverview = (restaurantID): Observable<any> => {
     console.log(restaurantID);
-    const url = `${this.apiBaseUrl}getOverView`;
+    const url = `${this.apiBaseUrl}restaurants/getRestaurantById`;
     let httpParams = new HttpParams();
-    httpParams = httpParams.append('restaurant_id', restaurantID);
+    httpParams = httpParams.append('restaurantId', restaurantID);
 
     return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
         tap(data => {
           this.currentOverview = { ...data };
+          this. overviewDataListSource.next(data);
         }),
         retry(3)
       );
