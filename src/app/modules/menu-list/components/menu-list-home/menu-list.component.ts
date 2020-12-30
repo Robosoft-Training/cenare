@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
+import { ReviewsRatingsService } from 'src/app/services/resraurant-details/reviews-ratings/reviews-ratings.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class MenuListComponent implements OnInit, AfterViewInit{
 
   constructor(
     private menuListService: MenuListService,
+    private restaurantReviewsService : ReviewsRatingsService,
     private activatedRoute: ActivatedRoute,
     private elementRef: ElementRef,
     private restaurantListService: RestaurantListService
@@ -36,6 +38,11 @@ export class MenuListComponent implements OnInit, AfterViewInit{
       }
     );
     // console.log(this.restaurantListService.currentretaurantDataList);
+    this.restaurantReviewsService.getRestaurantReviews(this.restaurentId).subscribe(
+      (data: any) => {
+        console.log(data);
+      }
+    );
   }
 
   showFormType(formName): void {
