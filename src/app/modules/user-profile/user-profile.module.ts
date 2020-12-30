@@ -7,6 +7,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { AddressComponent} from './components/address/address.component';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
 import { EditUserProfileComponent } from './components/edit-user-profile/edit-user-profile.component';
+import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EditUserProfileComponent } from './components/edit-user-profile/edit-us
   imports: [
     CommonModule,
     UserProfileRoutingModule,
-    AngularMaterialsModule
+    AngularMaterialsModule,
+    SharedComponentsModule
   ]
 })
 export class UserProfileModule { }

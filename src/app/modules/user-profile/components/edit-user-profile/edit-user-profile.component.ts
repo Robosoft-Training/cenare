@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edit-user-profile',
@@ -16,8 +16,14 @@ export class EditUserProfileComponent implements OnInit {
     "../../../../../assets/images/avatar/icn_bread.png",
     "../../../../../assets/images/avatar/icn_donut.png",
     "../../../../../assets/images/avatar/icn_beer.png",
-    "../../../../../assets/images/avatar/icn_pizza.png"]
-  constructor() { }
+    "../../../../../assets/images/avatar/icn_pizza.png"];
+
+  constructor(private elementRef: ElementRef,) {}
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
+  }
+
 
   ngOnInit(): void {
   }
