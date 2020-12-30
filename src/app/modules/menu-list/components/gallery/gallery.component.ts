@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
+import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 
 @Component({
   selector: 'app-gallery',
@@ -7,37 +9,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
-  isOpen1 = false;
-  isOpen2 = false;
-  isOpen3 = false;
+  isOpen = false;
+
+  groupedMenuList: any = {
+    key: 0
+  };
+
+  menuList: IMenuList[] = [
+    {
+      menu: {
+        menu_id: 0,
+        item_name: '',
+        cook_time: 0,
+        category: '',
+        course: '',
+        desrcription: '',
+        item_image_path: ''
+      },
+      price: 0
+    }
+  ];
 
 
-  displayImage1() {
-    this.isOpen1 = !this.isOpen1;
+  displayImage() {
+    this.isOpen = !this.isOpen;
   }
 
-  close1() {
-    this.isOpen1 = !this.isOpen1;
+  close() {
+    this.isOpen = !this.isOpen;
   }
 
-  displayImage2() {
-    this.isOpen2 = !this.isOpen2;
-  }
-
-  close2() {
-    this.isOpen2 = !this.isOpen2;
-  }
-
-  displayImage3() {
-    this.isOpen3 = !this.isOpen3;
-  }
-
-  close3() {
-    this.isOpen3 = !this.isOpen3;
-  }
-
-  constructor() { }
+  constructor(
+    private menuListService: MenuListService,
+  ) { }
 
   ngOnInit(): void {
+    this.menuListService.currentMenuDataListSource.subscribe(
+      (data: any) => {
+        this.menuList = data.resultList;
+      }
+    );
   }
 }

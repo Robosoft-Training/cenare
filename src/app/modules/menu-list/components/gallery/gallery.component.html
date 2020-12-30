@@ -1,3 +1,5 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div class="box">
   <div class="rectangle row">
     <div class="rectangle1 col-lg-12 col-md-12 col-sm-12 col-xs-12" align="right">
@@ -6,70 +8,52 @@
         <img class="arrow" src="../../../../../assets/images/right_arrow.png" alt="">
       </div>
     </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/Vada.jpg" alt="" (click)="displayImage1()">
+    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5" *ngFor="let item of menuList">
+      <img src="{{ item.menu.item_image_path }}" alt="" (click)="displayImage()">
     </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/uttapam.jpg" alt="" (click)="displayImage2()">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/TandooriChicken.jpg" alt="" (click)="displayImage3()">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/Vada.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/uttapam.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/TandooriChicken.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/Vada.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/uttapam.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/TandooriChicken.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/Vada.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/uttapam.jpg" alt="">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/TandooriChicken.jpg" alt="">
-    </div>
-    <div class="rectangle2 col-lg-12 col-md-12 col-sm-12 col-xs-12" align="right">
+    <div class="rectangle2" align="right">
       <p class="viewMore">View more ></p>
     </div>
   </div>
 </div>
 
-<!-- Overlay-->
+<!-- Overlay
 
-<div *ngIf="isOpen1" class="screen"></div>
-<div *ngIf="isOpen1" class="box2">
-  <div class="dialog">
-    <img class="selectedImage" src="../../../../../assets/images/Vada.jpg" alt="">
-    <img class="cancel" (click)="close1()" src="../../../../../assets/images/cancel.png" alt="">
+<div *ngIf="isOpen" class="screen"></div>
+<div *ngIf="isOpen" class="box2">
+  <div class="dialog" *ngFor="let item of menuList">
+    <img class="cancel" (click)="close()" src="../../../../../assets/images/cancel.png" alt="">
+    <img class="selectedImage" src="{{ item.menu.item_image_path }}" alt="">
+    <div class="imageDetails">
+      <p class="imageName">Vada</p>
+      <div class="count" align="right">
+        <p>1</p>
+        <p>/</p>
+        <p>12</p>
+      </div>
+    </div>
+  </div>
+  <div class="rectangle3">
+    <button class="fa fa-chevron-left"></button>
+    <button class="fa fa-chevron-right"></button>
   </div>
 </div>
 
-<div *ngIf="isOpen2" class="screen"></div>
-<div *ngIf="isOpen2" class="box2">
-  <div class="dialog">
-    <img class="selectedImage" src="../../../../../assets/images/uttapam.jpg" alt="">
-    <img class="cancel" (click)="close2()" src="../../../../../assets/images/cancel.png" alt="">
-  </div>
-</div>
+-->
 
-<div *ngIf="isOpen3" class="screen"></div>
-<div *ngIf="isOpen3" class="box2">
-  <div class="dialog">
-    <img class="selectedImage" src="../../../../../assets/images/TandooriChicken.jpg" alt="">
-    <img class="cancel" (click)="close3()" src="../../../../../assets/images/cancel.png" alt="">
-  </div>
-</div>
+<!--
+<form>
+
+  <input type="radio" name="fancy" autofocus value="clubs" id="clubs" />
+  <input type="radio" name="fancy" value="hearts" id="hearts" />
+  <input type="radio" name="fancy" value="spades" id="spades" />
+  <input type="radio" name="fancy" value="diamonds" id="diamonds" />
+  <label for="clubs">&#9827; Clubs</label>
+  <label for="hearts">&#9829; Hearts</label>
+  <label for="spades">&#9824; Spades</label>
+  <label for="diamonds">&#9830; Diamonds</label>
+
+  <div class="keys">Use left and right keys to navigate</div>
+  
+</form>
+-->
