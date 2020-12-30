@@ -65,6 +65,35 @@ export class CartService {
       );
   }
 
+  getTotalAmmount = (orderNumber) => {
+    console.log(orderNumber);
+    const url = `${this.apiBaseUrl}orders/TotalAmount?orderNumber=${orderNumber}`;
+    const postBody = {
+    };
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
+  removeItem = (orderNumber, menuId): Observable<any> => {
+    console.log(orderNumber);
+    const url = `${this.apiBaseUrl}orders/removeItem`;
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('menuId', menuId);
+    httpParams = httpParams.append('orderNumber', orderNumber);
+    return this.httpClient.delete<any[]>(url, {params: httpParams})
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
   clearCart = (orderNumber): Observable<any> => {
     console.log(orderNumber);
     const url = `${this.apiBaseUrl}orders/clearCart?orderNumber=${orderNumber}`;

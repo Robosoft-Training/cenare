@@ -10,18 +10,21 @@
 
     .nav-item {
         margin-right: 0.8em;
+        font-weight: bolder;
+        font-family: $openSans;
     }
 
     .cart-place {
         border-left: 0.1em solid $naveBarBorderColor;
-        margin-left: 0.8em;
+        margin-left: 1.5em;
         padding-left: 2em;
     }
 
     .username-text {
         border-right: 0.1em solid $naveBarBorderColor;
-        margin-right: 1em;
-        padding-right: 1.7em;
+        margin-right: 2em;
+        padding-right: 3em;
+        text-transform: uppercase;
     }
 
     .dropdown-item {

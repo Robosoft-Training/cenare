@@ -32,7 +32,6 @@ export class MenuListComponent implements OnInit, AfterViewInit{
     this.restaurentId = this.activatedRoute.snapshot.paramMap.get('id');
     this.menuListService.getRestaurantMenuItems(this.restaurentId).subscribe(
       (data: any) => {
-        
       }
     );
     // console.log(this.restaurantListService.currentretaurantDataList);
