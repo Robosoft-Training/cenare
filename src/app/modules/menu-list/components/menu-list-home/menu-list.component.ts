@@ -20,12 +20,12 @@ export class MenuListComponent implements OnInit, AfterViewInit{
   cost:any='';
   openTime:any=[0,0];
   closeTime:any=[0,0];
+  placeholderImage = "../../../../../assets/images/Resturant Image_placeholder.png";
 
   constructor(
     private menuListService: MenuListService,
     private activatedRoute: ActivatedRoute,
     private elementRef: ElementRef,
-    private restaurantListService: RestaurantListService,
     private restaurantOverview:  RestaurantOverviewService
   ) { }
 
@@ -43,7 +43,6 @@ export class MenuListComponent implements OnInit, AfterViewInit{
       (data: any) => {
       }
     );
-    // console.log(this.restaurantListService.currentretaurantDataList);
     this.restaurantOverview.getRestaurantOverview(this.restaurentId).subscribe(
       (data: any) => {
         this.name=data.restaurant_name
@@ -52,8 +51,8 @@ export class MenuListComponent implements OnInit, AfterViewInit{
         this.image=data.restaurant_image
         this.cost=data.min_order_cost
         this.openTime=data.open_time
-      this.closeTime=data.close_time
-       //console.log(data);
+        this.closeTime=data.close_time
+        console.log(this.image);
       }
     );
   }
