@@ -66,17 +66,17 @@
                     <span class="text">Best Offers</span>
                     <div *ngIf="toggleFormField === 'offer-code'" class="offer-cards">
                         <span class="apply-text">View All Offers</span>
-                        <div class="brand-image-container w-sm-100" *ngFor="let i of [1,2,3]">
+                        <div class="brand-image-container w-sm-100" *ngFor="let item of dealsOffers.slice(0,4); let i = index;">
                             <span [hidden]="!(offerCardNo === i)">
-                                <img src="../../../../../assets/images/card.png" class="brand-image" />
+                                <img src="{{item.offerImagePath}}" class="brand-image" />
                                 <img class="apply-code" src="../../../../../assets/images/apply-code.png" />
                                 <div class="offer-title">
                                     <span class="title">
-                                        Flat {{i}}% off
-                                        <span class="offer-text">YUMMY</span>
+                                        Flat {{item.offerPercent}}% off
+                                        <span class="offer-text">{{item.code}}</span>
                                     </span>
                                     <ul class="offer-details">
-                                        <li>Get flat 33% Off</li>
+                                        <li>Get flat {{item.offerPercent}}% Off</li>
                                         <li>Max discount AED10</li>
                                         <li>Valid for 10days</li>
                                     </ul>
@@ -85,9 +85,9 @@
                         </div>
 
                         <div class="select-dots">
+                            <span (click)="showOfferCard(0)" [ngClass]="offerCardNo===0?'active':''">&bull;</span>
                             <span (click)="showOfferCard(1)" [ngClass]="offerCardNo===1?'active':''">&bull;</span>
                             <span (click)="showOfferCard(2)" [ngClass]="offerCardNo===2?'active':''">&bull;</span>
-                            <span (click)="showOfferCard(3)" [ngClass]="offerCardNo===3?'active':''">&bull;</span>
                         </div>
                     </div>
                 </div>

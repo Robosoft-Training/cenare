@@ -9,7 +9,7 @@ import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 })
 export class CartItemsComponent implements OnInit {
 
-  offerCardNo = 1;
+  offerCardNo = 0;
   toggleFormField = 'promo-code';
   dealsOffers: IDealsOffers[] = [];
 
@@ -24,14 +24,14 @@ export class CartItemsComponent implements OnInit {
   loadProducts = () => {
     this.dealsOfferService.getDealsOffers().subscribe(
       (dealsOffers: any) => {
-        console.log(dealsOffers);
+        console.log(dealsOffers.resultList);
         this.dealsOffers = dealsOffers.resultList;
       }
     );
   }
 
   ngOnInit(): void {
-    // this.loadProducts();
+    this.loadProducts();
   }
 
 }
