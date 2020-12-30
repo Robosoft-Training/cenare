@@ -18,7 +18,6 @@ import { DatePickerService } from './services/date-picker/date-picker.service';
 import { HttpInterceptorService } from './shared/interceptors/http.interceptor';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
