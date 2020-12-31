@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
 
   isHide = false;
   isLoggedIn = false;
+  totalAmmount: any = 0.0;
   menuList: IMenuList[] = [
     {
       menu: {
@@ -29,18 +30,21 @@ export class MenuComponent implements OnInit {
       price: 0
     }
   ];
-  cartList: any[] = [
+  cartList: ICartItems[] = [
     {
       order_number: '',
-      item_name: 'Ice cream',
+      item_name: '',
       price: '',
       menu_price: '',
-      quantity: 1
+      menu_id: '',
+      category: '',
+      restaurant_id: '',
+      quantity: ''
     }
   ];
+
   menuIdList: any = [];
   orderNo: any;
-
   restaurentId: any;
   groupedMenuList: any = {
     key: 0
@@ -67,32 +71,32 @@ export class MenuComponent implements OnInit {
     // console.log(this.groupedMenuList);
   }
 
-  searchAction = (event: any) => {
-    clearTimeout(this.timeOut);
-    this.timeOut = setTimeout(
-      () => {
-        if (event.keyCode !== 13) {
-          this.executeSearch(event.target.value);
-        }
-      }
-      , 1000);
-  }
+  // searchAction = (event: any) => {
+  //   clearTimeout(this.timeOut);
+  //   this.timeOut = setTimeout(
+  //     () => {
+  //       if (event.keyCode !== 13) {
+  //         this.executeSearch(event.target.value);
+  //       }
+  //     }
+  //     , 1000);
+  // }
 
-  executeSearch = (value: any) => {
-    this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
-      (data: any) => {
-        if (value) {
-          const tempArray: any = [];
-          if (data.menuResponse) {
-            tempArray.push(data.menuResponse);
-            this.groupByCourse(tempArray);
-          }
-          // console.log(tempArray);
-          this.menuList = tempArray;
-        }
-      }
-    );
-  }
+  // executeSearch = (value: any) => {
+  //   this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
+  //     (data: any) => {
+  //       if (value) {
+  //         const tempArray: any = [];
+  //         if (data.menuResponse) {
+  //           tempArray.push(data.menuResponse);
+  //           this.groupByCourse(tempArray);
+  //         }
+  //         // console.log(tempArray);
+  //         this.menuList = tempArray;
+  //       }
+  //     }
+  //   );
+  // }
 
   prepareMenuIdList = (menuList) => {
     this.menuIdList = [];
@@ -102,13 +106,31 @@ export class MenuComponent implements OnInit {
     });
   }
 
+  getTotalAmmount = (orderNumber) => {
+    if (orderNumber && this.isLoggedIn) {
+      this.cartService.getTotalAmmount(orderNumber).subscribe(
+        data => {
+          console.log(data);
+          this.totalAmmount = data['To Pay'];
+        }
+      );
+    }
+  }
+
   getAllCartData = (orderNumber) => {
+    this.cartList = [];
     if (orderNumber && this.isLoggedIn) {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
           console.log(data.resultList);
-          // this.cartList = data.resultList;
+          this.cartList = data.resultList;
           this.prepareMenuIdList(data.resultList);
+          if (data.resultList.length >= 1) {
+            this.getTotalAmmount(orderNumber);
+          }
+          else {
+            this.totalAmmount = 0;
+          }
         }
       );
     }
@@ -121,22 +143,12 @@ export class MenuComponent implements OnInit {
   addTocart(dishId) {
     this.restaurentId = this.localStorageService.getRestId();
     this.menuIdList.push(dishId);
-    let newCartItem = {
-      order_number: this.orderNo,
-      item_name: "Item Name",
-      price: 20,
-      menu_price: 50,
-      quantity: 1
-    }
-    this.cartList.push(
-       newCartItem
-    )
 
-   this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
-     (data) => {
-      this.getAllCartData(this.orderNo);
-     }
-   );
+    this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
+      (data) => {
+        this.getAllCartData(this.orderNo);
+      }
+    );
   }
 
   addTocartAgain(dishId, count) {
@@ -144,12 +156,14 @@ export class MenuComponent implements OnInit {
     let quantity = 0;
     this.cartList.forEach(
       item => {
-        if (item.item_name === dishId) {
-          item.quantity += count
+        console.log(item.menu_id, dishId);
+        if (item.menu_id === dishId.toString()) {
+          item.quantity = parseInt(item.quantity, 10);
+          item.quantity += count;
           quantity = item.quantity;
           this.cartService.addToCartAgain(this.orderNo, this.restaurentId, dishId, quantity).subscribe(
             data => {
-             this.getAllCartData(this.orderNo);
+              this.getAllCartData(this.orderNo);
             }
           );
         }
@@ -160,6 +174,15 @@ export class MenuComponent implements OnInit {
   clearCart = () => {
     this.cartService.clearCart(this.orderNo).subscribe(
       msg => {
+        this.getAllCartData(this.orderNo);
+        this.totalAmmount = 0;
+      }
+    );
+  }
+
+  removeItem = (menuId) => {
+    this.cartService.removeItem(this.orderNo, menuId).subscribe(
+      (msg) => {
         this.getAllCartData(this.orderNo);
       }
     );
@@ -172,7 +195,7 @@ export class MenuComponent implements OnInit {
           this.groupByCourse(data.resultList);
         }
         this.menuList = data.resultList;
-        this.orderNo = data.order_num
+        this.orderNo = data.order_num;
         this.getAllCartData(this.orderNo);
       }
     );
@@ -182,8 +205,7 @@ export class MenuComponent implements OnInit {
         this.isLoggedIn = isLogin;
       }
     );
-
+    this.getAllCartData(this.orderNo);
     this.loginService.isUserLoggedIn();
-
   }
 }

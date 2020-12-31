@@ -1,0 +1,192 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.cart-items-container {
+    padding-top: 2em;
+    margin-left: -3em;
+    margin-bottom: 5em;
+    @include content-heading-subheading();
+
+    .cart-items-fields {
+        width: 98%;
+        padding-top: 1em;
+
+        .cart-items {
+            background-color: $white;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+
+            .item {
+                border-bottom: 1px solid $redWhite;
+                padding: 16px 20px;
+
+                .item-top {
+                    justify-content: space-between;
+
+                    .top-text {
+                        .name {
+                            color: $lightBlack;
+                            font-family: $openSans;
+                            font-size: 14px;
+                            font-weight: 600;
+                            letter-spacing: 0;
+                            margin-left: 8px;
+                        }
+
+                        .price {
+                            color: $lightBlack;
+                            font-family: $openSans;
+                            font-size: 10px;
+                            letter-spacing: 0;
+                        }
+                    }
+
+                    @include cart-buttons();
+                }
+
+                .item-bottom {
+                    .bottom-left {
+                        justify-content: space-between;
+
+                        .description-text {
+                            color: $redGray;
+                            font-family: $openSans;
+                            font-size: 11px;
+                            letter-spacing: 0;
+                            width: 80%;
+                        }
+
+                        .total-price-text {
+                            color: $lightBlack;
+                            font-family: $openSans;
+                            font-size: 10px;
+                            font-weight: 600;
+                            letter-spacing: 0;
+                            text-align: center;
+                            margin-top: -0.8em;
+                        }
+                    }
+
+                    .bottom-right {
+                        justify-content: space-between;
+                        @include remove-text();
+                    }
+                }
+            }
+
+            .cooking-instructions {
+                margin: 0px 20px;
+                padding-top: 1em;
+                @include coocking-instrauctions(18px);
+            }
+
+            .buttons-field {
+                display: flex;
+                justify-content: flex-end;
+                padding: 1.5em;
+                @include outlet-btn();
+                @include gradient-btn()
+            }
+        }
+
+        .offers-payment-field {
+            border-radius: 6px;
+            background-color: $white;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+            padding: 1em;
+            height: fit-content;
+
+            .offer-header {
+                height: 23px;
+                width: 48px;
+                color: $black;
+                font-family: $openSans;
+                font-size: 17px;
+                letter-spacing: -0.41px;
+                line-height: 23px;
+            }
+
+            .options {
+                display: flex;
+                flex-direction: column;
+                padding-top: 1em;
+                @include custom-radio-button();
+
+                .reffer-code .offer-field {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .cooking-instructions {
+                    margin: 0px 20px;
+                    padding-top: 1em;
+                    @include coocking-instrauctions();
+                    @include hint-text();
+                    @include apply-text(0.8em);
+                }
+
+                .offer-field {
+                    margin-top: 1.5em;
+
+                    .offer-cards {
+
+                        .brand-image {
+                            width: 100%;
+                            height: 9em;
+                        }
+
+                        .apply-code {
+                            position: relative;
+                            float: right;
+                            top: -8.5em;
+                            width: 1em;
+                            right: 1em;
+                        }
+
+                        .offer-title {
+                            position: relative;
+                            top: -8em;
+                            color: $white;
+
+                            .title {
+                                text-align: center;
+                                font-size: 1.3em;
+                                padding-left: 1em;
+
+                                .offer-text {
+                                    margin-left: 3.5em;
+                                    padding: 0.1em 0.4em;
+                                    color: $white;
+                                    font-family: $openSans;
+                                    font-size: 0.6em;
+                                    font-weight: 600;
+                                    line-height: 28px;
+                                    border: 1px solid $white;
+                                }
+                            }
+
+                            .offer-details {
+                                font-size: 0.8em;
+                                padding-top: 0.8em;
+                            }
+                        }
+
+                        @include apply-text();
+                    }
+
+                    @include selectDots();
+                }
+            }
+
+            @include payment-field();
+        }
+    }
+}
+
+@media only screen and (max-width: 999px) {
+    .cart-items-container {
+        width: 100%;
+        padding-left: 4em;
+        margin-top: 2em;
+    }
+}

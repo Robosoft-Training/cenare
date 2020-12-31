@@ -9,7 +9,19 @@ import { PopularProductsService } from 'src/app/services/popular-products/popula
 })
 export class RestaurantNearbyBrandsComponent implements OnInit {
 
-  deatilsArray: any[] = [];
+  deatilsArray: any[] = [
+    {
+      brands: {
+        brand_id: 0,
+        brand_name: '',
+        city: '',
+        description: '',
+        food_image_path: '',
+        logo_image_path: '',
+        title: ''
+      }
+    }
+  ];
 
   @ViewChild(
     'widgetsContent',
@@ -30,27 +42,13 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
     this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 250), behavior: 'smooth' });
   }
 
-  convertToarray = (nearByPopularDataList) => {
-    this.deatilsArray = [];
-    for (const i in nearByPopularDataList) {
-      if (nearByPopularDataList[i]) {
-        this.deatilsArray.push(nearByPopularDataList[i]);
-      }
-    }
-  }
-
   loadData = () => {
-    // this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
-    //   (nearByPopularDataList) => {
-    //     this.convertToarray(nearByPopularDataList);
-    //   }
-    // );
-    // this.popularProductsService.loadNearbyBrands();
-    this.popularProductsService.getPopularBrands().subscribe(
-      data => {
-        this.deatilsArray = data;
+    this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
+      (nearByPopularDataList: any) => {
+        this.deatilsArray = nearByPopularDataList.resultList;
       }
     );
+    this.popularProductsService.loadNearbyBrands();
   }
 
   diaplayMoreBrands = () => {
@@ -58,7 +56,7 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loadData();
+    this.loadData();
   }
 
 }

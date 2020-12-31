@@ -476,3 +476,262 @@
     line-height: 10px;
     padding-top: 5px;
 }
+
+@mixin hint-text {
+    .hint-text {
+        color: $red;
+        font-family: $openSans;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0;
+        position: relative;
+        top: -1em;
+        line-height: 15px;
+    }
+}
+
+@mixin  apply-text($top: -0.8em) {
+    .apply-text {
+        float: right;
+        position: relative;
+        top: $top;
+        color: $orange;
+        z-index: 2;
+        font-size: 1em;
+        cursor: pointer;
+    }
+}
+
+@mixin coocking-instrauctions($marginTop: 0px) {
+    .cooking-instructions-text {
+        color: $redGray;
+        font-family: $openSans;
+        font-size: 10px;
+        letter-spacing: -0.24px;
+    }
+
+    .cooking-instructions-textbox {
+        color: $redGray;
+        font-family: $openSans;
+        font-size: 12px;
+        letter-spacing: -0.27px;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgb(189, 185, 185);
+        padding-bottom: 16px;
+        position: relative;
+        top: -1em;
+
+        margin-top: $marginTop;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+@mixin payment-field {
+    .payment {
+        position: relative;
+        .payment-header {
+            justify-content: space-between;
+            padding-top: 3em;
+            padding-bottom: 1.5em;
+
+            .header-price {
+                font-weight: bolder;
+            }
+        }
+        .payment-details {
+            .item {
+                justify-content: space-between;
+
+                .text {
+                    color: $redGray;
+                    font-family: $openSans;
+                    font-size: 12px;
+                    letter-spacing: 0;
+                    line-height: 27px;
+                }
+            }
+        }
+    }
+    .payment-card {
+        top: -8em;
+    }
+}
+
+@mixin selectDots() {
+    .select-dots {
+        cursor: default;
+        position: relative;
+        color: #E1E1E1;
+        top: -3.9em;
+        left: 4em;
+        font-size: 2em;
+
+        .active {
+            color: #868686;
+        }
+    }
+}
+
+@mixin remove-text {
+    .remove-text {
+        color: $red;
+        font-family: $openSans;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 15px;
+        text-align: right;
+        width: 100%;
+        padding-top: 20px;
+    }
+}
+
+@mixin cart-buttons {
+    .top-buttons {
+        justify-content: space-evenly;
+        box-sizing: border-box;
+        height: 30px;
+        width: 15%;
+        border: 1px solid #CECFD4;
+        border-radius: 15px;
+        background-color: $white;
+
+        .text {
+            color: $blueGray;
+            font-family: $openSans;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 27px;
+            text-align: center;
+        }
+
+        .disable-action-text {
+            color: $blueGray;
+            font-family: $openSans;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .orange-text {
+            color: $orange;
+        }
+    }
+}
+
+@mixin  gradient-btn {
+    .choose-btn {
+        width: 12.5em;
+        height: 3.5em;
+        padding-top: 0.8em;
+        margin-right: 0em;
+        background: $calenderTheme;
+        color: $white;
+        font-family: $openSans;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: -0.2px;
+        text-align: center;
+        border-radius: 6px;
+        background: $calenderTheme;
+        box-shadow: 0 4px 10px 0 $lightRed;
+        cursor: pointer;
+    }
+}
+
+@mixin  outlet-btn {
+    .add-btn {
+        width: 8em;
+        height: 3em;
+        display: flex;
+        margin-right: 1.5em;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border: 1px solid $redGray;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+        cursor: pointer;
+
+        .btn-text {
+            color: $redGray;
+            font-family: $openSans;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 19px;
+        }
+    }
+}
+
+@mixin content-heading-subheading {
+    .heading {
+        height: 30px;
+        width: 228px;
+        color: $black;
+        font-family: $openSans;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+    .sub-heading {
+        height: 17px;
+        width: 205px;
+        color: #6F6E6E;
+        font-family: $openSans;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 1.8em;
+    }
+}
+
+@mixin custom-radio-button {
+    input[type='radio'] {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border: 2px solid #828585;
+        border-radius: 50%;
+        outline: none;
+    }
+
+    input[type='radio']:checked {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border: 2px solid $black;
+        border-radius: 50%;
+        outline: none;
+    }
+
+    input[type='radio']:before {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 60%;
+        margin: 15.5% 25%;
+        border-radius: 50em;
+    }
+
+    input[type='radio']:checked:before {
+        background: #36393B;
+    }
+
+    .text {
+        padding-left: 0.8em;
+        color: $redGray;
+        font-family: $openSans;
+        font-size: 14px;
+        letter-spacing: -0.27px;
+        position: relative;
+        top: -0.2em;
+    }
+}

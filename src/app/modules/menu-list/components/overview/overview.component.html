@@ -1,17 +1,16 @@
 <h3>Description</h3>
-<label class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet ante at risus mollis,
-    ut rutrum arcu venenatis. Class aptent taciti litora torquent per conubia nostra, per inceptos himenaeos. Etiam nec
-    erat suscipit, pretium quam eget, condimentum enim. </label>
+<label class="description">{{description}} </label>
 <div class="details row">
     <div class="Meal col-md-3">
         <h3> Cuisines</h3>
-        <label class="cuisine">Indian, Pakistani, Kebab<br>Mexican, Mordovian<br>Mughal,Native American<br>Nepalese, New
-            Mexican</label>
+        <div *ngFor="let item of cuisines" class="cuisine">
+              <div> {{item}} </div>
+        </div>
     </div>
     <div class="Meal col-md-2">
         <h3>Average meal cost</h3>
         <label>
-            INR200 FOR TWO(APPROX)
+           INR {{cost}} APPOX FOR TWO
         </label>
     </div>
     <div class="Meal col-md-2">
@@ -23,14 +22,13 @@
     <div class="Meal col-md-2">
         <h3>Phone</h3>
         <label>
-            0824 4024999<br>
-            0824 3456790
+         {{phone}}
         </label>
     </div>
     <div class="Meal col-md-2">
         <h3>Address</h3>
         <label>
-            SHIEKH ZAYED ROAD,DUBAI,UAE
+            {{address}}
         </label>
     </div>
 </div>
@@ -40,8 +38,8 @@
         <div class="card">
             <div class="date">Today, 25 December 2018</div>
             <div class="open">OPEN</div>
-            <label class="time">10:00:00 AM - 3:00:00 PM</label>
-            <label class="time1">5:30:00 PM -11:00:00 PM</label>
+            <label class="time">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
+       
             <label class="off">Planned off: 3:00 PM - 5:30PM</label>
             <div class="line"></div>
             <label class="work">Work hours for the day</label>
