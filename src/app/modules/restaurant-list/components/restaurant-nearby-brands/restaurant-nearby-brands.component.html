@@ -1,7 +1,7 @@
 <span class="side-heading">Brands Nearby</span>
-<span class="right-option-text" (click)="diaplayMoreBrands()">More &gt;</span>
+<span class="right-option-text d-flex align-items-center" (click)="diaplayMoreBrands()">More <mat-icon>keyboard_arrow_right</mat-icon></span>
 
-<div class="d-flex align-items-center brands-nearby">
+<div *ngIf="!(isLoading)" class="d-flex align-items-center brands-nearby">
   <a (click)="scrollLeft()" role="button" data-bs-slide="prev"
     [ngClass]="{'arrow-btn':!appScrollElement.disableBtnLeft, 'disabled-arrow-btn': appScrollElement.disableBtnLeft, 'btn':true, 'btn-light':true}">
     <!-- <mat-icon>keyboard_arrow_left</mat-icon> -->
@@ -15,7 +15,7 @@
             <div class="brand-image-container w-sm-100 d-flex flex-column">
               <img src="{{brand.brands.logo_image_path}}" class="image">
               <label class="card-brand-name">{{ brand.brands.brand_name }}</label>
-              <label class="product-description">2 oulets</label>
+              <label class="product-description">{{ brand.outlets }}</label>
             </div>
           </div>
         </div>

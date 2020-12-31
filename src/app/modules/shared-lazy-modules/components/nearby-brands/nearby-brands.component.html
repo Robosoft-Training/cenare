@@ -6,14 +6,14 @@
     <div *ngFor = "let brand of deatilsArray"  class="item">
   <div class="card">
       <div class="col-md-4">
-        <img src="{{ brand.food_image_path }}" class="img-fluid">
+        <img src="{{ brand.brands.food_image_path }}" class="img-fluid">
       </div>
       <div class="cold-md-8">
-        <img src="{{ brand.logo_image_path }}" class="img-kfc">
-        <h3>{{ brand.brand_name }}</h3>
-        <p>{{ brand.title }}</p>
+        <img src="{{ brand.brands.logo_image_path }}" class="img-kfc">
+        <h3>{{ brand.brands.brand_name }}</h3>
+        <p>{{ brand.brands.title }}</p>
         <div class="line"></div>
-        <h6>{{ brand.description }}</h6>
+        <h6>{{ brand.brands.description }}</h6>
         <img src="../../../../../assets/menu.png" class="outlets">
       </div>
     </div>

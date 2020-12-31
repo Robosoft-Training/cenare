@@ -16,23 +16,28 @@
       .heading-text {
         color: $headerText;
         font-family: "Open Sans";
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 600;
         letter-spacing: 0;
-        line-height: 22px;
         padding: 0px 16px;
       }
 
       .option-text {
         color: #FCA100;
         font-family: "Open Sans";
-        font-size: 10px;
+        font-size: 12px;
         letter-spacing: 0;
-        line-height: 22px;
+        margin-left: -10px;
+      }
 
-        .arrow-icon {
-          font-size: 1.5em;
-        }
+      .text-margin {
+        margin-right: 1em;
+      }
+
+      .arrow-icon {
+        font-size: 1.2em;
+        color: #FCA100;
+        font-family: "Open Sans";
       }
 
       .dropdown-item {
@@ -56,8 +61,8 @@
       padding: 10px 5px 10px 8px;
 
       .img {
-        width: 10em;
-        height: 8em;
+        width: 9em;
+        height: 9em;
         border-radius: 4px;
       }
     }
