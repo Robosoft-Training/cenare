@@ -9,7 +9,15 @@ import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 })
 export class HomeDealsOffersComponent implements OnInit {
 
-  dealsOffers: IDealsOffers[] = [];
+  dealsOffers: IDealsOffers[] = [
+    {
+      code: "",
+      offerPercent: 0,
+      offerImagePath: "",
+      offerId: 0,
+      offerTitle: "0"
+    }
+  ];
   isLoading = true;
   isErrorLoading = false;
   disableBtn1: boolean = true;
@@ -42,7 +50,7 @@ export class HomeDealsOffersComponent implements OnInit {
     this.isErrorLoading = false;
     this.dealsOfferService.getDealsOffers().subscribe(
       (dealsOffers: any) => {
-        // console.log(dealsOffers);
+        console.log(dealsOffers.resultList);
         this.dealsOffers = dealsOffers.resultList;
         this.isLoading = false;
       },

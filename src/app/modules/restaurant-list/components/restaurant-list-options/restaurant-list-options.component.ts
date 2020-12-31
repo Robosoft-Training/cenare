@@ -35,7 +35,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   currentTime: any;
   sortType = 'rating_high_low';
   arrayLength = 0;
-  imageplaceHolder = '../assets/images/Resturant Image_placeholder.png';
+  imageplaceHolder = '../assets/images/rest_placeholder.png';
 
   showMoreOptionsCount = 5;
   isExistMoreItems = true;

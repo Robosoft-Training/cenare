@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
   isHide = false;
   isLoggedIn = false;
   totalAmmount: any = 0.0;
+  startAdding = false;
   menuList: IMenuList[] = [
     {
       menu: {
@@ -68,41 +69,12 @@ export class MenuComponent implements OnInit {
       }
       this.groupedMenuList[menuList[key].menu.course] += 1;
     }
-    // console.log(this.groupedMenuList);
   }
-
-  // searchAction = (event: any) => {
-  //   clearTimeout(this.timeOut);
-  //   this.timeOut = setTimeout(
-  //     () => {
-  //       if (event.keyCode !== 13) {
-  //         this.executeSearch(event.target.value);
-  //       }
-  //     }
-  //     , 1000);
-  // }
-
-  // executeSearch = (value: any) => {
-  //   this.menuListService.getRestaurantMenuItemsBySearch(value).subscribe(
-  //     (data: any) => {
-  //       if (value) {
-  //         const tempArray: any = [];
-  //         if (data.menuResponse) {
-  //           tempArray.push(data.menuResponse);
-  //           this.groupByCourse(tempArray);
-  //         }
-  //         // console.log(tempArray);
-  //         this.menuList = tempArray;
-  //       }
-  //     }
-  //   );
-  // }
 
   prepareMenuIdList = (menuList) => {
     this.menuIdList = [];
     menuList.forEach((element: any) => {
       this.menuIdList.push(element.item_name);
-      // console.log(this.menuIdList);
     });
   }
 
@@ -110,7 +82,6 @@ export class MenuComponent implements OnInit {
     if (orderNumber && this.isLoggedIn) {
       this.cartService.getTotalAmmount(orderNumber).subscribe(
         data => {
-          console.log(data);
           this.totalAmmount = data['To Pay'];
         }
       );
@@ -118,11 +89,13 @@ export class MenuComponent implements OnInit {
   }
 
   getAllCartData = (orderNumber) => {
-    this.cartList = [];
+    if(this.startAdding){
+      this.cartList = [];
+      this.startAdding = false;
+    }
     if (orderNumber && this.isLoggedIn) {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
-          console.log(data.resultList);
           this.cartList = data.resultList;
           this.prepareMenuIdList(data.resultList);
           if (data.resultList.length >= 1) {
@@ -143,7 +116,6 @@ export class MenuComponent implements OnInit {
   addTocart(dishId) {
     this.restaurentId = this.localStorageService.getRestId();
     this.menuIdList.push(dishId);
-
     this.cartService.addToCart(this.orderNo, this.restaurentId, dishId).subscribe(
       (data) => {
         this.getAllCartData(this.orderNo);
@@ -162,7 +134,7 @@ export class MenuComponent implements OnInit {
           item.quantity += count;
           quantity = item.quantity;
           this.cartService.addToCartAgain(this.orderNo, this.restaurentId, dishId, quantity).subscribe(
-            data => {
+            (data) => {
               this.getAllCartData(this.orderNo);
             }
           );

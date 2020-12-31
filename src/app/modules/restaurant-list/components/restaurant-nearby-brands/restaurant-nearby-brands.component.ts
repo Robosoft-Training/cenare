@@ -19,9 +19,11 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
         food_image_path: '',
         logo_image_path: '',
         title: ''
-      }
+      },
+      outlets: 0
     }
   ];
+  isLoading = true;
 
   @ViewChild(
     'widgetsContent',
@@ -43,12 +45,14 @@ export class RestaurantNearbyBrandsComponent implements OnInit {
   }
 
   loadData = () => {
-    this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
+    this.isLoading = true;
+    this.popularProductsService.getNearbyBrands().subscribe(
       (nearByPopularDataList: any) => {
         this.deatilsArray = nearByPopularDataList.resultList;
+        console.log(this.deatilsArray);
+        this.isLoading = false;
       }
     );
-    this.popularProductsService.loadNearbyBrands();
   }
 
   diaplayMoreBrands = () => {
