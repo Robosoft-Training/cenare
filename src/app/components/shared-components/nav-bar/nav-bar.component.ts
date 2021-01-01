@@ -1,5 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { LoginService } from 'src/app/services/authentication/login.service';
 import { LoginComponent } from '../login/login.component';
@@ -17,7 +18,8 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) { }
 
   openDialog(formType: any): void {
@@ -73,6 +75,14 @@ export class NavBarComponent implements OnInit {
       element!.classList.remove('after-scroll');
       element!.classList.add('before-scroll');
     }
+  }
+
+  gotoProfile = () => {
+    this.router.navigate(['/user-profile']);
+  }
+
+  gotoCart = () => {
+    this.router.navigate(['/payment']);
   }
 
 }
