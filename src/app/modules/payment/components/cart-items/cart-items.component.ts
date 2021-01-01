@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 @Component({
   selector: 'app-cart-items',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartItemsComponent implements OnInit {
 
-  
   formType="cartItems";
-  constructor() { }
+  constructor(
+  ) { }
 
   showFormsType = (formType) => {
     this.formType = formType;
