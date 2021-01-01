@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class BreadcrumbsComponent implements OnInit {
 
   constructor(
     private reataurantListService: RestaurantListService,
-    private localstorageSerivice: LocalStorageService
+    private localstorageSerivice: LocalStorageService,
+    private resaurantOverviewService: RestaurantOverviewService
   ) { }
 
   initializeList = () => {
@@ -69,6 +71,11 @@ export class BreadcrumbsComponent implements OnInit {
         this.breadCrumbList[1] = currentDataList.locationName;
         this.breadCrumbList[3] = 'Great ' + currentDataList.searchName;
         // console.log(currentDataList);
+      }
+    );
+    this.resaurantOverviewService.restaurantName.subscribe(
+      (restaurantName: any) => {
+        this.breadCrumbList[4] = restaurantName;
       }
     );
     this.storageData = this.localstorageSerivice.getUserSearchDetails();
