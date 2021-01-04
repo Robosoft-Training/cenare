@@ -26,6 +26,8 @@
     font-family: sans-serif;
     font-weight: 500;
     letter-spacing: 0;
+    text-decoration: none;
+    cursor: pointer;
   }
 }
 
@@ -50,13 +52,14 @@
         display: flex;
 
         .checkActive {
+          content: url(../../../../../assets/images/icn_check_inactive.png);
           height: 16px;
           width: 16px;
           margin-right: 10px;
         }
 
         .primaryActive1 {
-          color: #6A6A6A;
+          color: #B8B8B8;
           font-family: $openSansSemibold;
           font-size: 11px;
           font-weight: 600;
@@ -64,13 +67,25 @@
           line-height: 17px;
         }
 
-        .primaryActive2 {
-            color: #B8B8B8;
-            font-family: $openSansSemibold;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: -0.27px;
-            line-height: 17px;
+        .checkActive:checked+.primaryActive1:before {
+          height: 16px;
+          width: 16px;
+          content: url(../../../../../assets/images/icn_check_active.png);
+          font-size: 19px;
+          margin-right: 10px;
+          margin-left: -26px;
+          position: absolute;
+        }
+
+        :checked+.primaryActive1 {
+          color: #6A6A6A;
+          font-family: $openSansSemibold;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: -0.27px;
+          line-height: 17px;
+          margin-top: 0px;
+          vertical-align: text-top;
         }
       }
     }
