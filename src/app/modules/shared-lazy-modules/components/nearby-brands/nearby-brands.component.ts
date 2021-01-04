@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { PopularProductsService } from 'src/app/services/popular-products/popular-products.service';
 
 @Component({
@@ -25,7 +25,12 @@ export class NearbyBrandsComponent implements OnInit {
 
   constructor(
     private popularProductsService: PopularProductsService,
+    private elementRef: ElementRef
   ) { }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
+  }
 
   loadData = () => {
     this.popularProductsService.getNearbyBrands().subscribe(
