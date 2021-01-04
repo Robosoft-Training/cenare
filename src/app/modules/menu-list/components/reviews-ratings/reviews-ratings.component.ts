@@ -10,8 +10,7 @@ export class ReviewsRatingsComponent implements OnInit {
 
   count: any;
   datalist: any = [];
- // images: any = [];
-
+  // images: any = [];
 
   constructor(
     private reviewsRatingsService: ReviewsRatingsService
@@ -20,7 +19,7 @@ export class ReviewsRatingsComponent implements OnInit {
   ngOnInit(): void {
     this.reviewsRatingsService.currentReviewsDataListSource.subscribe(
       (data: any) => {
-       // console.log(data)
+        // console.log(data)
         this.datalist = data.resultList;
         console.log(this.datalist)
       }
@@ -36,7 +35,7 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   foodRatingOne() {
-    //  document.getElementById('foodRatingOne').style.border = "green";
+   // document.getElementById('foodRatingOne').style.border = "green";
   }
 
 }

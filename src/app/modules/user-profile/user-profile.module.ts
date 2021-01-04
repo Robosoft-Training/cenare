@@ -11,14 +11,19 @@ import { SharedComponentsModule } from 'src/app/components/shared-components/sha
 import { PaymentMethodsComponent } from './components/payment-methods/payment-methods.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { AddAddressComponent } from './components/add-address/add-address.component';
+import { AddNewCardComponent } from './components/add-new-card/add-new-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [UserProfileComponent, OrdersComponent, AddressComponent, EditUserProfileComponent, PaymentMethodsComponent, ReviewsComponent, GalleryComponent],
+  declarations: [UserProfileComponent, OrdersComponent, AddressComponent, EditUserProfileComponent, PaymentMethodsComponent, ReviewsComponent, GalleryComponent, AddAddressComponent, AddNewCardComponent],
   imports: [
     CommonModule,
     UserProfileRoutingModule,
     AngularMaterialsModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserProfileModule { }
