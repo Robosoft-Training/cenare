@@ -2,20 +2,32 @@
 <app-top-search-bar></app-top-search-bar>
 <app-breadcrumbs pageName="all-brands"></app-breadcrumbs>
 <h2>Brands Nearby</h2>
-<div class="container mt-5">
-    <div *ngFor = "let brand of deatilsArray"  class="item">
-  <div class="card">
-      <div class="col-md-4">
-        <img src="{{ brand.food_image_path }}" class="img-fluid">
+<div class="row">
+  <div class="col-3"></div>
+   <div class="col-6">
+  <div *ngFor="let brand of deatilsArray; index as i;">
+  <div class="mb-3 popular-brands">
+      <div class="brand-image-container">
+          <img src="{{ brand.brands.food_image_path }}" class="brand-image" />
       </div>
-      <div class="cold-md-8">
-        <img src="{{ brand.logo_image_path }}" class="img-kfc">
-        <h3>{{ brand.brand_name }}</h3>
-        <p>{{ brand.title }}</p>
-        <div class="line"></div>
-        <h6>{{ brand.description }}</h6>
-        <img src="../../../../../assets/menu.png" class="outlets">
+      <div class="brand-details d-none d-md-block">
+          <div class="details-container">
+              <div class="avatar-image-container mt-4">
+                  <img class="avatar-image" src="{{ brand.brands.logo_image_path }}" />
+              </div>
+              <div class="details mt-4">
+                  <span class="brand-name pt-3">{{ brand.brands.brand_name }}</span>
+                  <span class="brand-title">{{ brand.brands.title }}</span>
+              </div>
+          </div>
+          <div class="description mt-3">
+              <mat-divider></mat-divider>
+              <div class="product-description">{{ brand.brands.description }}</div>
+              <img src="../../../../../assets/menu.png" class="outlets">
+          </div>
       </div>
-    </div>
-    </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-3"></div>
 </div>

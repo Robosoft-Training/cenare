@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserProfileRoutingModule } from './user-profile-routing.module';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { OrdersComponent } from './components/orders/orders.component';
@@ -14,9 +13,10 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { AddAddressComponent } from './components/add-address/add-address.component';
 import { AddNewCardComponent } from './components/add-new-card/add-new-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 @NgModule({
-  declarations: [UserProfileComponent, OrdersComponent, AddressComponent, EditUserProfileComponent, PaymentMethodsComponent, ReviewsComponent, GalleryComponent, AddAddressComponent, AddNewCardComponent],
+  declarations: [UserProfileComponent, OrdersComponent, AddressComponent, EditUserProfileComponent, PaymentMethodsComponent, ReviewsComponent, GalleryComponent, AddAddressComponent, AddNewCardComponent, OrderDetailsComponent],
   imports: [
     CommonModule,
     UserProfileRoutingModule,

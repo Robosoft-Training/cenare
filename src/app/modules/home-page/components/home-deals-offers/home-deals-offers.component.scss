@@ -83,6 +83,8 @@
     }
 
     .controlls {
+        position: relative;
+        top: -2.7em;
         @include small-orange-text(-10.5em);
         @include arrow-controll-btn(-9.7em);
     }

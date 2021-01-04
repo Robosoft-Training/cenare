@@ -1,10 +1,34 @@
 @import '../../../../../mixin.scss';
 @import '../../../../../variables.scss';
+
+.red-color {
+  color: #ED1B2E;
+  border: 1px solid #ED1B2E;
+
+}
+
+.orange-color {
+  color: #F5A623;
+  border: 1px solid #F5A623;
+}
+
+.green-color {
+  color: #5FB700;
+  border: 1px solid #5FB700;
+}
+
+.grey-color {
+  color: #C2C2C2;
+  border-color: #C2C2C2;
+  box-sizing: border-box;
+  border: 1px solid #C2C2C2;
+}
+
 .options {
   border-radius: 5px;
 
   .option-text {
-    color:$orangeDim;
+    color: $orangeDim;
     font-family: $openSans;
     font-size: 14px;
     font-weight: 600;
@@ -21,8 +45,9 @@
     width: 10px;
     margin-left: 8px;
   }
+
   .dropdown-item {
-    color:$greyDark;
+    color: $greyDark;
     font-family: $openSans;
     font-size: 12px;
     font-weight: 600;
@@ -134,6 +159,268 @@
         border: 1px solid #ff8c7d;
         color: #ff8c7d;
         background-color: $white;
+        @include focus;
+      }
+    }
+  }
+}
+
+//modal
+.order-details {
+  border-radius: 8px;
+  padding: 16px;
+
+  .order-details-heading {
+    justify-content: space-between;
+
+    .text {
+      color: #4C4C4C;
+      font-family: $openSans;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.34px;
+      line-height: 33px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-close-position {
+      position: relative;
+      top: -16px;
+      left: 16px;
+    }
+  }
+
+  .card-heading-text {
+    color: #565454;
+    font-family: $openSans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
+  .details-items {
+    .item-card {
+      border-radius: 5px;
+
+      .card-template {
+        margin: 16px;
+
+        .card-top {
+          .meal-name {
+            color: #2D2D2D;
+            font-family: $openSans;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 19px;
+            margin-left: 8px;
+          }
+        }
+
+        .card-bottom {
+          margin-bottom: 8px;
+
+          .bottom-details {
+            justify-content: space-evenly;
+
+            .cost {
+              color: #2D2D2D;
+              font-family: $openSans;
+              font-size: 12px;
+              letter-spacing: 0;
+              line-height: 27px;
+            }
+
+            .add-on {
+              color: #9B9B9B;
+              font-family: $openSans;
+              font-size: 11px;
+              letter-spacing: 0;
+              line-height: 15px;
+              
+            }
+
+            .quantity {
+              color: #9B9B9B;
+              font-family: $openSans;
+              font-size: 11px;
+              letter-spacing: 0;
+              line-height: 15px;
+            }
+          }
+
+          .bottom-meal-cost {
+            justify-content: flex-end;
+            width: 100%;
+
+            .total-cost {
+              color: #2D2D2D;
+              font-family: $openSans;
+              font-size: 12px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 17px;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .details-amount {
+    .details-amount-card {
+      padding: 16px;
+
+      .card-amount-details {
+        justify-content: space-between;
+
+        .sub-text {
+          color: #9B9B9B;
+          font-family: $openSans;;
+          font-size: 12px;
+          letter-spacing: 0;
+          line-height: 27px;
+        }
+
+        .text-right {
+          text-align: right;
+        }
+
+        .text-left {
+          text-align: left;
+        }
+
+        .paid-text {
+          color: #223136;
+          font-family: $openSans;;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 22px;
+
+        }
+
+        .total-amount-text {
+          color: #223136;
+          font-family: $openSans;;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 22px;
+        }
+      }
+
+      .card-payment-mode {
+        justify-content: space-between;
+        margin-top: 8px;
+
+        .payment-mode-text {
+          color: #223136;
+          font-family: $openSans;;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 22px;
+        }
+
+        .payment-type {
+          color: #223136;
+          font-family: $openSans;;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 22px;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .details-delivery {
+    .delivery-card {
+      padding: 16px;
+
+      .heading-text {
+        color: #9B9B9B;
+        font-family: $openSans;;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 17px;
+      }
+
+      .info-text {
+        color: #223136;
+        font-family: $openSans;;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 22px;
+      }
+
+      .divider {
+        margin: 16px 0px;
+      }
+    }
+  }
+
+  .rating {
+    .select-rating {
+      .star {
+        justify-content: space-evenly;
+        border-radius: 4px;
+        padding: 4px;
+        margin-right: 8px;
+
+        .star-count-text {
+          justify-content: space-evenly;
+          font-family: $openSans;
+          font-size: 12px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 17px;
+          padding: 2px 4px;
+        }
+      }
+    }
+
+    .form {
+      margin-top: 32px;
+      .input-label {
+        color: #858585;
+        font-family: $openSans;;
+        font-size: 12px;
+        letter-spacing: -0.24px;
+        line-height: 17px;
+      }
+
+      .input-placeholder {
+        color: #4A4A4A;
+        font-family: $openSans;;
+        font-size: 16px;
+        letter-spacing: -0.27px;
+        line-height: 22px;
+      }
+    }
+
+    .submit-btn {
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 30px;
+
+      .btn {
+        padding: 16px 80px;
+        border-radius: 4px;
+        background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+        box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+        color: $white;
+        font-family: $openSans;;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-align: center;
         @include focus;
       }
     }

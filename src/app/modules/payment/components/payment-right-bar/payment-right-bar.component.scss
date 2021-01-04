@@ -1,0 +1,95 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.offers-payment-field {
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    height: fit-content;
+
+}
+
+.offer-header {
+    height: 23px;
+    width: 48px;
+    color: $black;
+    font-family: $openSans;
+    font-size: 17px;
+    letter-spacing: -0.41px;
+    line-height: 23px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    @include custom-radio-button();
+
+    .reffer-code .offer-field {
+        display: flex;
+        align-items: center;
+    }
+
+    .cooking-instructions {
+        margin: 0px 20px;
+        padding-top: 1em;
+        @include coocking-instrauctions();
+        @include hint-text();
+        @include apply-text(0.8em);
+    }
+
+    .offer-field {
+        margin-top: 1.5em;
+
+        .offer-cards {
+
+            .brand-image {
+                width: 100%;
+                height: 9em;
+            }
+
+            .apply-code {
+                position: relative;
+                float: right;
+                top: -8.5em;
+                width: 1em;
+                right: 1em;
+            }
+
+            .offer-title {
+                position: relative;
+                top: -8em;
+                color: $white;
+
+                .title {
+                    text-align: center;
+                    font-size: 1.3em;
+                    padding-left: 1em;
+
+                    .offer-text {
+                        margin-left: 3.5em;
+                        padding: 0.1em 0.4em;
+                        color: $white;
+                        font-family: $openSans;
+                        font-size: 0.6em;
+                        font-weight: 600;
+                        line-height: 28px;
+                        border: 1px solid $white;
+                    }
+                }
+
+                .offer-details {
+                    font-size: 0.8em;
+                    padding-top: 0.8em;
+                }
+            }
+
+            @include apply-text();
+        }
+
+        @include selectDots();
+    }
+}
+
+@include payment-field();

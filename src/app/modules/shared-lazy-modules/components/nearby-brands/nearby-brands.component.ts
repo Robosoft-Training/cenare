@@ -10,13 +10,16 @@ export class NearbyBrandsComponent implements OnInit {
 
   deatilsArray: any[] = [
     {
-      brand_id: 0,
-      brand_name: '',
-      city: '',
-      description: '',
-      food_image_path: '',
-      logo_image_path: '',
-      title: ''
+      brands: {
+        brand_id: 0,
+        brand_name: '',
+        city: '',
+        description: '',
+        food_image_path: '',
+        logo_image_path: '',
+        title: ''
+      },
+      outlets: 0
     }
   ];
 
@@ -25,12 +28,12 @@ export class NearbyBrandsComponent implements OnInit {
   ) { }
 
   loadData = () => {
-    this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
+    this.popularProductsService.getNearbyBrands().subscribe(
       (nearByPopularDataList: any) => {
         this.deatilsArray = nearByPopularDataList.resultList;
+        console.log(this.deatilsArray);
       }
     );
-    this.popularProductsService.loadNearbyBrands();
   }
 
   ngOnInit(): void {

@@ -1,8 +1,8 @@
 <div class="container-fluid pb-5 pt-0 pt-md-5 deals-offer-container">
     <div class="row">
         <div class="col-0 col-md-3 d-none d-md-block">
-            <img src="../../../../../assets/images/grad copy.png" class="left-gradient-fill">
-            <img src="../../../../../assets/images/Image 3.png" class="left-food-image">
+            <img src="../../../../../assets/images/gradCopy.png" class="left-gradient-fill">
+            <img src="../../../../../assets/images/Image3.png" class="left-food-image">
         </div>
 
         <div class="col-12 col-md-6">
@@ -12,7 +12,7 @@
 
             <span *ngIf="isErrorLoading" class="error-field">
                 <div class="error-field-container mb-5">
-                    <img src="../../../../../assets/images/icn_no_restaurants@2x.jpg" class="error-image my-3" />
+                    <img src="../../../../../assets/images/icn_no.jpg" class="error-image my-3" />
                     <span class="error-title">Oops!</span>
                     <span class="product-description">Offer is not available at restuarants near by
                         change to other locations and try..</span>
@@ -29,7 +29,7 @@
                                         <img src="{{offer.offerImagePath}}" class="brand-image" />
                                     </div>
                                     <div class="offer-details mt-3">
-                                        <span *ngIf="offer.offerTitle.length>=31" class="offer-title-1">So good Wednesday <br /> Flat 39%
+                                        <span *ngIf="offer.offerTitle.length>=31" class="offer-title-1">So good Wednesday <br /> Flat {{offer.offerPercent}}%
                                             Off</span>
                                         <span *ngIf="offer.offerTitle.length<31" class="offer-title-2">
                                             <span class="offer-text-1"> Everyday<br /></span>
@@ -50,7 +50,7 @@
 
                 <div class="controlls">
                     <div class="container-fluid">
-                        <div class="small-orange-text" (click)="getAllOffersList()">All Brands
+                        <div class="small-orange-text" (click)="getAllOffersList()">All offers & deals
                             <mat-icon class="more-icon">keyboard_arrow_right</mat-icon>
                         </div>
                         <div class="p-2">

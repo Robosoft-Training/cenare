@@ -2,12 +2,13 @@
     <!-- <div class="col-3"></div> -->
     <div class="d-flex flex-column col-12 col-lg-7 menu-left">
         <div class="search-box">
-            <img class="search-icon" src="../../../../../assets/icn_search_home copy@3x.png" />
-            <input class="input" placeholder="Search an item"  [(ngModel)]="menuSearch">
+            <img class="search-icon" src="../../../../../assets/images/icn_search.png" />
+            <input class="input" placeholder="Search an item" [(ngModel)]="menuSearch">
         </div>
         <div class="d-flex flex-column left-list" *ngFor="let main_item of groupedMenuList | keyvalue">
-            <label class="list-title mt-4">{{main_item.key}} ({{main_item.value}})</label>
-            <div *ngFor="let item of menuList | filterMenu:menuSearch">
+            <label *ngIf="menuSearch === ''" class="list-title mt-4 text-capitalize">{{main_item.key}}
+                ({{main_item.value}})</label>
+            <span *ngFor="let item of menuList | filterMenu:menuSearch">
                 <span class="d-flex flex-row list-card" *ngIf="main_item.key === item.menu.course">
                     <div class="card-img">
                         <img class="img" src="{{ item.menu.item_image_path }}">
@@ -17,12 +18,12 @@
                             src="../../../../../assets/images/icn_non_veg.png" />
                     </div>
                     <div class="d-flex flex-row card-content">
-                        <div class="d-flex flex-column justify-content-between card-content-left">
+                        <div class="d-flex flex-column card-content-left">
                             <label class="name-text">{{ item.menu.item_name }}</label>
                             <label class="cost-text">INR{{item.price}}</label>
-                            <label class="description-text">{{ item.menu.desrcription }}</label>
+                            <label class="description-text d-none d-md-block">{{ item.menu.desrcription | stringSlice:0:100 }}</label>
                         </div>
-                        <div class="d-flex flex-column-reverse justify-content-between card-content-right">
+                        <div class="d-flex flex-column-reverse card-content-right">
                             <!-- <label class="flex-end align-self-end best-seller-text">BESTSELLER</label> -->
                             <div *ngIf="isLoggedIn" class="d-flex flex-column content-right-bottom">
                                 <div class="add-btn small-button" *ngIf="!(menuIdList.includes(item.menu.item_name))"
@@ -36,7 +37,7 @@
                         </div>
                     </div>
                 </span>
-            </div>
+            </span>
         </div>
     </div>
 
@@ -52,13 +53,17 @@
                     <div class="d-flex flex-row item-top">
                         <div class="top-text">
                             <div>
-                                <img src="../../../../../assets/images/icn_non_veg.png">
+                                <img *ngIf="cart.category === 'vegetarian'" class="categoury-img"
+                                    src="../../../../../assets/images/icn_veg.png" />
+                                <img *ngIf="cart.category === 'non vegetarian'" class="categoury-img"
+                                    src="../../../../../assets/images/icn_non_veg.png" />
                                 <label class="name">{{ cart.item_name }}</label>
                             </div>
-                            <label class="price">INR{{ cart.menu_price }}</label>
+                            <label class="price">INR{{ cart.price }}</label>
                         </div>
                         <div class="d-flex flex-row top-buttons">
-                            <label class="text" [ngClass]="cart.quantity<=1?'disable-action-text':'orange-text'" (click)="addTocartAgain(cart.menu_id, -1)">-</label>
+                            <label class="text" [ngClass]="cart.quantity<=1?'disable-action-text':'orange-text'"
+                                (click)="addTocartAgain(cart.menu_id, -1)">-</label>
                             <label class="text orange-text">{{ cart.quantity }}</label>
                             <label class="text orange-text" (click)="addTocartAgain(cart.menu_id, 1)">+</label>
                         </div>
@@ -67,7 +72,7 @@
                         <div class="d-flex flex-row bottom-left">
                             <label class="description-text">Add On : Avacado, Seasoned Grilled Chicken, Grilled
                                 Salmon</label>
-                            <label class="total-price-text">INR{{ cart.price }}</label>
+                            <label class="total-price-text">INR{{ cart.menu_price }}</label>
                         </div>
                         <div class="d-flex flex-end bottom-right">
                             <!-- <label class="customize-text">Customize</label> -->
@@ -88,7 +93,7 @@
                 <div class="d-flex flex-column payment-details" [ngClass]="isHide?'d-none':'d-block'">
                     <div class="d-flex flex-row item">
                         <label class="text">Items total</label>
-                        <label class="text">INR118.00</label>
+                        <label class="text">INR{{this.totalAmmount}}</label>
                     </div>
                     <div class="d-flex flex-row item">
                         <label class="text">Fee/charges</label>
@@ -103,7 +108,10 @@
             <div class="cooking-instructions">
                 <label class="cooking-instructions-text">Cooking instructions?</label><br>
                 <input class="cooking-instructions-textbox border-none" type="text" placeholder="Mention it here…"><br>
-                <button class="proceed-btn" routerLink="/payment" >PROCEED TO CHECKOUT ></button>
+                <button class="proceed-btn d-flex align-items-center justify-content-center" routerLink="/payment">
+                    PROCEED TO CHECKOUT
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
             </div>
         </span>
     </div>

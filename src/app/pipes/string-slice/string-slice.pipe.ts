@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StringSlicePipe implements PipeTransform {
 
   transform(value: string, ...args: number[]): string {
-    if (value.length <= 20) {
+    if (value.length <= args[1]) {
       return value;
     }
     const slicedValue = value.slice(args[0], args[1]);

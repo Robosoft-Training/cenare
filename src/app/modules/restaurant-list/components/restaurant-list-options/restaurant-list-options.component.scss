@@ -8,157 +8,177 @@
 
   .filter-options {
     width: 96%;
+
     .options {
-        padding: 16px 0px 16px 0px;
-        cursor: pointer;
+      padding: 16px 0px 16px 0px;
+      cursor: pointer;
+
       .heading-text {
         color: $headerText;
         font-family: "Open Sans";
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 600;
         letter-spacing: 0;
-        line-height: 22px;
         padding: 0px 16px;
       }
 
       .option-text {
         color: #FCA100;
         font-family: "Open Sans";
-        font-size: 10px;
+        font-size: 12px;
         letter-spacing: 0;
-        line-height: 22px;
-        .arrow-icon {
-          font-size: 1.5em;
-        }
+        margin-left: -10px;
       }
-      .dropdown-item{
+
+      .text-margin {
+        margin-right: 1em;
+      }
+
+      .arrow-icon {
+        font-size: 1.2em;
+        color: #FCA100;
+        font-family: "Open Sans";
+      }
+
+      .dropdown-item {
         color: $headerText;
         font-size: 10px;
+
         &:active {
           background: $rightFillGradient;
         }
       }
     }
   }
-.restaurant-card {
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  width: 96%;
 
-  .card-image {
-    padding: 10px 5px 10px 8px;
-    .img{
-      width: 10em;
-      height: 8em;
-      border-radius: 4px;
-    }
-  }
+  .restaurant-card {
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    width: 96%;
 
-  .card-content {
-    width: 100%;
-    padding: 10px 8px 6px 10px;
+    .card-image {
+      padding: 10px 5px 10px 8px;
 
-    .content-header {
-      .restaurant-name-text {
-        color: $headerText;
-        font-family: "Open Sans";
-        font-size: 16px;
-        font-weight: bold;
-        letter-spacing: 0;
-        line-height: 20px;
-        padding-top: 6px;
+      .img {
+        width: 9em;
+        height: 9em;
+        border-radius: 4px;
       }
+    }
 
-      .ratings {
-        .ratings-text-1 {
-          color: #FFFFFF;
+    .card-content {
+      width: 100%;
+      padding: 10px 8px 6px 10px;
+
+      .content-header {
+        .restaurant-name-text {
+          color: $headerText;
           font-family: "Open Sans";
-          font-size: 11px;
+          font-size: 16px;
           font-weight: bold;
           letter-spacing: 0;
-          line-height: 18px;
-          text-align: center;
-          padding: 1px 7px;
-          border-radius: 4px;
-          background-color: #F5A623;
-        }
-        .ratings-text-2 {
-          color: #FFFFFF;
-          font-family: "Open Sans";
-          font-size: 11px;
-          font-weight: bold;
-          letter-spacing: 0;
-          line-height: 18px;
-          text-align: center;
-          padding: 1px 7px;
-          border-radius: 4px;
-          background-color: #5FB700;
-        }
-      }
-    }
-
-    .content-middle {
-      .subtitle-text {
-        @include subtitle-text();
-      }
-
-      .divider {
-        border-bottom: 1px solid #979797;
-        opacity: 0.19;
-        padding-top: 12px;
-      }
-    }
-
-    .content-bottom {
-      .content-bottom-text {
-        width: 100%;
-        .status-text {
-          font-family: "Open Sans";
-          font-size: 0.7em;
-          font-weight: 600;
-          letter-spacing: 0;
-          line-height: 1px;
-          padding: 15px 0px;
-        }
-        .text-color-green{
-            color: #5FB700;
-        }
-        .text-color-red{
-            color: #FF0000;
-        }
-        
-        .list-item {
-          float: left;
-          color: #757575;
-          font-family: "Open Sans";
-          font-size: 0.7em;
-          letter-spacing: 0;
-          line-height: 10px;
-          padding-right: 0px;
-          margin-bottom: 0.5em;
+          line-height: 20px;
+          padding-top: 6px;
         }
 
-        .text {
-          color: #757575;
-          font-family: "Open Sans";
-          font-size: 12px;
-          letter-spacing: 0;
-          line-height: 0px;
+        .ratings {
+          .ratings-text-1 {
+            color: #FFFFFF;
+            font-family: "Open Sans";
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 18px;
+            text-align: center;
+            padding: 1px 7px;
+            border-radius: 4px;
+            background-color: #F5A623;
+          }
+
+          .ratings-text-2 {
+            color: #FFFFFF;
+            font-family: "Open Sans";
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 18px;
+            text-align: center;
+            padding: 1px 7px;
+            border-radius: 4px;
+            background-color: #5FB700;
+          }
         }
       }
 
-      .menu-button {
-        outline: none;
-        padding-top: 15px;
-        .menu-btn-img {
+      .content-middle {
+        .subtitle-text {
+          @include subtitle-text();
+        }
+
+        .divider {
+          border-bottom: 1px solid #979797;
+          opacity: 0.19;
+          padding-top: 12px;
+        }
+      }
+
+      .content-bottom {
+        .content-bottom-text {
           width: 100%;
-          float: right;
+
+          .status-text {
+            font-family: "Open Sans";
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 1px;
+            padding: 15px 0px;
+          }
+
+          .text-color-green {
+            color: #5FB700;
+          }
+
+          .text-color-red {
+            color: #FF0000;
+          }
+
+          .list-item {
+            float: left;
+            color: #757575;
+            font-family: "Open Sans";
+            font-size: 0.7em;
+            letter-spacing: 0;
+            line-height: 10px;
+            padding-right: 0px;
+            margin-bottom: 0.5em;
+          }
+
+          .text {
+            color: #757575;
+            font-family: "Open Sans";
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 0px;
+          }
+        }
+
+        .menu-button {
+          outline: none;
+          padding-top: 15px;
+
+          .menu-btn-img {
+            width: 100%;
+            float: right;
+          }
         }
       }
     }
   }
-}
+  .load-more-text {
+    cursor: pointer;
+  }
 }
 
 // compateDate(item.open_time, item.close_time)
