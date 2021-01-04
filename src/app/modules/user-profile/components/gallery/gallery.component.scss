@@ -105,8 +105,8 @@
   border: 1px solid transparent;
 
   .dialog {
-    height: 60vh;
-    width: 40vw;
+    height: 55vh;
+    width: 45vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
@@ -147,7 +147,7 @@
       .count {
         font-size: 15px;
         line-height: 24px;
-        margin-top: 10px;
+        margin-top: 2.5%;
         padding-top: 6px;
         letter-spacing: 0;
         font-weight: 600;
@@ -165,25 +165,26 @@
     position: relative;
     z-index: 2020;
     margin-top: 2.5%;
-    margin-left: 68%;
+    margin-left: 71%;
     border-radius: 12px;
     background: transparent;
     border: none;
 
     .leftArrow {
+      font-size: 20px;
       height: 100%;
       width: 50%;
       position: relative;
-      color: #3E3E3E;
       margin: 0%;
       outline: none;
       border-radius: 8px 0px 0px 8px;
       border: none;
       border-right: 1px solid #cacaca;
+      color: #3E3E3E;
     }
 
     .left {
-      color: #929292;
+      font-size: 20px;
       height: 100%;
       width: 50%;
       position: relative;
@@ -192,29 +193,38 @@
       border-radius: 8px 0px 0px 8px;
       border: none;
       border-right: 1px solid #cacaca;
-      pointer-events: none;
+      // pointer-events: none;
+      color: #929292;
     }
 
     .rightArrow {
+      font-size: 20px;
       height: 100%;
       width: 50%;
       position: relative;
-      color: #3E3E3E;
       margin: 0%;
       outline: none;
       border-radius: 0px 8px 8px 0px;
       border: none;
+      color: #3E3E3E;
     }
 
     .right {
+      font-size: 20px;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      margin: 0%;
+      outline: none;
+      border-radius: 0px 8px 8px 0px;
+      border: none;
+      // pointer-events: none;
       color: #929292;
-      pointer-events: none;
     }
   }
 }
 
-
-@media (min-width: 1100px) and (max-width: 1400px) {
+@media (min-width: 1100px) and (max-width: 1350px) {
 
   .screen {
     height: 300vh;
@@ -226,11 +236,11 @@
     opacity: 0.7;
     z-index: 2000;
   }
-
+ 
   .box2 {
     height: 75vh;
-    width: 80vw;
-    margin-top: -88%;
+    width: 85vw;
+    margin-top: -58%;
     margin-left: -36%;
     position: relative;
     background: transparent;
@@ -239,7 +249,7 @@
     border: 1px solid transparent;
 
     .dialog {
-      height: 50vh;
+      height: 60vh;
       width: 50vw;
       content: fill;
       margin-left: 25.5%;
@@ -263,7 +273,7 @@
       }
 
       .imageDetails {
-        width: 86%;
+        width: 85%;
         display: flex;
         border: 2px solid transparent;
 
@@ -287,7 +297,7 @@
       position: relative;
       z-index: 2020;
       margin-top: 3%;
-      margin-left: 80%;
+      margin-left: 76.5%;
       border-radius: 9px;
 
       .fa-chevron-left {
@@ -309,7 +319,7 @@
   }
 }
 
-@media (min-width: 900px) and (max-width: 1100px) {
+@media (min-width: 1000px) and (max-width: 1100px) {
 
   .screen {
     height: 350vh;
@@ -325,7 +335,7 @@
   .box2 {
     height: 75vh;
     width: 80vw;
-    margin-top: -145%;
+    margin-top: -60%;
     margin-left: -36%;
     position: relative;
     background: transparent;
@@ -382,7 +392,7 @@
       width: 8%;
       position: relative;
       z-index: 2020;
-      margin-top: -3.2%;
+      margin-top: -3.0%;
       margin-left: 78.5%;
       border-radius: 9px;
 
@@ -405,7 +415,7 @@
   }
 }
 
-@media (min-width: 700px) and (max-width: 900px) {
+@media (min-width: 700px) and (max-width: 1000px) {
 
   .screen {
     height: 400vh;
@@ -421,7 +431,7 @@
   .box2 {
     height: 75vh;
     width: 80vw;
-    margin-top: -145%;
+    margin-top: -75%;
     margin-left: -37%;
     position: relative;
     background: transparent;
@@ -503,7 +513,7 @@
   .screen {
     height: 400vh;
     width: 150vw;
-    margin-top: -250%;
+    margin-top: -100%;
     margin-left: -30%;
     position: fixed;
     background: black;

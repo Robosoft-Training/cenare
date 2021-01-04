@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
+import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 
 @Component({
   selector: 'app-gallery',
@@ -18,9 +20,31 @@ export class GalleryComponent implements OnInit {
     "../../../../../assets/images/uttapam.jpg"
   ]
 
-  constructor() { }
+  menuList: IMenuList[] = [
+    {
+      menu: {
+        menu_id: 0,
+        item_name: '',
+        cook_time: 0,
+        category: '',
+        course: '',
+        desrcription: '',
+        item_image_path: ''
+      },
+      price: 0
+    }
+  ];
+
+  constructor(
+    private menuListService: MenuListService,
+  ) { }
 
   ngOnInit(): void {
+    this.menuListService.currentMenuDataListSource.subscribe(
+      (data: any) => {
+        this.menuList = data.resultList;
+      }
+    );
     $("#left").addClass('left');
     $("#left").removeClass('leftArrow');
     console.log(this.clickedCount);
@@ -37,50 +61,34 @@ export class GalleryComponent implements OnInit {
   }
 
   leftArrow() {
-    console.log(this.clickedCount)
+    // console.log(this.clickedCount)
     if (this.clickedCount === 0) {
       $("#left").addClass('left');
       $("#left").removeClass('leftArrow');
-      console.log(this.clickedCount);
     }
     else {
-      $("#left").removeClass('left');
-      $("#right").addClass('right');
-      $("#left").addClass('leftArrow');
       this.clickedImage = this.imageList[--this.clickedCount];
+      $("#left").removeClass('left');
+      $("#left").addClass('leftArrow');
+      $("#right").removeClass('right');
+      $("#right").addClass('rightArrow');
+      console.log(this.clickedCount);
     }
   }
 
   rightArrow() {
-    console.log(this.clickedCount)
-    if (this.clickedCount === this.imageList.length-1) {
+    // console.log(this.clickedCount)
+    if (this.clickedCount === this.imageList.length - 1) {
       $("#right").addClass('right');
       $("#right").removeClass('rightArrow');
-      console.log(this.clickedCount);
     }
     else {
+      this.clickedImage = this.imageList[++this.clickedCount];
       $("#right").removeClass('right');
       $("#right").addClass('rightArrow');
-      this.clickedImage = this.imageList[++this.clickedCount];
+      $("#left").removeClass('left');
+      $("#left").addClass('leftArrow');
+      console.log(this.clickedCount);
     }
   }
-
-  // isOpen2 = false;
-  // isOpen3 = false;
-  // displayImage2() {
-  //   this.isOpen2 = !this.isOpen2;
-  // }
-
-  // close2() {
-  //   this.isOpen2 = !this.isOpen2;
-  // }
-
-  // displayImage3() {
-  //   this.isOpen3 = !this.isOpen3;
-  // }
-
-  // close3() {
-  //   this.isOpen3 = !this.isOpen3;
-  // }
-
 }

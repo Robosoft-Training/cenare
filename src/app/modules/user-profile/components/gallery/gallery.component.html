@@ -2,25 +2,8 @@
 
 <div class="box">
   <div class="rectangle row">
-    <div class="rectangle1 col-lg-12 col-md-12 col-sm-12 col-xs-12" align="right">
-      <div class="allPhotosButton">
-        <p class="buttonText">All Photos</p>
-        <img class="arrow" src="../../../../../assets/images/right_arrow.png" alt="">
-      </div>
-    </div>
     <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
       <img *ngFor="let item of imageList; let i=index;" src={{item}} alt="" (click)="displayImage(item, i)">
-    </div>
-    <!-- 
-          <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/Vada.jpg" alt="" (click)="displayImage2()">
-    </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img src="../../../../../assets/images/TandooriChicken.jpg" alt="" (click)="displayImage3()">
-    </div>
-    -->
-    <div class="rectangle2" align="right">
-      <p class="viewMore">View more ></p>
     </div>
   </div>
 </div>
@@ -41,49 +24,8 @@
       </div>
     </div>
     <div class="rectangle3">
-      <button class="fa fa-chevron-left leftArrow" id="left" (click)="leftArrow()"></button>
-      <button class="fa fa-chevron-right rightArrow" id="right" (click)="rightArrow()"></button>
+      <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow()"></button>
+      <button class="fa fa-angle-right rightArrow" id="right" (click)="rightArrow()"></button>
     </div>
   </div>
 </span>
-
-
-<!-- <div *ngIf="isOpen2" class="screen"></div>
-<div *ngIf="isOpen2" class="box2">
-  <div class="dialog">
-    <img class="cancel" (click)="close2()" src="../../../assets/images/cancel.png" alt="">
-    <img class="selectedImage" src="../../../../../assets/images/Vada.jpg" alt="">
-    <div class="imageDetails">
-      <p class="imageName">Vada</p>
-      <div class="count" align="right">
-        <p>1</p>
-        <p>/</p>
-        <p>12</p>
-      </div>
-    </div>
-  </div>
-  <div class="rectangle3">
-    <button class="fa fa-chevron-left"></button>
-    <button class="fa fa-chevron-right"></button>
-  </div>
-</div>
-
-<div *ngIf="isOpen3" class="screen"></div>
-<div *ngIf="isOpen3" class="box2">
-  <div class="dialog">
-    <img class="cancel" (click)="close3()" src="../../../assets/images/cancel.png" alt="">
-    <img class="selectedImage" src="../../../../../assets/images/TandooriChicken.jpg" alt="">
-    <div class="imageDetails">
-      <p class="imageName">Vada</p>
-      <div class="count" align="right">
-        <p>1</p>
-        <p>/</p>
-        <p>12</p>
-      </div>
-    </div>
-  </div>
-  <div class="rectangle3">
-    <button class="fa fa-chevron-left"></button>
-    <button class="fa fa-chevron-right"></button>
-  </div>
-</div> -->
