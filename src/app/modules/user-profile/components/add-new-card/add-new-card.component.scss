@@ -1,0 +1,196 @@
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
+
+.dialog {
+  width: 450px;
+  padding: 5px;
+  border-radius: 8px;
+  z-index: 3000;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+
+  button {
+    height: 10px;
+    width: 10px;
+    margin-left: 95%;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    .close {
+      cursor: pointer;
+    }
+  }
+
+  .heading {
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 30%;
+    color: #4C4C4C;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    font-family: $openSansSemibold;
+  }
+
+  .text {
+    width: 88%;
+    height: 15px;
+    font-size: 13px;
+    margin-left: 6%;
+    margin-top: 30px;
+    color: #000000;
+    line-height: 15px;
+    font-family: $openSans;
+  }
+
+  mat-form-field {
+    width: 88%;
+    height: 60px;
+    margin-left: 6%;
+    margin-top: 8px;
+
+    .icon {
+      margin-left: 91%;
+      position: absolute;
+      margin-top: -18px;
+    }
+    
+    mat-label {
+      height: 17px;
+      color: #858585;
+      font-family: $openSans;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      line-height: 17px;
+    }
+
+    input {
+      height: 28px;
+      color: #4A4A4A;
+      font-family: $openSans;
+      font-size: 13px;
+      line-height: 25px;
+    }
+  }
+
+  .cardDetails {
+    padding: 0%;
+    margin-left: 6%;
+    display: inline-flex;
+
+    mat-form-field {
+      width: 35px;
+      height: 60px;
+      margin: 0%;
+
+      mat-label {
+        height: 17px;
+        color: #858585;
+        font-family: $openSans;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        line-height: 17px;
+      }
+
+      input {
+        height: 30px;
+        width: 35px;
+        font-family: $openSans;
+        font-size: 13px;
+        line-height: 25px;
+        color: #000000;
+        letter-spacing: -0.27px;
+      }
+    }
+
+    p {
+      width: 20px;
+      text-align: left;
+      margin-top: 8%;
+    }
+
+    .security {
+      width: 160px;
+      height: 55px;
+      margin-left: 50px;
+
+      .input {
+        height: 30px;
+        width: 160px;
+        font-family: $openSans;
+        font-size: 13px;
+        line-height: 25px;
+        color: #000000;
+        letter-spacing: -0.27px;
+      }
+    }
+  }
+
+  .primary {
+    width: 88%;
+    height: 18px;
+    margin-left: 6%;
+    margin-top: 20px;
+    display: flex;
+
+    .checkActive {
+      content: url(../../../../../assets/images/radio_unchecked_green.png);
+      height: 14px;
+      width: 14px;
+      margin-top: 2px;
+      margin-right: 10px;
+      background: white;
+    }
+
+    .primaryActive1 {
+      color: #070707;
+      font-family: $openSansSemibold;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 17px;
+    }
+
+    .checkActive:checked+.primaryActive1:before {
+      content: url(../../../../../assets/images/radio_checked_green.png);
+      height: 14px;
+      width: 14px;
+      margin-top: 1px;
+      margin-right: 10px;
+      background: white;
+      margin-left: -25px;
+      position: absolute;
+    }
+
+    :checked+.primaryActive1 {
+      color: #5FB700;
+      font-family: $openSansSemibold;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 17px;
+      margin-top: 0px;
+      vertical-align: text-top;
+    }
+  }
+
+  .save {
+    height: 40px;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+    font-family: $openSans;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 19px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+    box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  }
+}
