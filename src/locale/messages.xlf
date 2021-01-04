@@ -2,11 +2,170 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="30de65020ce95beb876742ab599ea536764b2f5e" datatype="html">
+        <source>CART</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9e58dfa6c0a452d8333674cd6aa497d392b1c633" datatype="html">
+        <source>LOGIN</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9558fbd7036fbd80c5e7e2172d1e4ac0f8e26443" datatype="html">
+        <source>CREATE AN ACCOUNT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="afd707a7a917a96605804e92e66cb17e2bf5c7e2" datatype="html">
+        <source>LOGOUT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c96963e5466a16d360590b4c10a0410e1a75d33d" datatype="html">
+        <source>Crave App</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/mobile-app-add/mobile-app-add.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ce4b4148a179380adf22aea2e890d03e60294380" datatype="html">
+        <source> Download the Food App </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/mobile-app-add/mobile-app-add.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="163ec5625f304cf7eab124c30a53bb552e92fba7" datatype="html">
+        <source> Get realtime order updates, live chat support, and exclusive app-only offers. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/mobile-app-add/mobile-app-add.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="372f8b010dc1cad6b481630c207be7f2137a222b" datatype="html">
+        <source>How to Order</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/how-to-order/how-to-order.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0c17ebb904d6806c49bc6493bea2f04f26b6e351" datatype="html">
+        <source>Giving you an easiest way to look for the best food that can be ordered. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/how-to-order/how-to-order.component.html</context>
+          <context context-type="linenumber">8,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6b32d7285f00ed1d59e221bd0b554f96a6828983" datatype="html">
+        <source>Explore restaurants that deliver to your doorstep. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/how-to-order/how-to-order.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0f6ec2357670a31667fc9fa31410749f9f87d4a0" datatype="html">
+        <source>Browse menus and build your order in seconds. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/how-to-order/how-to-order.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e1dc16fb5a0d90971442a288542b2ed4e4b03b6" datatype="html">
+        <source>Follow the status of your order with real-time alerts. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/how-to-order/how-to-order.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="c2dd21bd3b9bed78a7d5f2f2ed7322475c067c23" datatype="html">
         <source>Order your food <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt; "/> from the best Restaurants</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/home-page/components/home-page-header/home-page-header.component.html</context>
           <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9a48fbaa81f8d4ad643876ba6fe965e9092d5dc3" datatype="html">
+        <source>Search your restaurant or cuisines</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-page-header/home-page-header.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">From placeholder</note>
+      </trans-unit>
+      <trans-unit id="c89ce51dbee798f23d1a2bb7068d080c166a4e73" datatype="html">
+        <source>Popular Brands</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-popular-brands/home-popular-brands.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bc3a354f653d2a303db89c6670ce8147f6c301e7" datatype="html">
+        <source>Find out more about the world&apos;s top food brands are available all over the world today.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-popular-brands/home-popular-brands.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="836cc5eb1a46624364b88313c18439af4dbbdaa3" datatype="html">
+        <source>Oops!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-popular-brands/home-popular-brands.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-deals-offers/home-deals-offers.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5fcf85fb519b653bf34eeaa73a84a585ebf4214a" datatype="html">
+        <source>No brands nearby change to other locations and try.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-popular-brands/home-popular-brands.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8e53102fe29a47e75f6b9b010fc4a3df46d1f558" datatype="html">
+        <source>All Brands </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-popular-brands/home-popular-brands.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="33af98894b427c610bc3ec44b3a36e562eb221a9" datatype="html">
+        <source>Best Deals &amp; Offers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-deals-offers/home-deals-offers.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dcd4007d7ab2970ecc1912bc890df793e6cd3514" datatype="html">
+        <source>Endless deals near you! Grab the best deals and offers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-deals-offers/home-deals-offers.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="76a83726014798820898dbb94106d06c96fa4fd0" datatype="html">
+        <source>Offer is not available at restuarants near by change to other locations and try..</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-deals-offers/home-deals-offers.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0e233ac876988b86436a9d3c814e4a8b1626572" datatype="html">
+        <source>All offers &amp; deals</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/home-page/components/home-deals-offers/home-deals-offers.component.html</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
     </body>

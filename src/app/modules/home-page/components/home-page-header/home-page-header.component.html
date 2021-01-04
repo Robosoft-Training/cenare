@@ -15,7 +15,7 @@
             <div class="icon-style">
               <img class="search-icon" src="../../../../../assets/images/icn_search.png" />
             </div>
-            <input [(ngModel)]="userSearchSelections.searchName" (keyup)="searchAction($event)"
+            <input i18n-placeholder="From placeholder" [(ngModel)]="userSearchSelections.searchName" (keyup)="searchAction($event)"
               class="form-control pl-4 border-0" type="search" placeholder="Search your restaurant or cuisines"
               aria-label="Search">
           </div>

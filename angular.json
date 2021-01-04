@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "cenare": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "kn": {
+            "translation": "src/locale/messages.kn.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -58,14 +66,19 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
+              ]
+            },
+            "kn": {
+              "localize": [
+                "kn"
               ]
             }
           }
@@ -78,6 +91,9 @@
           "configurations": {
             "production": {
               "browserTarget": "cenare:build:production"
+            },
+            "kn": {
+              "browserTarget": "cenare:build:kn"
             }
           }
         },
@@ -102,9 +118,7 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -131,6 +145,10 @@
               "devServerTarget": "cenare:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

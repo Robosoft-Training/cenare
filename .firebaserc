@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "premnath-2000": {
+      "hosting": {
+        "cenare": [
+          "premnath-2000"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "premnath-2000"
+  }
+}

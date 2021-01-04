@@ -3,15 +3,15 @@
         <div class="col-0 col-md-3 col-md-3 d-none d-md-block"></div>
 
         <div class="col-12 col-md-6">
-            <span class="popular-brands-heading">Popular Brands</span>
-            <h3 class="d-none d-md-block popular-brands-about pb-3">Find out more about the world's top food brands are
+            <span i18n class="popular-brands-heading">Popular Brands</span>
+            <h3 i18n class="d-none d-md-block popular-brands-about pb-3">Find out more about the world's top food brands are
                 available all over the world today.</h3>
 
             <span *ngIf="isErrorLoading">
                 <div class="error-field-container mb-5">
                     <img src="../../../../../assets/images/icn_no.jpg" class="error-image my-3" />
-                    <span class="error-title">Oops!</span>
-                    <span class="product-description">No brands nearby change to other locations and try.</span>
+                    <span i18n class="error-title">Oops!</span>
+                    <span i18n class="product-description">No brands nearby change to other locations and try.</span>
                 </div>
             </span>
 
@@ -61,7 +61,8 @@
 
                     <div class="controlls">
                         <div class="container-fluid">
-                            <div class="small-orange-text" (click)="getAllBrandsList()">All Brands 
+                            <div class="small-orange-text" (click)="getAllBrandsList()">
+                                <span i18n>All Brands </span>
                                 <mat-icon class="more-icon">keyboard_arrow_right</mat-icon>
                             </div>
                             <div class="p-2">
