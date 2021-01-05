@@ -35,7 +35,7 @@
       </div>
       <p class="description">{{item.description==='null'?'':item.description}}</p>
       <div class="rectangle2">
-        <p class="date">{{item.date}}</p>
+        <p class="date">{{item.date==='null'?'':item.date}}</p>
         <div class="like" align="right">
           <img *ngIf="!(likedReviewsId.includes(item.review_id))" class="likeButton"
             src="assets/images/like_inactive.png" (click)="likeReview(item.review_id)" alt="">
@@ -55,60 +55,60 @@
       <p class="heading">Rate your experience</p>
       <p class="food">Food</p>
       <div class="ratingButtons1">
-        <button class="starButton0" id="foodRatingOne">
+        <button (click)="foodRating(1)" class="starButton0" id="foodRatingOne">
           <p class="star0" id="starZero"></p>
           <p class="rating0" id="rating0">1</p>
         </button>
-        <button class="starButton1">
+        <button (click)="foodRating(2)" class="starButton1">
           <p class="star1"></p>
           <p class="rating1">2</p>
         </button>
-        <button class="starButton2">
+        <button (click)="foodRating(3)" class="starButton2">
           <p class="star2"></p>
           <p class="rating2">3</p>
         </button>
-        <button class="starButton3">
+        <button (click)="foodRating(4)" class="starButton3">
           <p class="star3"></p>
           <p class="rating3">4</p>
         </button>
-        <button class="starButton4">
+        <button (click)="foodRating(5)" class="starButton4">
           <p class="star4"></p>
           <p class="rating4">5</p>
         </button>
       </div>
       <div class="rectangle1" align="right">
         <div class="box1">
-          <p class="check1"></p>
-          <p class="saved1">Saved</p>
+          <p class="check1" [ngClass]="isFoodRatingStored?'check1-active':''"></p>
+          <p class="saved1" [ngClass]="isFoodRatingStored?'saved1-active':''">Saved</p>
         </div>
       </div>
       <p class="service">Service</p>
       <div class="ratingButtons2">
-        <button class="starButton5">
+        <button (click)="serviceRating(1)" class="starButton5">
           <p class="star5"></p>
           <p class="rating5">1</p>
         </button>
-        <button class="starButton6">
+        <button (click)="serviceRating(2)" class="starButton6">
           <p class="star6"></p>
           <p class="rating6">2</p>
         </button>
-        <button class="starButton7">
+        <button (click)="serviceRating(3)" class="starButton7">
           <p class="star7"></p>
           <p class="rating7">3</p>
         </button>
-        <button class="starButton8">
+        <button (click)="serviceRating(4)" class="starButton8">
           <p class="star8"></p>
           <p class="rating8">4</p>
         </button>
-        <button class="starButton9">
+        <button (click)="serviceRating(5)" class="starButton9">
           <p class="star9"></p>
           <p class="rating9">5</p>
         </button>
       </div>
       <div class="rectangle2" align="right">
         <div class="box2">
-          <div class="check2"></div>
-          <p class="saved2">Saved</p>
+          <div class="check2" [ngClass]="isServiceRatingStored?'check2-active':''"></div>
+          <p class="saved2" [ngClass]="isServiceRatingStored?'saved2-active':''">Saved</p>
         </div>
       </div>
       <p class="writeAReview">Write a review</p>
@@ -116,10 +116,14 @@
         <input class="inputReview" type="text" placeholder="Start writing your review" name="" id="">
       </div>
       <div class="addImageButton" align="right">
+        <input type="file" multiple (change)="detectFiles($event)">
         <p class="addImage">+ Add image</p>
       </div>
+      <div>
+        <img *ngFor="let url of imageUrls" [src]="url" width="180">
+      </div>
       <div class="rectangle4">
-        <button class="submit">Submit</button>
+        <button (click)="submitReview()" class="submit">Submit</button>
       </div>
     </div>
   </div>

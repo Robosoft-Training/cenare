@@ -508,14 +508,22 @@
             margin-right: 5px;
           }
 
+          .check1-active {
+            content: url('../../../../../assets/images/apply-code.png');
+          }
+
           .saved1 {
-            color: #223136;
+            color: #362922;
             font-family: $openSans;
             font-size: 11px;
             letter-spacing: 0;
             line-height: 17px;
             margin-top: auto;
             margin-bottom: auto;
+          }
+
+          .saved1-active {
+            color: $green;
           }
         }
       }
@@ -745,6 +753,15 @@
             margin-top: auto;
             margin-bottom: auto;
           }
+
+          .check2-active {
+            content: url('../../../../../assets/images/apply-code.png');
+          }
+
+          .saved2-active {
+            color: $green;
+          }
+
         }
       }
 
@@ -776,6 +793,7 @@
       .addImageButton {
         height: 42px;
         margin-top: 12px;
+        cursor: pointer;
 
         .addImage {
           color: #F57C00;

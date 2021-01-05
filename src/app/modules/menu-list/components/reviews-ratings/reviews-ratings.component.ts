@@ -13,7 +13,14 @@ export class ReviewsRatingsComponent implements OnInit {
   count: any;
   datalist: any = [];
   likedReviewsId: any = [];
-  sortType = 'date_high_low'
+  sortType = 'date_high_low';
+  isFoodRatingStored = false;
+  isServiceRatingStored = false;
+  foodRatings = 0;
+  serviceRatings = 0;
+  reviewText:any = null;
+  imageUrls:any = [];
+  files: any = null;
 
   constructor(
     private reviewsRatingsService: ReviewsRatingsService,
@@ -25,14 +32,6 @@ export class ReviewsRatingsComponent implements OnInit {
     const restId = this.localStorageService.getRestId()
     this.reviewsRatingsService.getRestaurantReviews(restId).subscribe(
       (data: any) => {
-      }
-    )
-  }
-
-  ngOnInit(): void {
-    this.reviewsRatingsService.currentReviewsDataListSource.subscribe(
-      (data: any) => {
-        this.datalist = data.resultList;
       }
     )
   }
@@ -56,8 +55,55 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   sortByDate = () => {
-    this.sortType = this.sortType==='date_high_low'?'date_low_high':'date_high_low';
+    this.sortType = this.sortType === 'date_high_low' ? 'date_low_high' : 'date_high_low';
     this.datalist = this.sortingService.sortingByDate(this.datalist, this.sortType);
   }
 
+  detectFiles(event) {
+    this.imageUrls = [];
+    let files = event.target.files;
+    this.files = files;
+    if (files) {
+      for (let file of files) {
+        let reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.imageUrls.push(e.target.result);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+
+  foodRating = (rating) => {
+    this.foodRatings = rating;
+    this.isFoodRatingStored = false;
+    this.localStorageService.setFoodRatings(rating);
+    this.isFoodRatingStored = true;
+  }
+
+  serviceRating = (rating) => {
+    this.serviceRatings = rating;
+    this.isServiceRatingStored = false;
+    this.localStorageService.setServiceRatings(rating);
+    this.isServiceRatingStored = true;
+  }
+
+  submitReview = () => {
+    if(!(this.foodRatings===0 || this.serviceRatings===0)){
+      console.log(this.foodRatings, this.serviceRatings, this.reviewText, this.imageUrls);
+      this.reviewsRatingsService.addReviews(this.reviewText, this.files).subscribe(
+        msg => {
+          console.log(msg);
+        }
+      );
+    }
+  }
+
+  ngOnInit(): void {
+    this.reviewsRatingsService.currentReviewsDataListSource.subscribe(
+      (data: any) => {
+        this.datalist = data.resultList;
+      }
+    )
+  }
 }

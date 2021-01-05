@@ -14,6 +14,7 @@ export class ReviewsRatingsService {
   reviewsDataListSource = new BehaviorSubject({});
   currentReviewsDataListSource = this.reviewsDataListSource.asObservable();
   currentReviewsDataList: any;
+  restaurantID:any;
 
   constructor(
     private httpClient: HttpClient,
@@ -21,7 +22,7 @@ export class ReviewsRatingsService {
   ) { }
 
   getRestaurantReviews = (restaurantID): Observable<any> => {
-    console.log(restaurantID);
+    this.restaurantID = restaurantID;
     const url = `${this.apiBaseUrl}review/getReviews`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurantId', restaurantID);
@@ -52,6 +53,28 @@ export class ReviewsRatingsService {
     console.log(reviewId);
     const url = `${this.apiBaseUrl}review/unlikeReview?reviewId=${reviewId}`;
     return this.httpClient.delete<any[]>(url)
+      .pipe(
+        tap(data => {
+        }),
+        retry(3)
+      );
+  }
+
+  addReviews = (review, files) => {
+    //console.log(reviewId);
+    const url = `${this.apiBaseUrl}review/addReview`;
+
+    const formData: FormData = new FormData();
+    formData.append('review', `{
+      "food_rating": 2,
+      "service_rating": 4,
+      "review_description": "hello",
+      "review_date": 02-02-2020
+    }`);
+    formData.append('restaurantId', this.restaurantID);
+    formData.append('files', files);
+
+    return this.httpClient.post<any[]>(url, formData)
       .pipe(
         tap(data => {
         }),

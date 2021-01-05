@@ -54,12 +54,10 @@ export class CartService {
 
     let httpParams = new HttpParams();
     httpParams = httpParams.append('orderNumber', orderNumber);
-    // console.log(httpParams);
 
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
-          // console.log(data);
         }),
         retry(3)
       );
