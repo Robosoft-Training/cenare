@@ -42,12 +42,21 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this.menuListService.currentMenuDataListSource.subscribe(
       (data: any) => {
-        this.menuList = data.resultList;
+        this.createAnArray(data.resultList)
       }
     );
     $("#left").addClass('left');
     $("#left").removeClass('leftArrow');
     console.log(this.clickedCount);
+  }
+
+  createAnArray(datalist) {
+    datalist.forEach(
+      (data: any) => {
+        this.imageList.push(data.menu.item_image_path)
+        console.log(this.imageList)
+      }
+    )
   }
 
   displayImage(imageUrl, count) {

@@ -14,18 +14,21 @@
     <div class="dialog">
       <img class="cancel" (click)="close1()" src="../../../assets/images/cancel.png" alt="">
       <img class="selectedImage" src={{clickedImage}} alt="">
+
       <div class="imageDetails">
-        <p class="imageName">Vada</p>
-        <div class="count" align="right">
-          <p>{{clickedCount+1}}</p>
-          <p>/</p>
-          <p>{{imageList.length}}</p>
+        <div class="rectangle2">
+          <p class="imageName">Vada</p>
+          <div class="count" align="right">
+            <p>{{clickedCount+1}}</p>
+            <p>/</p>
+            <p>{{imageList.length}}</p>
+          </div>
+        </div>
+        <div class="rectangle3">
+          <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow()"></button>
+          <button class="fa fa-angle-right rightArrow" id="right" (click)="rightArrow()"></button>
         </div>
       </div>
-    </div>
-    <div class="rectangle3">
-      <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow()"></button>
-      <button class="fa fa-angle-right rightArrow" id="right" (click)="rightArrow()"></button>
     </div>
   </div>
 </span>
