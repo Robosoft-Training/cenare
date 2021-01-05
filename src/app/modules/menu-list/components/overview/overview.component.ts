@@ -12,17 +12,17 @@ declare var ol: any;
 export class OverviewComponent implements OnInit {
 
   constructor(private restaurantOverview: RestaurantOverviewService) { }
-  
+
   latitude: number = 18.5204;
   longitude: number = 73.8567;
-  description: any ='';
-  cuisines: any=[];
-  phone: any='';
+  description: any = '';
+  cuisines: any = [];
+  phone: any = '';
   map: any;
-  address:any='';
-  cost:any='';
-  openTime:any=[];
-  closeTime:any=[];
+  address: any = '';
+  cost: any = '';
+  openTime: any = [];
+  closeTime: any = [];
 
   addPoint(lat: number, lng: number) {
     const vectorLayer = new ol.layer.Vector({
@@ -43,21 +43,23 @@ export class OverviewComponent implements OnInit {
     this.map.addLayer(vectorLayer);
   }
 
-  ngOnInit()
-   {
-     this.restaurantOverview.currentoverviewDataListSource.subscribe(
-       (data:any)=> {console.log(data)
-      this.description=data.restaurant_description
-      this.cuisines=data.cuisines
-      this.phone=data.phone
-      this.address=data.restaurant_address
-      this.cost=data.min_order_cost
-      this.openTime=data.open_time
-      this.closeTime=data.close_time
+  ngOnInit() {
+    this.restaurantOverview.currentoverviewDataListSource.subscribe(
+      (data: any) => {
+        console.log(data)
+        this.description = data.restaurant_description
+        this.cuisines = data.cuisines
+        this.phone = data.phone
+        this.address = data.restaurant_address
+        this.cost = data.min_order_cost
+        this.openTime = data.open_time
+        this.closeTime = data.close_time
+        this.longitude = data.latitude;
+        this.latitude = data.longitude
       }
 
-     )
-     
+    )
+
     this.map = new ol.Map({
       target: 'map',
       controls: [],
@@ -67,11 +69,11 @@ export class OverviewComponent implements OnInit {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([74.8560, 12.9141]),
+        center: ol.proj.fromLonLat([this.latitude, this.longitude]),
         zoom: 13
       })
     });
-    this.addPoint(12.9141, 74.8560);
+    this.addPoint(this.longitude, this.latitude);
   }
-  
+
 }

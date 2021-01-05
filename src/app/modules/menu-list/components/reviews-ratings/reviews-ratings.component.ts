@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { ReviewsRatingsService } from 'src/app/services/resraurant-details/reviews-ratings/reviews-ratings.service';
 
 @Component({
@@ -10,32 +11,45 @@ export class ReviewsRatingsComponent implements OnInit {
 
   count: any;
   datalist: any = [];
-  // images: any = [];
+  likedReviewsId: any = [];
 
   constructor(
-    private reviewsRatingsService: ReviewsRatingsService
+    private reviewsRatingsService: ReviewsRatingsService,
+    private localStorageService: LocalStorageService
   ) { }
 
-  ngOnInit(): void {
-    this.reviewsRatingsService.currentReviewsDataListSource.subscribe(
+  loadReviews = () => {
+    const restId = this.localStorageService.getRestId()
+    this.reviewsRatingsService.getRestaurantReviews(restId).subscribe(
       (data: any) => {
-        // console.log(data)
-        this.datalist = data.resultList;
-        console.log(this.datalist)
       }
     )
   }
 
-  addImage() {
-
+  ngOnInit(): void {
+    this.reviewsRatingsService.currentReviewsDataListSource.subscribe(
+      (data: any) => {
+        this.datalist = data.resultList;
+      }
+    )
   }
 
-  submit() {
-
+  likeReview = (reviewId) => {
+    this.reviewsRatingsService.likeReviews(reviewId).subscribe(
+      msg => {
+        this.loadReviews();
+        this.likedReviewsId.push(reviewId);
+      }
+    );
   }
 
-  foodRatingOne() {
-   // document.getElementById('foodRatingOne').style.border = "green";
+  disLikeReview = (reviewId) => {
+    this.reviewsRatingsService.disLikeReviews(reviewId).subscribe(
+      msg => {
+        this.loadReviews();
+        this.likedReviewsId.splice(this.likedReviewsId.indexOf(reviewId));
+      }
+    );
   }
 
 }

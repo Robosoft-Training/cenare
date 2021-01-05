@@ -10,33 +10,37 @@ import { RestaurantListService } from 'src/app/services/restaurant-list/restaura
   templateUrl: './menu-list.component.html',
   styleUrls: ['./menu-list.component.scss']
 })
-export class MenuListComponent implements OnInit, AfterViewInit{
+export class MenuListComponent implements OnInit, AfterViewInit {
   formType = 'menu';
   restaurentId: any = 0;
   currentRestaurant: any;
-  name:any='';
-  cuisines:any='';
-  time:any='';
-  image:any='';
-  cost:any='';
-  openTime:any=[0,0];
-  closeTime:any=[0,0];
-  placeholderImage = "../../../../../assets/images/Resturant Image_placeholder.png";
+  name: any = '';
+  cuisines: any = '';
+  time: any = '';
+  image: any = '';
+  cost: any = '';
+  openTime: any = [0, 0];
+  closeTime: any = [0, 0];
+  placeholderImage = "assets/images/rest_placeholder.png";
+  rating1 = 0;
+  rating2 = 0;
+  rating3 = 0;
+  rating4 = 0;
+  rating5 = 0;
+  likedReviewsId: any = [];
+  restaurantRaring = 0;
 
   constructor(
     private menuListService: MenuListService,
-    private restaurantReviewsService : ReviewsRatingsService,
+    private restaurantReviewsService: ReviewsRatingsService,
     private activatedRoute: ActivatedRoute,
     private elementRef: ElementRef,
-    private restaurantOverview:  RestaurantOverviewService
+    private restaurantOverview: RestaurantOverviewService,
+    private restaurantListService: RestaurantListService
   ) { }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
-  }
-
-  getCurrentRestaurant = (data) => {
-    console.log(data);
   }
 
   ngOnInit(): void {
@@ -45,30 +49,48 @@ export class MenuListComponent implements OnInit, AfterViewInit{
       (data: any) => {
       }
     );
-    
-    // console.log(this.restaurantListService.currentretaurantDataList);
+
     this.restaurantReviewsService.getRestaurantReviews(this.restaurentId).subscribe(
       (data: any) => {
         console.log(data);
+        data.resultList.forEach(
+          (item) => {
+            this.likedReviewsId.push(item.rating);
+          }
+        );
+        this.rating1 = this.likedReviewsId[0];
+        this.rating2 = this.likedReviewsId[1];
+        this.rating3 = this.likedReviewsId[2];
+        this.rating4 = this.likedReviewsId[3];
+        this.rating5 = this.likedReviewsId[4];
       });
-    
+
     this.restaurantOverview.getRestaurantOverview(this.restaurentId).subscribe(
       (data: any) => {
-        this.name=data.restaurant_name
-        this.cuisines=data.cuisines
-        this.time=data.avg_delivery_time
-        this.image=data.restaurant_image
-        this.cost=data.min_order_cost
-        this.openTime=data.open_time
-        this.closeTime=data.close_time
-        console.log(this.image);
+        this.name = data.restaurant_name
+        this.cuisines = data.cuisines
+        this.time = data.avg_delivery_time
+        this.image = data.restaurant_image
+        this.cost = data.min_order_cost
+        this.openTime = data.open_time
+        this.closeTime = data.close_time
+      }
+    );
+
+    this.restaurantListService.currentretaurantDataListSource.subscribe(
+      (restaurantDataList: any) => {
+        restaurantDataList.resultList.forEach(element => {
+          console.log(typeof this.restaurentId, typeof element.restaurant.restaurant_id);
+          if(this.restaurentId === element.restaurant.restaurant_id.toString()) {
+            this.restaurantRaring = element.rating;
+          }
+        });
       }
     );
   }
 
   showFormType(formName): void {
     this.formType = formName;
-    console.log(formName);
   }
 
 }

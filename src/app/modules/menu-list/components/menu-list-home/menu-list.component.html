@@ -10,22 +10,24 @@
                 <div class="form">
                     <div class="card">
                         <div class="details">
-                            <img class="cutlery"
-                                src="../../../../../assets/cutlery.png">
+                            <img class="cutlery" src="../../../../../assets/cutlery.png">
                             <label class="name">{{name}}</label>
                             <label class="cuisines">{{cuisines}}</label>
-                            <img class="rating" src="../../../../../assets/rectangle.png">
-                            <p>4.3</p>
+                            <div class="rating"
+                                [ngClass]="{'ratingBox-green':restaurantRaring>=4, 'ratingBox-yellow':restaurantRaring<=3, 'ratingBox-red':restaurantRaring<3}">
+                            </div>
+                            <p>{{ restaurantRaring | number : '1.1-1' }}</p>
                             <label class="time"> &#8226; {{time}} mins</label>
                             <label class="order"> &#8226; INR{{cost}} min order</label>
                             <img class="timings" src="../../../../../assets/time_icon.png">
-                            <label class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
+                            <label
+                                class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
                             <label class="delivery">Delivery for last 5 orders</label>
-                            <button class="star"> &#9733; 4</button>
-                            <button class="star1">&#9733; 4</button>
-                            <button class="star2">&#9733; 3</button>
-                            <button class="star3">&#9733; 4</button>
-                            <button class="star4">&#9733; 2</button>
+                            <button *ngIf="rating1" class="star"> &#9733; {{ rating1 | number : '1.1-1' }}</button>
+                            <button *ngIf="rating2" class="star1">&#9733; {{ rating2 | number : '1.1-1' }}</button>
+                            <button *ngIf="rating3" class="star2">&#9733; {{ rating3 | number : '1.1-1' }}</button>
+                            <button *ngIf="rating4" class="star3">&#9733; {{ rating4 | number : '1.1-1' }}</button>
+                            <button *ngIf="rating5" class="star4">&#9733; {{ rating5 | number : '1.1-1' }}</button>
                             <div class="effect d-none d-md-block">
                             </div>
                         </div>

@@ -12,8 +12,7 @@
       <div class="rectangle1">
         <div class="nameSection">
           <img class="photo"
-          [src]="item.user_image"
-            alt="">
+          [src]="!(item.user_image==='null')?item.user_image:'assets/images/profile.svg'" alt="">
           <div class="details">
             <div class="name">
               <p class="firstName">{{item.first_name}}</p>
@@ -25,29 +24,24 @@
               <p class="ratingNumber">{{item.ratingCount}}</p>
               <p class="ratings">Ratings</p>
             </div>
-            <div class="ratingBox">
-              <div class="whiteStar"></div>
+            <div class="ratingBox" [ngClass]="{'ratingBox-green':item.rating>=4, 'ratingBox-yellow':item.rating<=3, 'ratingBox-red':item.rating<3}">
+              <mat-icon class="rating-star">star</mat-icon>
               <div class="starNumber">{{item.rating}}</div>
             </div>
           </div>
         </div>
       </div>
-      <p class="description">{{item.description}}</p>
+      <p class="description">{{item.description==='null'?'':item.description}}</p>
       <div class="rectangle2">
         <p class="date">{{item.date}}</p>
         <div class="like" align="right">
-          <img class="likeButton" src="../../../../../assets/images/like_inactive.png" alt="">
+          <img  *ngIf="!(likedReviewsId.includes(item.review_id))" class="likeButton" src="assets/images/like_inactive.png" (click)="likeReview(item.review_id)" alt="">
+          <img  *ngIf="likedReviewsId.includes(item.review_id)" class="likeButton" src="assets/images/like_active.png" (click)="disLikeReview(item.review_id)" alt="">
           <p class="likeNumber">{{item.likes}}</p>
         </div>
       </div>
       <div class="rectangle3">
         <img *ngFor = "let list of item.foodImages" [src]="list" alt="">
-        <img src="../../../../../assets/images/imagecopy.png" alt="">
-        <img src="../../../../../assets/images/imagecopy2.png" alt="">
-        <img src="https://www.cdc.gov/foodsafety/images/comms/food-Safety-Tips-small.jpg" alt="">
-        <img
-          src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=700%2C636"
-          alt="">
       </div>
     </div>
   </div>
@@ -57,7 +51,7 @@
       <p class="heading">Rate your experience</p>
       <p class="food">Food</p>
       <div class="ratingButtons1">
-        <button class="starButton0" id="foodRatingOne" (click)="foodRatingOne()">
+        <button class="starButton0" id="foodRatingOne">
           <p class="star0" id="starZero"></p>
           <p class="rating0" id="rating0">1</p>
         </button>
@@ -118,10 +112,10 @@
         <input class="inputReview" type="text" placeholder="Start writing your review" name="" id="">
       </div>
       <div class="addImageButton" align="right">
-        <p class="addImage" (click)="addImage()">+ Add image</p>
+        <p class="addImage">+ Add image</p>
       </div>
       <div class="rectangle4">
-        <button class="submit" (click)="submit()">Submit</button>
+        <button class="submit">Submit</button>
       </div>
     </div>
   </div>

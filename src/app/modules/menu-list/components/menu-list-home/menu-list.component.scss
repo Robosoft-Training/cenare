@@ -96,6 +96,17 @@
         height: 23px;
         top: 155px;
         left: 30px;
+        border-radius: 0.3em;
+      }
+
+      .ratingBox-green {
+        background-color: #5FB700;
+      }
+      .ratingBox-yellow {
+        background-color: $orange;
+      }
+      .ratingBox-red {
+        background-color: $red;
       }
 
       p {

@@ -30,10 +30,33 @@ export class ReviewsRatingsService {
       .pipe(
         tap(data => {
           this.currentReviewsDataList = { ...data };
-          this.reviewsDataListSource.next(data)
-          // this.reviewsDataListSource.next(this.currentReviewsDataList);
+          this.reviewsDataListSource.next(data);
         }),
         retry(3)
       );
   }
+
+  likeReviews = (reviewId): Observable<any> => {
+    console.log(reviewId);
+    const url = `${this.apiBaseUrl}review/likeReview?reviewId=${reviewId}`;
+    const postBody = {};
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+        }),
+        retry(3)
+      );
+  }
+
+  disLikeReviews = (reviewId): Observable<any> => {
+    console.log(reviewId);
+    const url = `${this.apiBaseUrl}review/unlikeReview?reviewId=${reviewId}`;
+    return this.httpClient.delete<any[]>(url)
+      .pipe(
+        tap(data => {
+        }),
+        retry(3)
+      );
+  }
+
 }

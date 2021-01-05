@@ -165,29 +165,36 @@
               width: 30px;
               margin-top: 9px;
               border-radius: 4px;
-              background-color: #5FB700;
               display: flex;
+              justify-content: center;
+              align-items: center;
 
-              .whiteStar {
-                content: url(https://img.pngio.com/white-star-icon-free-white-star-icons-white-star-transparent-background-256_256.png);
-                height: 10px;
-                width: 10px;
-                margin-left: 5px;
-                margin-top: auto;
-                margin-bottom: auto;
+              .rating-star {
+                font-size: 12px;
+                color: $white;
+                top: 0.5em;
+                left: 0.3em;
+                position: relative;
               }
 
               .starNumber {
                 color: #FFFFFF;
                 font-family: $openSans;
                 font-size: 11px;
+                top: 0em;
+                left: -0.5em;
                 font-weight: bold;
-                letter-spacing: 0;
-                line-height: 17px;
-                margin-left: 3px;
-                margin-top: auto;
-                margin-bottom: auto;
+                position: relative;
               }
+            }
+            .ratingBox-green {
+              background-color: #5FB700;
+            }
+            .ratingBox-yellow {
+              background-color: $orange;
+            }
+            .ratingBox-red {
+              background-color: $red;
             }
           }
         }
