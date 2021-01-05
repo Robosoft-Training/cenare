@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown  language-font">
-          <a class="nav-link dropdown-toggle language-font" href="#" id="navbarDropdown" role="button"
+          <a i18n class="nav-link dropdown-toggle language-font" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             English
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">ಕನ್ನಡ</a>
-            <a class="dropdown-item" href="#">हिंदी</a>
+            <a class="dropdown-item" href="http://localhost:4200/kn/">ಕನ್ನಡ</a>
+            <a class="dropdown-item" href="http://localhost:4200/en-US/">English</a>
           </div>
         </li>
 
@@ -29,7 +29,7 @@
         <li class="nav-item" *ngIf="isLoggedIn">
           <span class="d-flex" (click)="gotoProfile()">
             <div class="profile-placeholder-container d-flex align-items-center justify-content-center">
-              <img src="../../../../assets/images/profile.svg" class="profile-placeholder" />
+              <img src="assets/images/profile.svg" class="profile-placeholder" />
             </div>
             <a class="nav-link username-text">{{ userName }}</a>
           </span>

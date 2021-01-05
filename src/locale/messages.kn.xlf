@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+    <trans-unit id="c1cd43d69305fcaad18cbffb706b293bd3d0adff" datatype="html">
+        <source> English </source>
+        <target>ಕನ್ನಡ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shared-components/nav-bar/nav-bar.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="30de65020ce95beb876742ab599ea536764b2f5e" datatype="html">
         <source>CART</source>
         <target>ಕಾರ್ಟ್</target>

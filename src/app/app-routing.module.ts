@@ -7,8 +7,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
-  { path: 'home-page', loadChildren: () => import('./modules/home-page/home-page.module').then(m => m.HomePageModule) },
-  { path: '', pathMatch: 'full', redirectTo: '/home-page' },
+  { path: '', loadChildren: () => import('./modules/home-page/home-page.module').then(m => m.HomePageModule) },
   { path: 'about', component: AboutComponent },
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
