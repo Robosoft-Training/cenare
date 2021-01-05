@@ -12,13 +12,12 @@ export class GalleryComponent implements OnInit {
 
   isOpen1 = false;
   clickedImage: any = null;
+  clickedImageName: any = null;
   clickedCount = 0;
 
-  imageList = [
-    "../../../../../assets/images/Vada.jpg",
-    "../../../../../assets/images/TandooriChicken.jpg",
-    "../../../../../assets/images/uttapam.jpg"
-  ]
+  groupedMenuList: any = {
+    key: 0
+  };
 
   menuList: IMenuList[] = [
     {
@@ -35,6 +34,18 @@ export class GalleryComponent implements OnInit {
     }
   ];
 
+  imageList = [
+    "../../../../../assets/images/Vada.jpg",
+    "../../../../../assets/images/TandooriChicken.jpg",
+    "../../../../../assets/images/uttapam.jpg"
+  ];
+
+  imageName: any = [
+    "Vada",
+    "Tandoori Chicken",
+    "Uttapam"
+  ];
+
   constructor(
     private menuListService: MenuListService,
   ) { }
@@ -42,11 +53,14 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this.menuListService.currentMenuDataListSource.subscribe(
       (data: any) => {
+        // this.menuList = data.resultList;
         this.createAnArray(data.resultList)
+        this.itemName(data.resultList)
       }
     );
     $("#left").addClass('left');
     $("#left").removeClass('leftArrow');
+    this.clickedImageName = this.imageName[this.clickedCount];
     console.log(this.clickedCount);
   }
 
@@ -54,7 +68,14 @@ export class GalleryComponent implements OnInit {
     datalist.forEach(
       (data: any) => {
         this.imageList.push(data.menu.item_image_path)
-        console.log(this.imageList)
+      }
+    )
+  }
+
+  itemName(datalist) {
+    datalist.forEach(
+      (data: any) => {
+        this.imageName.push(data.menu.item_name)
       }
     )
   }
@@ -70,34 +91,36 @@ export class GalleryComponent implements OnInit {
   }
 
   leftArrow() {
-    // console.log(this.clickedCount)
     if (this.clickedCount === 0) {
       $("#left").addClass('left');
       $("#left").removeClass('leftArrow');
     }
     else {
       this.clickedImage = this.imageList[--this.clickedCount];
+      this.clickedImageName = this.imageName[this.clickedCount];
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
       $("#right").removeClass('right');
       $("#right").addClass('rightArrow');
       console.log(this.clickedCount);
+      console.log(this.clickedImageName)
     }
   }
 
   rightArrow() {
-    // console.log(this.clickedCount)
     if (this.clickedCount === this.imageList.length - 1) {
       $("#right").addClass('right');
       $("#right").removeClass('rightArrow');
     }
     else {
       this.clickedImage = this.imageList[++this.clickedCount];
+      this.clickedImageName = this.imageName[this.clickedCount];
       $("#right").removeClass('right');
       $("#right").addClass('rightArrow');
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
       console.log(this.clickedCount);
+      console.log(this.clickedImageName)
     }
   }
 }
