@@ -4,15 +4,16 @@
       <p class="reviews">Reviews</p>
       <div class="sort">
         <p class="show">Show :</p>
-        <p class="recent">Recent</p>
+        <p (click)="sortByDate()" class="recent">Recent</p>
         <div class="arrow"></div>
+        <span *ngIf="sortType === 'date_high_low'" class="arrow">&#8593;</span>
+        <span *ngIf="sortType === 'date_low_high'" class="arrow">&#8595;</span>
       </div>
     </div>
-    <div class="card" *ngFor = "let item of datalist">
+    <div class="card" *ngFor="let item of datalist">
       <div class="rectangle1">
         <div class="nameSection">
-          <img class="photo"
-          [src]="!(item.user_image==='null')?item.user_image:'assets/images/profile.svg'" alt="">
+          <img class="photo" [src]="!(item.user_image==='null')?item.user_image:'assets/images/profile.svg'" alt="">
           <div class="details">
             <div class="name">
               <p class="firstName">{{item.first_name}}</p>
@@ -24,7 +25,8 @@
               <p class="ratingNumber">{{item.ratingCount}}</p>
               <p class="ratings">Ratings</p>
             </div>
-            <div class="ratingBox" [ngClass]="{'ratingBox-green':item.rating>=4, 'ratingBox-yellow':item.rating<=3, 'ratingBox-red':item.rating<3}">
+            <div class="ratingBox"
+              [ngClass]="{'ratingBox-green':item.rating>=4, 'ratingBox-yellow':item.rating<=3, 'ratingBox-red':item.rating<3}">
               <mat-icon class="rating-star">star</mat-icon>
               <div class="starNumber">{{item.rating}}</div>
             </div>
@@ -35,13 +37,15 @@
       <div class="rectangle2">
         <p class="date">{{item.date}}</p>
         <div class="like" align="right">
-          <img  *ngIf="!(likedReviewsId.includes(item.review_id))" class="likeButton" src="assets/images/like_inactive.png" (click)="likeReview(item.review_id)" alt="">
-          <img  *ngIf="likedReviewsId.includes(item.review_id)" class="likeButton" src="assets/images/like_active.png" (click)="disLikeReview(item.review_id)" alt="">
+          <img *ngIf="!(likedReviewsId.includes(item.review_id))" class="likeButton"
+            src="assets/images/like_inactive.png" (click)="likeReview(item.review_id)" alt="">
+          <img *ngIf="likedReviewsId.includes(item.review_id)" class="likeButton" src="assets/images/like_active.png"
+            (click)="disLikeReview(item.review_id)" alt="">
           <p class="likeNumber">{{item.likes}}</p>
         </div>
       </div>
       <div class="rectangle3">
-        <img *ngFor = "let list of item.foodImages" [src]="list" alt="">
+        <img *ngFor="let list of item.foodImages" [src]="list" alt="">
       </div>
     </div>
   </div>

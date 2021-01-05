@@ -50,7 +50,6 @@
           line-height: 19px;
           margin-top: auto;
           margin-bottom: auto;
-          //  border: 1px solid blue;
         }
 
         .recent {
@@ -63,20 +62,18 @@
           letter-spacing: 0;
           line-height: 19px;
           text-align: right;
-          //  border: 1px solid blue;
           margin-top: auto;
           margin-bottom: auto;
+          cursor: pointer;
         }
 
         .arrow {
-          content: url(../../../../../assets/images/long-arrow-pointing-down.png);
           color: red;
-          height: 11px;
+          height: 12px;
           width: 5px;
-          margin-left: 5px;
-          margin-top: auto;
+          margin-left: 0px;
+          margin-top: -2px;
           margin-bottom: auto;
-          //  transform: scaleY(-1);
         }
       }
     }

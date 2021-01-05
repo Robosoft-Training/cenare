@@ -59,4 +59,22 @@ export class SortingService {
     }
     return detailsArray;
   }
+
+  sortingByDate = (detailsArray, sortType) => {
+    if(sortType === 'date_high_low'){
+      detailsArray.sort(
+        (a, b) => {
+          return new Date(b.date).getDate() - new Date(a.date).getDate();
+        }
+      );
+    }
+    else {
+      detailsArray.sort(
+        (a, b) => {
+          return new Date(a.date).getDate() - new Date(b.date).getDate();
+        }
+      );
+    }
+    return detailsArray;
+  }
 }
