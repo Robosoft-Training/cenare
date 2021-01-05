@@ -85,7 +85,7 @@ export class CartService {
     let httpParams = new HttpParams();
     httpParams = httpParams.append('menuId', menuId);
     httpParams = httpParams.append('orderNumber', orderNumber);
-    return this.httpClient.delete<any[]>(url, {params: httpParams})
+    return this.httpClient.delete<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
           console.log(data);
@@ -98,6 +98,21 @@ export class CartService {
     console.log(orderNumber);
     const url = `${this.apiBaseUrl}orders/clearCart?orderNumber=${orderNumber}`;
     return this.httpClient.delete<any[]>(url)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
+  addCoockingInstructions = (cookingInstruction, orderNumber) => {
+    const url = `${this.apiBaseUrl}orders/addCookingInstruction`;
+    const postBody = {
+      cookingInstruction,
+      orderNumber
+    };
+    return this.httpClient.post<any[]>(url, postBody)
       .pipe(
         tap(data => {
           console.log(data);

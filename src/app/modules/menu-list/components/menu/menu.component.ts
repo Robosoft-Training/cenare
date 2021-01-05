@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/authentication/login.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { CartService } from 'src/app/services/order-details/cart.service';
@@ -17,6 +18,7 @@ export class MenuComponent implements OnInit {
   isLoggedIn = false;
   totalAmmount: any = 0.0;
   startAdding = false;
+  coockingInstructions = null;
   menuList: IMenuList[] = [
     {
       menu: {
@@ -58,7 +60,8 @@ export class MenuComponent implements OnInit {
     private menuListService: MenuListService,
     private loginService: LoginService,
     private cartService: CartService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) { }
 
   groupByCourse = (menuList) => {
@@ -89,7 +92,7 @@ export class MenuComponent implements OnInit {
   }
 
   getAllCartData = (orderNumber) => {
-    if(this.startAdding){
+    if (this.startAdding) {
       this.cartList = [];
       this.startAdding = false;
     }
@@ -158,6 +161,19 @@ export class MenuComponent implements OnInit {
         this.getAllCartData(this.orderNo);
       }
     );
+  }
+
+  addCoockingInstructions = () => {
+    if (this.coockingInstructions) {
+      this.cartService.addCoockingInstructions(this.coockingInstructions, this.orderNo).subscribe(
+        msg => {
+          this.router.navigate(['/payment']);
+        }
+      );
+    }
+    else {
+      this.router.navigate(['/payment']);
+    }
   }
 
   ngOnInit(): void {

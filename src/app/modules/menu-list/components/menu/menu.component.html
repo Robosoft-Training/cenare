@@ -21,7 +21,8 @@
                         <div class="d-flex flex-column card-content-left">
                             <label class="name-text">{{ item.menu.item_name }}</label>
                             <label class="cost-text">INR{{item.price}}</label>
-                            <label class="description-text d-none d-md-block">{{ item.menu.desrcription | stringSlice:0:100 }}</label>
+                            <label class="description-text d-none d-md-block">{{ item.menu.desrcription |
+                                stringSlice:0:100 }}</label>
                         </div>
                         <div class="d-flex flex-column-reverse card-content-right">
                             <!-- <label class="flex-end align-self-end best-seller-text">BESTSELLER</label> -->
@@ -107,8 +108,9 @@
             </div>
             <div class="cooking-instructions">
                 <label class="cooking-instructions-text">Cooking instructions?</label><br>
-                <input class="cooking-instructions-textbox border-none" type="text" placeholder="Mention it here…"><br>
-                <button class="proceed-btn d-flex align-items-center justify-content-center" routerLink="/payment">
+                <input [(ngModel)]="coockingInstructions" class="cooking-instructions-textbox border-none" type="text"
+                    placeholder="Mention it here…"><br>
+                <button class="proceed-btn d-flex align-items-center justify-content-center" (click)="addCoockingInstructions()">
                     PROCEED TO CHECKOUT
                     <mat-icon>keyboard_arrow_right</mat-icon>
                 </button>

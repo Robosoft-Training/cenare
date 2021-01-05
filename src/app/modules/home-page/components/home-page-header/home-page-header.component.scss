@@ -50,7 +50,7 @@
                 @include mediam-imput-box(48%);
                 @include form-controles();
                 @include icon-style();
-                @include gps-form-control();
+                @include gps-form-control(3.1em);
                 background-color: $white;
             }
 
