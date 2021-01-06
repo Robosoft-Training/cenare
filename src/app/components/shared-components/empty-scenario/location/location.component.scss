@@ -1,0 +1,60 @@
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
+p{
+    text-align: center;
+    color: #4A4A4A;
+    font-family:$openSans;
+    font-size: 14px;
+    letter-spacing: -0.27px;
+    line-height: 22px;
+    position: relative;
+    bottom: 5px;
+}.image{
+    height: 108px;
+    width: 148px;
+    position: relative;
+    right: -100px;
+    bottom: -15px;
+    right: -130px;
+}
+.text{
+    color: #000000;
+  font-family:$openSans;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.48px;
+  line-height: 27px;
+  right: -35px;
+  position: relative;
+  bottom: -100px;
+  
+  
+}
+
+h6{
+   
+    color: #868995;
+    font-family:$openSans;
+    font-size: 11px;
+    letter-spacing: 0;
+    text-align: center;
+    text-align: center;
+    position: relative;
+    bottom:-70px;
+}
+.icn-pin {
+    height: 12px;
+     width: 8px;
+     position: relative;
+     bottom: -15px;
+     right:-34px;
+}
+.close{
+    border: none;
+    background: none;
+    @include focus;
+    color: none;
+    position: relative;
+    right:-380px;
+    top:-15px;
+}
