@@ -28,7 +28,7 @@ export class ReviewsRatingsService {
 
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
-        tap(data => {
+        tap((data:any) => {
           this.currentReviewsDataList = { ...data };
           this.reviewsDataListSource.next(data);
         }),

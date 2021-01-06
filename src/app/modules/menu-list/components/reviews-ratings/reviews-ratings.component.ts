@@ -18,9 +18,11 @@ export class ReviewsRatingsComponent implements OnInit {
   isServiceRatingStored = false;
   foodRatings = 0;
   serviceRatings = 0;
-  reviewText:any = null;
-  imageUrls:any = [];
+  reviewText: any = null;
+  imageUrls: any = [];
   files: any = null;
+  isLoading = false;
+  restaurentId: any;
 
   constructor(
     private reviewsRatingsService: ReviewsRatingsService,
@@ -91,11 +93,15 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   submitReview = () => {
-    if(!(this.foodRatings===0 || this.serviceRatings===0)){
+    this.isLoading = true;
+    if (!(this.foodRatings === 0 || this.serviceRatings === 0)) {
       this.reviewsRatingsService.addReviews(this.foodRatings, this.serviceRatings, this.reviewText, this.files).subscribe(
         msg => {
           console.log(msg);
           this.loadReviews();
+          this.isLoading = false;
+          this.reviewText = null;
+          this.imageUrls = [];
         }
       );
     }
@@ -104,34 +110,34 @@ export class ReviewsRatingsComponent implements OnInit {
   changeStarColor(clickID: number, commonId) {
     this.removeAllColor(commonId);
     if (clickID <= 2) {
-      this.addColor(clickID,'starButton1-red', commonId); 
-    }else if(clickID <= 4){
-      this.addColor(clickID,'starButton1-orange', commonId); 
+      this.addColor(clickID, 'starButton1-red', commonId);
+    } else if (clickID < 4) {
+      this.addColor(clickID, 'starButton1-orange', commonId);
     }
-    else{
-      this.addColor(clickID,'starButton1-green', commonId); 
+    else {
+      this.addColor(clickID, 'starButton1-green', commonId);
     }
   }
-  addColor(id: number, addClass :any, commonId){
+  addColor(id: number, addClass: any, commonId) {
     while (id != 0) {
-      $('#'+commonId + id).addClass(addClass);
-      $('#'+commonId + id).removeClass('starButton1-gray');
+      $('#' + commonId + id).addClass(addClass);
+      $('#' + commonId + id).removeClass('starButton1-gray');
       id--;
     }
   }
-  removeAllColor(commonId){
+  removeAllColor(commonId) {
     for (let i = 1; i < 6; i++) {
-      $('#'+commonId + i).removeClass('starButton1-green');
-      $('#'+commonId + i).removeClass('starButton1-orange');
-      $('#'+commonId + i).removeClass('starButton1-red');
-      $('#'+commonId + i).addClass('starButton1-gray');
+      $('#' + commonId + i).removeClass('starButton1-green');
+      $('#' + commonId + i).removeClass('starButton1-orange');
+      $('#' + commonId + i).removeClass('starButton1-red');
+      $('#' + commonId + i).addClass('starButton1-gray');
     }
   }
 
   ngOnInit(): void {
     this.reviewsRatingsService.currentReviewsDataListSource.subscribe(
       (data: any) => {
-        this.datalist = data.resultList;
+        this.datalist = data.resultList.slice().reverse();
       }
     )
   }

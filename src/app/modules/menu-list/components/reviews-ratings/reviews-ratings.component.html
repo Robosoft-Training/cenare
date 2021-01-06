@@ -123,7 +123,10 @@
         <img *ngFor="let url of imageUrls" [src]="url" class="selected-images mt-2 mb-3">
       </div>
       <div class="rectangle4">
-        <button (click)="submitReview()" class="submit">Submit</button>
+        <button *ngIf="!isLoading" (click)="submitReview()" class="submit">Submit</button>
+        <button *ngIf="isLoading" class="submit">
+          <app-loading></app-loading>
+        </button>
       </div>
     </div>
   </div>

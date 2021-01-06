@@ -55,6 +55,12 @@ export class MenuListComponent implements OnInit, AfterViewInit {
       });
 
 
+    this.restaurantListService.loadRestaurants().subscribe(
+      msg => {
+        console.log(this.restaurentId);
+      }
+    );
+
     this.restaurantOverview.getRestaurantOverview(this.restaurentId).subscribe(
       (data: any) => {
         this.name = data.restaurant_name
@@ -69,10 +75,10 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 
     this.restaurantReviewsService.currentReviewsDataListSource.subscribe(
       (data: any) => {
-        if (data.resultList) {;
-          data.resultList.reverse().forEach(
-            (item, index) => {;
-              this.likedReviewsId[index] = item.rating;;
+        if (data.resultList) {
+          data.resultList.slice().reverse().forEach(
+            (item, index) => {
+              this.likedReviewsId[index] = item.rating;
             }
           );
           this.rating1 = this.likedReviewsId[0];
