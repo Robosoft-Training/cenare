@@ -113,14 +113,14 @@
       </div>
       <p class="writeAReview">Write a review</p>
       <div class="rectangle3">
-        <input class="inputReview" [(ngModel)]="reviewText" type="text" placeholder="Start writing your review" name="" id="">
+        <input class="inputReview" [(ngModel)]="reviewText" type="text" placeholder="Start writing your review" name="review-text">
       </div>
       <div class="addImageButton" align="right">
-        <input type="file" multiple (change)="detectFiles($event)">
-        <p class="addImage">+ Add image</p>
+        <input type="file" id="file" multiple (change)="detectFiles($event)">
+        <label for="file" class="addImage">+ Add image</label>
       </div>
       <div>
-        <img *ngFor="let url of imageUrls" [src]="url" width="180">
+        <img *ngFor="let url of imageUrls" [src]="url" class="selected-images mt-2">
       </div>
       <div class="rectangle4">
         <button (click)="submitReview()" class="submit">Submit</button>

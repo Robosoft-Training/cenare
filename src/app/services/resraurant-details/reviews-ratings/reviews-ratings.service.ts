@@ -17,8 +17,7 @@ export class ReviewsRatingsService {
   restaurantID:any;
 
   constructor(
-    private httpClient: HttpClient,
-    private localStorageService: LocalStorageService
+    private httpClient: HttpClient
   ) { }
 
   getRestaurantReviews = (restaurantID): Observable<any> => {
@@ -61,15 +60,14 @@ export class ReviewsRatingsService {
   }
 
   addReviews = (foodRatings, serviceRatings, review, files) => {
-    //console.log(reviewId);
+    console.log(foodRatings);
     const url = `${this.apiBaseUrl}review/addReview?restaurantId=${this.restaurantID}`;
-
     const formData: FormData = new FormData();
     const reviewData:any = `{
       "food_rating":${foodRatings},
       "service_rating":${serviceRatings},
       "review":"${review}",
-      "review_date":"2021-01-05"
+      "review_date":"${new Date().toISOString().slice(0,10)}"
     }`
     
     formData.append('review', reviewData);

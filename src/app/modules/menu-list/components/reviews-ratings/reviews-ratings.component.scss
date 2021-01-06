@@ -184,12 +184,15 @@
                 position: relative;
               }
             }
+
             .ratingBox-green {
               background-color: #5FB700;
             }
+
             .ratingBox-yellow {
               background-color: $orange;
             }
+
             .ratingBox-red {
               background-color: $red;
             }
@@ -795,15 +798,34 @@
         margin-top: 12px;
         cursor: pointer;
 
-        .addImage {
-          color: #F57C00;
-          font-family: $openSansSemibold;
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0;
-          line-height: 17px;
-          text-align: right;
+        [type="file"] {
+          height: 0;
+          overflow: hidden;
+          width: 0;
         }
+
+        [type="file"]+label {
+          border: none;
+          border-radius: 5px;
+          color: #F57C00;
+          cursor: pointer;
+          display: inline-block;
+          font-family: $openSans;
+          font-size: inherit;
+          font-weight: 500;
+          margin-bottom: 1rem;
+          outline: none;
+          position: relative;
+          transition: all 0.3s;
+
+          &:hover {
+            color: darken(#f15d22, 10%);
+          }
+        }
+      }
+
+      .selected-images {
+        width: 100%;
       }
 
       .rectangle4 {

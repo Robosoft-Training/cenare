@@ -23,11 +23,21 @@
                             <label
                                 class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
                             <label class="delivery">Delivery for last 5 orders</label>
-                            <button *ngIf="rating1" class="star"> &#9733; {{ rating1 }}</button>
-                            <button *ngIf="rating2" class="star1">&#9733; {{ rating2 }}</button>
-                            <button *ngIf="rating3" class="star2">&#9733; {{ rating3 }}</button>
-                            <button *ngIf="rating4" class="star3">&#9733; {{ rating4 }}</button>
-                            <button *ngIf="rating5" class="star4">&#9733; {{ rating5 }}</button>
+                            <button *ngIf="rating1"
+                                [ngClass]="{'star-green':rating1>=4, 'star-orange':rating1<=3, 'star-red':rating1<3}"
+                                class="star"> &#9733; {{ rating1 }}</button>
+                            <button *ngIf="rating2"
+                                [ngClass]="{'star-green':rating2>=4, 'star-orange':rating2<=3, 'star-red':rating2<3}"
+                                class="star1">&#9733; {{ rating2 }}</button>
+                            <button *ngIf="rating3"
+                                [ngClass]="{'star-green':rating3>=4, 'star-orange':rating3<=3, 'star-red':rating3<3}"
+                                class="star2">&#9733; {{ rating3 }}</button>
+                            <button *ngIf="rating4"
+                                [ngClass]="{'star-green':rating4>=4, 'star-orange':rating4<=3, 'star-red':rating4<3}"
+                                class="star3">&#9733; {{ rating4 }}</button>
+                            <button *ngIf="rating5"
+                                [ngClass]="{'star-green':rating5>=4, 'star-orange':rating5<=3, 'star-red':rating5<3}"
+                                class="star4">&#9733; {{ rating5 }}</button>
                             <div class="effect d-none d-md-block">
                             </div>
                         </div>

@@ -134,9 +134,7 @@
         width: 40px;
         height: 20px;
         background-color: transparent;
-        border: 1px solid#5FB700;
         border-radius: 4px;
-        color:#5FB700;
         top: 220px;
         left: 36px;
         font-size: 11px;
@@ -147,9 +145,7 @@
         width: 40px;
         height: 20px;
         background-color: transparent;
-        border: 1px solid #5FB700;
         border-radius: 4px;
-        color:#5FB700;
         top: 220px;
         left: 92px;
         font-size: 11px;
@@ -160,9 +156,7 @@
         width: 40px;
         height: 20px;
         background-color: transparent;
-        border: 1px solid orange;
         border-radius: 4px;
-        color: orange;
         top: 220px;
         left: 147px;
         font-size: 11px;
@@ -173,9 +167,7 @@
         width: 40px;
         height: 20px;
         background-color: transparent;
-        border: 1px solid#5FB700;
         border-radius: 4px;
-        color:#5FB700;
         top: 220px;
         left: 201px;
         font-size: 11px;
@@ -186,13 +178,26 @@
         width: 40px;
         height: 20px;
         background-color: transparent;
-        border: 1px solid#ED1B2E;
         border-radius: 4px;
-        color: #ED1B2E;
         top: 220px;
         left: 259px;
         font-size: 11px;
         z-index: 20;
+      }
+
+      .star-green {
+        border: 1px solid  #5FB700;
+        color: #5FB700;
+      }
+
+      .star-orange {
+        border: 1px solid $orange;
+        color: $orange;
+      }
+      
+      .star-red {
+        border: 1px solid $red;
+        color: $red;
       }
 
       .time {

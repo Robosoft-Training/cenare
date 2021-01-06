@@ -52,18 +52,8 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 
     this.restaurantReviewsService.getRestaurantReviews(this.restaurentId).subscribe(
       (data: any) => {
-        console.log(data);
-        data.resultList.forEach(
-          (item) => {
-            this.likedReviewsId.push(item.rating);
-          }
-        );
-        this.rating1 = this.likedReviewsId[0];
-        this.rating2 = this.likedReviewsId[1];
-        this.rating3 = this.likedReviewsId[2];
-        this.rating4 = this.likedReviewsId[3];
-        this.rating5 = this.likedReviewsId[4];
       });
+
 
     this.restaurantOverview.getRestaurantOverview(this.restaurentId).subscribe(
       (data: any) => {
@@ -77,14 +67,33 @@ export class MenuListComponent implements OnInit, AfterViewInit {
       }
     );
 
+    this.restaurantReviewsService.currentReviewsDataListSource.subscribe(
+      (data: any) => {
+        if (data.resultList) {;
+          data.resultList.reverse().forEach(
+            (item, index) => {;
+              this.likedReviewsId[index] = item.rating;;
+            }
+          );
+          this.rating1 = this.likedReviewsId[0];
+          this.rating2 = this.likedReviewsId[1];
+          this.rating3 = this.likedReviewsId[2];
+          this.rating4 = this.likedReviewsId[3];
+          this.rating5 = this.likedReviewsId[4];
+        }
+      }
+    );
+
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
-        restaurantDataList.resultList.forEach(element => {
-          console.log(typeof this.restaurentId, typeof element.restaurant.restaurant_id);
-          if(this.restaurentId === element.restaurant.restaurant_id.toString()) {
-            this.restaurantRaring = element.rating;
-          }
-        });
+        if (restaurantDataList.resultList) {
+          restaurantDataList.resultList.forEach(element => {
+            console.log(typeof this.restaurentId, typeof element.restaurant.restaurant_id);
+            if (this.restaurentId === element.restaurant.restaurant_id.toString()) {
+              this.restaurantRaring = element.rating;
+            }
+          });
+        }
       }
     );
   }

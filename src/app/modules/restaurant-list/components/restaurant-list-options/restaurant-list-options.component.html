@@ -37,8 +37,8 @@
                 <div class="d-flex flex-row justify-content-between content-header">
                     <label class="restaurant-name-text">{{ item.restaurant.restaurant_name }}</label>
                     <div class="ratings">
-                        <label
-                            [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating
+                        <label class="rating-text"
+                            [ngClass]="{'ratings-text-1': item.rating>4, 'ratings-text-2': item.rating<=4, 'ratings-text-3': item.rating<=3}">{{item.rating
                             | number : '1.1-1'}}</label>
                     </div>
                 </div>
@@ -93,8 +93,8 @@
                 <div class="d-flex flex-row justify-content-between content-header">
                     <label class="restaurant-name-text">{{ item.restaurant.restaurant_name }}</label>
                     <div class="ratings">
-                        <label
-                            [ngClass]="{'ratings-text-1': item.rating<4, 'ratings-text-2': item.rating>=4}">{{item.rating
+                        <label class="rating-text"
+                            [ngClass]="{'ratings-text-1': item.rating>4, 'ratings-text-2': item.rating<=4, 'ratings-text-3': item.rating<=3}">{{item.rating
                             | number : '1.1-1'}}</label>
                     </div>
                 </div>

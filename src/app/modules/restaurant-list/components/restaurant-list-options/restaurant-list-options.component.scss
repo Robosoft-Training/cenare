@@ -83,7 +83,8 @@
         }
 
         .ratings {
-          .ratings-text-1 {
+          
+          .rating-text {
             color: #FFFFFF;
             font-family: "Open Sans";
             font-size: 11px;
@@ -93,21 +94,18 @@
             text-align: center;
             padding: 1px 7px;
             border-radius: 4px;
-            background-color: #F5A623;
           }
 
-          .ratings-text-2 {
-            color: #FFFFFF;
-            font-family: "Open Sans";
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 18px;
-            text-align: center;
-            padding: 1px 7px;
-            border-radius: 4px;
+          .ratings-text-1 {
             background-color: #5FB700;
           }
+          .ratings-text-2 {
+            background-color: #F5A623;
+          }
+          .ratings-text-3 {
+            background-color: $red;
+          }
+
         }
       }
 
