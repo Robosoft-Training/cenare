@@ -4,6 +4,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { OffersComponent } from './components/shared-components/all-offers/offers/offers.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'offers', component: OffersComponent},
   {path:'error', component:ErrorPageComponent},
   {
     path: 'restaurant-list',

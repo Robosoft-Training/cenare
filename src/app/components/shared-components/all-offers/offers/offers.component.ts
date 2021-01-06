@@ -1,0 +1,74 @@
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
+import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
+import { ReviewsRatingsService } from 'src/app/services/resraurant-details/reviews-ratings/reviews-ratings.service';
+
+@Component({
+  selector: 'app-offers',
+  templateUrl: './offers.component.html',
+  styleUrls: ['./offers.component.scss']
+})
+export class OffersComponent implements OnInit {
+
+  formType = 'menu';
+  restaurentId: any = 0;
+  currentRestaurant: any;
+  name:any='';
+  cuisines:any='';
+  time:any='';
+  image:any='';
+  cost:any='';
+  openTime:any=[0,0];
+  closeTime:any=[0,0];
+  placeholderImage = "../../../../../assets/images/Resturant Image_placeholder.png";
+
+  constructor(
+    private menuListService: MenuListService,
+    private restaurantReviewsService : ReviewsRatingsService,
+    private activatedRoute: ActivatedRoute,
+    private elementRef: ElementRef,
+    private restaurantOverview:  RestaurantOverviewService
+  ) { }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
+  }
+
+  getCurrentRestaurant = (data) => {
+    console.log(data);
+  }
+
+  ngOnInit(): void {
+    this.restaurentId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.menuListService.getRestaurantMenuItems(this.restaurentId).subscribe(
+      (data: any) => {
+      }
+    );
+    
+    // console.log(this.restaurantListService.currentretaurantDataList);
+    this.restaurantReviewsService.getRestaurantReviews(this.restaurentId).subscribe(
+      (data: any) => {
+        console.log(data);
+      });
+    
+    this.restaurantOverview.getRestaurantOverview(this.restaurentId).subscribe(
+      (data: any) => {
+        this.name=data.restaurant_name
+        this.cuisines=data.cuisines
+        this.time=data.avg_delivery_time
+        this.image=data.restaurant_image
+        this.cost=data.min_order_cost
+        this.openTime=data.open_time
+        this.closeTime=data.close_time
+        console.log(this.image);
+      }
+    );
+  }
+
+  showFormType(formName): void {
+    this.formType = formName;
+    console.log(formName);
+  }
+
+}

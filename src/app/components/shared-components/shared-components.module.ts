@@ -13,6 +13,7 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CustomScrollDirective } from './custom-scroll-directive';
 import { LoadingComponent } from './loading/loading.component';
+import { OffersComponent } from './all-offers/offers/offers.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LoadingComponent } from './loading/loading.component';
     TopSearchBarComponent,
     BreadcrumbsComponent,
     CustomScrollDirective,
-    LoadingComponent
+    LoadingComponent,
+    OffersComponent
   ],
   imports: [
     CommonModule,
