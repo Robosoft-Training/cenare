@@ -72,7 +72,12 @@ export class ReviewsRatingsService {
       "review_date": 02-02-2020
     }`);
     formData.append('restaurantId', this.restaurantID);
-    formData.append('files', files);
+    // formData.append('files', files);
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
+      // console.log(files[i].name, files[i]);
+    }
 
     return this.httpClient.post<any[]>(url, formData)
       .pipe(
