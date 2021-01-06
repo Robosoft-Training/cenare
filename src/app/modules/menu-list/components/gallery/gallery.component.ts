@@ -50,8 +50,6 @@ export class GalleryComponent implements OnInit {
     );
     $("#left").addClass('left');
     $("#left").removeClass('leftArrow');
-    this.clickedImageName = this.imageName[this.clickedCount];
-    console.log(this.clickedCount);
   }
 
   createAnArray(datalist) {
@@ -73,6 +71,7 @@ export class GalleryComponent implements OnInit {
   displayImage(imageUrl, count) {
     this.clickedCount = count;
     this.clickedImage = imageUrl;
+    this.clickedImageName = this.imageName[this.clickedCount];
     this.isOpen1 = !this.isOpen1;
   }
 
