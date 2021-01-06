@@ -19,6 +19,4 @@ export class AddressComponent implements OnInit {
   openDialog(formType: any): void {
     this.dialog.open(AddAddressComponent, { panelClass: 'custom-dialog-container', data: { formType } });
   }
-
 }
- 

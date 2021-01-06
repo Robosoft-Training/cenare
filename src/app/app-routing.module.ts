@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
-  {path:'error', component:ErrorPageComponent},
+  { path: 'error', component: ErrorPageComponent },
   {
     path: 'restaurant-list',
     loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule)

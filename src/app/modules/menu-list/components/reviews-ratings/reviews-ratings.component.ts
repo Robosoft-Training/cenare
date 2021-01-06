@@ -31,11 +31,11 @@ export class ReviewsRatingsComponent implements OnInit {
   ) { }
 
   loadReviews = () => {
-    const restId = this.localStorageService.getRestId()
+    const restId = this.localStorageService.getRestId();
     this.reviewsRatingsService.getRestaurantReviews(restId).subscribe(
       (data: any) => {
       }
-    )
+    );
   }
 
   likeReview = (reviewId) => {
@@ -63,14 +63,14 @@ export class ReviewsRatingsComponent implements OnInit {
 
   detectFiles(event) {
     this.imageUrls = [];
-    let files = event.target.files;
+    const files = event.target.files;
     this.files = files;
     if (files) {
-      for (let file of files) {
-        let reader = new FileReader();
+      for (const file of files) {
+        const reader = new FileReader();
         reader.onload = (e: any) => {
           this.imageUrls.push(e.target.result);
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
@@ -93,8 +93,8 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   submitReview = () => {
-    this.isLoading = true;
     if (!(this.foodRatings === 0 || this.serviceRatings === 0)) {
+      this.isLoading = true;
       this.reviewsRatingsService.addReviews(this.foodRatings, this.serviceRatings, this.reviewText, this.files).subscribe(
         msg => {
           console.log(msg);
@@ -119,7 +119,7 @@ export class ReviewsRatingsComponent implements OnInit {
     }
   }
   addColor(id: number, addClass: any, commonId) {
-    while (id != 0) {
+    while (id !== 0) {
       $('#' + commonId + id).addClass(addClass);
       $('#' + commonId + id).removeClass('starButton1-gray');
       id--;
@@ -139,6 +139,6 @@ export class ReviewsRatingsComponent implements OnInit {
       (data: any) => {
         this.datalist = data.resultList.slice().reverse();
       }
-    )
+    );
   }
 }

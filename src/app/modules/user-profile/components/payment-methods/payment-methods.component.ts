@@ -10,19 +10,19 @@ import { AddNewCardComponent } from '../add-new-card/add-new-card.component';
 export class PaymentMethodsComponent implements OnInit {
 
   cards = {
-    icon: "",
-    cardNumber: "",
-    cardName: "",
-  } 
+    icon: '',
+    cardNumber: '',
+    cardName: '',
+  };
 
   cardlist: any = [
     {
-      icon: "../../../../../assets/images/visa_icon.png",
+      icon: 'assets/images/visa_icon.png',
       cardNumber: '2345 XXXX XXXX 6574',
       cardName: 'Visa',
     },
     {
-      icon: "../../../../../assets/images/mastercard_icon.png",
+      icon: 'assets/images/mastercard_icon.png',
       cardNumber: '1234 XXXX XXXX 3456',
       cardName: 'Master card',
     }

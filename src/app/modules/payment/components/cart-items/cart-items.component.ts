@@ -8,7 +8,7 @@ import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 })
 export class CartItemsComponent implements OnInit {
 
-  formType="cartItems";
+  formType = 'cartItems';
   constructor(
   ) { }
 

@@ -13,11 +13,11 @@ export class PaymentRightBarComponent implements OnInit {
   toggleFormField = 'promo-code';
   dealsOffers: IDealsOffers[] = [
     {
-      code: "",
+      code: '',
       offerPercent: 0,
-      offerImagePath: "",
+      offerImagePath: '',
       offerId: 0,
-      offerTitle: "0"
+      offerTitle: '0'
     }
   ];
 

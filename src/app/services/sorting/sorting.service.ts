@@ -62,10 +62,9 @@ export class SortingService {
   }
 
   sortingByDate = (detailsArray, sortType) => {
-    if(sortType === 'date_high_low'){
+    if (sortType === 'date_high_low'){
       detailsArray.sort(
         (a, b) => {
-          console.log(new Date(b.date).getDate(), new Date(a.date).getDate());
           return new Date(b.date).getDate() - new Date(a.date).getDate();
         }
       );

@@ -14,7 +14,7 @@ export class ReviewsRatingsService {
   reviewsDataListSource = new BehaviorSubject({});
   currentReviewsDataListSource = this.reviewsDataListSource.asObservable();
   currentReviewsDataList: any;
-  restaurantID:any;
+  restaurantID: any;
 
   constructor(
     private httpClient: HttpClient
@@ -28,7 +28,7 @@ export class ReviewsRatingsService {
 
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
-        tap((data:any) => {
+        tap((data: any) => {
           this.currentReviewsDataList = { ...data };
           this.reviewsDataListSource.next(data);
         }),
@@ -63,18 +63,18 @@ export class ReviewsRatingsService {
     console.log(foodRatings);
     const url = `${this.apiBaseUrl}review/addReview?restaurantId=${this.restaurantID}`;
     const formData: FormData = new FormData();
-    const reviewData:any = `{
-      "food_rating":${foodRatings},
-      "service_rating":${serviceRatings},
-      "review":"${review}",
-      "review_date":"${new Date().toISOString().slice(0,10)}"
-    }`
-    
+    const reviewData: any = `{
+      "food_rating": ${foodRatings},
+      "service_rating": ${serviceRatings},
+      "review":" ${review}",
+      "review_date":" ${new Date().toISOString().slice(0, 10)}"
+    }`;
+
     formData.append('review', reviewData);
 
-    if(files) {
-      for (let i = 0; i < files.length; i++) {
-        formData.append('files', files[i]);
+    if (files) {
+      for (const file of files) {
+        formData.append('files', file);
       }
     }
 

@@ -21,7 +21,7 @@ export class MenuListComponent implements OnInit, AfterViewInit {
   cost: any = '';
   openTime: any = [0, 0];
   closeTime: any = [0, 0];
-  placeholderImage = "assets/images/rest_placeholder.png";
+  placeholderImage = 'assets/images/rest_placeholder.png';
   rating1 = 0;
   rating2 = 0;
   rating3 = 0;
@@ -57,19 +57,18 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 
     this.restaurantListService.loadRestaurants().subscribe(
       msg => {
-        console.log(this.restaurentId);
       }
     );
 
     this.restaurantOverview.getRestaurantOverview(this.restaurentId).subscribe(
       (data: any) => {
-        this.name = data.restaurant_name
-        this.cuisines = data.cuisines
-        this.time = data.avg_delivery_time
-        this.image = data.restaurant_image
-        this.cost = data.min_order_cost
-        this.openTime = data.open_time
-        this.closeTime = data.close_time
+        this.name = data.restaurant_name;
+        this.cuisines = data.cuisines;
+        this.time = data.avg_delivery_time;
+        this.image = data.restaurant_image;
+        this.cost = data.min_order_cost;
+        this.openTime = data.open_time;
+        this.closeTime = data.close_time;
       }
     );
 
@@ -92,11 +91,13 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
+        console.log(restaurantDataList);
         if (restaurantDataList.resultList) {
           restaurantDataList.resultList.forEach(element => {
             console.log(typeof this.restaurentId, typeof element.restaurant.restaurant_id);
             if (this.restaurentId === element.restaurant.restaurant_id.toString()) {
-              this.restaurantRaring = element.rating;
+              this.restaurantRaring = Math.round( element.rating);
+              console.log(typeof this.restaurantRaring);
             }
           });
         }

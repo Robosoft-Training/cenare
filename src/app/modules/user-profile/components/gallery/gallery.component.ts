@@ -15,10 +15,10 @@ export class GalleryComponent implements OnInit {
   clickedCount = 0;
 
   imageList = [
-    "../../../../../assets/images/Vada.jpg",
-    "../../../../../assets/images/TandooriChicken.jpg",
-    "../../../../../assets/images/uttapam.jpg"
-  ]
+    'assets/images/Vada.jpg',
+    'assets/images/TandooriChicken.jpg',
+    'assets/images/uttapam.jpg'
+  ];
 
   menuList: IMenuList[] = [
     {
@@ -45,8 +45,8 @@ export class GalleryComponent implements OnInit {
         this.menuList = data.resultList;
       }
     );
-    $("#left").addClass('left');
-    $("#left").removeClass('leftArrow');
+    $('#left').addClass('left');
+    $('#left').removeClass('leftArrow');
     console.log(this.clickedCount);
   }
 
@@ -63,15 +63,15 @@ export class GalleryComponent implements OnInit {
   leftArrow() {
     // console.log(this.clickedCount)
     if (this.clickedCount === 0) {
-      $("#left").addClass('left');
-      $("#left").removeClass('leftArrow');
+      $('#left').addClass('left');
+      $('#left').removeClass('leftArrow');
     }
     else {
       this.clickedImage = this.imageList[--this.clickedCount];
-      $("#left").removeClass('left');
-      $("#left").addClass('leftArrow');
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
+      $('#left').removeClass('left');
+      $('#left').addClass('leftArrow');
+      $('#right').removeClass('right');
+      $('#right').addClass('rightArrow');
       console.log(this.clickedCount);
     }
   }
@@ -79,15 +79,15 @@ export class GalleryComponent implements OnInit {
   rightArrow() {
     // console.log(this.clickedCount)
     if (this.clickedCount === this.imageList.length - 1) {
-      $("#right").addClass('right');
-      $("#right").removeClass('rightArrow');
+      $('#right').addClass('right');
+      $('#right').removeClass('rightArrow');
     }
     else {
       this.clickedImage = this.imageList[++this.clickedCount];
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
-      $("#left").removeClass('left');
-      $("#left").addClass('leftArrow');
+      $('#right').removeClass('right');
+      $('#right').addClass('rightArrow');
+      $('#left').removeClass('left');
+      $('#left').addClass('leftArrow');
       console.log(this.clickedCount);
     }
   }

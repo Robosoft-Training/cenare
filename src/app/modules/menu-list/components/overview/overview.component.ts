@@ -45,20 +45,18 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit() {
     this.restaurantOverview.currentoverviewDataListSource.subscribe(
-      (data: any) => {
-        console.log(data)
-        this.description = data.restaurant_description
-        this.cuisines = data.cuisines
-        this.phone = data.phone
-        this.address = data.restaurant_address
-        this.cost = data.min_order_cost
-        this.openTime = data.open_time
-        this.closeTime = data.close_time
-        this.longitude = data.latitude;
-        this.latitude = data.longitude
+      (dataList: any) => {
+        this.description = dataList.restaurant_description;
+        this.cuisines = dataList.cuisines;
+        this.phone = dataList.phone;
+        this.address = dataList.restaurant_address;
+        this.cost = dataList.min_order_cost;
+        this.openTime = dataList.open_time;
+        this.closeTime = dataList.close_time;
+        this.longitude = dataList.latitude;
+        this.latitude = dataList.longitude;
       }
-
-    )
+    );
 
     this.map = new ol.Map({
       target: 'map',

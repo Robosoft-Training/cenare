@@ -124,9 +124,9 @@
       </div>
       <div class="rectangle4">
         <button *ngIf="!isLoading" (click)="submitReview()" class="submit">Submit</button>
-        <button *ngIf="isLoading" class="submit">
+        <div *ngIf="isLoading" class="d-flex align-items-center justify-content-center">
           <app-loading></app-loading>
-        </button>
+        </div>
       </div>
     </div>
   </div>
