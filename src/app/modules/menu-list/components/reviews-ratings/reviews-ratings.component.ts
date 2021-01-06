@@ -75,6 +75,7 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   foodRating = (rating) => {
+    this.changeStarColor(rating, 'food-');
     this.foodRatings = rating;
     this.isFoodRatingStored = false;
     this.localStorageService.setFoodRatings(rating);
@@ -82,6 +83,7 @@ export class ReviewsRatingsComponent implements OnInit {
   }
 
   serviceRating = (rating) => {
+    this.changeStarColor(rating, 'service-');
     this.serviceRatings = rating;
     this.isServiceRatingStored = false;
     this.localStorageService.setServiceRatings(rating);
@@ -90,13 +92,39 @@ export class ReviewsRatingsComponent implements OnInit {
 
   submitReview = () => {
     if(!(this.foodRatings===0 || this.serviceRatings===0)){
-      // console.log(this.foodRatings, this.serviceRatings, this.reviewText, this.imageUrls);
       this.reviewsRatingsService.addReviews(this.foodRatings, this.serviceRatings, this.reviewText, this.files).subscribe(
         msg => {
           console.log(msg);
           this.loadReviews();
         }
       );
+    }
+  }
+
+  changeStarColor(clickID: number, commonId) {
+    this.removeAllColor(commonId);
+    if (clickID <= 2) {
+      this.addColor(clickID,'starButton1-red', commonId); 
+    }else if(clickID <= 4){
+      this.addColor(clickID,'starButton1-orange', commonId); 
+    }
+    else{
+      this.addColor(clickID,'starButton1-green', commonId); 
+    }
+  }
+  addColor(id: number, addClass :any, commonId){
+    while (id != 0) {
+      $('#'+commonId + id).addClass(addClass);
+      $('#'+commonId + id).removeClass('starButton1-gray');
+      id--;
+    }
+  }
+  removeAllColor(commonId){
+    for (let i = 1; i < 6; i++) {
+      $('#'+commonId + i).removeClass('starButton1-green');
+      $('#'+commonId + i).removeClass('starButton1-orange');
+      $('#'+commonId + i).removeClass('starButton1-red');
+      $('#'+commonId + i).addClass('starButton1-gray');
     }
   }
 

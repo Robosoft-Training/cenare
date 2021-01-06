@@ -309,42 +309,6 @@
         display: flex;
         margin-bottom: 12px;
 
-        .starButton0 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star0 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 3px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating0 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
-        }
-
         .starButton1 {
           height: 20px;
           width: 38px;
@@ -352,142 +316,79 @@
           margin-bottom: auto;
           margin-right: 8px;
           display: flex;
-          border-radius: 4px;
           background: white;
           border: 1px solid #C2C2C2;
+          border-radius: 4px;
           outline: none;
+          display: flex;
+          align-items: center;
 
           .star1 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
             height: 11px;
             width: 11px;
-            margin-left: 2px;
+            margin-left: 2.5px;
             margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
+            margin-top: 4.5px;
+            font-size: 14px;
+            color: #C2C2C2;
           }
 
           .rating1 {
-            color: #C2C2C2;
             font-family: $openSans;
             font-size: 11px;
             font-weight: bold;
             letter-spacing: 0;
             line-height: 17px;
             margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
+            margin-top: 12.5px;
+            color: #C2C2C2;
           }
         }
 
-        .starButton2 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
+        .starButton1-gray {
+          background: $white;
           border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star2 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating2 {
+          .star1{
             color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
+          }
+          .rating1 {
+            color: #C2C2C2;
           }
         }
 
-        .starButton3 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star3 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
+        .starButton1-green {
+          background: $white;
+          border: 1px solid $green;
+          .star1{
+            color: $green;
           }
-
-          .rating3 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
+          .rating1 {
+            color: $green;
           }
         }
 
-        .starButton4 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star4 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
+        .starButton1-orange {
+          background: $white;
+          border: 1px solid $orange;
+          .star1{
+            color: $orange;
           }
-
-          .rating4 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
+          .rating1{
+            color: $orange;
           }
         }
+
+        .starButton1-red {
+          background: $white;
+          border: 1px solid $red;
+          .star1{
+            color: $red;
+          }
+          .rating1{
+            color: $red;
+          }
+        }
+
       }
 
       .rectangle1 {
@@ -539,191 +440,6 @@
         font-weight: 600;
         letter-spacing: -0.24px;
         line-height: 22px;
-      }
-
-      .ratingButtons2 {
-        display: flex;
-        margin-bottom: 12px;
-
-        .starButton5 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star5 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating5 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
-        }
-
-        .starButton6 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star6 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating6 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
-        }
-
-        .starButton7 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star7 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating7 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
-        }
-
-        .starButton8 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star8 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating8 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
-        }
-
-        .starButton9 {
-          height: 20px;
-          width: 38px;
-          margin-top: auto;
-          margin-bottom: auto;
-          margin-right: 8px;
-          display: flex;
-          border-radius: 4px;
-          background: white;
-          border: 1px solid #C2C2C2;
-          outline: none;
-
-          .star9 {
-            content: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rRwgzNzwE7Sb89c3wyxCn29eX8Hd41uyJw&usqp=CAU);
-            height: 11px;
-            width: 11px;
-            margin-left: 2px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-            opacity: 0.7;
-          }
-
-          .rating9 {
-            color: #C2C2C2;
-            font-family: $openSans;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0;
-            line-height: 17px;
-            margin-right: 2px;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
-        }
       }
 
       .rectangle2 {
