@@ -113,7 +113,7 @@
       </div>
       <p class="writeAReview">Write a review</p>
       <div class="rectangle3">
-        <input class="inputReview" type="text" placeholder="Start writing your review" name="" id="">
+        <input class="inputReview" [(ngModel)]="reviewText" type="text" placeholder="Start writing your review" name="" id="">
       </div>
       <div class="addImageButton" align="right">
         <input type="file" multiple (change)="detectFiles($event)">

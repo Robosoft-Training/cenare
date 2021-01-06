@@ -90,10 +90,11 @@ export class ReviewsRatingsComponent implements OnInit {
 
   submitReview = () => {
     if(!(this.foodRatings===0 || this.serviceRatings===0)){
-      console.log(this.foodRatings, this.serviceRatings, this.reviewText, this.imageUrls);
-      this.reviewsRatingsService.addReviews(this.reviewText, this.files).subscribe(
+      // console.log(this.foodRatings, this.serviceRatings, this.reviewText, this.imageUrls);
+      this.reviewsRatingsService.addReviews(this.foodRatings, this.serviceRatings, this.reviewText, this.files).subscribe(
         msg => {
           console.log(msg);
+          this.loadReviews();
         }
       );
     }

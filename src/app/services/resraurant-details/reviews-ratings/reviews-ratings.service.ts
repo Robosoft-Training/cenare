@@ -60,23 +60,24 @@ export class ReviewsRatingsService {
       );
   }
 
-  addReviews = (review, files) => {
+  addReviews = (foodRatings, serviceRatings, review, files) => {
     //console.log(reviewId);
-    const url = `${this.apiBaseUrl}review/addReview`;
+    const url = `${this.apiBaseUrl}review/addReview?restaurantId=${this.restaurantID}`;
 
     const formData: FormData = new FormData();
-    formData.append('review', `{
-      "food_rating": 2,
-      "service_rating": 4,
-      "review_description": "hello",
-      "review_date": 02-02-2020
-    }`);
-    formData.append('restaurantId', this.restaurantID);
-    // formData.append('files', files);
+    const reviewData:any = `{
+      "food_rating":${foodRatings},
+      "service_rating":${serviceRatings},
+      "review":"${review}",
+      "review_date":"2021-01-05"
+    }`
+    
+    formData.append('review', reviewData);
 
-    for (let i = 0; i < files.length; i++) {
-      formData.append('files', files[i]);
-      // console.log(files[i].name, files[i]);
+    if(files) {
+      for (let i = 0; i < files.length; i++) {
+        formData.append('files', files[i]);
+      }
     }
 
     return this.httpClient.post<any[]>(url, formData)
@@ -86,5 +87,4 @@ export class ReviewsRatingsService {
         retry(3)
       );
   }
-
 }
