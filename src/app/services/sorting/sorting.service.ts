@@ -9,11 +9,12 @@ export class SortingService {
 
   sortingFloat = (detailsArray, sortType) => {
 
-    detailsArray.sort(
-      (a, b) => {
-        return parseFloat(b.rating) - parseFloat(a.rating);
-      }
-    );
+    // detailsArray.sort(
+    //   (a, b) => {
+    //     console.log(parseFloat(b.rating) - parseFloat(a.rating));
+    //     return parseFloat(b.rating) - parseFloat(a.rating);
+    //   }
+    // );
 
     if (sortType === 'rating_high_low') {
       detailsArray.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
@@ -54,6 +55,24 @@ export class SortingService {
       detailsArray.sort(
         (a, b) => {
           return compareStrings(b.restaurant.restaurant_name, a.restaurant.restaurant_name);
+        }
+      );
+    }
+    return detailsArray;
+  }
+
+  sortingByDate = (detailsArray, sortType) => {
+    if (sortType === 'date_high_low'){
+      detailsArray.sort(
+        (a, b) => {
+          return new Date(b.date).getDate() - new Date(a.date).getDate();
+        }
+      );
+    }
+    else {
+      detailsArray.sort(
+        (a, b) => {
+          return new Date(a.date).getDate() - new Date(b.date).getDate();
         }
       );
     }

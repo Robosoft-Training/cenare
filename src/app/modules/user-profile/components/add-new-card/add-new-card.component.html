@@ -1,0 +1,55 @@
+<div class="dialog">
+  <button class="close" (click)="onNoClick()" mat-button mat-dialog-close>
+    <img class="close" src="assets/images/dismiss_button.png" alt="">
+  </button>
+
+  <p class="heading">Add New Card</p>
+  <p class="text">Enter Credit/Debit card details</p>
+
+  <mat-form-field>
+    <mat-label>Card number</mat-label>
+    <div style="display: block;  position: relative;">
+      <input matInput>
+    </div>
+    <img class="icon" src="assets/images/Visa_small_icon.png" alt="">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Name on card</mat-label>
+    <div style="display: block;  position: relative;">
+      <input matInput>
+    </div>
+  </mat-form-field>
+
+  <div class="cardDetails">
+
+    <mat-form-field>
+      <mat-label>Expiry</mat-label>
+      <div style="display: block;  position: relative;">
+        <input matInput>
+      </div>
+    </mat-form-field>
+
+    <p>/</p>
+
+    <mat-form-field>
+      <div style="display: block;  position: relative;">
+        <input matInput>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="security">
+      <mat-label>Security card</mat-label>
+      <div style="display: block;  position: relative;">
+        <input class="input" matInput>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div class="primary">
+    <input type="checkbox" class="checkActive" id="tab" name="tabs">
+    <label class="primaryActive1" for="tab">Add this card to saved cards</label>
+  </div>
+
+  <button class="save">SAVE CARD</button>
+</div>

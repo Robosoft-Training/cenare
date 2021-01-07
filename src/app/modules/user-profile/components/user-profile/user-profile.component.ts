@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class UserProfileComponent implements OnInit, AfterViewInit {
 
   formType = 'orders';
-  constructor(private router: Router, private elementRef: ElementRef,) {}
+  constructor(
+    private elementRef: ElementRef
+  ) { }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';

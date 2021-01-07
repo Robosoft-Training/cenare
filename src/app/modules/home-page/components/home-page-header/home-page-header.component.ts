@@ -24,7 +24,7 @@ export class HomePageHeaderComponent implements OnInit {
   currentDate = 'Today, ' + new Date().toLocaleString('en-in', { month: 'long', day: 'numeric' }) + ', ' + new Date().getFullYear();
   date: any;
   userSearchSelections = {
-    locationName: 'Your Location',
+    locationName: '',
     searchName: '',
     dateTime: ''
   };
@@ -54,13 +54,18 @@ export class HomePageHeaderComponent implements OnInit {
   }
 
   loadCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.locationDetaService.getLocationDetails(position.coords.latitude, position.coords.longitude).subscribe(
-        (details) => {
-          this.userSearchSelections.locationName = details.addresses[0].address.municipality;
-        }
-      );
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.locationDetaService.getLocationDetails(position.coords.latitude, position.coords.longitude).subscribe(
+          (details) => {
+            this.userSearchSelections.locationName = details.addresses[0].address.municipality;
+          }
+        );
+      },
+      err => {
+        this.userSearchSelections.locationName = 'Bengaluru';
+      }
+    );
   }
 
   private _filterGroup(value: string): ILocation[] {

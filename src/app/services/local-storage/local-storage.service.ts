@@ -67,4 +67,20 @@ export class LocalStorageService {
     return localStorage.getItem('crave-restId');
   }
 
+  setFoodRatings = (ratings) => {
+    localStorage.setItem('crave-foodRatings', ratings);
+  }
+
+  getFoodRatings = () => {
+    return localStorage.getItem('crave-foodRatings');
+  }
+
+  setServiceRatings = (ratings) => {
+    localStorage.setItem('crave-serviceRatings', ratings);
+  }
+
+  getServiceRatings = () => {
+    return localStorage.getItem('crave-serviceRatings');
+  }
+
 }

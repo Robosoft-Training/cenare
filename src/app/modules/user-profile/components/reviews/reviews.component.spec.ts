@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedLazyModulesComponent } from './shared-lazy-modules.component';
+import { ReviewsComponent } from './reviews.component';
 
-describe('SharedLazyModulesComponent', () => {
-  let component: SharedLazyModulesComponent;
-  let fixture: ComponentFixture<SharedLazyModulesComponent>;
+describe('ReviewsComponent', () => {
+  let component: ReviewsComponent;
+  let fixture: ComponentFixture<ReviewsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SharedLazyModulesComponent ]
+      declarations: [ ReviewsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SharedLazyModulesComponent);
+    fixture = TestBed.createComponent(ReviewsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

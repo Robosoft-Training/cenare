@@ -1,0 +1,163 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.options {
+  height: 22px;
+  display: flex;
+  margin-top: 60px;
+  justify-content: space-between;
+
+  .paymentMethods {
+    line-height: 22px;
+    color: #6F6F6F;
+    font-size: 14px;
+    margin: 0%;
+    padding: 0%;
+    font-family: $openSans;
+    letter-spacing: -0.27px;
+  }
+
+  .addNew {
+    line-height: 22px;
+    color: #FDA200;
+    font-size: 14px;
+    margin: 0%;
+    padding: 0%;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.userOrders {
+  margin-top: 10px;
+  justify-content: space-between;
+
+  .ordersCard {
+    padding: 15px;
+    padding-left: 25px;
+    width: 49%;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+
+    .rectangle1 {
+
+      .primary {
+        width: 78px;
+        height: 20px;
+        display: flex;
+
+        .checkActive {
+          content: url(../../../../../assets/images/icn_check_inactive.png);
+          height: 16px;
+          width: 16px;
+          margin-right: 10px;
+        }
+
+        .primaryActive1 {
+          color: #B8B8B8;
+          font-family: $openSansSemibold;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: -0.27px;
+          line-height: 17px;
+        }
+
+        .checkActive:checked+.primaryActive1:before {
+          height: 16px;
+          width: 16px;
+          content: url(../../../../../assets/images/icn_check_active.png);
+          font-size: 19px;
+          margin-right: 10px;
+          margin-left: -26px;
+          position: absolute;
+        }
+
+        :checked+.primaryActive1 {
+          color: #6A6A6A;
+          font-family: $openSansSemibold;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: -0.27px;
+          line-height: 17px;
+          margin-top: 0px;
+          vertical-align: text-top;
+        }
+      }
+    }
+
+    .rectangle2 {
+      display: flex;
+
+      .box {
+        width: 62px;
+        height: 100%;
+        margin-top: 2px;
+        margin-right: 25px;
+
+        .image {
+          width: 100%;
+        }
+      }
+
+      .cardDetails {
+        display: block;
+
+        .cardNumber {
+          color: #2D2D2D;
+          font-family: $openSans;
+          font-size: 14px;
+          letter-spacing: -0.3px;
+          line-height: 16px;
+          margin-bottom: 6px;
+        }
+
+        .cardName {
+          color: #6A6A6A;
+          font-family: $openSans;
+          font-size: 11px;
+          letter-spacing: -0.27px;
+          line-height: 19px;
+        }
+      }
+    }
+
+    .rectangle3 {
+      margin-top: 18px;
+      justify-content: end;
+
+      .box1 {
+        width: 90px;
+        height: 16px;
+        display: flex;
+
+        .edit {
+          height: 16px;
+          color: #F57C00;
+          font-family: $openSansSemibold;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 16px;
+          text-align: center;
+          margin-right: 16px;
+        }
+
+        .delete {
+          height: 16px;
+          color: #F57C00;
+          font-family: $openSansSemibold;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

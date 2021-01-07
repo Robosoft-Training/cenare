@@ -11,11 +11,11 @@ export class HomeDealsOffersComponent implements OnInit {
 
   dealsOffers: IDealsOffers[] = [
     {
-      code: "",
+      code: '',
       offerPercent: 0,
-      offerImagePath: "",
+      offerImagePath: '',
       offerId: 0,
-      offerTitle: "0"
+      offerTitle: '0'
     }
   ];
   isLoading = true;

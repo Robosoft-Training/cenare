@@ -6,23 +6,23 @@ import * as $ from 'jquery';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  
+
   constructor() { }
   ngOnInit(): void {}
 
   changeStarColor(clickID: number) {
     this.removeAllColor();
     if (clickID <= 2) {
-      this.addColor(clickID,'red-color'); 
-    }else if(clickID <= 4){
-      this.addColor(clickID,'orange-color'); 
+      this.addColor(clickID, 'red-color');
+    }else if (clickID <= 4){
+      this.addColor(clickID, 'orange-color');
     }
-    else{
-      this.addColor(clickID,'green-color'); 
+    else {
+      this.addColor(clickID, 'green-color');
     }
   }
-  addColor(id: number, addClass :any){
-    while (id != 0) {
+  addColor(id: number, addClass: any){
+    while (id !== 0) {
       $('#' + id).addClass(addClass);
       $('#' + id).removeClass('grey-color');
       id--;

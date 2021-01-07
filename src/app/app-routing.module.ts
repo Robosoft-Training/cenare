@@ -10,8 +10,7 @@ import { OrderTrackComponent } from './components/shared-components/order-track/
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
-  { path: 'home-page', loadChildren: () => import('./modules/home-page/home-page.module').then(m => m.HomePageModule) },
-  { path: '', pathMatch: 'full', redirectTo: '/home-page' },
+  { path: '', loadChildren: () => import('./modules/home-page/home-page.module').then(m => m.HomePageModule) },
   { path: 'about', component: AboutComponent },
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
@@ -32,7 +31,9 @@ const routes: Routes = [
     loadChildren: () => import('./modules/menu-list/menu-list.module').then(m => m.MenuListModule)
   },
   { path: 'user-profile', loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule) },
-  { path: 'payment', loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule) }
+  { path: 'payment', loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule) },
+
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

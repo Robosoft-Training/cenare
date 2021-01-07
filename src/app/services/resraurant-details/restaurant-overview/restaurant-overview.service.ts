@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from '../../local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +13,12 @@ export class RestaurantOverviewService {
   overviewDataListSource = new BehaviorSubject({});
   currentoverviewDataListSource = this.overviewDataListSource.asObservable();
   currentOverview: any;
-  
+
+  restaurantName = new BehaviorSubject('');
+  restaurantNameObserver = this.overviewDataListSource.asObservable();
 
   constructor(
-    private httpClient: HttpClient,
-    private localStorageService: LocalStorageService
+    private httpClient: HttpClient
   ) { }
 
   getRestaurantOverview = (restaurantID): Observable<any> => {
@@ -29,7 +29,8 @@ export class RestaurantOverviewService {
 
     return this.httpClient.get<any[]>(url, {params: httpParams})
       .pipe(
-        tap(data => {
+        tap((data: any) => {
+          this.restaurantName.next(data.restaurant_name);
           this.currentOverview = { ...data };
           this. overviewDataListSource.next(data);
         }),

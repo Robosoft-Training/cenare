@@ -2,6 +2,7 @@
 
 .menu {
   margin-bottom: 5em;
+
   .menu-left {
     .search-box {
       position: relative;
@@ -30,7 +31,7 @@
         font-family: $openSans;
         font-size: 12px;
         letter-spacing: 0.7px;
-        
+
         &:focus {
           outline: none;
         }
@@ -41,7 +42,7 @@
       .list-title {
         color: #4A4A4A;
         font-family: "Open Sans";
-        font-size: 16px;
+        font-size: 13px;
         letter-spacing: -0.27px;
       }
 
@@ -56,12 +57,14 @@
         .card-img {
           height: 100%;
           width: fit-content;
+
           .img {
             width: 8em;
             height: 8em;
             padding: 0.5em;
             border-radius: 1em;
           }
+
           .categoury-img {
             position: relative;
             top: -2.3em;
@@ -75,13 +78,16 @@
           width: 100%;
 
           .card-content-left {
+
+            width: 100%;
+
             .name-text {
               color: #223136;
               font-family: "Open Sans";
               font-size: 16px;
-              font-weight: 600;
+              font-weight: 500;
               letter-spacing: 0;
-              padding-bottom: 0.4em;
+              padding-bottom: 0.2em;
             }
 
             .cost-text {
@@ -89,7 +95,7 @@
               font-family: "Open Sans";
               font-size: 12px;
               letter-spacing: 0;
-              padding-bottom: 0.4em;
+              padding-bottom: 0.2em;
             }
 
             .description-text {
@@ -98,6 +104,7 @@
               font-size: 11px;
               letter-spacing: 0;
               padding-right: 1em;
+              line-height: 1.2em;
               width: 100%;
             }
           }
@@ -116,6 +123,8 @@
             }
 
             .content-right-bottom {
+              margin-right: auto;
+
               .already-in-cart-text {
                 color: #49BB5C;
                 font-family: "Open Sans";

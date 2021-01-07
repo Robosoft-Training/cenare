@@ -27,18 +27,18 @@
         </li>
 
         <li class="nav-item" *ngIf="isLoggedIn">
-          <span class="d-flex">
+          <span class="d-flex" (click)="gotoProfile()">
             <div class="profile-placeholder-container d-flex align-items-center justify-content-center">
-              <img src="../../../../assets/images/profile.svg" class="profile-placeholder" />
+              <img src="assets/images/profile.svg" class="profile-placeholder" />
             </div>
-            <a class="nav-link username-text" href="#">{{ userName }}</a>
+            <a class="nav-link username-text">{{ userName }}</a>
           </span>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link " (click)="logout()">LOGOUT</a>
         </li>
 
-        <li class="nav-item cart-place d-flex align-items-start justify-content-center after-scroll">
+        <li (click)="gotoCart()" class="nav-item cart-place d-flex align-items-start justify-content-center after-scroll">
           <div>
             <div class="cart-icon-top">
             </div>
@@ -46,7 +46,7 @@
               <span class="cart-count">2</span>
             </div>
           </div>
-          <a class="pl-4 nav-link cart-text" href="#">CART</a>
+          <a class="pl-4 nav-link cart-text">CART</a>
         </li>
       </ul>
     </div>

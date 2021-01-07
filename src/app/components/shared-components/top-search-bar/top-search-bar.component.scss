@@ -36,17 +36,7 @@
             .location {
                 @include mediam-imput-box(26%, 2.5em);
                 @include icon-style(1.2em);
-                @include gps-form-control(0em);
-
-                // .location-input {
-                //     outline: 5px solid $white;
-                //     box-shadow: none;
-                //     outline: none;
-                //     border: none;
-                //     z-index: -1;
-                //     width: 10em;
-                //     padding-left: 3em;
-                // }
+                @include gps-form-control(1em);
 
                 .form-control {
                     display: block;
