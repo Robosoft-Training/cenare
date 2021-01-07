@@ -55,9 +55,9 @@
                         <div class="top-text">
                             <div>
                                 <img *ngIf="cart.category === 'vegetarian'" class="categoury-img"
-                                    src="../../../../../assets/images/icn_veg.png" />
+                                    src="assets/images/icn_veg.png" />
                                 <img *ngIf="cart.category === 'non vegetarian'" class="categoury-img"
-                                    src="../../../../../assets/images/icn_non_veg.png" />
+                                    src="assets/images/icn_non_veg.png" />
                                 <label class="name">{{ cart.item_name }}</label>
                             </div>
                             <label class="price">INR{{ cart.price }}</label>
@@ -87,7 +87,7 @@
                     <label>To Pay</label>
                     <div class="d-flex flex-row header-price">
                         <label>INR{{this.totalAmmount}}</label>
-                        <img class="collapse-btn" src="../../../../../assets/images/icn_collapse.png"
+                        <img class="collapse-btn" src="assets/images/icn_collapse.png"
                             [ngClass]="isHide?'translateY':'translateX'" (click)="showPaymentDetails()">
                     </div>
                 </div>
