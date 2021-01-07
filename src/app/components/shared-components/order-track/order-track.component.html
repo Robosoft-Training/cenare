@@ -1,173 +1,177 @@
+<app-nav-bar pageName="order-status"></app-nav-bar>
+<app-top-search-bar pageName="order-status"></app-top-search-bar>
+<app-breadcrumbs pageName="order-status"></app-breadcrumbs>
+
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <div *ngIf ="formType==='card'" class="card">
-        <img class="image" src="../../../../assets/order_status_order_accepted_illustration.png">
+      <div *ngIf="formType==='card'" class="card">
+        <img class="image" src="assets/order_status_order_accepted_illustration.png">
         <label>View info</label>
-        <img class="stat" src="../../../../assets/check_green copy 2@3x.png">
+        <img class="stat" src="assets/check_green copy 2@3x.png">
         <label class="status">Order is placed</label>
         <label class="cancel">Cancel Order</label>
-        <img class="stat1" src="../../../../assets/track_line.png">
-        <img class="stat2" src="../../../../assets/grey_time_icon_status@3x.png">
+        <img class="stat1" src="assets/track_line.png">
+        <img class="stat2" src="assets/grey_time_icon_status@3x.png">
         <label class="kitchen">Order in kitchen</label>
-        <img class="stat3" src="../../../../assets/track_line.png">
-        <img class="stat4" src="../../../../assets/grey_time_icon_status@3x.png">
+        <img class="stat3" src="assets/track_line.png">
+        <img class="stat4" src="assets/grey_time_icon_status@3x.png">
         <label class="pick">Order ready for pick-up</label>
-        <img class="stat5" src="../../../../assets/track_line.png">
-        <img class="stat6" src="../../../../assets/grey_time_icon_status@3x.png">
+        <img class="stat5" src="assets/track_line.png">
+        <img class="stat6" src="assets/grey_time_icon_status@3x.png">
         <label class="delivery">Waiting for Delivery</label>
         <div class="line"></div>
         <button class="order">BACK TO ORDERS</button>
         <button class="chat">CHAT</button>
         <button class="details" (click)="showFormType('card1')">ORDER DETAILS</button>
       </div>
-    </div>
-  </div>
-</div>
 
 
-<div *ngIf="formType==='card1'">
-  <div class="card">
-    <img class="image" src="../../../assets/order_status_order_accepted_illustration@3x.png">
-    <label>View info</label>
-    <img class="stat" src="../../../assets/check_green copy 2@3x.png">
-    <label class="status1">Order waiting to accept</label>
-    <label class="cancel">Cancel Order</label>
-    <img class="stat1" src="../../../assets/track_line.png">
-    <img class="stat2" src="../../../assets/grey_time_icon_status@3x.png">
-    <label class="kitchen">Order in kitchen</label>
-    <img class="stat3" src="../../../assets/track_line.png">
-    <img class="stat4" src="../../../assets/grey_time_icon_status@3x.png">
-    <label class="pick">Order ready for pick-up</label>
-    <img class="stat5" src="../../../assets/track_line.png">
-    <img class="stat6" src="../../../assets/grey_time_icon_status@3x.png">
-    <label class="delivery">Waiting for Delivery</label>
-    <div class="line"></div>
-    <button class="order">BACK TO ORDERS</button>
-    <button class="chat">CHAT</button>
-    <button class="details" (click)="showFormType('card2')">ORDER DETAILS</button>
-  </div>
-  </div>
-  <div *ngIf="formType==='card2'">
-    <div class="card">
-      <img class="image" src="../../../../assets/order_status_kitchen.png">
-      <label>View info</label>
-      <img class="stat" src="../../../assets/check_green copy 2@3x.png">
-      <label class="text">Order accepted</label>
-      <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
-      <img class="stat1" src="../../../assets/track_line.png">
-      <img class="stat2" src="../../../../assets/orange-time-icon.png">
-      <label class="kitchen1">Order in kitchen</label>
-      <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
-      <img class="stat3" src="../../../assets/track_line.png">
-      <img class="stat4" src="../../../assets/grey_time_icon_status@3x.png">
-      <label class="pick">Order ready for pick-up</label>
-      <img class="stat5" src="../../../assets/track_line.png">
-      <img class="stat6" src="../../../assets/grey_time_icon_status@3x.png">
-      <label class="delivery">Waiting for Delivery</label>
-      <div class="line"></div>
-      <button class="order">BACK TO ORDERS</button>
-      <button class="chat">CHAT</button>
-      <button class="details" (click)="showFormType('card3')">ORDER DETAILS</button>
-    </div>
-    </div>
-    <div *ngIf="formType==='card3'">
+      <div *ngIf="formType==='card1'">
         <div class="card">
-          <img class="image" src="../../../../assets/order-pickup.png">
+          <img class="image" src="assets/order_status_order_accepted_illustration@3x.png">
           <label>View info</label>
-          <img class="stat" src="../../../assets/check_green copy 2@3x.png">
+          <img class="stat" src="assets/check_green copy 2@3x.png">
+          <label class="status1">Order waiting to accept</label>
+          <label class="cancel">Cancel Order</label>
+          <img class="stat1" src="assets/track_line.png">
+          <img class="stat2" src="assets/grey_time_icon_status@3x.png">
+          <label class="kitchen">Order in kitchen</label>
+          <img class="stat3" src="assets/track_line.png">
+          <img class="stat4" src="assets/grey_time_icon_status@3x.png">
+          <label class="pick">Order ready for pick-up</label>
+          <img class="stat5" src="assets/track_line.png">
+          <img class="stat6" src="assets/grey_time_icon_status@3x.png">
+          <label class="delivery">Waiting for Delivery</label>
+          <div class="line"></div>
+          <button class="order">BACK TO ORDERS</button>
+          <button class="chat">CHAT</button>
+          <button class="details" (click)="showFormType('card2')">ORDER DETAILS</button>
+        </div>
+      </div>
+      <div *ngIf="formType==='card2'">
+        <div class="card">
+          <img class="image" src="assets/order_status_kitchen.png">
+          <label>View info</label>
+          <img class="stat" src="assets/check_green copy 2@3x.png">
           <label class="text">Order accepted</label>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label> 
-          <img class="stat1" src="../../../assets/track_line.png">
-          <img class="stat2" src="../../../../assets/check_green copy 2@3x.png">
+          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat1" src="assets/track_line.png">
+          <img class="stat2" src="assets/orange-time-icon.png">
           <label class="kitchen1">Order in kitchen</label>
           <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
-          <img class="stat3" src="../../../assets/track_line.png">
-          <img class="stat4" src="../../../../assets/orange-time-icon.png">
+          <img class="stat3" src="assets/track_line.png">
+          <img class="stat4" src="assets/grey_time_icon_status@3x.png">
+          <label class="pick">Order ready for pick-up</label>
+          <img class="stat5" src="assets/track_line.png">
+          <img class="stat6" src="assets/grey_time_icon_status@3x.png">
+          <label class="delivery">Waiting for Delivery</label>
+          <div class="line"></div>
+          <button class="order">BACK TO ORDERS</button>
+          <button class="chat">CHAT</button>
+          <button class="details" (click)="showFormType('card3')">ORDER DETAILS</button>
+        </div>
+      </div>
+      <div *ngIf="formType==='card3'">
+        <div class="card">
+          <img class="image" src="assets/order-pickup.png">
+          <label>View info</label>
+          <img class="stat" src="assets/check_green copy 2@3x.png">
+          <label class="text">Order accepted</label>
+          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat1" src="assets/track_line.png">
+          <img class="stat2" src="assets/check_green copy 2@3x.png">
+          <label class="kitchen1">Order in kitchen</label>
+          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat3" src="assets/track_line.png">
+          <img class="stat4" src="assets/orange-time-icon.png">
           <label class="pick1">Order ready for pick-up</label>
-          <img class="stat5" src="../../../assets/track_line.png">
-          <img class="stat6" src="../../../assets/grey_time_icon_status@3x.png">
+          <img class="stat5" src="assets/track_line.png">
+          <img class="stat6" src="assets/grey_time_icon_status@3x.png">
           <label class="delivery">Waiting for Delivery</label>
           <div class="line"></div>
           <button class="order">BACK TO ORDERS</button>
           <button class="chat">CHAT</button>
           <button class="details" (click)="showFormType('card4')">ORDER DETAILS</button>
         </div>
+      </div>
+      <div *ngIf="formType==='card4'">
+        <div class="card">
+          <img class="image" src="assets/order-delivery.png">
+          <label>View info</label>
+          <img class="stat" src="assets/check_green copy 2@3x.png">
+          <label class="text">Order accepted</label>
+          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat1" src="assets/track_line.png">
+          <img class="stat2" src="assets/check_green copy 2@3x.png">
+          <label class="kitchen1">Order in kitchen</label>
+          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat3" src="assets/track_line.png">
+          <img class="stat4" src="assets/orange-time-icon.png">
+          <label class="pick1">Order out for delivery</label>
+          <p class="track">Track Order</p>
+          <p class="info">View info</p>
+          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat5" src="assets/track_line.png">
+          <img class="stat6" src="assets/grey_time_icon_status@3x.png">
+          <label class="delivery">Waiting for Delivery</label>
+          <div class="line"></div>
+          <button class="order">BACK TO ORDERS</button>
+          <button class="chat">CHAT</button>
+          <button class="details" (click)="showFormType('card5')">ORDER DETAILS</button>
         </div>
-        <div *ngIf="formType==='card4'">
-            <div class="card">
-              <img class="image" src="../../../../assets/order-delivery.png">
-              <label>View info</label>
-              <img class="stat" src="../../../assets/check_green copy 2@3x.png">
-              <label class="text">Order accepted</label>
-              <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>  
-              <img class="stat1" src="../../../assets/track_line.png">
-              <img class="stat2" src="../../../../assets/check_green copy 2@3x.png">
-              <label class="kitchen1">Order in kitchen</label>
-              <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
-              <img class="stat3" src="../../../assets/track_line.png">
-              <img class="stat4" src="../../../../assets/orange-time-icon.png">
-              <label class="pick1">Order out for delivery</label>
-              <p class="track">Track Order</p>
-              <p class="info">View info</p>
-               <label class="accept">January 1,2021 at<br> 4:20:25 PM</label> 
-              <img class="stat5" src="../../../assets/track_line.png">
-              <img class="stat6" src="../../../assets/grey_time_icon_status@3x.png">
-              <label class="delivery">Waiting for Delivery</label>
-              <div class="line"></div>
-              <button class="order">BACK TO ORDERS</button>
-              <button class="chat">CHAT</button>
-              <button class="details" (click)="showFormType('card5')">ORDER DETAILS</button>
-            </div>
-            </div>
-            <div *ngIf="formType==='card5'">
-                <div class="card">
-                  <img class="imagee" src="../../../../assets/order_delivered@3x.png">
-                  <label>View info</label>
-                  <img class="stat" src="../../../assets/check_green copy 2@3x.png">
-                  <label class="status">Order accepted</label>
-                  <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>   
-                  <img class="stat1" src="../../../assets/track_line.png">
-                  <img class="stat2" src="../../../../assets/check_green copy 2@3x.png">
-                  <label class="kitchen1">Order in kitchen</label>
-                  <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
-                  <img class="stat3" src="../../../assets/track_line.png">
-                  <img class="stat4" src="../../../../assets/check_green copy 2@3x.png">
-                  <label class="pick1">Order out for delivery</label>
-                  <label class="date1">January 1,2021 at<br> 4:20:25 PM</label>
-                  <p class="info">View info</p>
-                  <img class="stat5" src="../../../assets/track_line.png">
-                  <img class="stat6" src="../../../../assets/check_green copy 2@3x.png">
-                  <label class="delivery1">Order has delivered</label>
-                  <label class="date2">January 1,2021 at<br> 4:20:25 PM</label>
-                  <div class="line"></div>
-                  <button class="order">BACK TO ORDERS</button>
-                  <button class="chat">CHAT</button>
-                  <button class="details" (click)="showFormType('card6')">ORDER DETAILS</button>
-                </div>
-                </div>
-                <div *ngIf="formType==='card6'">
-                    <div class="card">
-                      <img class="imagee" src="../../../../assets/order_cancelled@3x.png">
-                      <label>View info</label>
-                      <img class="stat" src="../../../assets/check_green copy 2@3x.png">
-                      <label class="status">Order accepted</label>
-                      <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>   
-                      <img class="stat1" src="../../../assets/track_line.png">
-                      <img class="stat2" src="../../../../assets/check_green copy 2@3x.png">
-                      <label class="kitchen1">Order in kitchen</label>
-                      <label class="date">January 1,2021 at<br> 4:20:25 PM</label>   
-                      <img class="stat3" src="../../../assets/track_line.png">
-                      <img class="stat4" src="../../../../assets/check_green copy 2@3x.png">
-                      <label class="pick1">Order out for delivery</label>
-                      <label class="date1">January 1,2021 at<br> 4:20:25 PM</label>   
-                      <img class="stat5" src="../../../assets/track_line.png">
-                      <img class="stat6" src="../../../../assets/order_cancel_iconn.png">
-                      <label class="delivery1">Order is undelivered</label>
-                      <label class="date2">January 1,2021 at<br> 4:20:25 PM</label>   
-                      <div class="line"></div>
-                      <button class="order">BACK TO ORDERS</button>
-                      <button class="chat">CHAT</button>
-                      <button class="details" (click)="showFormType('card6')">ORDER DETAILS</button>
-                    </div>
-                    </div>
+      </div>
+      <div *ngIf="formType==='card5'">
+        <div class="card">
+          <img class="imagee" src="assets/order_delivered@3x.png">
+          <label>View info</label>
+          <img class="stat" src="assets/check_green copy 2@3x.png">
+          <label class="status">Order accepted</label>
+          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat1" src="assets/track_line.png">
+          <img class="stat2" src="assets/check_green copy 2@3x.png">
+          <label class="kitchen1">Order in kitchen</label>
+          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat3" src="assets/track_line.png">
+          <img class="stat4" src="assets/check_green copy 2@3x.png">
+          <label class="pick1">Order out for delivery</label>
+          <label class="date1">January 1,2021 at<br> 4:20:25 PM</label>
+          <p class="info">View info</p>
+          <img class="stat5" src="assets/track_line.png">
+          <img class="stat6" src="assets/check_green copy 2@3x.png">
+          <label class="delivery1">Order has delivered</label>
+          <label class="date2">January 1,2021 at<br> 4:20:25 PM</label>
+          <div class="line"></div>
+          <button class="order">BACK TO ORDERS</button>
+          <button class="chat">CHAT</button>
+          <button class="details" (click)="showFormType('card6')">ORDER DETAILS</button>
+        </div>
+      </div>
+      <div *ngIf="formType==='card6'">
+        <div class="card">
+          <img class="imagee" src="assets/order_cancelled@3x.png">
+          <label>View info</label>
+          <img class="stat" src="assets/check_green copy 2@3x.png">
+          <label class="status">Order accepted</label>
+          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat1" src="assets/track_line.png">
+          <img class="stat2" src="assets/check_green copy 2@3x.png">
+          <label class="kitchen1">Order in kitchen</label>
+          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat3" src="assets/track_line.png">
+          <img class="stat4" src="assets/check_green copy 2@3x.png">
+          <label class="pick1">Order out for delivery</label>
+          <label class="date1">January 1,2021 at<br> 4:20:25 PM</label>
+          <img class="stat5" src="assets/track_line.png">
+          <img class="stat6" src="assets/order_cancel_iconn.png">
+          <label class="delivery1">Order is undelivered</label>
+          <label class="date2">January 1,2021 at<br> 4:20:25 PM</label>
+          <div class="line"></div>
+          <button class="order">BACK TO ORDERS</button>
+          <button class="chat">CHAT</button>
+          <button class="details" (click)="showFormType('card6')">ORDER DETAILS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
