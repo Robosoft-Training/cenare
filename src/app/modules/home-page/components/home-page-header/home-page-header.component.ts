@@ -6,6 +6,8 @@ import { ILocation } from 'src/app/shared/interfaces/Ilocation';
 import { locationsList } from 'src/app/shared/locationsList';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocationComponent } from 'src/app/components/shared-components/empty-scenario/location/location.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export const myFilter = (opt: string[], value: string): string[] => {
   const filterValue = value.toLowerCase();
@@ -41,7 +43,8 @@ export class HomePageHeaderComponent implements OnInit {
     private locationDetaService: LocationDataService,
     private formBuilder: FormBuilder,
     private restaurantLisService: RestaurantListService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   @HostListener('window:scroll', ['$event'])
@@ -100,8 +103,15 @@ export class HomePageHeaderComponent implements OnInit {
       this.userSearchSelections.searchName = value;
       this.locationDetaService.getLatitudeLongitude(this.userSearchSelections.locationName).pipe(
         mergeMap((coordinates) => this.restaurantLisService.searchRestaurants(this.userSearchSelections, coordinates))
-      ).subscribe((result) => {
-        this.router.navigate(['/restaurant-list']);
+      ).subscribe((result: any) => {
+        if (result.resultList.length === 0) {
+          const dialogRef = this.dialog.open(LocationComponent, { panelClass: 'dialog' });
+          dialogRef.afterClosed().subscribe(result => {
+          });
+        }
+        else {
+          this.router.navigate(['/restaurant-list']);
+        }
       },
         (err) => {
           console.log(err);

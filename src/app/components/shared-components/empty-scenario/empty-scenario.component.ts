@@ -7,27 +7,21 @@ import { OffersComponent } from './offers/offers.component';
 
 @Component({
   selector: 'app-empty-scenario',
-  templateUrl: './empty-scenario.component.html',
-  styleUrls: ['./empty-scenario.component.scss']
+  templateUrl: './empty-scenario.component.html'
 })
 export class EmptyScenarioComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  Location() {
-    const dialogRef = this.dialog.open(LocationComponent,{panelClass:'dialog'});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+
   Connection() {
-    const dialogRef = this.dialog.open(ConnectionComponent,{panelClass:'connection'});
+    const dialogRef = this.dialog.open(ConnectionComponent, { panelClass: 'connection' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
   Offers() {
-    const dialogRef = this.dialog.open(OffersComponent,{panelClass:'dialog'});
+    const dialogRef = this.dialog.open(OffersComponent, { panelClass: 'dialog' });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

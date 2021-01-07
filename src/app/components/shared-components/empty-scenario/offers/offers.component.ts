@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-offers',
@@ -8,9 +9,16 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class OffersComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<any>) { }
+  locationName = "";
+  constructor(
+    public dialogRef: MatDialogRef<any>,
+    private localStorageService: LocalStorageService
+  ) { }
 
   ngOnInit(): void {
+    const userSearchSelections: any = this.localStorageService.getUserSearchDetails();
+    const userData = { ...JSON.parse(userSearchSelections) };
+    this.locationName = userData.locationName;
   }
   closeDialog(): void {
     this.dialogRef.close();

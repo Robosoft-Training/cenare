@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { OffersComponent } from 'src/app/components/shared-components/empty-scenario/offers/offers.component';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 
@@ -33,7 +35,8 @@ export class HomeDealsOffersComponent implements OnInit {
   public widgetsContent: any;
 
   constructor(
-    private dealsOfferService: DealsOffersService
+    private dealsOfferService: DealsOffersService,
+    public dialog: MatDialog
   ) { }
 
   getDetails = (offerId: any) => {
@@ -50,7 +53,11 @@ export class HomeDealsOffersComponent implements OnInit {
     this.isErrorLoading = false;
     this.dealsOfferService.getDealsOffers().subscribe(
       (dealsOffers: any) => {
-        console.log(dealsOffers.resultList);
+        if (dealsOffers.resultList.length === 0) {
+          const dialogRef = this.dialog.open(OffersComponent, { panelClass: 'dialog' });
+          dialogRef.afterClosed().subscribe(result => {
+          });
+        }
         this.dealsOffers = dealsOffers.resultList;
         this.isLoading = false;
       },
