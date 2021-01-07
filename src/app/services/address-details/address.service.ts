@@ -21,7 +21,7 @@ export class AddressService {
       );
   }
   getAllAddress = (): Observable<any> => {
-    const url = `${this.apiBaseUrl}/userAddress/getAllAddress`;
+    const url = `${this.apiBaseUrl}userAddress/getAllAddress`;
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
@@ -64,7 +64,7 @@ export class AddressService {
  
  editAddress = (address,address_label,area,city,landmark): Observable<any> => {
     console.log(address,address_label,area,city,landmark);
-    const url = `${this.apiBaseUrl}/userAddress/editAddress`;
+    const url = `${this.apiBaseUrl}userAddress/editAddress`;
     const putBody = {
       address,
       address_label,
@@ -82,7 +82,7 @@ export class AddressService {
   }
   updateAddress = (addressId): Observable<any> => {
     console.log(addressId);
-    const url = `${this.apiBaseUrl}/userAddress/editAddress`;
+    const url = `${this.apiBaseUrl}userAddress/editAddress`;
     const putBody = {
     };
     return this.httpClient.put<any[]>(url,putBody)
