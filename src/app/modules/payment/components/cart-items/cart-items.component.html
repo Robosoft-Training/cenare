@@ -3,7 +3,8 @@
 <div class="container-fluid cart-items-container">
     <div class="heading">
         <p *ngIf="formType==='cartItems'" >The Boutique Kitchen</p>
-        <p *ngIf="formType==='chooseAdress'" >choose Adress</p>
+        <p *ngIf="formType==='chooseAdress'" >Choose Address</p>
+        <p *ngIf="formType==='choosePaymentMethod'">Payment</p>
     </div>
     <div *ngIf="formType==='cartItems'"  class="sub-heading">
         <p>Estimated Delivery time - 60 - 80 min</p>
@@ -54,7 +55,7 @@
                 </div>
                 <div *ngIf="formType==='chooseAdress'" class="buttons-field">
                     <div (click)="showFormsType('cartItems')" class="add-btn"><span class="btn-text">BACK</span></div>
-                    <div (click)="showFormsType('chooseAdress')" class="choose-btn">PAYMENT METHOD</div>
+                    <div (click)="showFormsType('chooseAdress')" class="choose-btn">CHOOSE PAYMENT</div>
                 </div>
             </div>
         </div>

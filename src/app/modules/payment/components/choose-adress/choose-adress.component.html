@@ -1,1 +1,71 @@
-<p>choose-adress works!</p>
+<div class="address-details">
+    <div class="delivery-type">
+        <label class="delivery-type-text">How would you like us to get your meal to you?</label>
+        <div class="d-flex ">
+            <div class="d-flex flex-column flex-wrap delivery-type-card">
+                <img class="icon" src="assets/images/icn_deliver.png">
+                <div class="radio-btn">
+                    <input type="radio" id="deliver-to-me" name="radio-button" class="radio-icon">
+                    <label for="deliver-to-me" class="radio-button-text">Deliver to me</label><br>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-wrap delivery-type-card">
+                <img class="icon" src="assets/images/icn_pick_up.png">
+                <div class="radio-btn">
+                    <input type="radio" id="pick-up" name="radio-button" class="radio-icon">
+                    <label for="pick-up" class="radio-button-text">Pick up</label><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="address">
+        <div class="d-flex address-header">
+            <label class="section-heading">My Addresses (2)</label>
+            <button class="add-new-button">ADD NEW</button>
+        </div>
+        <div class="address-section">
+            <div class="d-flex flex-column address-card">
+                <div class="d-flex img-check">
+                    <img class="img" src="assets/images/icn_check.png">
+                </div>
+                <label class="address-type">Home</label>
+                <label class="address-text">Downtown Burj Khalifa, Dubai, UAE</label>
+                <div class="d-flex button-section">
+                    <button class="btn">Edit</button>
+                    <button class="btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-details">
+        <label class="section-heading">Contact Details</label>
+        <form class="d-flex flex-column form">
+            <mat-form-field class="name-text-box">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" class="name-text-box" id="name" type="text">
+                <mat-hint *ngIf="nameError" class="error">Please enter name</mat-hint>
+            </mat-form-field>
+            <div class="d-flex">
+                <div class="country-code-drop-down bg-danger">
+                    <!-- <mat-form-field class="code-drop-down">
+                        <mat-label>Mobile No.</mat-label>
+                        <mat-select class="droop bg-danger">
+                          <mat-option value="india">+91</mat-option>
+                          <mat-option value="united-kingdom">+1</mat-option>
+                          <mat-option value="united-states">+44</mat-option>
+                        </mat-select>
+                      </mat-form-field> -->
+                </div>
+                <mat-form-field class="mobile-no-text-box" id="phone_number">
+                    <mat-label>Mobile No.</mat-label>
+                    <input matInput placeholder="Mobile No.">
+                    <mat-hint *ngIf="phoneNumberError" class="error">Please enter phone number</mat-hint>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="delivery-inst-text-box">
+                <mat-label>Delivery instructions?</mat-label>
+                <input matInput placeholder="Mention it here…">
+            </mat-form-field>
+        </form>
+    </div>
+</div>

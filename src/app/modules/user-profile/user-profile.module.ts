@@ -9,6 +9,7 @@ import { AngularMaterialsModule } from '../angular-materials/angular-materials.m
 import { EditUserProfileComponent } from './components/edit-user-profile/edit-user-profile.component';
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     CommonModule,
     UserProfileRoutingModule,
     AngularMaterialsModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserProfileModule { }

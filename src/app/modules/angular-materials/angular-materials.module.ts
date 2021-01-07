@@ -19,7 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatNativeDateModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatDividerModule,
+    MatDividerModule
   ],
   exports: [
     MatFormFieldModule,
@@ -29,7 +29,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatNativeDateModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatDividerModule,
+    MatDividerModule
   ],
 })
 export class AngularMaterialsModule { }

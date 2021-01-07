@@ -1,0 +1,193 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.address-details {
+  margin: 16px;
+
+  .delivery-type {
+    .delivery-type-text {
+      color: #4A4A4A;
+      font-family: "Open Sans";
+      font-size: 14px;
+      letter-spacing: -0.24px;
+      line-height: 19px;
+      text-align: center;
+    }
+
+    .delivery-type-card {
+      border-radius: 6px;
+      background-color: $white;
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+      padding: 22px 45px;
+      margin-top: 16px;
+      margin-right: 16px;
+
+      .icon {
+        height: 52px;
+        width: 87px;
+      }
+
+      .radio-btn {
+        margin-top: 14px;
+        @include custom-radio-button();
+
+        .radio-icon {
+          color: #36393B;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .radio-button-text {
+          color: #4A4A4A;
+          font-family: "Open Sans";
+          font-size: 14px;
+          letter-spacing: -0.24px;
+          line-height: 19px;
+          padding-left: 8px;
+        }
+
+      }
+    }
+  }
+
+  .section-heading {
+    color: $black;
+    font-family: "Open Sans";
+    font-size: 17px;
+    letter-spacing: -0.41px;
+    line-height: 23px;
+    margin-top: 30px;
+  }
+
+  .address {
+    margin-right: 16px;
+    width: 100%;
+
+    .address-header {
+      justify-content: space-between;
+      width: 100%;
+
+      .add-new-button {
+        height: 30px;
+        width: 96px;
+        border-radius: 15px;
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.2px;
+        line-height: 19px;
+        text-align: center;
+        margin-top: 30px;
+        border: 1px solid#ff8c7d;
+        color: #ff8c7d;
+        background-color: $white;
+        @include focus;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .address-section {
+      .address-card {
+        width: 50%;
+        border-radius: 6px;
+        background-color: $white;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 8px 8px 8px 16px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .img-check {
+          justify-content: flex-end;
+
+          .img {
+            height: 16px;
+            width: 16px;
+          }
+        }
+
+        .address-type {
+          color: #6A6A6A;
+          font-family: "Open Sans";
+          font-size: 12px;
+          letter-spacing: -0.24px;
+          line-height: 17px;
+        }
+
+        .address-text {
+          color: #2D2D2D;
+          font-family: "Open Sans";
+          font-size: 14px;
+          letter-spacing: -0.24px;
+          line-height: 19px;
+          width: 70%;
+        }
+
+        .button-section {
+          justify-content: flex-end;
+
+          .btn {
+            color: #F57C00;
+            font-family: "Open Sans";
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 19px;
+            text-align: center;
+          }
+        }
+
+      }
+    }
+  }
+
+  .contact-details {
+    .form {
+      .error {
+        color: red;
+      }
+
+      .name-text-box {
+        width: 60%;
+      }
+
+      .mat-form-field {
+        width: auto !important;
+      }
+
+      .mobile-no-text-box {
+        width: 45%;
+        margin-top: 16px;
+      }
+
+      .delivery-inst-text-box {
+        width: 95%;
+      }
+
+      .country-code-drop-down {
+        width: 100px;
+
+        .code-drop-down {
+          width: 50px;
+          background: $white;
+          margin-right: 16px;
+          .droop{
+            width: 50px;
+          }
+        }
+
+        .country-flag {
+          height: 30px;
+          width: 35px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
