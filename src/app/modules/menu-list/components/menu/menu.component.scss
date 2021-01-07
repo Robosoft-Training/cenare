@@ -2,6 +2,7 @@
 
 .menu {
   margin-bottom: 5em;
+
   .menu-left {
     .search-box {
       position: relative;
@@ -30,7 +31,7 @@
         font-family: $openSans;
         font-size: 12px;
         letter-spacing: 0.7px;
-        
+
         &:focus {
           outline: none;
         }
@@ -56,12 +57,14 @@
         .card-img {
           height: 100%;
           width: fit-content;
+
           .img {
             width: 8em;
             height: 8em;
             padding: 0.5em;
             border-radius: 1em;
           }
+
           .categoury-img {
             position: relative;
             top: -2.3em;
@@ -75,6 +78,9 @@
           width: 100%;
 
           .card-content-left {
+
+            width: 100%;
+
             .name-text {
               color: #223136;
               font-family: "Open Sans";
@@ -117,6 +123,8 @@
             }
 
             .content-right-bottom {
+              margin-right: auto;
+
               .already-in-cart-text {
                 color: #49BB5C;
                 font-family: "Open Sans";
