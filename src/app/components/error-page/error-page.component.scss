@@ -1,53 +1,38 @@
 @import "../../../variables.scss";
-.error{
-    position: relative;
-    width: 380px;
-    height: 150px;
-    margin-top: 270px;
-    margin-left: 500px;
-}
-.page{
-    position: absolute;
-   bottom: 270px;
-   left: 580px;
-   font-family:$openSans;
-color: #3E3E3E;
 
-}
-.home{
-    position: absolute;
-    bottom: 200px;
-    left: 640px;
+.conatiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  flex-direction: column;
+  padding: 2em;
+  margin-top: 5em;
+
+  .error {
+    position: relative;
+    width: 25%;
+  }
+
+  .page {
+    font-family: $openSans;
+    color: #3E3E3E;
+    margin: 3em;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 27px;
+  }
+
+  .home {
     cursor: pointer;
     width: 130px;
+    margin-bottom: 20em;
+  }
+
+  @media screen and (max-width: 720px) {
+    .error {
+      position: relative;
+      width: 50%;
+    }
+  }
 }
-@media  screen and (max-width: 500px) {
-    .error {
-      margin-left: 50px;
-    }
-    .page{
-        position: absolute;
-        left: 90px;
-        bottom: 10px;
-    }
-    .home{
-        position: absolute;
-        left: 160px;
-        bottom: 50px; 
-    }
-  }
-  @media  screen and (max-width: 720px) {
-    .error {
-      margin-left: 50px;
-    }
-    .page{
-        position: absolute;
-        left: 90px;
-        bottom: 130px;
-    }
-    .home{
-        position: absolute;
-        left: 160px;
-        bottom: 50px; 
-    }
-  }
