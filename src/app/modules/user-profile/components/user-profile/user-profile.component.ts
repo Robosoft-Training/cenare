@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ConnectionComponent } from 'src/app/components/shared-components/empty-scenario/connection/connection.component';
+import { NetworkStstusService } from 'src/app/services/network-service/network-ststus.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +12,9 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
 
   formType = 'orders';
   constructor(
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private networkStstusService: NetworkStstusService,
+    public dialog: MatDialog
   ) { }
 
   ngAfterViewInit() {
@@ -18,7 +22,13 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    let isOnlineOfline = this.networkStstusService.getNetworkStatus();
+    if (!isOnlineOfline){
+      const dialogRef = this.dialog.open(ConnectionComponent, { panelClass: 'connection' });
+      dialogRef.afterClosed().subscribe(result => {});
+    }
   }
+  
   showFormType(formName): void {
     this.formType = formName;
     console.log(formName);

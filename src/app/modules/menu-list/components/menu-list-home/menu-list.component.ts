@@ -4,6 +4,9 @@ import { MenuListService } from 'src/app/services/resraurant-details/menu-list/m
 import { ReviewsRatingsService } from 'src/app/services/resraurant-details/reviews-ratings/reviews-ratings.service';
 import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
+import { ConnectionComponent } from 'src/app/components/shared-components/empty-scenario/connection/connection.component';
+import { NetworkStstusService } from 'src/app/services/network-service/network-ststus.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-menu-list',
@@ -36,7 +39,9 @@ export class MenuListComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private elementRef: ElementRef,
     private restaurantOverview: RestaurantOverviewService,
-    private restaurantListService: RestaurantListService
+    private restaurantListService: RestaurantListService,
+    private networkStstusService: NetworkStstusService,
+    public dialog: MatDialog
   ) { }
 
   ngAfterViewInit() {
@@ -103,6 +108,13 @@ export class MenuListComponent implements OnInit, AfterViewInit {
         }
       }
     );
+
+    let isOnlineOfline = this.networkStstusService.getNetworkStatus();
+    if (!isOnlineOfline){
+      const dialogRef = this.dialog.open(ConnectionComponent, { panelClass: 'connection' });
+      dialogRef.afterClosed().subscribe(result => {});
+    }
+
   }
 
   showFormType(formName): void {
