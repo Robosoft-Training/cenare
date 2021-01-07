@@ -13,6 +13,11 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CustomScrollDirective } from './custom-scroll-directive';
 import { LoadingComponent } from './loading/loading.component';
+import { EmptyScenarioComponent } from './empty-scenario/empty-scenario.component';
+import { LocationComponent } from './empty-scenario/location/location.component';
+import { ConnectionComponent } from './empty-scenario/connection/connection.component';
+import { OffersComponent } from './empty-scenario/offers/offers.component';
+import { OrderTrackComponent } from './order-track/order-track.component';
 
 
 @NgModule({
@@ -24,7 +29,12 @@ import { LoadingComponent } from './loading/loading.component';
     TopSearchBarComponent,
     BreadcrumbsComponent,
     CustomScrollDirective,
-    LoadingComponent
+    LoadingComponent,
+    EmptyScenarioComponent,
+    LocationComponent,
+    ConnectionComponent,
+    OffersComponent,
+    OrderTrackComponent
   ],
   imports: [
     CommonModule,

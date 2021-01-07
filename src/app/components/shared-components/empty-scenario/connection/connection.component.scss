@@ -1,0 +1,38 @@
+@import '../../../../../variables.scss';
+@import '../../../../../mixin.scss';
+.image{
+    height: 108px;
+    width: 148px;
+    position: relative;
+    right:-135px;
+    bottom: -45px;
+}
+.text{
+    color: #000000;
+  font-family:$openSans;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.48px;
+  line-height: 27px;
+  text-align: center;
+  position: relative;
+  bottom: -70px;
+}
+.refresh{
+    color: #868995;
+    font-family: $openSans;
+    font-size: 11px;
+    letter-spacing: 0;
+  
+    text-align: center;
+    position: relative;
+    bottom: -60px;
+  }
+.close{
+    border: none;
+    background: none;
+    @include focus;
+    color: none;
+    position: relative;
+    float: right;
+}
