@@ -71,39 +71,31 @@ export class RestaurantListOptionsComponent implements OnInit {
 
     this.restaurantListService.currentretaurantDataListSource.subscribe(
       (restaurantDataList: any) => {
-        // console.log(restaurantDataList);
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray?.length;
         this.isLoading = false;
+        this.sortData('rating_high_low');
       }
     );
 
     this.restaurantListService.loadRestaurants().subscribe(
       (restaurantDataList: any) => {
-        // console.log(restaurantDataList.resultList);
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray.length;
         this.isLoading = false;
+        this.sortData('rating_high_low');
       }
     );
     const currentDate = new Date();
     this.currentTime = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
-
-    // this.popularProductsService.currentnearbyBrandsDataListSource.subscribe(
-    //   (nearByPopularDataList) => {
-    //     // console.log(nearByPopularDataList);
-    //   }
-    // );
-    // this.popularProductsService.loadNearbyBrands();
   }
 
   goToMenuScreen = (restaurantID) => {
     this.menuListService.getRestaurantMenuItems(restaurantID).subscribe(
       (msg) => {
-        // this.router.navigate(['/menu-list', { id: restaurantID }]);
       },
       err => {
-        alert('something went wrong');
+        
       }
     );
   }
