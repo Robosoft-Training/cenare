@@ -77,7 +77,7 @@ export class BreadcrumbsComponent implements OnInit {
     this.reataurantListService.currentDataList.subscribe(
       (currentDataList: any) => {
         this.breadCrumbList[1] = currentDataList.locationName;
-        this.breadCrumbList[3] = 'Great ' + currentDataList.searchName;
+        this.breadCrumbList[3] = currentDataList.searchName;
         // console.log(currentDataList);
       }
     );
