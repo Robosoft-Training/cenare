@@ -57,6 +57,13 @@
                         <div (click)="child1.submitDetails()" class="choose-btn">CHOOSE PAYMENT</div>
                     </div>
                 </span>
+                <span *ngIf="formType==='payment-methods'">
+                    <app-payment-method #child2></app-payment-method>
+                    <div class="buttons-field">
+                        <div (click)="showFormsType('chooseAdress')" class="add-btn"><span class="btn-text">BACK</span></div>
+                        <div class="choose-btn">PAY NOW</div>
+                    </div>
+                </span>
             </div>
         </div>
         <div class="col-12 col-lg-4 mt-4 mt-lg-0 offers-payment-field">

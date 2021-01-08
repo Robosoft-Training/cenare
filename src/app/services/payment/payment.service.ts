@@ -6,12 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PaymentService {
 
-  nextFormRequest = new BehaviorSubject('');
+  nextFormRequest = new BehaviorSubject('cartItems');
   nextFormRequestObserver = this.nextFormRequest.asObservable();
 
   constructor() { }
 
   chooseAdress = () => {
-    this.nextFormRequest.next('paymet-methods');
+    this.nextFormRequest.next('payment-methods');
   }
 }

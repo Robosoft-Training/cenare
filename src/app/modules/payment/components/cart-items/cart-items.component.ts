@@ -10,22 +10,16 @@ export class CartItemsComponent implements OnInit {
 
   formType="cartItems";
 
-  constructor(
-    private paymentService: PaymentService
-  ) { }
+  constructor(private paymentService: PaymentService) { }
 
   showFormsType = (formType) => {
     this.formType = formType;
   }
 
-  onGoToNextForm = () => {
-    console.log("formType");
-  }
-
   ngOnInit(): void {
     this.paymentService.nextFormRequestObserver.subscribe(
       msg => {
-        console.log(msg);
+        this.formType = msg;
       }
     );
   }

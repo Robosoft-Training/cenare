@@ -12,16 +12,16 @@
     <div class="orders-card" *ngFor="let item of orders">
         <div class="d-flex card-details">
             <div class="d-flex flex-column details-left">
-                <label class="order-id">{{item.orderNumber}}</label>
+                <label class="order-id">Order id: {{item.orderNumber}}</label>
                 <label class="restaurant-name">{{item.restaurant_name}}</label>
                 <label class="restaurant-address">{{item.restaurant_address}}</label>
                 <div class="d-flex items-count-and-cost">
-                    <label class="text">{{item.numOFItems}}</label>
+                    <label class="text">{{item.numOFItems}} items</label>
                     <div class="border"></div>
-                    <label class="text">{{item.totalAmount}}</label>
+                    <label class="text">Rs. {{item.totalAmount}}</label>
                 </div>
             </div>
-            <label class="status">Out for Delivery</label>
+            <!-- <label class="status">Out for Delivery</label> -->
         </div>
         <div class="d-flex card-buttons">
             <button class="details-button" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">DETAILS</button>
