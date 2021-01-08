@@ -2,9 +2,9 @@
 
 .progress-indicator {
   display: flex;
-  margin-left: -3.4em;
+  margin-left: -2.5em;
   margin-top: 3em;
-  width: 50em;
+  width: 98%;
 
   .line {
     flex: 1;
@@ -120,8 +120,7 @@
 @media only screen and (max-width: 999px) {
   .progress-indicator {
     display: flex;
-    margin-left: 0em;
     margin-top: 2em;
-    width: 25em;
+    width: 100%;
   }
 }

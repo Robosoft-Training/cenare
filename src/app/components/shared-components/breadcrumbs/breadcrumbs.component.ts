@@ -36,13 +36,13 @@ export class BreadcrumbsComponent implements OnInit {
   setData = () => {
     if (this.pageName === 'restaurant-list') {
       this.initializeList();
-      this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
+      this.breadCrumbList[3] = this.storageData.searchName;
       // console.log(this.breadCrumbList);
     }
 
     if (this.pageName === 'restaurant-details') {
       this.initializeList();
-      this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
+      this.breadCrumbList[3] = this.storageData.searchName;
       this.breadCrumbList[4] = 'Chicke dinner';
     }
 
@@ -54,19 +54,19 @@ export class BreadcrumbsComponent implements OnInit {
 
     if (this.pageName === 'menu-home') {
       this.initializeList();
-      this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
+      this.breadCrumbList[3] = this.storageData.searchName;
       this.breadCrumbList[4] = 'The Gufha Restaurant';
     }
 
     if (this.pageName === 'cart-page') {
       this.initializeList();
-      this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
+      this.breadCrumbList[3] = this.storageData.searchName;
       this.breadCrumbList[4] = 'My Cart';
     }
 
     if (this.pageName === 'order-status') {
       this.initializeList();
-      this.breadCrumbList[3] = 'Great ' + this.storageData.searchName;
+      this.breadCrumbList[3] = this.storageData.searchName;
       this.breadCrumbList[4] = 'My Cart';
       this.breadCrumbList[5] = 'Order Status';
     }

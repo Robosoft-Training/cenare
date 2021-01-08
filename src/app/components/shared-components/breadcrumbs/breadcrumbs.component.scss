@@ -5,17 +5,10 @@
     background-color: #f1f3fb;
     box-shadow: $inputBoxShadow;
     height: 2em;
-    margin-left: -1em;
-    
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
 
     .breadcrumb-area {
         display: flex;
         flex-direction: row;
-        // padding-left: 15.3em;
         @include descriptions();
 
         .arrow-mark {
@@ -32,7 +25,6 @@
     @include overriding-angular-materials-filter-input(15.6em);
 
     .breadcrumb-container {
-        margin-left: -1em;
         .breadcrumb-area {
             display: flex;
             // flex-direction: row;

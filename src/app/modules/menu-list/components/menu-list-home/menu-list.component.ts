@@ -55,6 +55,7 @@ export class MenuListComponent implements OnInit, AfterViewInit {
       }
     );
 
+    // console.log(this.restaurantListService.currentretaurantDataList);
     this.restaurantReviewsService.getRestaurantReviews(this.restaurentId).subscribe(
       (data: any) => {
       });

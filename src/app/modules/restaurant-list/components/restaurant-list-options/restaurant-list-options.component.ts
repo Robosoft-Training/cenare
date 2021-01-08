@@ -33,7 +33,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   ];
 
   currentTime: any;
-  sortType = 'rating_high_low';
+  sortType = 'random';
   arrayLength = 0;
   imageplaceHolder = '../assets/images/rest_placeholder.png';
 
@@ -74,7 +74,7 @@ export class RestaurantListOptionsComponent implements OnInit {
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray?.length;
         this.isLoading = false;
-        this.sortData('rating_high_low');
+        this.sortType = 'random';
       }
     );
 
@@ -83,7 +83,7 @@ export class RestaurantListOptionsComponent implements OnInit {
         this.deatilsArray = restaurantDataList.resultList;
         this.arrayLength = this.deatilsArray.length;
         this.isLoading = false;
-        this.sortData('rating_high_low');
+        // this.sortData('rating_high_low');
       }
     );
     const currentDate = new Date();

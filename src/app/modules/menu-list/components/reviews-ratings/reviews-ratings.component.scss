@@ -2,7 +2,7 @@
 @import '../../../../../variables.scss';
 
 .box {
-  width: 90%;
+  width: 100%;
   min-width: 300px;
   margin-left: 5px;
   display: flex;
@@ -11,9 +11,7 @@
   .left {
     width: 66.2%;
     min-width: 300px;
-    margin: 0%;
     margin-right: 20px;
-    padding: 0%;
     border-radius: 8px;
 
     .topBar {
@@ -38,7 +36,6 @@
         display: flex;
         margin-top: auto;
         margin-bottom: auto;
-        //  border: 1px solid red;
 
         .show {
           height: 19px;
@@ -84,12 +81,13 @@
       background-color: #FFFFFF;
       padding-top: 17px;
       padding: 15px;
+      padding-bottom: 0px;
       margin-bottom: 20px;
       box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
       border: transparent;
 
       .rectangle1 {
-        margin-bottom: 16px;
+        margin-bottom: 10px;
 
         .nameSection {
           height: 68px;
@@ -216,19 +214,16 @@
         justify-content: space-between;
 
         .date {
-          height: 17px;
           color: #B9B9B9;
           font-family: $openSans;
           font-size: 11px;
           letter-spacing: 0;
-          line-height: 17px;
-          margin-bottom: 5px;
+          // margin-bottom: 5px;
         }
 
         .like {
           display: flex;
           margin-top: auto;
-          margin-bottom: auto;
 
           .likeButton {
             height: 13px;
@@ -248,14 +243,15 @@
       }
 
       .rectangle3 {
-        margin-top: 12px;
-        padding-left: 0px;
+        // margin-top: 12px;
+        padding: 0px;
+        padding-bottom: 1em;
 
         img {
-          height: 80px;
+          height: 70px;
           margin-left: 0px;
           margin-right: 10px;
-          margin-bottom: 5px;
+          padding: 0px;
         }
       }
     }

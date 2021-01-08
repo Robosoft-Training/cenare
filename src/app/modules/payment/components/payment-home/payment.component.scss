@@ -2,8 +2,8 @@
 @import '../../../../../variables.scss';
 
 .main-container {
+    width: 100%;
     .contents {
-        margin-left: -0.9em;
         margin-top: 2em;
 
         .item-heder {
@@ -18,7 +18,6 @@
         }
 
         .cart-data-container {
-            width: 92%;
             .cart-data {
                 .cart-iem-card {
                     width: 100%;
@@ -88,7 +87,8 @@
 
 @media only screen and (max-width: 999px) {
     .contents{
-        padding-left: 4em;
-        margin-top: 2em;
+        // padding-left: 2em;
+        // margin-top: 2em;
+        width: 100%;
     }
 }

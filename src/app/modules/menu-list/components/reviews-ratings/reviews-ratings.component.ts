@@ -11,7 +11,21 @@ import { SortingService } from 'src/app/services/sorting/sorting.service';
 export class ReviewsRatingsComponent implements OnInit {
 
   count: any;
-  datalist: any = [];
+  datalist: any = [
+    {
+      "first_name": "",
+      "last_name": "",
+      "description": "",
+      "likes": 0,
+      "date": "",
+      "rating": 0,
+      "ratingCount": 0,
+      "reviewCount": 0,
+      "user_image": "null",
+      "review_id": "",
+      "foodImages": []
+    }
+  ];
   likedReviewsId: any = [];
   sortType = 'date_high_low';
   isFoodRatingStored = false;

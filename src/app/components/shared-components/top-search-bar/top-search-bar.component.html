@@ -1,11 +1,11 @@
 <div class="container-fluid search-bar-container">
     <div class="row">
-        <div class="col-0 col-md-3"></div>
-        <div class="col-12 col-md-7 search-bar-area">
+        <div class="col-1 col-xl-2"></div>
+        <div class="col-10 col-xl-8 search-bar-area">
             <span class="product-description">Delivery ASAP</span>
-            <div class="location-date-input pt-2 row d-flex">
+            <div class="location-date-input pt-2 d-flex flex-column flex-md-row ">
 
-                <div class="location p-3 mr-sm-3  col-md-4">
+                <div class="location p-3 mr-sm-3">
                     <div class="icon-style">
                         <img class="gps-icon" src="assets/images/icn_pin.png" />
                     </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="search-box p-0 p-md-3 col-md-6">
+                <div class="search-box p-0 p-md-3">
                     <input class="form-control border-0" type="text" (keyup)="searchAction($event)"
                         [ngModel]="userSearchSelections.searchName" aria-label="Search">
                     <div class="icon-style">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="">
                     <input [hidden]="false" class="hidden-input" [min]="minDate"
                         [(ngModel)]="userSearchSelections.dateTime" [matDatepicker]="picker" />
                     <mat-datepicker disablePast #picker></mat-datepicker>
@@ -50,6 +50,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-0 col-md-2"></div>
+        <div class="col-1 col-xl-2"></div>
     </div>
 </div>

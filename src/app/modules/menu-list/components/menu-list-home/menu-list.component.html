@@ -5,8 +5,8 @@
 <div class="menu-home">
     <div class="container-fluid hader">
         <div class="row">
-            <div class="col-0 col-md-3"></div>
-            <div class="col-12 col-md-7">
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-10 col-xl-8">
                 <div class="form">
                     <div class="card">
                         <div class="details">
@@ -45,14 +45,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-0 col-md-2"></div>
+            <div class="col-1 col-xl-2"></div>
         </div>
     </div>
 
     <div class="container-fluid options">
         <div class="row">
-            <div class="col-0 col-md-3"></div>
-            <div class="col-7">
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-10 col-xl-8">
                 <div class="menu-list d-flex">
                     <div class="mr-5 menu" [ngClass]="formType==='menu'?'active':''" (click)="showFormType('menu')">
                         MENU
@@ -69,14 +69,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-0 col-md-2"></div>
+            <div class="col-1 col-xl-2"></div>
         </div>
     </div>
 
     <div class="container-fluid fields-container">
         <div class="row">
-            <div class="col-0 col-md-3"></div>
-            <div class="col-7">
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-10 col-xl-8">
                 <div *ngIf="formType==='menu'" class="mr-5 fields">
                     <app-menu></app-menu>
                 </div>
@@ -90,7 +90,7 @@
                     <app-gallery></app-gallery>
                 </div>
             </div>
-            <div class="col-0 col-md-2"></div>
+            <div class="col-1 col-xl-2"></div>
         </div>
     </div>
 </div>

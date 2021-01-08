@@ -1,13 +1,14 @@
 @import '../../../../../variables.scss';
 @import '../../../../../mixin.scss';
-h2{
+
+h2 {
     font-weight: lighter;
-    font-family: $openSans; 
-    color: #757575; 
+    font-family: $openSans;
+    color: #757575;
     font-size: 20px;
-    margin-left: 360px;
     margin-top: 30px;
 }
+
 .popular-brands {
     display: flex;
     flex-direction: row;
@@ -15,16 +16,16 @@ h2{
     border-radius: 5px;
     cursor: all-scroll;
     border-radius: 9px;
-    box-shadow: 0 6px 10px rgba(0,0,0,0.01), 0 0 6px rgba(0,0,0,0.1);
-    width:735px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.01), 0 0 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
 
     .brand-image-container {
         .brand-image {
             // width: 100%;
-            // height: 13em;
-            width: 22em;
             height: 13em;
+            width: 28em;
         }
+
         @media only screen and (max-width: 768px) {
             .brand-image {
                 width: 100%;
@@ -32,6 +33,7 @@ h2{
             }
         }
     }
+
     .brand-details {
         display: flex;
         flex-direction: column;
@@ -67,12 +69,13 @@ h2{
             margin: 0em 1.8em;
             @include descriptions();
         }
-        .outlets{
+
+        .outlets {
             position: relative;
             height: 29px;
-          width: 100px;
-          float: right;
-          top: -10px;
+            width: 100px;
+            float: right;
+            top: 2px;
         }
     }
 }

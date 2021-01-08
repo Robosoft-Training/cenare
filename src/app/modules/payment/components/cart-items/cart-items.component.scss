@@ -3,15 +3,17 @@
 
 .cart-items-container {
     padding-top: 2em;
-    margin-left: -3em;
     margin-bottom: 5em;
     @include content-heading-subheading();
+    width: 101%;
+
+    .top-header-text {}
 
     .cart-items-fields {
-        width: 98%;
         padding-top: 1em;
 
         .cart-items {
+
             background-color: $white;
             box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
             border-radius: 6px;
@@ -91,20 +93,23 @@
 
 
         .offers-payment-field {
+            width: 32%;
             border-radius: 6px;
             background-color: $white;
             box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
             padding: 1em;
             height: fit-content;
 
+            @media only screen and (max-width: 999px) {
+                width: 100%;
+            }
         }
     }
 }
 
 @media only screen and (max-width: 999px) {
     .cart-items-container {
-        width: 100%;
-        padding-left: 4em;
         margin-top: 2em;
+        //margin-left: 1em;
     }
 }
