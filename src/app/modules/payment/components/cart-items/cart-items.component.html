@@ -46,17 +46,17 @@
                             placeholder="Mention it here…"><br>
                     </div>
                 </span>
-                <span *ngIf="formType==='chooseAdress'">
-                    <app-choose-adress></app-choose-adress>
-                </span>
                 <div *ngIf="formType==='cartItems'" class="buttons-field">
                     <div class="add-btn"><span class="btn-text">BACK</span></div>
                     <div (click)="showFormsType('chooseAdress')" class="choose-btn">CHOOSE ADDRESS</div>
                 </div>
-                <div *ngIf="formType==='chooseAdress'" class="buttons-field">
-                    <div (click)="showFormsType('cartItems')" class="add-btn"><span class="btn-text">BACK</span></div>
-                    <div (click)="showFormsType('chooseAdress')" class="choose-btn">CHOOSE PAYMENT</div>
-                </div>
+                <span *ngIf="formType==='chooseAdress'">
+                    <app-choose-adress #child1></app-choose-adress>
+                    <div class="buttons-field">
+                        <div (click)="showFormsType('cartItems')" class="add-btn"><span class="btn-text">BACK</span></div>
+                        <div (click)="child1.submitDetails()" class="choose-btn">CHOOSE PAYMENT</div>
+                    </div>
+                </span>
             </div>
         </div>
         <div class="col-12 col-lg-4 mt-4 mt-lg-0 offers-payment-field">

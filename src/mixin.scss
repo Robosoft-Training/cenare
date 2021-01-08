@@ -502,7 +502,7 @@
     }
 }
 
-@mixin coocking-instrauctions($marginTop: 0px) {
+@mixin coocking-instrauctions($marginTop: 0px, $paddingBottom: 16px) {
     .cooking-instructions-text {
         color: $redGray;
         font-family: $openSans;
@@ -518,7 +518,7 @@
         width: 100%;
         border: none;
         border-bottom: 1px solid rgb(189, 185, 185);
-        padding-bottom: 16px;
+        padding-bottom: $paddingBottom;
         position: relative;
         top: -1em;
 
@@ -561,15 +561,16 @@
     }
 }
 
-@mixin selectDots() {
+@mixin select-dots() {
     .select-dots {
         cursor: default;
         position: relative;
         color: #E1E1E1;
         top: -3.9em;
-        left: 4em;
         font-size: 2em;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .active {
             color: #868686;
         }

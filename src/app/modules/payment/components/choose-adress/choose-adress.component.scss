@@ -140,6 +140,16 @@
             letter-spacing: 0;
             line-height: 19px;
             text-align: center;
+            outline: none;
+
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
+
+            &:hover {
+              color: #a75300;
+            }
           }
         }
 
@@ -157,37 +167,48 @@
         width: 60%;
       }
 
-      .mat-form-field {
-        width: auto !important;
-      }
-
       .mobile-no-text-box {
-        width: 45%;
+        width: 40%;
         margin-top: 16px;
       }
 
       .delivery-inst-text-box {
-        width: 95%;
+        width: 100%;
       }
 
-      .country-code-drop-down {
-        width: 100px;
+      .country-code {
+        width: 5em;
+        height: 2em;
+        background-color: #ff8c7d;
+      }
 
-        .code-drop-down {
+      .phone-number {
+        width: 15em;
+        height: 2em;
+        background-color: #f7d8d8
+      }
+
+      .code-drop-down {
+        width: 90px;
+        background: $white;
+        margin-right: 16px;
+        margin-top: 2px;
+
+        .droop {
           width: 50px;
-          background: $white;
-          margin-right: 16px;
-          .droop{
-            width: 50px;
-          }
         }
 
         .country-flag {
           height: 30px;
-          width: 35px;
+          width: 30px;
           margin-right: 8px;
         }
       }
     }
   }
+}
+
+.img {
+  width: 2em;
+  height: 2em;
 }
