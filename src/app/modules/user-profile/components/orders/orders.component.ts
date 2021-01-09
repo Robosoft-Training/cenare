@@ -1,14 +1,28 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as $ from 'jquery';
+import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-
-  constructor() { }
-  ngOnInit(): void {}
+  
+  orders = [{
+    "orderNumber": 0,
+    "restaurant_name": "",
+    "restaurant_address": "",
+    "numOFItems": 0,
+    "totalAmount": 0
+  }];
+  constructor(private userProfileService: UserProfileService) { }
+  ngOnInit(): void {
+    this.userProfileService.getUserOrders().subscribe(
+      (data :any) => {
+        this.orders = data.resultList;
+      }
+    )
+  }
 
   changeStarColor(clickID: number) {
     this.removeAllColor();

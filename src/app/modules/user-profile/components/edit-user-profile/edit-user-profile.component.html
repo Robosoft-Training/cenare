@@ -1,4 +1,5 @@
 <app-nav-bar pageName="profile-page"></app-nav-bar>
+
 <body style="background-color:#F1F3FB">
     <div class="edit-user-profile"></div>
     <div class="container-fluid row">
@@ -9,21 +10,32 @@
                 <div class="d-flex flex-column flex-lg-row card-top">
                     <div class="card-left">
                         <div class="profile-image-section">
-                            <img class="profile-img" src="assets/images/Vada.jpg">
-                            <img class="add-img" src="assets/images/icn_add_photo.png">
+                            <span *ngIf="!isLoading">
+                                <img class="profile-img" [src]="(userDetails.image_path)?userDetails.image_path:imagePlaceholder">
+                                <input type="file" (change)="detectFiles($event)" id="file">
+                                <label for="file">
+                                    <img src="assets/images/icn_add_photo.png">
+                                </label>
+                            </span>
+                            <span *ngIf="isLoading">
+                                <app-loading></app-loading>
+                            </span>
                         </div>
-                        <form class="d-flex flex-column form">
+                        <form class="d-flex flex-column form" name="form">
                             <mat-form-field class="text-box">
-                              <mat-label>Username</mat-label>
-                              <input matInput placeholder="Username" value="">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Username" readonly [value]="userDetails.email">
                             </mat-form-field>
                             <mat-form-field class="text-box">
                                 <mat-label>Name</mat-label>
-                                <input matInput placeholder="Username" value="">
+                                <input matInput placeholder="Name" [(ngModel)]="fullName" name="name" type="text">
+                                <mat-hint *ngIf="fullNameError" class="error">Please enter name</mat-hint>
                             </mat-form-field>
                             <mat-form-field class="text-box">
                                 <mat-label>Phone Number</mat-label>
-                                <input matInput placeholder="Username" value="">
+                                <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber"
+                                    name="phone_number">
+                                <mat-hint *ngIf="phoneNumberError" class="error">Please enter phone number</mat-hint>
                             </mat-form-field>
                         </form>
                     </div>
@@ -31,13 +43,14 @@
                     <div class="card-right">
                         <label class="choose-avatar-text">Choose a user avatar</label>
                         <div class="d-flex flex-wrap avatar-images">
-                            <img class="avatar-img" *ngFor="let img of avatarImageLinks" src={{img}}/>
-                         </div>
-                         
+                            <img class="avatar-img" *ngFor="let img of avatarImageLinks" src={{img}}
+                                (click)="setAvatar(img)" />
+                        </div>
+
                     </div>
                 </div>
                 <div class="d-flex card-bottom">
-                    <button class="save-btn">Save</button>
+                    <button class="save-btn" (click)="saveUserData()">Save</button>
                 </div>
             </div>
         </div>

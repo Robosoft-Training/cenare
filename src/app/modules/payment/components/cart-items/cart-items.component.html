@@ -1,14 +1,13 @@
 <app-progress-bar></app-progress-bar>
 
 <div class="cart-items-container">
-    <div class="top-header-text">
-        <div class="heading">
-            <p *ngIf="formType==='cartItems'">The Boutique Kitchen</p>
-            <p *ngIf="formType==='chooseAdress'">choose Adress</p>
-        </div>
-        <div *ngIf="formType==='cartItems'" class="sub-heading">
-            <p>Estimated Delivery time - 60 - 80 min</p>
-        </div>
+    <div class="heading">
+        <p *ngIf="formType==='cartItems'" >The Boutique Kitchen</p>
+        <p *ngIf="formType==='chooseAdress'" >Choose Address</p>
+        <p *ngIf="formType==='choosePaymentMethod'">Payment</p>
+    </div>
+    <div *ngIf="formType==='cartItems'"  class="sub-heading">
+        <p>Estimated Delivery time - 60 - 80 min</p>
     </div>
     <div class="cart-items-fields row">
         <div class="col-12 col-lg-8">
@@ -47,17 +46,24 @@
                             placeholder="Mention it here…"><br>
                     </div>
                 </span>
-                <span *ngIf="formType==='chooseAdress'">
-                    <app-choose-adress></app-choose-adress>
-                </span>
                 <div *ngIf="formType==='cartItems'" class="buttons-field">
                     <div class="add-btn"><span class="btn-text">BACK</span></div>
                     <div (click)="showFormsType('chooseAdress')" class="choose-btn">CHOOSE ADDRESS</div>
                 </div>
-                <div *ngIf="formType==='chooseAdress'" class="buttons-field">
-                    <div (click)="showFormsType('cartItems')" class="add-btn"><span class="btn-text">BACK</span></div>
-                    <div (click)="showFormsType('chooseAdress')" class="choose-btn">PAYMENT METHOD</div>
-                </div>
+                <span *ngIf="formType==='chooseAdress'">
+                    <app-choose-adress #child1></app-choose-adress>
+                    <div class="buttons-field">
+                        <div (click)="showFormsType('cartItems')" class="add-btn"><span class="btn-text">BACK</span></div>
+                        <div (click)="child1.submitDetails()" class="choose-btn">CHOOSE PAYMENT</div>
+                    </div>
+                </span>
+                <span *ngIf="formType==='payment-methods'">
+                    <app-payment-method #child2></app-payment-method>
+                    <div class="buttons-field">
+                        <div (click)="showFormsType('chooseAdress')" class="add-btn"><span class="btn-text">BACK</span></div>
+                        <div class="choose-btn">PAY NOW</div>
+                    </div>
+                </span>
             </div>
         </div>
         <div class="col-12 col-lg-4 mt-4 mt-lg-0 offers-payment-field">

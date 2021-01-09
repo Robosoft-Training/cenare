@@ -7,6 +7,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatAutocompleteModule,
     MatDividerModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
@@ -30,6 +32,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatAutocompleteModule,
     MatDividerModule,
+    MatSelectModule
   ],
 })
 export class AngularMaterialsModule { }

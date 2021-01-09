@@ -1,0 +1,153 @@
+<div class="payment-method">
+    <div class="payment-type">
+        <label class="payment-type-text">Please select your preferred way to pay.</label>
+        <div class="d-flex payment-type-cards">
+            <div class="d-flex payment-card">
+                <input type="radio" name="payment-type" class="radio-btn">
+                <img class="icon" src="assets/images/icn_wallet.png">
+                <label class="text">Cash</label>
+            </div>
+            <div class="d-flex payment-card">
+                <input type="radio" name="payment-type" class="radio-btn">
+                <img class="icon" src="assets/images/icn_card.png">
+                <label class="text">Credit/Debit Card</label>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="add-new-card">
+        <label class="heading-text">Enter Credit/Debit card details</label>
+        <form class="d-flex flex-column form">
+            <mat-form-field class="text-box">
+                <mat-label>Card number</mat-label>
+                <input type="text" matInput [formControl]="cardNumberFormControl" [errorStateMatcher]="matcher"
+                    placeholder="Card number">
+                <img class="visa-icon" src="../../../../../assets/images/icn_visa.png">
+                <mat-error
+                    *ngIf="cardNumberFormControl.hasError('pattern') && !cardNumberFormControl.hasError('required')">
+                    Please enter a valid card number
+                </mat-error>
+                <mat-error *ngIf="cardNumberFormControl.hasError('required')">Card number is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="text-box">
+                <mat-label>Name on card</mat-label>
+                <input class="text-box-padding" type="text" matInput [formControl]="nameOnCardFormControl" [errorStateMatcher]="matcher"
+                    placeholder="Card number">
+                <mat-error *ngIf="nameOnCardFormControl.hasError('required')">Name on card is required</mat-error>
+            </mat-form-field>
+
+            <div class="d-flex bottom-text-box">
+                <mat-form-field class="text-box-mini">
+                    <mat-label>Expiry</mat-label>
+                    <input class="text-box-padding" type="text" matInput [formControl]="expiryMonthFormControl" [errorStateMatcher]="matcher"
+                        placeholder="MM">
+                    <mat-error *ngIf="expiryMonthFormControl.hasError('required')">Expiry month is required
+                    </mat-error>
+                    <mat-error
+                        *ngIf="expiryMonthFormControl.hasError('pattern') && !expiryMonthFormControl.hasError('required')">
+                        Please enter a month
+                    </mat-error>
+                </mat-form-field>
+                <label class="dash">/</label>
+                <mat-form-field class="text-box-mini">
+                    <input class="text-box-padding" type="text" matInput [formControl]="expiryYearFormControl" [errorStateMatcher]="matcher"
+                        placeholder="YYYY">
+                    <mat-error *ngIf="expiryYearFormControl.hasError('required')">Expiry year is required
+                    </mat-error>
+                    <mat-error
+                        *ngIf="expiryYearFormControl.hasError('pattern') && !expiryYearFormControl.hasError('required')">
+                        Please enter a valid year
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="text-box-medium">
+                    <mat-label>Security code</mat-label>
+                    <input class="text-box-padding" type="text" matInput [formControl]="securityCodeFormControl" [errorStateMatcher]="matcher"
+                        placeholder="Card number">
+                    <mat-error *ngIf="securityCodeFormControl.hasError('required')">Security code is required
+                    </mat-error>
+                    <mat-error
+                        *ngIf="securityCodeFormControl.hasError('pattern') && !securityCodeFormControl.hasError('required')">
+                        Please enter a valid security code
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </form>
+        <div>
+            <input type="radio" class="save-radio-button">
+            <label class="save-card-text">Add this card to saved cards</label>
+        </div>
+    </div> -->
+    <div class="cards">
+        <div class="d-flex card-top">
+            <label class="heading-text">My Card</label>
+            <button class="add-new-button">ADD NEW</button>
+        </div>
+        <div class="d-flex existing-cards flex-wrap">
+            <div class="d-flex flex-column user-card">
+                <div class="d-flex card-image">
+                    <img src="assets/images/icn_visa_bg_white.png">
+                    <img class="tick-icon" src="assets/images/icn_check.png">
+                </div>
+                <label class="card-number">54XX XXXX XXXX 1234</label>
+                <div>
+                    <label class="card-text">Abdullah</label>
+                    <label class="card-text">Expiry: 03/22</label>
+                </div>
+                <div>
+                    <mat-form-field class="security-code" color="accent-white">
+                        <input class="text-box" type="text" matInput placeholder="Enter CVV"
+                            [formControl]="securityCodeFormControl" [errorStateMatcher]="matcher">
+                    </mat-form-field>
+                    <img class="info-icon" src="assets/images/icn_info_small.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex user-credits">
+        <div class="d-flex credits-left">
+            <label class="left-text">Your credits</label>
+            <div class="divider"></div>
+            <div class="d-flex flex-column">
+                <label class="credits">234</label>
+                <label class="amount">Rs.250</label>
+            </div>
+        </div>
+        <div class="credits-right">
+            <img class="check-img" src="../../assets/images/icn_check.png">
+            <label class="redeem-text">Redeem it now</label>
+        </div>
+    </div>
+    <div class="details-delivery">
+        <label class="heading-text">Delivery Details</label>
+        <div class="border delivery-card">
+            <div class="row">
+                <label class="sub-heading-text">Delivery Location</label>
+                <div class="d-flex bottom-text">
+                    <label class="info-text">Downtown Burj Khalifa, Dubai, UAE</label>
+                    <label class="change-text">Change</label>
+                </div>
+            </div>
+            <div class="border divider"></div>
+            <div class="row">
+                <label class="sub-heading-text">Date & Time</label>
+                <div class="d-flex bottom-text">
+                    <label class="info-text">Today @ 11.30</label>
+                    <label class="change-text">Change</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="items-in-order">
+        <label class="heading-text">Items in your order from</label>
+        <div class="d-flex order-card">
+            <div class="d-flex flex-column">
+                <label class="restuarant-name">The Boutique Kitchen</label>
+                <label class="address">Shiekh Zayed Road, Dubai, UAE</label>
+            </div>
+            <div>
+                <img class="arrow-img" src="../../assets/images/icn_right_arrow.png">
+            </div>
+
+        </div>
+    </div>
+</div>

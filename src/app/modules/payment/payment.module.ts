@@ -10,10 +10,11 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentRightBarComponent } from './components/payment-right-bar/payment-right-bar.component';
 import { ChooseAdressComponent } from './components/choose-adress/choose-adress.component';
+import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 
 
 @NgModule({
-  declarations: [PaymentComponent, CartItemsComponent, ProgressBarComponent, PaymentRightBarComponent, ChooseAdressComponent],
+  declarations: [PaymentComponent, CartItemsComponent, ProgressBarComponent, PaymentRightBarComponent, ChooseAdressComponent, PaymentMethodComponent],
   imports: [
     CommonModule,
     PaymentRoutingModule,

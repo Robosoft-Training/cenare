@@ -1,88 +1,93 @@
 <app-nav-bar pageName="profile-page"></app-nav-bar>
 <div class="user-profile">
-  <div class="container-fluid row">
-    <div class="col-3 "></div>
-    <div class="col-6 profile">
-      <div class="d-flex">
-        <div>
-          <img class="profile-img" src="assets/images/Vada.jpg">
-        </div>
-        <div class="d-flex flex-column profile-details">
-          <div class="d-flex details-top">
-            <label class="name">Abdulla</label>
-            <label class="edit" routerLink='/user-profile/edit-user-profile'>Edit</label>
-          </div>
-          <label class="details-full-name">Abdulla Mohammed</label>
+    <div class="container-fluid row">
+        <div class="col-3 "></div>
+        <div class="col-6 profile">
+            <div class="d-flex">
+                <div>
+                    <img class="profile-img" [src]="(userDetails.image_path)?userDetails.image_path:imagePlaceholder" >
+                </div>
+                <div class="d-flex flex-column profile-details">
+                    <div class="d-flex details-top">
+                        <label class="name">{{userDetails.first_name}}</label>
+                        <label class="edit" routerLink='/user-profile/edit-user-profile'>Edit</label>
+                    </div>
+                    <label class="details-full-name">{{userDetails.first_name}} {{userDetails.last_name}}</label>
 
-          <div class="d-flex details-bottom">
-            <div class="d-flex">
-              <img class="img" src="assets/images/icn_phone.png">
-              <label class="text">+971 87656 43217</label>
+                    <div class="d-flex details-bottom">
+                        <div class="d-flex">
+                            <img class="img" src="../../../../../assets/images/icn_phone.png">
+                            <label class="text">{{userDetails.country_code}}{{userDetails.phone_number}}</label>
+                        </div>
+                        <div class="border"></div>
+                        <div class="d-flex">
+                            <img class="img" src="../../../../../assets/images/icn_mail.png">
+                            <label class="text">{{userDetails.email}}</label>
+                        </div>
+                        <div class="border"></div>
+                        <div class="d-flex">
+                            <label class="text">Credits Earned - </label>
+                            <label class="credit-score-text">234</label>
+                            <img class="img" src="../../../../../assets/images/icn_info_small.png">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="border"></div>
-            <div class="d-flex">
-              <img class="img" src="assets/images/icn_mail.png">
-              <label class="text">Abdulla@foodie.com</label>
-            </div>
-            <div class="border"></div>
-            <div class="d-flex">
-              <label class="text">Credits Earned - </label>
-              <label class="credit-score-text">234</label>
-              <img class="img" src="assets/images/icn_info_small.png">
-            </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
-    <div class="col-3"></div>
-  </div>
-  <div class="container-fluid options">
-    <div class="row">
-      <div class="col-0 col-md-3"></div>
-      <div class="col-7">
-        <div class="menu-list d-flex">
-          <div class="mr-5 menu-item" [ngClass]="formType==='orders'?'active':''" (click)="showFormType('orders')">
-            ORDERS
-          </div>
-          <div class="menu-item" [ngClass]="formType==='address'?'active':''" (click)="showFormType('address')">
-            ADDRESS
-          </div>
-          <div class="menu-item" [ngClass]="formType==='payment'?'active':''" (click)="showFormType('payment')">
-            PAYMENT METHODS
-          </div>
-          <div class="menu-item" [ngClass]="formType==='reviews'?'active':''" (click)="showFormType('reviews')">
-            REVIEWS
-          </div>
-          <div class="menu-item" [ngClass]="formType==='gallery'?'active':''" (click)="showFormType('gallery')">
-            GALLERY
-          </div>
         </div>
-      </div>
-      <div class="col-0 col-md-2"></div>
+        <div class="col-3"></div>
     </div>
-  </div>
+    <div class="container-fluid options">
+        <div class="row">
+            <div class="col-0 col-md-3"></div>
+            <div class="col-7">
+                <div class="menu-list d-flex">
+                    <div class="mr-5 menu-item" [ngClass]="formType==='orders'?'active':''"
+                        (click)="showFormType('orders')">
+                        ORDERS
+                    </div>
+                    <div class="menu-item" [ngClass]="formType==='address'?'active':''"
+                        (click)="showFormType('address')">
+                        ADDRESS
+                    </div>
+                    <div class="menu-item" [ngClass]="formType==='payment'?'active':''"
+                        (click)="showFormType('payment')">
+                        PAYMENT METHODS
+                    </div>
+                    <div class="menu-item" [ngClass]="formType==='reviews'?'active':''"
+                        (click)="showFormType('reviews')">
+                        REVIEWS
+                    </div>
+                    <div class="menu-item" [ngClass]="formType==='gallery'?'active':''"
+                        (click)="showFormType('gallery')">
+                        GALLERY
+                    </div>
+                </div>
+            </div>
+            <div class="col-0 col-md-2"></div>
+        </div>
+    </div>
 </div>
 <div class="container-fluid fields-container">
-  <div class="row">
-    <div class="col-0 col-md-3"></div>
-    <div class="col-7">
-      <div *ngIf="formType==='orders'" class="mr-5 fields">
-        <app-orders></app-orders>
-      </div>
-      <div *ngIf="formType==='address'" class="mr-5 fields">
-        <app-address></app-address>
-      </div>
-      <div *ngIf="formType==='payment'" class="mr-5 fields">
-        <app-payment-methods></app-payment-methods>
-      </div>
-      <div *ngIf="formType==='reviews'" class="mr-5 fields">
-        <app-reviews></app-reviews>
-      </div>
-      <div *ngIf="formType==='gallery'" class="mr-5 fields">
-          <app-gallery></app-gallery>
-      </div>
+    <div class="row">
+        <div class="col-0 col-md-3"></div>
+        <div class="col-7">
+            <div *ngIf="formType==='orders'" class="mr-5 fields">
+                <app-orders></app-orders>
+            </div>
+            <div *ngIf="formType==='address'" class="mr-5 fields">
+                <app-address></app-address>
+            </div>
+            <div *ngIf="formType==='reviews'" class="mr-5 fields">
+                <app-reviews></app-reviews>
+            </div>
+            <div *ngIf="formType==='payment'" class="mr-5 fields">
+              <app-payment-methods></app-payment-methods>
+            </div>
+            <div *ngIf="formType==='gallery'" class="mr-5 fields">
+              <app-gallery></app-gallery>
+            </div>
+        </div>
+        <div class="col-0 col-md-2"></div>
     </div>
-    <div class="col-0 col-md-2"></div>
-  </div>
 </div>

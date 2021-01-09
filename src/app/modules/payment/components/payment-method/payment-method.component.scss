@@ -1,0 +1,357 @@
+@import '../../../../../mixin.scss';
+@import '../../../../../variables.scss';
+
+.payment-method {
+  padding: 16px;
+
+  .payment-type {
+    .payment-type-text {
+      color: #4A4A4A;
+      font-family: "Open Sans";
+      font-size: 14px;
+      letter-spacing: -0.24px;
+      line-height: 19px;
+    }
+
+    .payment-type-cards {
+      .payment-card {
+        border-radius: 6px;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+        margin-top: 32px;
+        margin-right: 16px;
+        padding: 16px;
+        justify-content: space-evenly;
+
+        .radio-btn {
+          margin-top: 12px;
+          
+        }
+
+        .icon {
+          height: 36px;
+          width: 37px;
+          margin: 0px 8px;
+        }
+
+        .text {
+          color: #4A4A4A;
+          font-family: "Open Sans";
+          font-size: 14px;
+          letter-spacing: -0.24px;
+          line-height: 19px;
+          padding-top: 12px;
+        }
+
+      }
+    }
+  }
+
+  .add-new-card {
+    .form {
+      .text-box {
+        width: 50%;
+
+        .visa-icon {
+          height: 12px;
+          width: 40px;
+          position: relative;
+          right:-270px;
+          top:-16px;
+        }
+      }
+      .text-box-padding{
+        padding-bottom: 8px;
+      }
+      .text-box-mini {
+        width: 15%;
+      }
+
+      .text-box-medium {
+        margin-left: 64px;
+        width: 37%;
+      }
+
+      .dash {
+        padding: 16px;
+      }
+
+      .bottom-text-box {
+        width: 50%
+      }
+    }
+
+    .save-radio-button {
+      // padding-top: 12px;
+      @include custom-radio-button;
+    }
+
+    .save-card-text {
+      color: #070707;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 19px;
+      padding-left: 8px;
+    }
+
+  }
+
+  .cards {
+    .card-top {
+      justify-content: space-between;
+
+      .add-new-button {
+        height: 30px;
+        width: 96px;
+        border-radius: 15px;
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.2px;
+        line-height: 19px;
+        text-align: center;
+        margin-top: 30px;
+        border: 1px solid#ff8c7d;
+        color: #ff8c7d;
+        background-color: $white;
+        @include focus;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .existing-cards {
+      display: flex;
+      justify-content: space-between;
+
+      .user-card {
+        background-image: url("../../../../../assets/images/card_bg_visa.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding: 16px;
+        width: 48%;
+        margin-bottom: 16px;
+        background-color: $white;
+
+        .card-image {
+          justify-content: space-between;
+
+          .tick-icon {
+            justify-content: flex-end;
+            height: 16px;
+            width: 16.88px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+
+        .card-number {
+          color: #FFFFFF;
+          font-family: "Open Sans";
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1.26px;
+          line-height: 19px;
+          padding: 16px 0px;
+        }
+
+        .card-text {
+          color: #FFFFFF;
+          font-family: "Open Sans";
+          font-size: 12px;
+          letter-spacing: -0.24px;
+          line-height: 17px;
+          padding-right: 32px;
+        }
+
+        .security-code {
+          width: 30%;
+
+          ::ng-deep .mat-form-field-empty.mat-form-field-label {
+            color: $white;
+          }
+
+          ::ng-deep input.mat-input-element {
+            color: $white;
+          }
+
+
+          ::ng-deep .mat-form-field .mat-form-field-label {
+            color: $white !important;
+          }
+
+          ::ng-deep .mat-form-field-underline {
+            background-color: $white !important;
+          }
+
+          ::ng-deep .mat-form-field-ripple {
+            background-color: $white !important;
+          }
+        }
+
+        .info-icon {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+
+  .user-credits {
+    border: 1px solid #CDC7C7;
+    border-radius: 6px;
+    background-color: #FAFAFA;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px 36px;
+    justify-content: space-between;
+
+    margin-top: 21px;
+
+    .credits-left {
+      .left-text {
+        color: #223136;
+        font-family: "Open Sans";
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 22px;
+        padding-top: 10px;
+      }
+
+      .divider {
+        box-sizing: border-box;
+        width: 1px;
+        border: 1px solid #979797;
+        opacity: 0.27;
+        margin: 8px 16px;
+      }
+
+      .credits {
+        color: #223136;
+        font-family: "Open Sans";
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0;
+        padding-top: 12px;
+      }
+
+      .amount {
+        color: #36393B;
+        font-family: "Open Sans";
+        font-size: 12px;
+        letter-spacing: 0;
+      }
+    }
+
+    .credits-right {
+      padding: 20px 20px;
+
+      .check-img {
+        height: 16px;
+        width: 16px;
+        margin-right: 8px;
+      }
+
+      .redeem-text {
+        color: #4A4A4A;
+        font-family: "Open Sans";
+        font-size: 14px;
+        letter-spacing: -0.24px;
+        line-height: 19px;
+      }
+    }
+  }
+
+  .details-delivery {
+    .delivery-card {
+      padding: 16px;
+
+      .sub-heading-text {
+        color: #9B9B9B;
+        font-family: "Open Sans";
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 17px;
+      }
+
+      .bottom-text {
+        justify-content: space-between;
+
+        .info-text {
+          color: #223136;
+          font-family: "Open Sans";
+          font-size: 14px;
+          letter-spacing: 0;
+          line-height: 22px;
+        }
+
+        .change-text {
+          color: #F67E03;
+          font-family: "Open Sans";
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 17px;
+          text-align: right;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .divider {
+        margin: 16px 0px;
+      }
+    }
+  }
+
+  .items-in-order {
+    .order-card {
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      justify-content: space-between;
+
+      .restuarant-name {
+        color: #2D2D2D;
+        font-family: "Open Sans";
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.27px;
+        line-height: 22px;
+      }
+
+      .address {
+        color: #2D2D2D;
+        font-family: "Open Sans";
+        font-size: 14px;
+        letter-spacing: -0.24px;
+        line-height: 19px;
+      }
+
+      .arrow-img {
+        height: 14px;
+        width: 8px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .heading-text {
+    color: #000000;
+    font-family: "Open Sans";
+    font-size: 17px;
+    letter-spacing: -0.41px;
+    line-height: 23px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+}
+@include custom-radio-button;

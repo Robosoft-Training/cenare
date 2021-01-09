@@ -34,9 +34,9 @@
     .cooking-instructions {
         margin: 0px 20px;
         padding-top: 1em;
-        @include coocking-instrauctions();
+        @include coocking-instrauctions(0px, 2px);
         @include hint-text();
-        @include apply-text(0.8em);
+        @include apply-text(0.6em);
     }
 
     .offer-field {
@@ -88,7 +88,7 @@
             @include apply-text();
         }
 
-        @include selectDots();
+        @include select-dots();
     }
 }
 
