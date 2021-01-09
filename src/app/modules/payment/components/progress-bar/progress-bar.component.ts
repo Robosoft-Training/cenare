@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { type } from 'jquery';
+import { CartService } from 'src/app/services/order-details/cart.service';
 
 @Component({
   selector: 'app-progress-bar',
@@ -11,16 +13,28 @@ export class ProgressBarComponent implements OnInit {
   step1 = false;
   step2 = false;
 
-  constructor() { }
+  constructor(
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
-    if (this.pageName === 'adress-page'){
-      this.step1 = true;
-    }
-    else if (this.pageName === 'payment-method') {
-      this.step1 = true;
-      this.step2 = true;
-    }
+    this.cartService.progressStageObserver.subscribe(
+      msg => {
+        console.log(msg, typeof msg);
+        if(msg === '1') {
+          this.step1 = false;
+          this.step2 = false;
+        }
+        else if(msg === '2') {
+          this.step1 = true;
+          this.step2 = false;
+        }
+        else if(msg === '3'){
+          this.step1 = true;
+          this.step2 = true;
+        }
+      }
+    );
   }
 
 }

@@ -4,6 +4,7 @@ import { NetworkStstusService } from 'src/app/services/network-service/network-s
 import { MatDialog } from '@angular/material/dialog';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 import { CartService } from 'src/app/services/order-details/cart.service';
+import { PaymentService } from 'src/app/services/payment/payment.service';
 
 @Component({
   selector: 'app-payment',
@@ -18,9 +19,11 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     public dialog: MatDialog,
     private elementRef: ElementRef,
     private userProfileService: UserProfileService,
-    private cartService: CartService
+    private cartService: CartService,
+    private paymentService: PaymentService
   ) { }
   
+  orderNumber: any = 0;
   orders = [{
     "orderNumber": 0,
     "restaurant_name": "",
@@ -33,8 +36,8 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
   }
 
-  showCartItems = () => {
-    // Update cart items
+  showCartItems = (orderNumber) => {
+    this.orderNumber = orderNumber;
     this.componentName = 'cart-items';
   }
 
@@ -52,6 +55,10 @@ export class PaymentComponent implements OnInit, AfterViewInit {
         this.loadData();
       }
     );
+  }
+
+  onNotify = () => {
+    this.componentName = 'cart-list';
   }
 
   ngOnInit(): void {

@@ -37,19 +37,18 @@ export class ChooseAdressComponent implements OnInit {
   ngOnInit(): void {}
 
   submitDetails(){
-    this.paymentService.chooseAdress();
-    // if (!(this.name)) {
-    //   this.nameError = true;
-    // }
-    // else if (this.phoneNumber.toString().length !== 10) {
-    //   this.nameError = false;
-    //   this.phoneNumberError = true;
-    // }
-    // else {
-    //   this.nameError = false;
-    //   this.phoneNumberError = false;
-    //   this.paymentService.chooseAdress();
-    // }
+    if (!(this.name)) {
+      this.nameError = true;
+    }
+    else if (this.phoneNumber.toString().length !== 10) {
+      this.nameError = false;
+      this.phoneNumberError = true;
+    }
+    else {
+      this.nameError = false;
+      this.phoneNumberError = false;
+      this.paymentService.chooseAdress('payment-methods');
+    }
   }
 
   setCountryFlag(code:any){

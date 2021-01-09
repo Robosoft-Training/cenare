@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 export class CartService {
 
   apiBaseUrl = environment.baseUrl;
+  progressStage = new BehaviorSubject('');
+  progressStageObserver = this.progressStage.asObservable();
 
   constructor(
     private httpClient: HttpClient
@@ -113,4 +115,7 @@ export class CartService {
       );
   }
 
+  progressUpdate = (stageNo) => {
+    this.progressStage.next(stageNo);
+  }
 }

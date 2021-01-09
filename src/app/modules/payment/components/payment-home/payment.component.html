@@ -22,7 +22,7 @@
                                 <span>{{item.numOFItems}} items</span>
                                 <span class="price-text">Rs.{{item.totalAmount}}</span>
                             </div>
-                            <div class="add-btn big-button" (click)="showCartItems()">
+                            <div class="add-btn big-button" (click)="showCartItems(item.orderNumber)">
                                 PROCEED
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div *ngIf="componentName === 'cart-items'" class="col-10 col-xl-8">
-                <app-cart-items></app-cart-items>
+                <app-cart-items (notify)="onNotify()" [orderNumber]="orderNumber"></app-cart-items>
             </div>
             <div class="col-1 col-xl-2"></div>
         </div>

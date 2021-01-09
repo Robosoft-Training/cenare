@@ -11,7 +11,7 @@ export class PaymentService {
 
   constructor() { }
 
-  chooseAdress = () => {
-    this.nextFormRequest.next('payment-methods');
+  chooseAdress = (nextForm) => {
+    this.nextFormRequest.next(nextForm);
   }
 }

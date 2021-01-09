@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 
@@ -9,6 +9,7 @@ import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 })
 export class PaymentRightBarComponent implements OnInit {
 
+  @Input() totalAmmount: any;
   offerCardNo = 0;
   toggleFormField = 'promo-code';
   dealsOffers: IDealsOffers[] = [
