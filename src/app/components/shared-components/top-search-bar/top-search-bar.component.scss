@@ -5,7 +5,7 @@
 @include overriding-angular-materials-filter-input(14.8em);
 
 .search-bar-container {
-    background-image: url("../../../../assets/images/pattern-3.png");
+    background-image: url("../../../../assets/images/bg_pattern.png");
     background-color: rgba(222, 226, 241, 0.8);
     background-repeat: repeat;
     background-size: 100%;
@@ -14,7 +14,6 @@
     .search-bar-area {
         position: relative;
         top: 4.5em;
-        // margin-left: 1em;
 
         .product-description {
             color: $descriptionColor;
