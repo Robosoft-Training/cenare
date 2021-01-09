@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { CartService } from 'src/app/services/order-details/cart.service';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
@@ -68,7 +67,6 @@ export class CartItemsComponent implements OnInit {
   }
 
   getAmmountDetails = (orderNumber) => {
-    console.log(orderNumber);
     this.cartService.getAmmountDetails(orderNumber).subscribe(
       (data: any) => {
         this.totalAmmount = data.total_amount;
@@ -111,7 +109,6 @@ export class CartItemsComponent implements OnInit {
           quantity = item.quantity;
           this.cartService.addToCartAgain(this.orderNumber, this.restaurentId, dishId, quantity).subscribe(
             (data) => {
-              console.log(data);
               this.getAllCartData(this.orderNumber);
             }
           );
@@ -135,6 +132,20 @@ export class CartItemsComponent implements OnInit {
         this.deliveryTime = data.avg_delivery_time;
       }
     );
+  }
+
+  addCoockingInstructions = () => {
+    if (this.coockingInstructions) {
+      this.cartService.addCoockingInstructions(this.coockingInstructions, this.orderNumber).subscribe(
+        msg => {
+          console.log(msg);
+          this.showFormsType('chooseAdress');
+        }
+      );
+    }
+    else {
+      this.showFormsType('chooseAdress');
+    }
   }
 
   ngOnInit(): void {

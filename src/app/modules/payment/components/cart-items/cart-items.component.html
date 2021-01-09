@@ -46,13 +46,13 @@
                     </div>
                     <div class="cooking-instructions">
                         <label class="cooking-instructions-text">Cooking instructions?</label><br>
-                        <input class="cooking-instructions-textbox border-none" type="text"
+                        <input [(ngModel)]="coockingInstructions" name="cookInstructions" class="cooking-instructions-textbox border-none" type="text"
                             placeholder="Mention it here…"><br>
                     </div>
                 </span>
                 <div *ngIf="formType==='cartItems'" class="buttons-field">
                     <div class="add-btn" (click)="notify.emit()"><span class="btn-text">BACK</span></div>
-                    <div (click)="showFormsType('chooseAdress')" class="choose-btn">CHOOSE ADDRESS</div>
+                    <div (click)="addCoockingInstructions()" class="choose-btn">CHOOSE ADDRESS</div>
                 </div>
                 <span *ngIf="formType==='chooseAdress'">
                     <app-choose-adress #child1></app-choose-adress>
