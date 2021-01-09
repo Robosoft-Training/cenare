@@ -37,7 +37,11 @@
         {{item.description}}
       </p>
       <div class="rectangle2">
-        <p class="date">{{item.date==='null'?'':item.date}}</p>
+        <p *ngIf="!(item.date==='null')" class="date">
+          <span>
+            {{ item.date | dateFormate }}
+          </span>
+        </p>
         <div class="like" align="right">
           <img *ngIf="!(likedReviewsId.includes(item.review_id))" class="likeButton"
             src="assets/images/like_inactive.png" (click)="likeReview(item.review_id)" alt="">
