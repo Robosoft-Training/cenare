@@ -6,15 +6,15 @@
         </div>
 
         <div class="col-12 col-md-6">
-            <span class="popular-brands-heading">Best Deals & Offers</span>
-            <h3 class="d-none d-md-block popular-brands-about pb-3">Endless deals near you! Grab the best deals and
+            <span i18n class="popular-brands-heading">Best Deals & Offers</span>
+            <h3 i18n class="d-none d-md-block popular-brands-about pb-3">Endless deals near you! Grab the best deals and
                 offers.</h3>
 
             <span *ngIf="isErrorLoading" class="error-field">
                 <div class="error-field-container mb-5">
                     <img src="assets/images/icn_no.jpg" class="error-image my-3" />
-                    <span class="error-title">Oops!</span>
-                    <span class="product-description">Offer is not available at restuarants near by
+                    <span i18n class="error-title">Oops!</span>
+                    <span i18n class="product-description">Offer is not available at restuarants near by
                         change to other locations and try..</span>
                 </div>
             </span>
@@ -50,7 +50,8 @@
 
                 <div class="controlls">
                     <div class="container-fluid">
-                        <div class="small-orange-text" (click)="getAllOffersList()">All offers & deals
+                        <div class="small-orange-text" (click)="getAllOffersList()">
+                            <span i18n>All offers & deals</span>
                             <mat-icon class="more-icon">keyboard_arrow_right</mat-icon>
                         </div>
                         <div class="p-2">
