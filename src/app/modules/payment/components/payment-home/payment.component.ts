@@ -3,6 +3,7 @@ import { ConnectionComponent } from 'src/app/components/shared-components/empty-
 import { NetworkStstusService } from 'src/app/services/network-service/network-ststus.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
+import { CartService } from 'src/app/services/order-details/cart.service';
 
 @Component({
   selector: 'app-payment',
@@ -16,7 +17,8 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private networkStstusService: NetworkStstusService,
     public dialog: MatDialog,
     private elementRef: ElementRef,
-    private userProfileService: UserProfileService
+    private userProfileService: UserProfileService,
+    private cartService: CartService
   ) { }
   
   orders = [{
@@ -36,16 +38,30 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     this.componentName = 'cart-items';
   }
 
+  loadData = () => {
+    this.userProfileService.getUserOrders().subscribe(
+      (data :any) => {
+        this.orders = data.resultList;
+      }
+    )
+  }
+
+  clearCart = (orderNumber) => {
+    this.cartService.clearCart(orderNumber).subscribe(
+      msg => {
+        this.loadData();
+      }
+    );
+  }
+
   ngOnInit(): void {
     let isOnlineOfline = this.networkStstusService.getNetworkStatus();
     if (!isOnlineOfline){
       const dialogRef = this.dialog.open(ConnectionComponent, { panelClass: 'connection' });
       dialogRef.afterClosed().subscribe(result => {});
     }
-    this.userProfileService.getUserOrders().subscribe(
-      (data :any) => {
-        this.orders = data.resultList;
-      }
-    )
+    else {
+      this.loadData();
+    }
   }
 }

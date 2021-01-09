@@ -25,7 +25,6 @@ export class CartService {
     return this.httpClient.post<any[]>(url, postBody)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );
@@ -42,7 +41,6 @@ export class CartService {
     return this.httpClient.put<any[]>(url, putBody)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );
@@ -71,7 +69,6 @@ export class CartService {
     return this.httpClient.post<any[]>(url, postBody)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );
@@ -86,7 +83,6 @@ export class CartService {
     return this.httpClient.delete<any[]>(url, { params: httpParams })
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );
@@ -98,7 +94,6 @@ export class CartService {
     return this.httpClient.delete<any[]>(url)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );
@@ -113,7 +108,6 @@ export class CartService {
     return this.httpClient.post<any[]>(url, postBody)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );
