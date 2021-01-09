@@ -4,7 +4,6 @@ import { NetworkStstusService } from 'src/app/services/network-service/network-s
 import { MatDialog } from '@angular/material/dialog';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 import { CartService } from 'src/app/services/order-details/cart.service';
-import { PaymentService } from 'src/app/services/payment/payment.service';
 
 @Component({
   selector: 'app-payment',
