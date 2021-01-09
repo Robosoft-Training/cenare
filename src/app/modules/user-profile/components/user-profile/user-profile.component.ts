@@ -12,13 +12,14 @@ import { IUserProfileDetails } from 'src/app/shared/interfaces/IUserProfileDetai
 export class UserProfileComponent implements OnInit, AfterViewInit {
 
   formType = 'orders';
+  imagePlaceholder = "assets/images/avatar/icn_icecream.png";
   userDetails: IUserProfileDetails = {
     "first_name": "",
     "last_name": "",
     "country_code": "",
     "phone_number": 0,
     "email": "", 
-    "image_path": "assets/images/avatar/icn_icecream.png"
+    "image_path": ";"
   };
   constructor(private router: Router, private elementRef: ElementRef, private userProfileService: UserProfileService) { }
 

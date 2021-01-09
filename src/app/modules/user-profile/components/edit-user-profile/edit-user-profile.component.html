@@ -11,7 +11,7 @@
                     <div class="card-left">
                         <div class="profile-image-section">
                             <span *ngIf="!isLoading">
-                                <img class="profile-img" [src]=userDetails.image_path>
+                                <img class="profile-img" [src]="(userDetails.image_path)?userDetails.image_path:imagePlaceholder">
                                 <input type="file" (change)="detectFiles($event)" id="file">
                                 <label for="file">
                                     <img src="assets/images/icn_add_photo.png">
