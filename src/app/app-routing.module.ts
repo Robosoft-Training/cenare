@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
-  {path:'status', component:OrderTrackComponent},
+  {path:'status/:id', component:OrderTrackComponent},
   {
     path: 'restaurant-list',
     loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule)

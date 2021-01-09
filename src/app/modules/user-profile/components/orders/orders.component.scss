@@ -49,11 +49,14 @@
   .dropdown-item {
     color: $greyDark;
     font-family: $openSans;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.11px;
-    line-height: 22px;
-    padding: 16px;
+    padding: 14px;
+     
+    &:active {
+      background: $calenderTheme;
+    }
   }
 
   .line {

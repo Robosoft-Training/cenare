@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NearbyBrandsComponent } from './components/nearby-brands/nearby-brands.component';
 
 const routes: Routes = [
-  { path: '', component: NearbyBrandsComponent }
+  { path: 'nearby-brands', component: NearbyBrandsComponent }
 ];
 
 @NgModule({
