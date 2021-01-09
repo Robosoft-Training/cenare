@@ -20,7 +20,6 @@ export class PaymentComponent implements OnInit, AfterViewInit {
     private elementRef: ElementRef,
     private userProfileService: UserProfileService,
     private cartService: CartService,
-    private paymentService: PaymentService
   ) { }
   
   orderNumber: any = 0;

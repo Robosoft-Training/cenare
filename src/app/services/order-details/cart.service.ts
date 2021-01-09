@@ -64,11 +64,20 @@ export class CartService {
   }
 
   getTotalAmmount = (orderNumber) => {
-    console.log(orderNumber);
     const url = `${this.apiBaseUrl}orders/TotalAmount?orderNumber=${orderNumber}`;
     const postBody = {
     };
     return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+        }),
+        retry(3)
+      );
+  }
+
+  getAmmountDetails = (orderNumber) => {
+    const url = `${this.apiBaseUrl}orders/amountDetails?OrderNumber=${orderNumber}`;
+    return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
         }),

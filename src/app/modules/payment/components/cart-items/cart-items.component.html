@@ -2,12 +2,12 @@
 
 <div class="cart-items-container">
     <div class="heading">
-        <p *ngIf="formType==='cartItems'">The Boutique Kitchen</p>
+        <p *ngIf="formType==='cartItems'">{{restaurantName}}</p>
         <p *ngIf="formType==='chooseAdress'">Choose Address</p>
         <p *ngIf="formType==='choosePaymentMethod'">Payment</p>
     </div>
     <div *ngIf="formType==='cartItems'" class="sub-heading">
-        <p>Estimated Delivery time - 60 - 80 min</p>
+        <p>Estimated Delivery time - {{deliveryTime}} - {{deliveryTime+10}} min</p>
     </div>
     <div class="cart-items-fields row">
         <div class="col-12 col-lg-8">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-4 mt-4 mt-lg-0 offers-payment-field">
-            <app-payment-right-bar [totalAmmount]="totalAmmount"></app-payment-right-bar>
+            <app-payment-right-bar [totalAmmount]="totalAmmount" [discountAmmount]="discountAmmount" [toPayAmmount]="toPayAmmount"></app-payment-right-bar>
         </div>
     </div>
 </div>

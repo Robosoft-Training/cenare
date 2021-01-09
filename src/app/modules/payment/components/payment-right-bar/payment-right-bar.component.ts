@@ -10,6 +10,9 @@ import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 export class PaymentRightBarComponent implements OnInit {
 
   @Input() totalAmmount: any;
+  @Input() discountAmmount: any;
+  @Input() toPayAmmount: any;
+
   offerCardNo = 0;
   toggleFormField = 'promo-code';
   dealsOffers: IDealsOffers[] = [

@@ -17,6 +17,8 @@ export class MenuComponent implements OnInit {
   isHide = false;
   isLoggedIn = false;
   totalAmmount: any = 0.0;
+  toPayAmmount: any = 0.0;
+  discountAmmount: any = 0.0;
   startAdding = false;
   coockingInstructions = null;
   menuList: IMenuList[] = [
@@ -85,9 +87,23 @@ export class MenuComponent implements OnInit {
     if (orderNumber && this.isLoggedIn) {
       this.cartService.getTotalAmmount(orderNumber).subscribe(
         data => {
-          this.totalAmmount = data['To Pay'];
+          // this.totalAmmount = data['To Pay'];
+          this.getAmmountDetails(orderNumber);
         }
       );
+    }
+  }
+
+  getAmmountDetails = (orderNumber) => {
+    if (orderNumber && this.isLoggedIn) {
+      console.log(orderNumber);
+      this.cartService.getAmmountDetails(orderNumber).subscribe(
+        (data: any) => {
+          this.totalAmmount = data.total_amount;
+          this.toPayAmmount = data.to_pay;
+          this.discountAmmount = data.discount;
+        }
+      )
     }
   }
 

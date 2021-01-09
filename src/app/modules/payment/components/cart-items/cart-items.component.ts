@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { CartService } from 'src/app/services/order-details/cart.service';
 import { PaymentService } from 'src/app/services/payment/payment.service';
+import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
 import { ICartItems } from 'src/app/shared/interfaces/ICartItems';
 
 @Component({
@@ -15,10 +16,14 @@ export class CartItemsComponent implements OnInit {
   @Output() notify = new EventEmitter();
 
   totalAmmount: any = 0.0;
+  toPayAmmount: any = 0.0;
+  discountAmmount: any = 0.0;
   restaurentId: any;
   startAdding = false;
   coockingInstructions = null;
   formType = 'cartItems';
+  restaurantName = "";
+  deliveryTime = 0;
   cartList: ICartItems[] = [
     {
       order_number: '',
@@ -34,7 +39,8 @@ export class CartItemsComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
-    private cartService: CartService
+    private cartService: CartService,
+    private restaurantOverviewService: RestaurantOverviewService
   ) { }
 
   showFormsType = (formType, backword = false) => {
@@ -56,9 +62,20 @@ export class CartItemsComponent implements OnInit {
   getTotalAmmount = (orderNumber) => {
     this.cartService.getTotalAmmount(orderNumber).subscribe(
       data => {
-        this.totalAmmount = data['To Pay'];
+        this.getAmmountDetails(this.orderNumber);
       }
     );
+  }
+
+  getAmmountDetails = (orderNumber) => {
+    console.log(orderNumber);
+    this.cartService.getAmmountDetails(orderNumber).subscribe(
+      (data: any) => {
+        this.totalAmmount = data.total_amount;
+        this.toPayAmmount = data.to_pay;
+        this.discountAmmount = data.discount;
+      }
+    )
   }
 
   getAllCartData = (orderNumber) => {
@@ -70,12 +87,14 @@ export class CartItemsComponent implements OnInit {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
           this.cartList = data.resultList;
+          this.restaurentId = data.resultList[0].restaurant_id;
           if (data.resultList.length >= 1) {
             this.getTotalAmmount(this.orderNumber);
           }
           else {
             this.totalAmmount = 0;
           }
+          this.getRestaurantDetails();
         }
       );
     }
@@ -83,8 +102,6 @@ export class CartItemsComponent implements OnInit {
 
   addTocartAgain(restId, dishId, count) {
     this.restaurentId = restId;
-
-    console.log(this.restaurentId);
     let quantity = 0;
     this.cartList.forEach(
       item => {
@@ -107,6 +124,15 @@ export class CartItemsComponent implements OnInit {
     this.cartService.removeItem(this.orderNumber, menuId).subscribe(
       (msg) => {
         this.getAllCartData(this.orderNumber);
+      }
+    );
+  }
+
+  getRestaurantDetails = () => {
+    this.restaurantOverviewService.getRestaurantDetails(this.restaurentId).subscribe(
+      data => {
+        this.restaurantName = data.restaurant_name;
+        this.deliveryTime = data.avg_delivery_time;
       }
     );
   }

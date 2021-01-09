@@ -22,7 +22,6 @@ export class RestaurantOverviewService {
   ) { }
 
   getRestaurantOverview = (restaurantID): Observable<any> => {
-    console.log(restaurantID);
     const url = `${this.apiBaseUrl}restaurants/getRestaurantById`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurantId', restaurantID);
@@ -33,6 +32,19 @@ export class RestaurantOverviewService {
           this.restaurantName.next(data.restaurant_name);
           this.currentOverview = { ...data };
           this. overviewDataListSource.next(data);
+        }),
+        retry(3)
+      );
+  }
+
+  getRestaurantDetails = (restaurantId) => {
+    const url = `${this.apiBaseUrl}restaurants/getRestaurantById`;
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('restaurantId', restaurantId);
+
+    return this.httpClient.get<any[]>(url, {params: httpParams})
+      .pipe(
+        tap((data: any) => {
         }),
         retry(3)
       );

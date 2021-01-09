@@ -86,7 +86,7 @@
                 <div class="d-flex flex-row payment-header">
                     <label>To Pay</label>
                     <div class="d-flex flex-row header-price">
-                        <label>INR{{this.totalAmmount}}</label>
+                        <label>INR{{this.toPayAmmount}}</label>
                         <img class="collapse-btn" src="assets/images/icn_collapse.png"
                             [ngClass]="isHide?'translateY':'translateX'" (click)="showPaymentDetails()">
                     </div>
@@ -94,15 +94,15 @@
                 <div class="d-flex flex-column payment-details" [ngClass]="isHide?'d-none':'d-block'">
                     <div class="d-flex flex-row item">
                         <label class="text">Items total</label>
-                        <label class="text">INR{{this.totalAmmount}}</label>
+                        <label class="text">INR{{this.totalAmmount}}.00</label>
                     </div>
                     <div class="d-flex flex-row item">
                         <label class="text">Fee/charges</label>
-                        <label class="text">INR118.00</label>
+                        <label class="text">INR0.00</label>
                     </div>
                     <div class="d-flex flex-row item">
                         <label class="text">Discount</label>
-                        <label class="text">INR118.00</label>
+                        <label class="text">INR{{discountAmmount}}.00</label>
                     </div>
                 </div>
             </div>
