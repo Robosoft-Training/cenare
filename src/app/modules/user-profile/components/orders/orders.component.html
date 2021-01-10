@@ -24,7 +24,7 @@
             <!-- <label class="status">Out for Delivery</label> -->
         </div>
         <div class="d-flex card-buttons">
-            <button class="details-button" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">DETAILS</button>
+            <button class="details-button" (click)="getDetails(item.orderNumber)" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">DETAILS</button>
             <button class="status-button" routerLink="/status/{{item.orderNumber}}">STATUS</button>
         </div>
     </div>
@@ -75,10 +75,10 @@
                                     <label class="sub-text">Discount</label>
                                 </div>
                                 <div class="row text-right">
-                                    <label class="total-amount-text">INR 100</label>
-                                    <label class="sub-text">INR 100</label>
-                                    <label class="sub-text">INR 100</label>
-                                    <label class="sub-text">INR 100</label>
+                                    <label class="total-amount-text">INR {{toPayAmount}}</label>
+                                    <label class="sub-text">INR {{totalAmount}}</label>
+                                    <label class="sub-text">INR {{00}}</label>
+                                    <label class="sub-text">INR {{disCountAmount}}</label>
                                 </div>
                             </div>
                             <div class="d-flex card-payment-mode">

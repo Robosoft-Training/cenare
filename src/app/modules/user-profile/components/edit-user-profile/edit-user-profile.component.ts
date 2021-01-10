@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 import { IUserProfileDetails } from 'src/app/shared/interfaces/IUserProfileDetails';
 
@@ -36,7 +37,11 @@ export class EditUserProfileComponent implements OnInit, AfterViewInit {
   phoneNumberError = false;
   isLoading = false;
 
-  constructor(private elementRef: ElementRef, private userProfileService: UserProfileService) { }
+  constructor(
+    private elementRef: ElementRef,
+    private userProfileService: UserProfileService,
+    private localStorageService: LocalStorageService
+  ) { }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#f1f3fb';
@@ -55,6 +60,7 @@ export class EditUserProfileComponent implements OnInit, AfterViewInit {
     }
     else {
       this.phoneNumberError = false;
+      this.localStorageService.setUserName(this.fullName.split(' ')[0]);
       this.userProfileService.saveUserProfileData(this.fullName, this.phoneNumber).subscribe(
         (data: any) => { }
       )
