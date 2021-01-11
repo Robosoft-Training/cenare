@@ -62,17 +62,22 @@ export class SortingService {
   }
 
   sortingByDate = (detailsArray, sortType) => {
-    if (sortType === 'date_high_low'){
+    if (sortType === 'date_high_low') {
       detailsArray.sort(
         (a, b) => {
-          return new Date(b.date).getDate() - new Date(a.date).getDate();
+          console.log(typeof new Date(b.date));
+          var dateA: any = new Date(a.date);
+          var dateB: any = new Date(b.date);
+          return dateA - dateB;
         }
       );
     }
     else {
       detailsArray.sort(
         (a, b) => {
-          return new Date(a.date).getDate() - new Date(b.date).getDate();
+          var dateA: any = new Date(b.date);
+          var dateB: any = new Date(a.date);
+          return dateA - dateB;
         }
       );
     }

@@ -85,8 +85,13 @@ export class CartItemsComponent implements OnInit {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
           this.cartList = data.resultList;
-          this.restaurentId = data.resultList[0].restaurant_id;
+          if (this.cartList.length === 0) {
+            this.totalAmmount = 0;
+            this.toPayAmmount = 0;
+            this.discountAmmount = 0;
+          }
           if (data.resultList.length >= 1) {
+            this.restaurentId = data.resultList[0].restaurant_id;
             this.getTotalAmmount(this.orderNumber);
           }
           else {

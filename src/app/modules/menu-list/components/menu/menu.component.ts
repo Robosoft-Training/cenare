@@ -116,6 +116,11 @@ export class MenuComponent implements OnInit {
       this.cartService.getAllCartData(orderNumber).subscribe(
         data => {
           this.cartList = data.resultList;
+          if (this.cartList.length === 0) {
+            this.totalAmmount = 0;
+            this.toPayAmmount = 0;
+            this.discountAmmount = 0;
+          }
           this.prepareMenuIdList(data.resultList);
           if (data.resultList.length >= 1) {
             this.getTotalAmmount(orderNumber);
@@ -167,6 +172,8 @@ export class MenuComponent implements OnInit {
       msg => {
         this.getAllCartData(this.orderNo);
         this.totalAmmount = 0;
+        this.toPayAmmount = 0;
+        this.discountAmmount = 0;
       }
     );
   }
