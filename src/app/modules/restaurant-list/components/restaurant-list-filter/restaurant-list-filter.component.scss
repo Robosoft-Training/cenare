@@ -14,16 +14,20 @@
 }
 
 .container {
-  width: 210px;
+  position: absolute;
+  width: 310px;
   border-radius: 6px;
   background-color: #FFFFFF;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 
   .box {
+    position: relative;
+    width: 100%;
     height: 52px;
     border-bottom: 0.5px solid #E1E1E1;
 
     .rectangle {
+      width: 100%;
       height: 27px;
       display: flex;
       position: absolute;
@@ -34,7 +38,7 @@
         width: 60px;
         color: $headerText;
         font-family: $openSansSemibold;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         letter-spacing: 0;
         line-height: 27px;
@@ -45,10 +49,10 @@
         height: 22px;
         color: #F57C00;
         font-family: $openSans;
-        font-size: 12px;
+        font-size: 13px;
         letter-spacing: 0;
         line-height: 22px;
-        margin-left: 70px;
+        margin-right: 7%;
         margin-top: auto;
         margin-bottom: auto;
         background: transparent;
@@ -73,7 +77,7 @@
       margin-left: 18px;
       margin-top: 24px;
       height: 35px;
-      width: 180px;
+      width: 84%;
       border-radius: 6px;
       color: #FDA5A3;
       border: 2px solid #FDA5A3;
@@ -115,7 +119,7 @@ body {
   line-height: 19px;
   color: #5E5E5E;
   font-family: $openSansSemibold;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0;
   line-height: 19px;
@@ -210,7 +214,7 @@ input:checked~.questions {
   height: 19px;
   color: #606060;
   font-family: $openSansSemibold;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.24px;
   line-height: 19px;
@@ -221,7 +225,7 @@ input:checked~.questions {
   height: 19px;
   color: #606060;
   font-family: $openSansSemibold;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.24px;
   line-height: 19px;
@@ -248,12 +252,12 @@ input:checked~.questions {
 
 :checked+.optionChecked {
   color: #F78713;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 :checked+.optionLabel {
   color: #F78713;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -276,41 +280,47 @@ input:checked~.questions {
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 
     .box {
-      //width: 100%;
-      height: 52px;
+      position: relative;
+      width: 100%;
+      height: 45px;
       border-bottom: 0.5px solid #E1E1E1;
 
       .rectangle {
         height: 27px;
         display: flex;
-        position: absolute;
         margin-top: 14px;
+        width: 100%;
+        position: absolute;
+        margin-top: 10px;
+        justify-content: space-between;
 
         .filters {
           width: 60px;
           color: $headerText;
           font-family: $openSansSemibold;
-          font-size: 17px;
+          font-size: 16px;
           font-weight: 600;
           letter-spacing: 0;
-          line-height: 27px;
+          line-height: 20px;
           margin-left: 21px;
+          margin-top: auto;
+          margin-bottom: auto;
         }
 
         .resetAll {
           height: 22px;
-          width: 100px;
           color: #F57C00;
           font-family: $openSans;
-          font-size: 14px;
+          font-size: 13px;
           letter-spacing: 0;
           line-height: 22px;
-          margin-left: 69px;
+          margin-right: 7%;
           margin-top: auto;
           margin-bottom: auto;
           background: white;
           outline: none;
           border: none;
+          background: transparent;
         }
       }
     }
@@ -330,7 +340,7 @@ input:checked~.questions {
         margin-left: 20px;
         margin-top: 24px;
         height: 45px;
-        width: 210px;
+        width: 84%;
         border-radius: 6px;
         color: #FDA5A3;
         border: 2px solid #FDA5A3;
@@ -372,7 +382,7 @@ input:checked~.questions {
     line-height: 19px;
     color: #5E5E5E;
     font-family: $openSansSemibold;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0;
     line-height: 19px;
