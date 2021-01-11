@@ -6,50 +6,79 @@
   <p class="heading">Add New Card</p>
   <p class="text">Enter Credit/Debit card details</p>
 
-  <mat-form-field>
-    <mat-label>Card number</mat-label>
-    <div style="display: block;  position: relative;">
-      <input matInput>
-    </div>
-    <img class="icon" src="../../../../../assets/images/Visa_small_icon.png" alt="">
-  </mat-form-field>
+  <form>
 
-  <mat-form-field>
-    <mat-label>Name on card</mat-label>
-    <div style="display: block;  position: relative;">
-      <input matInput>
-    </div>
-  </mat-form-field>
-
-  <div class="cardDetails">
+    <!-- Card number -->
 
     <mat-form-field>
-      <mat-label>Expiry</mat-label>
+      <mat-label>Card number</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput>
+        <input matInput class="input js-number" type="text" name="cardNumber" minlength="16" maxlength="16"
+          name="cardNumber" required pattern="\d{4}+\s+\d{4}+\s+\d{4}+\s+\d{4}+\s" title="Please enter correct year"
+          [(ngModel)]="cardNumber.value" [class.invalid]="cardNumber.error" />
       </div>
+      <mat-hint *ngIf="cardNumber.error" class="error1">{{cardNumber.error}}</mat-hint>
+      <img class="icon" src="../../../../../assets/images/Visa_small_icon.png" alt="">
     </mat-form-field>
 
-    <p>/</p>
+    <!-- Name on card -->
 
     <mat-form-field>
+      <mat-label>Name on card</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput>
+        <input matInput class="input" type="text" name="name" [(ngModel)]="name.value" [class.invalid]="name.error" />
       </div>
+      <mat-hint *ngIf="name.error" class="error1">{{name.error}}</mat-hint>
     </mat-form-field>
 
-    <mat-form-field class="security">
-      <mat-label>Security card</mat-label>
-      <div style="display: block;  position: relative;">
-        <input class="input" matInput>
-      </div>
-    </mat-form-field>
-  </div>
+    <div class="cardDetails">
+
+      <!-- Expiry month -->
+
+      <mat-form-field>
+        <mat-label>Expiry</mat-label>
+        <div style="display: block;  position: relative;">
+          <input matInput class="input js-number" type="text" maxlength="2" pattern="\d{1,2}"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus required
+            title="Please enter correct month" name="expiryMonth" [(ngModel)]="expiryMonth.value"
+            [class.invalid]="expiryMonth.error" />
+        </div>
+      </mat-form-field>
+      <mat-hint *ngIf="expiryMonth.error" class="error2">{{expiryMonth.error}}</mat-hint>
+
+      <p>/</p>
+
+      <!-- Expiry year -->
+
+      <mat-form-field>
+        <div style="display: block;  position: relative;">
+          <input matInput class="input js-number" type="text" maxlength="4" pattern="\d{4}" name="expiryYear"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus required
+            title="Please enter correct year" [(ngModel)]="expiryYear.value" [class.invalid]="expiryYear.error" />
+        </div>
+      </mat-form-field>
+      <mat-hint *ngIf="expiryYear.error" class="error2">{{expiryYear.error}}</mat-hint>
+
+      <!-- CVV -->
+
+      <mat-form-field class="security">
+        <mat-label>Security card</mat-label>
+        <div style="display: block;  position: relative;">
+          <input matInput class="input js-number" type="text" maxlength="3" pattern="\d{3}" name="cvv"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus required
+            title="Please enter correct CVV" [(ngModel)]="cvv.value" [class.invalid]="cvv.error" />
+        </div>
+        <mat-hint *ngIf="cvv.error" class="error1">{{cvv.error}}</mat-hint>
+      </mat-form-field>
+
+    </div>
+
+  </form>
 
   <div class="primary">
     <input type="checkbox" class="checkActive" id="tab" name="tabs">
     <label class="primaryActive1" for="tab">Add this card to saved cards</label>
   </div>
 
-  <button class="save">SAVE CARD</button>
+  <button class="save" (click)="saveCard()">SAVE CARD</button>
 </div>
