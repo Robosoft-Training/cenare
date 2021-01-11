@@ -13,7 +13,8 @@
             <label class="heading-text">Sort by :</label>
             <span class="option-text" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Ratings
+                <span *ngIf="!(sortType === 'avg_low_high' || sortType === 'avg_high_low')">Ratings</span>
+                <span *ngIf="sortType === 'avg_low_high' || sortType === 'avg_high_low'">Avg. meal cost</span>
                 <span *ngIf="sortType === 'rating_high_low' || sortType === 'avg_high_low'"
                     class="arrow-icon">&#8593;</span>
                 <span *ngIf="sortType === 'rating_low_high' || sortType === 'avg_low_high'"

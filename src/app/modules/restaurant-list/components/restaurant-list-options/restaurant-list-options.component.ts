@@ -44,8 +44,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   constructor(
     private restaurantListService: RestaurantListService,
     private sortingService: SortingService,
-    private menuListService: MenuListService,
-    private router: Router
+    private menuListService: MenuListService
   ) { }
 
   showMoreOptions = () => {

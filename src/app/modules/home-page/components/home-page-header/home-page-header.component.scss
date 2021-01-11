@@ -31,7 +31,28 @@
                 border-radius: 0.4em;
 
                 @include icon-style();
-                @include form-controles();
+
+                .form-control {
+                    display: block;
+                    width: 100%;
+                    z-index: 2;
+                    border: none;
+                    outline: none;
+
+                    font-family: $openSans;
+                    font-size: 1em;
+                    letter-spacing: -0.24px;
+                    line-height: 19px;
+
+                    &:focus {
+                        outline: 5px solid $white;
+                        box-shadow: none;
+                        outline: none;
+
+                        font-weight: bold;
+                        color: rgb(26, 24, 24);
+                    }
+                }
             }
 
             .scroll-mouse {
@@ -90,4 +111,12 @@
     }
 
     @include overriding-angular-materials-filter-input(20em);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 0.8em;
+    width: 0.8em;
+    background: url('../../../../../assets/images/dismiss.png') no-repeat 50% 50%;
+    background-size: contain;
 }
