@@ -4,6 +4,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { AllOffersComponent } from './components/shared-components/all-offers/all-offers/all-offers.component';
 import { OffersComponent } from './components/shared-components/all-offers/offers/offers.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
@@ -14,8 +15,9 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'offers', component: OffersComponent},
-  {path:'error', component:ErrorPageComponent},
+  { path: 'offers', component: OffersComponent },
+  { path: 'all-offers', component: AllOffersComponent },
+  { path: 'error', component: ErrorPageComponent },
   {
     path: 'restaurant-list',
     loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule)

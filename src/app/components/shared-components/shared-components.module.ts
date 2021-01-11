@@ -14,6 +14,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CustomScrollDirective } from './custom-scroll-directive';
 import { LoadingComponent } from './loading/loading.component';
 import { OffersComponent } from './all-offers/offers/offers.component';
+import { AllOffersComponent } from './all-offers/all-offers/all-offers.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { OffersComponent } from './all-offers/offers/offers.component';
     BreadcrumbsComponent,
     CustomScrollDirective,
     LoadingComponent,
-    OffersComponent
+    OffersComponent,
+    AllOffersComponent
   ],
   imports: [
     CommonModule,
