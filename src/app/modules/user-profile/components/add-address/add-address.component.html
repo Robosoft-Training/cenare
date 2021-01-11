@@ -4,7 +4,34 @@
   </button>
 
   <p class="heading">Add new address</p>
-  <div class="location"></div>
+  <div class="locationBox">
+    <div class="form-group location-date-input pt-3">
+      <div class="location p-3 mr-0 mr-sm-3">
+        <div class="icon-style">
+          <img class="gps-icon" src="../../../../../assets/images/icn_pin.png" />
+        </div>
+
+        <!-- <input class="form-control" placeholder="Search" aria-label="Search"> -->
+        <form [formGroup]="stateForm" class="gps-form-control">
+          <input type="text" matInput [(ngModel)]="userSearchSelections.locationName" placeholder="Location"
+            class="gpsFormControl" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
+          <mat-autocomplete #autoGroup="matAutocomplete" class="mt-4">
+            <mat-optgroup *ngFor="let group of stateGroupOptions | async"
+              [label]="userSearchSelections.locationName===''?group.letter:''">
+              <mat-option *ngFor="let name of group.names" [value]="name">
+                {{name}}
+                <mat-divider></mat-divider>
+              </mat-option>
+            </mat-optgroup>
+          </mat-autocomplete>
+        </form>
+
+        <div class="icon-style">
+          <img class="search-icon" src="../../../../../assets/images/icn_gps.png" />
+        </div>
+      </div>
+    </div>
+  </div>
 
   <form>
 
