@@ -31,11 +31,88 @@
             </div>
             <img class="food d-none d-md-block" src="{{image?image:placeholderImage}}">
           </div>
+
+          <div class="row rectangle">
+            <div class="col-lg-6 col-md-6 col-sm-12 search-box">
+              <img class="search-icon" src="../../../../../assets/images/icn_search.png" />
+              <input class="input" placeholder="Search for Offers" [(ngModel)]="menuSearch">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 box">
+              <div class="line1"></div>
+              <div class="rectangle1 col-lg-8 col-md-8 col-sm-6">
+                <p class="text">Delivering food to</p>
+                <div class="addressBox">
+                  <img src="../../../../../assets/images/icn_pin.png" alt="">
+                  <p class="address">Al Nahda, Dubai, UAE</p>
+                </div>
+              </div>
+              <div class="rectangle2 col-lg-4 col-md-4 col-sm-6">
+                <div class="line2"></div>
+                <p class="change">CHANGE</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="offers row">
+            <div class="cards col-lg-6 col-mg-6 col-sm-12" *ngFor="let cards of cardlist; let i=index;">
+              <img src="{{cards.offerImagePath}}" alt="">
+              <div class="cardDetails">
+                <p class="offerTitle">{{cards.offerTitle}}</p>
+                <!-- <div class="box1">
+                  <p class="text1">Flat</p>
+                  <p class="offerPercent">{{cards.offerPercent}}</p>
+                  <p class="text2">% Off</p>
+                </div> -->
+                <div class="box2">
+                  <p class="offerCode">{{cards.code}}</p>
+                  <p class="viewDetails" (click)="displayImage(cards, i)">View details</p>
+                </div>
+                <button class="apply">APPLY</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-0 col-md-2"></div>
     </div>
   </div>
+</div>
 
-  <div class="cards"></div>
+<div *ngIf="isOpen" class="screen">
+  <div class="dialog">
+    <button class="close" mat-button mat-dialog-close>
+      <img class="close" (click)="close()" src="../../../../../assets/images/dismiss_button_white.png" alt="">
+    </button>
+    <p class="title">So good Wednesday Everyday WOW! Value So good Wednesday</p>
+    <p class="code">CDB33</p>
+    <img class="image" src="../../../../../assets/images/offer_bg_3.jpg" alt="">
+    <div class="box1">
+      <p class="heading1">Offer Details</p>
+      <ul>
+        <li class="details">Get 39% Off</li>
+        <li class="details">Offer valid till 21st Dec</li>
+      </ul>
+    </div>
+    <div class="box2">
+      <p class="heading2">Delivering food to</p>
+      <div class="addressBox">
+        <img src="../../../../../assets/images/icn_pin.png" alt="">
+        <p class="address">Al Nahda, Dubai, UAE</p>
+      </div>
+    </div>
+    <div class="box3">
+      <p class="heading3">Offer applicable nearby outlets</p>
+      <div class="outlet" *ngFor="let item of outlets">
+        <p class="outletName">{{item.outletName}}</p>
+        <p class="outletAddress">{{item.outletAddress}}</p>
+      </div>
+    </div>
+    <div class="box4">
+      <button class="applyButton">APPLY</button>
+    </div>
+  </div>
+  <div class="rectangle">
+    <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow()"></button>
+    <button class="fa fa-angle-right rightArrow" id="right" (click)="rightArrow()"></button>
+  </div>
 </div>
