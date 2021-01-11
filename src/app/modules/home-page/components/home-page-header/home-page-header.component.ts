@@ -49,7 +49,7 @@ export class HomePageHeaderComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
-    const element = document.querySelector('.scroll-mouse');
+    const element = document.querySelector('.mouse');
     if (window.pageYOffset > element!.clientHeight) {
       element!.classList.remove('d-block');
       element!.classList.add('d-none');

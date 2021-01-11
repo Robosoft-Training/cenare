@@ -43,6 +43,7 @@
                     font-size: 1em;
                     letter-spacing: -0.24px;
                     line-height: 19px;
+                    color: #848484;
 
                     &:focus {
                         outline: 5px solid $white;
@@ -60,6 +61,20 @@
                 top: 10em;
                 left: 28em;
                 transition: 5s;
+            }
+
+            .scroll-text {
+                height: 18px;
+                width: 118.55px;
+                opacity: 0.66;
+                color: #848484;
+                font-family: $openSans;
+                font-size: 13px;
+                letter-spacing: 3.66px;
+                line-height: 18px;
+                left: 27em;
+                top: 14em;
+                text-align: center;
             }
         }
 
