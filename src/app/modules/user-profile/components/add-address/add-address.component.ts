@@ -9,31 +9,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddAddressComponent implements OnInit {
 
-  form!: FormGroup;
-  myCity = "";
+  city = { value: '', error: '' };
+  area = { value: '', error: '' };
+  address = { value: '', error: '' };
+  addressLabel = { value: '', error: '' };
 
   constructor(
     public dialogRef: MatDialogRef<AddAddressComponent>,
-    private formBuilder: FormBuilder
   ) { }
 
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      city: ['', Validators.required]
-    //  phone_number: ['', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10)]]
-      });
-  }
+  ngOnInit(): void { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  saveAddress() {
-
-  }
-
-  get city() {
-    return this.form.get('city');
+  saveAddress(): void {
+    if (!this.city.value) {
+      this.city.error = 'City is required';
     }
-
+    else if (!this.area.value) {
+      this.area.error = 'Area is required';
+    }
+    else if (!this.address.value) {
+      this.address.error = 'Address is required';
+    }
+    else if (!this.addressLabel.value) {
+      this.addressLabel.error = 'Address label is required';
+    }
+    else {
+      this.city.error = '';
+      this.area.error = '';
+      this.address.error = '';
+      this.addressLabel.error = '';
+    }
+  }
 }

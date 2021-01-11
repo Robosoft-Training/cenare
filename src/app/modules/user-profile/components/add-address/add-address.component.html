@@ -6,44 +6,43 @@
   <p class="heading">Add new address</p>
   <div class="location"></div>
 
-  <form [formGroup]="form">
+  <form>
 
-    <!-- <mat-form-field>
-      <mat-label>City</mat-label>
-      <input matInput placeholder="Name" [(ngModel)]="abcd" name="city" id="city" type="text" formControlName="city">
-      <mat-hint *ngIf="city.touched && city.errors?.required">Please enter city</mat-hint>
-    </mat-form-field> -->
-
-    <!-- <mat-form-field>
+    <mat-form-field>
       <mat-label>City</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput placeholder="Name" [(ngModel)]="myCity" name="city" id="city" type="text"
-          formControlName="city">
-        <mat-hint *ngIf="city.touched && city.errors?.required">Please enter city</mat-hint>
+        <input matInput class="input" type="text" name="city" [(ngModel)]="city.value" [class.invalid]="city.error" />
       </div>
+      <mat-hint *ngIf="city.error" class="error1">{{city.error}}</mat-hint>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Area</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput required>
+        <input matInput class="input" type="text" name="area" [(ngModel)]="area.value" [class.invalid]="area.error" />
       </div>
+      <mat-hint *ngIf="area.error" class="error1">{{area.error}}</mat-hint>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Address</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput required>
+        <input matInput class="input" type="text" name="address" [(ngModel)]="address.value"
+          [class.invalid]="address.error" />
       </div>
+      <mat-hint *ngIf="address.error" class="error1">{{address.error}}</mat-hint>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Address label</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput required>
+        <input matInput class="input" type="text" name="addressLabel" [(ngModel)]="addressLabel.value"
+          [class.invalid]="addressLabel.error" />
       </div>
-    </mat-form-field> -->
+      <mat-hint *ngIf="addressLabel.error" class="error1">{{addressLabel.error}}</mat-hint>
+    </mat-form-field>
+
   </form>
 
-  <button class="save" (click)=saveAddress()>SAVE ADDRESS</button>
+  <button class="save" (click)="saveAddress()">SAVE ADDRESS</button>
 </div>
