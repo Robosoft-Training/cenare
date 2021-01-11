@@ -57,24 +57,26 @@
             <div class="cards col-lg-6 col-mg-6 col-sm-12" *ngFor="let cards of cardlist; let i=index;">
               <img src="{{cards.offerImagePath}}" alt="">
               <div class="cardDetails">
-                <p class="offerTitle">{{cards.offerTitle}}</p>
+                <p class="offerTitle" id="title">{{cards.offerTitle}}</p>
                 <!-- <div class="box1">
                   <p class="text1">Flat</p>
                   <p class="offerPercent">{{cards.offerPercent}}</p>
                   <p class="text2">% Off</p>
                 </div> -->
                 <div class="box2">
-                  <p class="offerCode">{{cards.code}}</p>
+                  <p class="code" id="code">{{cards.code}}</p>
                   <p class="viewDetails" (click)="displayImage(cards, i)">View details</p>
                 </div>
                 <button class="apply">APPLY</button>
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
-      <div class="col-0 col-md-2"></div>
     </div>
+    <div class="col-0 col-md-2"></div>
   </div>
 </div>
 
