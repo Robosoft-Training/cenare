@@ -2,8 +2,8 @@
 
 <div class="box">
   <div class="rectangle row">
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5">
-      <img *ngFor="let item of imageList; let i=index;" src={{item}} alt="" (click)="displayImage(item, i)">
+    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5" *ngFor="let item of imageList; let i=index;">
+      <img src={{item}} alt="" (click)="displayImage(item, i)">
     </div>
   </div>
 </div>
