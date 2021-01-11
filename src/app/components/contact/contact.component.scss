@@ -250,12 +250,20 @@
       line-height: 22px;
       text-align: center;
       text-shadow: 0 0 9px 0 #FFFFFF;
-      background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
-      box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
-      border-color: transparent;
       outline: none;
       margin-top: 80px;
       margin-left: 688px;
+      box-shadow: none;
+      border: none;
+    }
+    .button-bg-theme {
+      background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+    }
+    .button-bg-green {
+      background: linear-gradient(138.33deg, #89f144 0%, #c3fe56 100%);
+    }
+    .button-bg-red {
+      background-color: $red;
     }
   }
 }
