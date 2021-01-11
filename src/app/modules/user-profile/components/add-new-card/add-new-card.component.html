@@ -13,9 +13,9 @@
     <mat-form-field>
       <mat-label>Card number</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput class="input js-number" type="text" name="cardNumber" minlength="16" maxlength="16"
-          name="cardNumber" required pattern="\d{4}+\s+\d{4}+\s+\d{4}+\s+\d{4}+\s" title="Please enter correct year"
-          [(ngModel)]="cardNumber.value" [class.invalid]="cardNumber.error" />
+        <input matInput class="input js-number" type="text" name="cardNumber" minlength="16" maxlength="16" 
+          onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cardNumber" required
+          title="Please enter correct year" [(ngModel)]="cardNumber.value" [class.invalid]="cardNumber.error" />
       </div>
       <mat-hint *ngIf="cardNumber.error" class="error1">{{cardNumber.error}}</mat-hint>
       <img class="icon" src="../../../../../assets/images/Visa_small_icon.png" alt="">
@@ -38,23 +38,23 @@
       <mat-form-field>
         <mat-label>Expiry</mat-label>
         <div style="display: block;  position: relative;">
-          <input matInput class="input js-number" type="text" maxlength="2" pattern="\d{1,2}"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus required
-            title="Please enter correct month" name="expiryMonth" [(ngModel)]="expiryMonth.value"
+          <input matInput class="input" type="text" maxlength="2" pattern="\d{1,2}" name="expiryMonth"
+            [min]="currentMonth" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+            title="Please enter correct month" [(ngModel)]="expiryMonth.value"
             [class.invalid]="expiryMonth.error" />
         </div>
       </mat-form-field>
       <mat-hint *ngIf="expiryMonth.error" class="error2">{{expiryMonth.error}}</mat-hint>
-
+      <!-- <mat-error *ngIf="monthFormControl.hasError('month') && !monthFormControl.hasError('required')"></mat-error> -->
       <p>/</p>
 
       <!-- Expiry year -->
 
       <mat-form-field>
         <div style="display: block;  position: relative;">
-          <input matInput class="input js-number" type="text" maxlength="4" pattern="\d{4}" name="expiryYear"
-            onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus required
-            title="Please enter correct year" [(ngModel)]="expiryYear.value" [class.invalid]="expiryYear.error" />
+          <input matInput class="input" type="text" maxlength="4" pattern="\d{4}" name="expiryYear" [min]="currentYear"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" title="Please enter correct year"
+            [(ngModel)]="expiryYear.value" [class.invalid]="expiryYear.error" />
         </div>
       </mat-form-field>
       <mat-hint *ngIf="expiryYear.error" class="error2">{{expiryYear.error}}</mat-hint>
@@ -62,7 +62,7 @@
       <!-- CVV -->
 
       <mat-form-field class="security">
-        <mat-label>Security card</mat-label>
+        <mat-label>Security code</mat-label>
         <div style="display: block;  position: relative;">
           <input matInput class="input js-number" type="text" maxlength="3" pattern="\d{3}" name="cvv"
             onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus required
