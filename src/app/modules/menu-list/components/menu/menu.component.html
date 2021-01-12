@@ -47,7 +47,6 @@
             <label class="header-text">My Order</label>
             <label class="clear-cart-text" (click)="clearCart()">Clear cart</label>
         </div>
-        <div class="border"></div>
         <span *ngIf="isLoggedIn">
             <div class="d-flex flex-column cart-items" *ngFor="let cart of cartList">
                 <div class="d-flex flex-column item">
@@ -108,7 +107,7 @@
             </div>
             <div class="cooking-instructions">
                 <label class="cooking-instructions-text">Cooking instructions?</label><br>
-                <input [(ngModel)]="coockingInstructions" class="cooking-instructions-textbox border-none" type="text"
+                <input id="coock-input" [(ngModel)]="coockingInstructions" class="cooking-instructions-textbox border-none" type="text"
                     placeholder="Mention it here…"><br>
                 <button class="proceed-btn d-flex align-items-center justify-content-center" (click)="addCoockingInstructions()">
                     PROCEED TO CHECKOUT

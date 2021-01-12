@@ -38,7 +38,6 @@ export class SortingService {
   sortingAlphabetically = (detailsArray, sortType) => {
 
     const compareStrings = (a, b): any => {
-      // console.log(a);
       a = a.toLowerCase();
       b = b.toLowerCase();
       return (a < b) ? -1 : (a > b) ? 1 : 0;

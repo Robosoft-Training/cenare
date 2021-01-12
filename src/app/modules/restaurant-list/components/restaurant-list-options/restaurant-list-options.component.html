@@ -48,9 +48,10 @@
                         {{item.restaurant.restaurant_address}}</label>
                     <div class="divider"></div>
                     <label class="subtitle-text">
-                        <span *ngFor="let cuisine of item.cuisines">
+                        <span *ngFor="let cuisine of item.cuisines; let i=index;">
+                            <span *ngIf="!(i===0)">, </span>
                             {{
-                            cuisine+", "
+                            cuisine
                             }}
                         </span>
                     </label>

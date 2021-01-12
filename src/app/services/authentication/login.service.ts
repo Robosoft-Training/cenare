@@ -13,10 +13,6 @@ export class LoginService {
   baseUrl = environment.baseUrl;
   isAuthenticated = false;
 
-  // httpOptions = {
-  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  // };
-
   userName = new BehaviorSubject('');
   currentUserName = this.userName.asObservable();
   isUserLogin = new BehaviorSubject(false);
@@ -48,13 +44,16 @@ export class LoginService {
     );
   }
 
-  isUserLoggedIn = (): void => {
+  isUserLoggedIn = (): any => {
+    let isLoggedIn = false;
     if (this.localStorageService.getUserJWTtoken()) {
       const userName: any = this.localStorageService.getUserName();
       this.userName.next(userName.toString());
       this.isAuthenticated = true;
       this.isUserLogin.next(true);
+      isLoggedIn = true;
     }
+    return isLoggedIn;
   }
 
   userLogout = () => {

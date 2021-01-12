@@ -9,17 +9,14 @@ import { LocalStorageService } from '../../local-storage/local-storage.service';
   providedIn: 'root'
 })
 export class GalleryService {
-
-  // searchData: any;
+  
   apiBaseUrl = environment.baseUrl;
-
   galleryDataListSource = new BehaviorSubject({});
   currentGalleryDataListSource = this.galleryDataListSource.asObservable();
   currentGalleryDataList: any;
 
   constructor(
     private httpClient: HttpClient,
-    private localStorageService: LocalStorageService
   ) { }
 
   getRestaurantGalleryItems = (restaurantID): Observable<any> => {

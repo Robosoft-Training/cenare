@@ -13,6 +13,8 @@ export class GalleryComponent implements OnInit {
   clickedImage: any = null;
   clickedImageName: any = null;
   clickedCount = 0;
+  isOpen = false;
+  sliceCount = 10;
 
   groupedMenuList: any = {
     key: 0
@@ -35,6 +37,13 @@ export class GalleryComponent implements OnInit {
 
   imageList: any = [];
   imageName: any = [];
+  increaseCount = () => { 
+    this.sliceCount += (this.menuList.length - this.sliceCount);
+  }
+
+  close() {
+    this.isOpen = !this.isOpen;
+  }
 
   constructor(
     private menuListService: MenuListService,

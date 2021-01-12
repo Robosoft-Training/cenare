@@ -8,6 +8,7 @@ import { OrderTrackComponent } from './components/shared-components/order-track/
 import { AllOffersComponent } from './components/shared-components/all-offers/all-offers/all-offers.component';
 import { OfferComponent } from './components/shared-components/all-offers/offers/offers.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/home-page/home-page.module').then(m => m.HomePageModule) },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
-  { path:'status/:id', component:OrderTrackComponent},
+  { path: 'status/:id', component: OrderTrackComponent },
   { path: 'offers', component: OfferComponent },
   { path: 'all-offers', component: AllOffersComponent },
   { path: 'error', component: ErrorPageComponent },
@@ -31,8 +32,8 @@ const routes: Routes = [
     path: 'menu-list/:id',
     loadChildren: () => import('./modules/menu-list/menu-list.module').then(m => m.MenuListModule)
   },
-  { path: 'user-profile', loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule) },
-  { path: 'payment', loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule) },
+  { path: 'user-profile', loadChildren: () => import('./modules/user-profile/user-profile.module').then(m => m.UserProfileModule), canActivate: [AuthGuard] },
+  { path: 'payment', loadChildren: () => import('./modules/payment/payment.module').then(m => m.PaymentModule), canActivate: [AuthGuard] },
 
   { path: '**', component: ErrorPageComponent },
 ];
