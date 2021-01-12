@@ -14,9 +14,9 @@
         <input type="radio" name="light" [(ngModel)]="toggleFormField" value="offer-code">
         <span class="text">Best Offers</span>
         <div *ngIf="toggleFormField === 'offer-code'" class="offer-cards">
-            <span class="apply-text">View All Offers</span>
+            <span class="apply-text" routerLink="/offers/{{restaurantId}}">View All Offers</span>
             <div class="brand-image-container w-sm-100" *ngFor="let item of dealsOffers.slice(0,4); let i = index;">
-                <span [hidden]="!(offerCardNo === i)">
+                <span (click)="displayImage(i)" [hidden]="!(offerCardNo === i)">
                     <img src="{{item.offerImagePath}}" class="brand-image" />
                     <img class="apply-code" src="assets/images/apply-code.png" />
                     <div class="offer-title">
@@ -33,9 +33,12 @@
                 </span>
             </div>
             <div class="select-dots d-flex align-items-center justify-content-center">
-                <span (click)="showOfferCard(0)" [ngClass]="offerCardNo===0?'active':''">&bull;</span>
-                <span (click)="showOfferCard(1)" [ngClass]="offerCardNo===1?'active':''">&bull;</span>
-                <span (click)="showOfferCard(2)" [ngClass]="offerCardNo===2?'active':''">&bull;</span>
+                <span *ngIf="dealsOffers.length>0" (click)="showOfferCard(0)"
+                    [ngClass]="offerCardNo===0?'active':''">&bull;</span>
+                <span *ngIf="dealsOffers.length>1" (click)="showOfferCard(1)"
+                    [ngClass]="offerCardNo===1?'active':''">&bull;</span>
+                <span *ngIf="dealsOffers.length>2" (click)="showOfferCard(2)"
+                    [ngClass]="offerCardNo===2?'active':''">&bull;</span>
             </div>
         </div>
     </div>
@@ -60,5 +63,44 @@
             <label class="text">Discount</label>
             <label class="text">INR{{discountAmmount}}.00</label>
         </div>
+    </div>
+</div>
+
+<div *ngIf="isOpen" class="screen">
+    <div class="dialog">
+        <button class="close" mat-button mat-dialog-close>
+            <img class="close" (click)="close()" src="assets/images/dismiss_button_white.png" alt="">
+        </button>
+        <p class="title">{{popoverData.offerTitle}}</p>
+        <p class="code">{{popoverData.code}}</p>
+        <img class="image" [src]="popoverData.offerImagePath" alt="">
+        <div class="box1">
+            <p class="heading1">Offer Details</p>
+            <ul>
+                <li class="details">Get {{popoverData.offerPercent}}% Off</li>
+                <li class="details">Offer valid till 21st Dec</li>
+            </ul>
+        </div>
+        <div class="box2">
+            <p class="heading2">Delivering food to</p>
+            <div class="addressBox">
+                <img src="assets/images/icn_pin.png" alt="">
+                <p class="address">{{adress}}</p>
+            </div>
+        </div>
+        <div class="box3">
+            <p class="heading3">Offer applicable nearby outlets</p>
+            <div class="outlet" *ngFor="let item of outlets">
+                <p class="outletName">{{item.outletName}}</p>
+                <p class="outletAddress">{{item.outletAddress}}</p>
+            </div>
+        </div>
+        <div class="box4">
+            <button (click)="applyOfferCode(popoverData.code, orderId)" class="applyButton">APPLY</button>
+        </div>
+    </div>
+    <div class="rectangle">
+        <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow()"></button>
+        <button class="fa fa-angle-right rightArrow" id="right" (click)="rightArrow()"></button>
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AddressService } from 'src/app/services/address-details/address.service';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
+import { OffersService } from 'src/app/services/offers/offers.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 
 @Component({
@@ -12,10 +14,17 @@ export class PaymentRightBarComponent implements OnInit {
   @Input() totalAmmount: any;
   @Input() discountAmmount: any;
   @Input() toPayAmmount: any;
+  @Input() restaurantId: any;
+  @Input() orderId: any;
+
+  isOpen = false;
+  adress = "";
+  clickedCount = 0;
+  clickedOffer: any = null;
 
   offerCardNo = 0;
   toggleFormField = 'promo-code';
-  dealsOffers: IDealsOffers[] = [
+  dealsOffers: any[] = [
     {
       code: '',
       offerPercent: 0,
@@ -25,25 +34,97 @@ export class PaymentRightBarComponent implements OnInit {
     }
   ];
 
+  popoverData = {
+    code: '',
+    offerPercent: 0,
+    offerImagePath: '',
+    offerTitle: '',
+    offerId: 0
+  }
+
+  outlets: any = [
+    {
+      outletName: "Dubai Outlet Mall",
+      outletAddress: "Food Court, Level 1, Dubai Outlet Mall, Dubai"
+    }
+  ]
+
   constructor(
-    private dealsOfferService: DealsOffersService
+    private offerService: OffersService,
+    private adressService: AddressService,
   ) { }
+
+  applyOfferCode = (code, orderId) =>{
+    console.log(code, orderId);
+  }
+
+  displayPopover = (count) => {
+    this.popoverData = this.dealsOffers[count];
+  }
+
+  displayImage(count) {
+    this.popoverData = this.dealsOffers[count];
+    this.isOpen = !this.isOpen;
+  }
+
+  close() {
+    this.isOpen = !this.isOpen;
+  }
 
   showOfferCard = (cardNo) => {
     this.offerCardNo = cardNo;
   }
 
   loadProducts = () => {
-    this.dealsOfferService.getDealsOffers().subscribe(
-      (dealsOffers: any) => {
-        console.log(dealsOffers.resultList);
-        this.dealsOffers = dealsOffers.resultList;
-      }
-    );
+    setTimeout(() => {
+      this.offerService.getRestaurantOffers(this.restaurantId).subscribe(
+        (dealsOffers: any) => {
+          console.log(dealsOffers.resultList);
+          this.dealsOffers = dealsOffers.resultList;
+        }
+      );
+    }, 3000);
+  }
+
+  leftArrow() {
+    if (this.clickedCount === 0) {
+      $("#left").addClass('left');
+      $("#left").removeClass('leftArrow');
+    }
+    else {
+      this.clickedOffer = this.dealsOffers[--this.clickedCount];
+      $("#left").removeClass('left');
+      $("#left").addClass('leftArrow');
+      $("#right").removeClass('right');
+      $("#right").addClass('rightArrow');
+      this.displayPopover(this.clickedCount);
+    }
+  }
+
+  rightArrow() {
+    if (this.clickedCount === this.dealsOffers.length - 1) {
+      $("#right").addClass('right');
+      $("#right").removeClass('rightArrow');
+    }
+    else {
+      this.clickedOffer = this.dealsOffers[++this.clickedCount];
+      $("#right").removeClass('right');
+      $("#right").addClass('rightArrow');
+      $("#left").removeClass('left');
+      $("#left").addClass('leftArrow');
+      this.displayPopover(this.clickedCount);
+    }
   }
 
   ngOnInit(): void {
+    console.log(this.restaurantId);
     this.loadProducts();
+
+    this.adressService.getPrimaryAddress().subscribe(
+      data => {
+        this.adress = data.area + ", " + data.city;
+      }
+    );
   }
 
 }

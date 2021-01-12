@@ -11,37 +11,29 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 export class OffersService {
 
   apiBaseUrl = environment.baseUrl;
-  offersDataListSource = new BehaviorSubject({});
-  currentOffersDataListSource = this.offersDataListSource.asObservable();
-  currentOffersDataList: any;
 
   constructor(
-    private httpClient: HttpClient,
-    private localStorageService: LocalStorageService
+    private httpClient: HttpClient
   ) { }
 
   getRestaurantOffers = (restaurantID): Observable<any> => {
     console.log(restaurantID);
-    const url = `${this.apiBaseUrl}offers/getOfferById`;
+    const url = `${this.apiBaseUrl}restaurants/getAllOffersForRestaurant`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('restaurantId', restaurantID);
 
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap((data: any) => {
-          this.currentOffersDataList = { ...data };
-          this.offersDataListSource.next(data);
         }),
         retry(3)
       );
   }
 
   getOffersById = (offerId): Observable<any> => {
-    console.log(offerId);
     const url = `${this.apiBaseUrl}offers/getOfferById`;
     let httpParams = new HttpParams();
     httpParams = httpParams.append('offerId', offerId);
-
     return this.httpClient.get<any[]>(url, { params: httpParams })
       .pipe(
         tap((data: any) => {

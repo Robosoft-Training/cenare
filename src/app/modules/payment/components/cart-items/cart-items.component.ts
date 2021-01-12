@@ -17,7 +17,7 @@ export class CartItemsComponent implements OnInit {
   totalAmmount: any = 0.0;
   toPayAmmount: any = 0.0;
   discountAmmount: any = 0.0;
-  restaurentId: any;
+  restaurentId: any = 0.0;
   startAdding = false;
   coockingInstructions = null;
   formType = 'cartItems';
@@ -72,6 +72,7 @@ export class CartItemsComponent implements OnInit {
         this.totalAmmount = data.total_amount;
         this.toPayAmmount = data.to_pay;
         this.discountAmmount = data.discount;
+        // this.restaurentId = 1;
       }
     )
   }

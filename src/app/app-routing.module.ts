@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'status/:id', component: OrderTrackComponent },
-  { path: 'offers', component: OfferComponent },
+  { path: 'offers/:id', component: OfferComponent },
   { path: 'all-offers', component: AllOffersComponent },
   { path: 'error', component: ErrorPageComponent },
   {

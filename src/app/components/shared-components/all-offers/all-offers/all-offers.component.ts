@@ -13,7 +13,7 @@ export class AllOffersComponent implements OnInit {
 
   menuSearch = '';
   adress = "";
-
+  
   offerslist: IDealsOffers[] = [
     {
       code: '',
@@ -62,23 +62,13 @@ export class AllOffersComponent implements OnInit {
     private offerService: OffersService
   ) { }
 
-  getOfferDetails = (offerId) => {
-    this.offerService.getOffersById(offerId).subscribe(
-      data => {
-        console.log(data.endDate);
-      }
-    );
-  }
-
   displayImage(count) {
     this.popoverData = this.offerslist[count];
-    this.getOfferDetails(this.popoverData.offerId);
     this.isOpen = !this.isOpen;
   }
 
   displayPopover = (count) => {
     this.popoverData = this.offerslist[count];
-    this.getOfferDetails(this.popoverData.offerId);
   }
 
   close() {

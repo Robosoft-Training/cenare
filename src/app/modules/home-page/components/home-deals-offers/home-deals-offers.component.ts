@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { OffersComponent } from 'src/app/components/shared-components/empty-scenario/offers/offers.component';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
@@ -36,7 +37,8 @@ export class HomeDealsOffersComponent implements OnInit {
 
   constructor(
     private dealsOfferService: DealsOffersService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   getDetails = (offerId: any) => {
@@ -45,8 +47,7 @@ export class HomeDealsOffersComponent implements OnInit {
   }
 
   getAllOffersList = () => {
-    // Go to offer details
-    console.log('All offers');
+    this.router.navigate(['/all-offers']);
   }
 
   loadProducts = () => {

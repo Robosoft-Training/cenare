@@ -5,33 +5,44 @@
 <div class="menu-home">
   <div class="container-fluid header">
     <div class="row">
-      <div class="col-0 col-md-3"></div>
-      <div class="col-12 col-md-7">
+      <div class="col-1 col-xl-2"></div>
+      <div class="col-10 col-xl-8">
         <div class="form">
           <div class="card">
             <div class="details">
-              <img class="cutlery" src="../../../../../assets/cutlery.png">
-              <label class="name">{{name}}</label>
-              <label class="cuisines">{{cuisines}}</label>
-              <img class="rating" src="../../../../../assets/rectangle.png">
-              <p>4.3</p>
-              <label class="time"> &#8226; {{time}} mins</label>
-              <label class="order"> &#8226; INR{{cost}} min order</label>
-              <img class="timings" src="../../../../../assets/time_icon.png">
-              <label
-                class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
-              <label class="delivery">Delivery for last 5 orders</label>
-              <button class="star"> &#9733; 4</button>
-              <button class="star1">&#9733; 4</button>
-              <button class="star2">&#9733; 3</button>
-              <button class="star3">&#9733; 4</button>
-              <button class="star4">&#9733; 2</button>
-              <div class="effect d-none d-md-block">
-              </div>
+                <img class="cutlery" src="assets/cutlery.png">
+                <label class="name">{{name}}</label>
+                <label class="cuisines">{{cuisines}}</label>
+                <div class="rating"
+                    [ngClass]="{'ratingBox-green':restaurantRaring>=4, 'ratingBox-yellow':restaurantRaring<=3, 'ratingBox-red':restaurantRaring<3}">
+                </div>
+                <p>{{ restaurantRaring | number : '1.1-1' }}</p>
+                <label class="time"> &#8226; {{time}} mins</label>
+                <label class="order"> &#8226; INR{{cost}} min order</label>
+                <img class="timings" src="assets/time_icon.png">
+                <label
+                    class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
+                <label class="delivery">Delivery for last 5 orders</label>
+                <button *ngIf="rating1"
+                    [ngClass]="{'star-green':rating1>=4, 'star-orange':rating1<=3, 'star-red':rating1<3}"
+                    class="star"> &#9733; {{ rating1 }}</button>
+                <button *ngIf="rating2"
+                    [ngClass]="{'star-green':rating2>=4, 'star-orange':rating2<=3, 'star-red':rating2<3}"
+                    class="star1">&#9733; {{ rating2 }}</button>
+                <button *ngIf="rating3"
+                    [ngClass]="{'star-green':rating3>=4, 'star-orange':rating3<=3, 'star-red':rating3<3}"
+                    class="star2">&#9733; {{ rating3 }}</button>
+                <button *ngIf="rating4"
+                    [ngClass]="{'star-green':rating4>=4, 'star-orange':rating4<=3, 'star-red':rating4<3}"
+                    class="star3">&#9733; {{ rating4 }}</button>
+                <button *ngIf="rating5"
+                    [ngClass]="{'star-green':rating5>=4, 'star-orange':rating5<=3, 'star-red':rating5<3}"
+                    class="star4">&#9733; {{ rating5 }}</button>
+                <div class="effect d-none d-md-block">
+                </div>
             </div>
             <img class="food d-none d-md-block" src="{{image?image:placeholderImage}}">
-          </div>
-
+        </div>
           <div class="row rectangle">
             <div class="col-lg-6 col-md-6 col-sm-12 search-box">
               <img class="search-icon" src="../../../../../assets/images/icn_search.png" />
@@ -43,26 +54,21 @@
                 <p class="text">Delivering food to</p>
                 <div class="addressBox">
                   <img src="../../../../../assets/images/icn_pin.png" alt="">
-                  <p class="address">Al Nahda, Dubai, UAE</p>
+                  <p class="address">{{ adress }}</p>
                 </div>
               </div>
               <div class="rectangle2 col-lg-4 col-md-4 col-sm-6">
                 <div class="line2"></div>
-                <p class="change">CHANGE</p>
+                <p routerLink="/user-profile"  class="change">CHANGE</p>
               </div>
             </div>
           </div>
 
           <div class="offers row">
-            <div class="cards col-lg-6 col-mg-6 col-sm-12" *ngFor="let cards of cardlist; let i=index;">
+            <div class="cards col-lg-6 col-mg-6 col-sm-12" *ngFor="let cards of cardlist | filterOffers:menuSearch; let i=index;">
               <img src="{{cards.offerImagePath}}" alt="">
               <div class="cardDetails">
                 <p class="offerTitle" id="title">{{cards.offerTitle}}</p>
-                <!-- <div class="box1">
-                  <p class="text1">Flat</p>
-                  <p class="offerPercent">{{cards.offerPercent}}</p>
-                  <p class="text2">% Off</p>
-                </div> -->
                 <div class="box2">
                   <p class="code" id="code">{{cards.code}}</p>
                   <p class="viewDetails" (click)="displayImage(cards, i)">View details</p>
@@ -71,8 +77,6 @@
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
@@ -85,13 +89,13 @@
     <button class="close" mat-button mat-dialog-close>
       <img class="close" (click)="close()" src="../../../../../assets/images/dismiss_button_white.png" alt="">
     </button>
-    <p class="title">So good Wednesday Everyday WOW! Value So good Wednesday</p>
-    <p class="code">CDB33</p>
-    <img class="image" src="../../../../../assets/images/offer_bg_3.jpg" alt="">
+    <p class="title">{{popoverData.offerTitle}}</p>
+    <p class="code">{{popoverData.code}}</p>
+    <img class="image" [src]="popoverData.offerImagePath" alt="">
     <div class="box1">
       <p class="heading1">Offer Details</p>
       <ul>
-        <li class="details">Get 39% Off</li>
+        <li class="details">Get {{popoverData.offerPercent}}% Off</li>
         <li class="details">Offer valid till 21st Dec</li>
       </ul>
     </div>
@@ -99,7 +103,7 @@
       <p class="heading2">Delivering food to</p>
       <div class="addressBox">
         <img src="../../../../../assets/images/icn_pin.png" alt="">
-        <p class="address">Al Nahda, Dubai, UAE</p>
+        <p class="address">{{adress}}</p>
       </div>
     </div>
     <div class="box3">
