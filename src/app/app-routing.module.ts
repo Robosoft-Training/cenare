@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { empty } from 'rxjs';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { OrderTrackComponent } from './components/shared-components/order-track/order-track.component';
+import { AllOffersComponent } from './components/shared-components/all-offers/all-offers/all-offers.component';
+import { OfferComponent } from './components/shared-components/all-offers/offers/offers.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
@@ -14,7 +15,10 @@ const routes: Routes = [
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },
   { path: 'privacyPolicy', component: PrivacyPolicyComponent },
   { path: 'contact', component: ContactComponent },
-  {path:'status/:id', component:OrderTrackComponent},
+  { path:'status/:id', component:OrderTrackComponent},
+  { path: 'offers', component: OfferComponent },
+  { path: 'all-offers', component: AllOffersComponent },
+  { path: 'error', component: ErrorPageComponent },
   {
     path: 'restaurant-list',
     loadChildren: () => import('./modules/restaurant-list/restaurant-list.module').then(m => m.RestaurantListModule)

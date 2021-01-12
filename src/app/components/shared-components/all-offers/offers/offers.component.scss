@@ -1,0 +1,788 @@
+@import '../../../../../variables.scss';
+
+.menu-home {
+  margin-bottom: 8em;
+
+  .header {
+    background-image: url("../../../../../assets/Coverimage.png");
+    height: 15em;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+  }
+
+  .form {
+    position: relative;
+
+    .effect {
+      position: absolute;
+      background-color: white;
+      width: 10em;
+      left: 280px;
+      top: -7px;
+      height: 25em;
+      bottom: 0px;
+      z-index: 10;
+      filter: blur(15px);
+
+      @media only screen and (max-width: 1400px) {
+        left: 230px;
+      }
+    }
+
+    .card {
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 50% 100%;
+      overflow: hidden;
+      position: relative;
+      z-index: 1000;
+      border-radius: 9px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.01), 0 0 6px rgba(0, 0, 0, 0.1);
+      padding: 14px 80px 18px 36px;
+      cursor: pointer;
+      width: 91%;
+      height: 268px;
+      top: 30px;
+      background-color: white;
+      margin-left: -1em;
+
+      @media only screen and (max-width: 720px) {
+        margin-left: 1em;
+      }
+
+      .cutlery {
+        height: 68px;
+        width: 68px;
+        left: -5px;
+        position: relative;
+      }
+
+      .food {
+        position: absolute;
+        height: 265px;
+        width: 50%;
+        top: -1px;
+        right: -1px;
+        z-index: -1;
+      }
+
+      .name {
+        position: absolute;
+        font-size: 20px;
+        font-weight: 800;
+        font-family: $openSans;
+        top: 96px;
+        left: 29px;
+        columns: #1c1c1c;
+      }
+
+      .cuisines {
+        position: absolute;
+        color: #7c7c7c;
+        font-size: 12px;
+        font-weight: lighter;
+        font-family: $openSans;
+        top: 125px;
+        left: 31px;
+      }
+
+      .rating {
+        position: absolute;
+        width: 45px;
+        height: 23px;
+        top: 155px;
+        left: 30px;
+      }
+
+      p {
+        position: absolute;
+        top: 157px;
+        left: 42px;
+        color: white;
+        font-weight: bold;
+        font-family: $openSans;
+        font-size: 14px;
+      }
+
+      .delivery {
+        position: absolute;
+        color: #7c7c7c;
+        font-size: 11px;
+        font-weight: lighter;
+        font-family: $openSans;
+        top: 188px;
+        left: 31px;
+      }
+
+      .star {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid#5FB700;
+        border-radius: 4px;
+        color: #5FB700;
+        top: 220px;
+        left: 36px;
+        font-size: 11px;
+      }
+
+      .star1 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid #5FB700;
+        border-radius: 4px;
+        color: #5FB700;
+        top: 220px;
+        left: 92px;
+        font-size: 11px;
+      }
+
+      .star2 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid orange;
+        border-radius: 4px;
+        color: orange;
+        top: 220px;
+        left: 147px;
+        font-size: 11px;
+      }
+
+      .star3 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid#5FB700;
+        border-radius: 4px;
+        color: #5FB700;
+        top: 220px;
+        left: 201px;
+        font-size: 11px;
+      }
+
+      .star4 {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-color: transparent;
+        border: 1px solid#ED1B2E;
+        border-radius: 4px;
+        color: #ED1B2E;
+        top: 220px;
+        left: 259px;
+        font-size: 11px;
+        z-index: 20;
+      }
+
+      .time {
+        position: absolute;
+        color: #A3A3A3;
+        top: 157px;
+        left: 84px;
+        font-size: 11px;
+        font-family: sans-serif;
+        z-index: 20;
+      }
+
+      .order {
+        position: absolute;
+        color: #A3A3A3;
+        top: 157px;
+        left: 139px;
+        font-size: 11px;
+        font-family: $openSans;
+        z-index: 20;
+      }
+
+      .timings {
+        position: absolute;
+        color: #A3A3A3;
+        top: 163px;
+        left: 240px;
+        font-size: 11px;
+        font-family: $openSans;
+        z-index: 20;
+      }
+
+      .open {
+        position: absolute;
+        color: #A3A3A3;
+        top: 158px;
+        left: 257px;
+        font-size: 11px;
+        font-family: $openSans;
+        z-index: 20;
+      }
+    }
+
+    .rectangle {
+      height: 15em;
+      overflow: hidden;
+      position: relative;
+      z-index: 1000;
+      width: 91%;
+      height: 40px;
+      margin-left: -1em;
+      margin-top: 65px;
+      display: flex;
+
+      .search-box {
+        position: relative;
+        height: 40px;
+        width: 50%;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+
+        .search-icon {
+          position: absolute;
+          width: 15px;
+          height: 16px;
+          left: 17px;
+          margin-top: 10px;
+        }
+
+        .input {
+          position: absolute;
+          color: #4A4A4A;
+          opacity: 0.7;
+          left: 50px;
+          margin-top: 8px;
+          border: none;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0px;
+          font-family: $openSansSemibold;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .box {
+        display: flex;
+
+        .line1 {
+          position: relative;
+          box-sizing: border-box;
+          height: 40px;
+          width: 0.5px;
+          border: 0.5px solid #979797;
+          color: #979797;
+          opacity: 0.41;
+        }
+
+        .rectangle1 {
+          display: block;
+          padding-left: 12px;
+
+          .text {
+            height: 15px;
+            color: #6A6A6A;
+            font-family: $openSans;
+            font-size: 9.5px;
+            letter-spacing: 0;
+            line-height: 15px;
+            margin: 0;
+          }
+
+          .addressBox {
+            display: flex;
+            height: 17px;
+            margin-top: 3px;
+
+            img {
+              height: 10px;
+              margin-top: 4px;
+            }
+
+            .address {
+              height: 17px;
+              width: 276px;
+              color: #2D2D2D;
+              font-family: $openSansSemibold;
+              font-size: 11px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 17px;
+              margin-left: 5px;
+            }
+          }
+        }
+
+        .rectangle2 {
+
+          .line2 {
+            position: absolute;
+            box-sizing: border-box;
+            height: 40px;
+            width: 0.5px;
+            border: 0.5px solid #979797;
+            color: #979797;
+            opacity: 0.41;
+          }
+
+          .change {
+            width: 100px;
+            font-family: $openSansSemibold;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 15px;
+            margin-left: 12px;
+            color: #F57C00;
+            margin-top: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .offers {
+      top: 35px;
+      width: 91%;
+      display: flex;
+      z-index: 1000;
+      margin-left: -1em;
+      position: relative;
+      justify-content: space-between;
+
+      .cards {
+        width: 48.7%;
+        height: 170px;
+        overflow: hidden;
+        border-radius: 6px;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+
+        img {
+          width: 109%;
+          height: 110%;
+          margin-left: -5%;
+          border-radius: 6px;
+        }
+
+        .cardDetails {
+          margin: 0%;
+          width: 100%;
+          height: 92%;
+          z-index: 3000;
+          display: block;
+          margin-left: 4px;
+          margin-top: -150px;
+          position: relative;
+          border: 1px solid transparent;
+
+          .offerTitle {
+            width: 230px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            line-height: 25px;
+            vertical-align: middle;
+            font-family: $openSansSemibold;
+          }
+
+          .box1 {
+            display: flex;
+
+            .text1 {
+              height: 25px;
+              color: #FFFFFF;
+              font-family: $openSans;
+              font-size: 19px;
+              font-weight: bold;
+              letter-spacing: 0;
+              line-height: 30px;
+              margin-right: 5px;
+            }
+
+            .offerPercent {
+              height: 25px;
+              color: #FFFFFF;
+              font-family: $openSans;
+              font-size: 19px;
+              font-weight: bold;
+              letter-spacing: 0;
+              line-height: 30px;
+            }
+
+            .text2 {
+              height: 25px;
+              color: #FFFFFF;
+              font-family: $openSans;
+              font-size: 19px;
+              font-weight: bold;
+              letter-spacing: 0;
+              line-height: 30px;
+              vertical-align: middle;
+            }
+          }
+
+          .box2 {
+            display: flex;
+            margin-left: 1px;
+
+            .code {
+              height: 20px;
+              color: #FFFFFF;
+              text-align: center;
+              font-family: $openSans;
+              font-size: 11px;
+              line-height: 15px;
+              letter-spacing: 2.18px;
+              border-radius: 2px;
+              padding-top: 1.5px;
+              box-sizing: border-box;
+              border: 1px solid rgba(255, 255, 255, 0.4);
+              border-radius: 3px;
+              background-color: rgba(255, 255, 255, 0.07);
+              padding-left: 5px;
+              padding-right: 5px;
+            }
+
+            .viewDetails {
+              height: 15px;
+              color: #FFFFFF;
+              font-family: $openSans;
+              font-size: 11px;
+              font-weight: lighter;
+              letter-spacing: 1;
+              line-height: 15px;
+              margin-left: 15px;
+              margin-top: 3px;
+              cursor: pointer;
+              opacity: 0.9;
+            }
+          }
+
+          .apply {
+            width: 80px;
+            height: 25px;
+            outline: none;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-top: 17px;
+            line-height: 19px;
+            text-align: center;
+            letter-spacing: 0px;
+            border-radius: 15px;
+            box-sizing: border-box;
+            background: transparent;
+            border: 1px solid #FFFFFF;
+            font-family: $openSansSemibold;
+            text-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+            position: absolute;
+            bottom: 4.5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.screen {
+  height: 150%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba($color: #000000, $alpha: 0.7);
+  z-index: 2000;
+
+  .dialog {
+    width: 430px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 160px;
+    left: 35%;
+    z-index: 3000;
+
+    button {
+      height: 10px;
+      width: 10px;
+      margin-left: 94%;
+      border: none;
+      outline: none;
+      background: transparent;
+      position: absolute;
+
+      .close {
+        cursor: pointer;
+        height: 9px;
+        width: 9px;
+      }
+    }
+
+    .title {
+      width: 65%;
+      font-size: 25px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-top: 38px;
+      margin-left: 30px;
+      letter-spacing: 0;
+      line-height: 33px;
+      position: absolute;
+      font-family: $openSans;
+    }
+
+    .code {
+      height: 28px;
+      color: #FFFFFF;
+      text-align: center;
+      position: absolute;
+      font-family: $openSans;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 2.18px;
+      border-radius: 2px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 3px;
+      background-color: rgba(255, 255, 255, 0.07);
+      padding: 5px;
+      margin-top: 160px;
+      margin-left: 30px;
+    }
+
+    .image {
+      height: 225px;
+      width: 100%;
+      border-radius: 8px 8px 0px 0px;
+      box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+    }
+
+    .box1 {
+      position: relative;
+      border-bottom: 1px solid rgb(235, 235, 235);
+      padding-bottom: -5px;
+
+      .heading1 {
+        width: 95px;
+        color: #000000;
+        font-family: $openSans;
+        font-size: 13.5px;
+        letter-spacing: -0.4;
+        line-height: 20px;
+        margin-top: 18px;
+        margin-left: 25px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      ul li:before {
+        content: "•";
+        font-size: 8pt;
+        margin-right: 13px;
+      }
+
+      .details {
+        color: #4A4A4A;
+        font-family: $openSans;
+        font-size: 11px;
+        letter-spacing: 0;
+        line-height: 18px;
+        margin-left: -5px;
+      }
+    }
+
+    .box2 {
+      position: relative;
+      display: block;
+      border-bottom: 1px solid rgb(235, 235, 235);
+      padding-left: 25px;
+      padding-top: 16px;
+      padding-bottom: 12px;
+
+      .heading2 {
+        height: 15px;
+        color: #6A6A6A;
+        font-family: $openSans;
+        font-size: 9.8px;
+        letter-spacing: 1;
+        line-height: 15px;
+        margin: 0;
+      }
+
+      .addressBox {
+        display: flex;
+        height: 17px;
+        margin-top: 3px;
+
+        img {
+          height: 10px;
+          width: 6px;
+          margin-top: 4px;
+        }
+
+        .address {
+          height: 17px;
+          width: 276px;
+          color: #2D2D2D;
+          font-family: $openSansSemibold;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 17px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .box3 {
+      padding-top: 18px;
+      padding-left: 25px;
+      padding-right: 20px;
+      position: relative;
+
+      .heading3 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #5B5B5B;
+        line-height: 23px;
+        letter-spacing: 0px;
+        font-family: $openSansSemibold;
+      }
+
+      .outlet {
+        border-bottom: 1px solid rgb(235, 235, 235);
+        padding: 10px 0px 10px 0px;
+
+        .outletName {
+          margin: 0%;
+          width: 115px;
+          color: #2D2D2D;
+          font-family: $openSansSemibold;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0px;
+          line-height: 17px;
+        }
+
+        .outletAddress {
+          margin: 0%;
+          width: 240px;
+          color: #6A6A6A;
+          font-family: $openSans;
+          font-size: 9.5px;
+          letter-spacing: 0px;
+          line-height: 17px;
+        }
+      }
+    }
+
+    .box4 {
+      bottom: 0%;
+      width: 100%;
+      height: 70px;
+      position: relative;
+      background-color: #FFFFFF;
+      border-radius: 0px 0px 8px 8px;
+      box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.1);
+
+      .applyButton {
+        height: 40px;
+        width: 140px;
+        font-size: 11px;
+        color: #FFFFFF;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 6px;
+        font-family: $openSans;
+        box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+        background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+        margin-left: 62%;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .rectangle {
+    width: 70px;
+    height: 38px;
+    // position: relative;
+    z-index: 2020;
+    border-radius: 12px;
+    background: transparent;
+    border: none;
+    padding: 0px;
+    border: 2px solid transparent;
+    position: absolute;
+    margin-top: 167px;
+    left: 59%;
+    z-index: 3001;
+
+    .leftArrow {
+      font-size: 20px;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      margin: 0%;
+      outline: none;
+      border-radius: 6px 0px 0px 6px;
+      border: none;
+      border-right: 1px solid #cacaca;
+      color: #3E3E3E;
+      background: white;
+    }
+
+    .left {
+      font-size: 20px;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      margin: 0%;
+      outline: none;
+      border-radius: 6px 0px 0px 6px;
+      border: none;
+      border-right: 1px solid #cacaca;
+      // pointer-events: none;
+      color: #CFCFCF;
+      background: white;
+    }
+
+    .rightArrow {
+      font-size: 20px;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      margin: 0%;
+      outline: none;
+      border-radius: 0px 6px 6px 0px;
+      border: none;
+      color: #3E3E3E;
+      background: white;
+    }
+
+    .right {
+      font-size: 20px;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      margin: 0%;
+      outline: none;
+      border-radius: 0px 6px 6px 0px;
+      border: none;
+      // pointer-events: none;
+      color: #CFCFCF;
+      background: white;
+    }
+  }
+}

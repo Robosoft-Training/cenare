@@ -34,15 +34,34 @@
     font-family: $openSansSemibold;
   }
 
-  .location {
+  .locationBox {
     height: 60px;
     width: 90%;
-    margin-top: 30px;
-    margin-bottom: 10px;
     margin-left: 5%;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    .location {
+      @include mediam-imput-box(100%);
+      @include form-controles();
+      @include icon-style();
+      @include gps-form-control();
+      background-color: $white;
+
+      .gps-icon {
+        position: relative;
+        width: 9px;
+        height: 14px;
+        z-index: 1;
+        margin-top: -2px;
+      }
+
+      .gpsFormControl {
+        font-size: 10px;
+        margin-top: 2px;
+        font-family: $openSans;
+        letter-spacing: 0.3px;
+      }
+    }
   }
 
   mat-form-field {
@@ -61,10 +80,10 @@
     }
 
     input {
-      height: 25px;
+      height: 30px;
       color: #4A4A4A;
       font-family: $openSans;
-      font-size: 13px;
+      font-size: 12.5px;
       line-height: 25px;
     }
   }
@@ -87,4 +106,9 @@
     background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
     box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
   }
+}
+
+.error1 {
+  color: red;
+  font-size: 10px;
 }

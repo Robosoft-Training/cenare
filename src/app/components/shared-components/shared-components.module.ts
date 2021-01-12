@@ -17,6 +17,8 @@ import { LocationComponent } from './empty-scenario/location/location.component'
 import { ConnectionComponent } from './empty-scenario/connection/connection.component';
 import { OffersComponent } from './empty-scenario/offers/offers.component';
 import { OrderTrackComponent } from './order-track/order-track.component';
+import { OfferComponent } from './all-offers/offers/offers.component';
+import { AllOffersComponent } from './all-offers/all-offers/all-offers.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { OrderTrackComponent } from './order-track/order-track.component';
     LocationComponent,
     ConnectionComponent,
     OffersComponent,
-    OrderTrackComponent
+    OrderTrackComponent,
+    OfferComponent,
+    AllOffersComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +51,10 @@ import { OrderTrackComponent } from './order-track/order-track.component';
     TopSearchBarComponent,
     BreadcrumbsComponent,
     CustomScrollDirective,
-    LoadingComponent
+    LoadingComponent,
+    OffersComponent,
+    AllOffersComponent,
+    OfferComponent
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },
