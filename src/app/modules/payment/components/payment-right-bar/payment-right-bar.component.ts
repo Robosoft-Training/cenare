@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AddressService } from 'src/app/services/address-details/address.service';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
-import { OffersService } from 'src/app/services/offers/offers.service';
-import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
+import { CartService } from 'src/app/services/order-details/cart.service';
 
 @Component({
   selector: 'app-payment-right-bar',
@@ -13,7 +12,7 @@ export class PaymentRightBarComponent implements OnInit {
 
   @Input() totalAmmount: any;
   @Input() discountAmmount: any;
-  @Input() toPayAmmount: any;
+  @Input() toPayAmmount: any
   @Input() restaurantId: any;
   @Input() orderId: any;
 
@@ -21,25 +20,34 @@ export class PaymentRightBarComponent implements OnInit {
   adress = "";
   clickedCount = 0;
   clickedOffer: any = null;
+  monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
   offerCardNo = 0;
   toggleFormField = 'promo-code';
   dealsOffers: any[] = [
     {
-      code: '',
-      offerPercent: 0,
-      offerImagePath: '',
-      offerId: 0,
-      offerTitle: '0'
+      offer: {
+        code: "",
+        offerPercent: 0,
+        offerImagePath: "",
+        offerId: 0,
+        offerTitle: "0"
+      },
+      start_date: [],
+      end_date: []
     }
   ];
 
   popoverData = {
-    code: '',
-    offerPercent: 0,
-    offerImagePath: '',
-    offerTitle: '',
-    offerId: 0
+    offer: {
+      code: "",
+      offerPercent: 0,
+      offerImagePath: "",
+      offerId: 0,
+      offerTitle: "0"
+    },
+    start_date: [],
+    end_date: []
   }
 
   outlets: any = [
@@ -50,12 +58,27 @@ export class PaymentRightBarComponent implements OnInit {
   ]
 
   constructor(
-    private offerService: OffersService,
+    private offerService: DealsOffersService,
     private adressService: AddressService,
+    private cartService: CartService,
   ) { }
 
-  applyOfferCode = (code, orderId) =>{
-    console.log(code, orderId);
+  loadAmount = (orderId) => {
+    this.cartService.getAmmountDetails(orderId).subscribe(
+      (data: any) => {
+        this.totalAmmount = data.total_amount;
+        this.toPayAmmount = this.totalAmmount - data.discount;
+        this.discountAmmount = data.discount;
+      }
+    )
+  }
+
+  applyOfferCode = (code, orderId) => {
+    this.offerService.applyOfferCode(code, orderId).subscribe(
+      msg => {
+        this.loadAmount(orderId);
+      }
+    );
   }
 
   displayPopover = (count) => {
@@ -72,18 +95,19 @@ export class PaymentRightBarComponent implements OnInit {
   }
 
   showOfferCard = (cardNo) => {
+    console.log(cardNo);
     this.offerCardNo = cardNo;
   }
 
   loadProducts = () => {
     setTimeout(() => {
-      this.offerService.getRestaurantOffers(this.restaurantId).subscribe(
+      this.offerService.getValiedDealsOffers(this.orderId).subscribe(
         (dealsOffers: any) => {
           console.log(dealsOffers.resultList);
           this.dealsOffers = dealsOffers.resultList;
         }
       );
-    }, 3000);
+    }, 1500);
   }
 
   leftArrow() {

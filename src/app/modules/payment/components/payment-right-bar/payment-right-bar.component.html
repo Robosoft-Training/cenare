@@ -17,15 +17,15 @@
             <span class="apply-text" routerLink="/offers/{{restaurantId}}">View All Offers</span>
             <div class="brand-image-container w-sm-100" *ngFor="let item of dealsOffers.slice(0,4); let i = index;">
                 <span (click)="displayImage(i)" [hidden]="!(offerCardNo === i)">
-                    <img src="{{item.offerImagePath}}" class="brand-image" />
+                    <img src="{{item.offer.offerImagePath}}" class="brand-image" />
                     <img class="apply-code" src="assets/images/apply-code.png" />
                     <div class="offer-title">
                         <span class="title">
-                            Flat {{item.offerPercent}}% off
-                            <span class="offer-text">{{item.code}}</span>
+                            Flat {{item.offer.offerPercent}}% off
+                            <span class="offer-text">{{item.offer.code}}</span>
                         </span>
                         <ul class="offer-details">
-                            <li>Get flat {{item.offerPercent}}% Off</li>
+                            <li>Get flat {{item.offer.offerPercent}}% Off</li>
                             <li>Max discount AED10</li>
                             <li>Valid for 10days</li>
                         </ul>
@@ -47,7 +47,7 @@
     <div class="d-flex flex-row payment-header">
         <label>To Pay</label>
         <div class="d-flex flex-row header-price">
-            <label>INR{{toPayAmmount}}.00</label>
+            <label>INR{{totalAmmount - discountAmmount}}.00</label>
         </div>
     </div>
     <div class="d-flex flex-column payment-details">
@@ -71,14 +71,14 @@
         <button class="close" mat-button mat-dialog-close>
             <img class="close" (click)="close()" src="assets/images/dismiss_button_white.png" alt="">
         </button>
-        <p class="title">{{popoverData.offerTitle}}</p>
-        <p class="code">{{popoverData.code}}</p>
-        <img class="image" [src]="popoverData.offerImagePath" alt="">
+        <p class="title">{{popoverData.offer.offerTitle}}</p>
+        <p class="code">{{popoverData.offer.code}}</p>
+        <img class="image" [src]="popoverData.offer.offerImagePath" alt="">
         <div class="box1">
             <p class="heading1">Offer Details</p>
             <ul>
-                <li class="details">Get {{popoverData.offerPercent}}% Off</li>
-                <li class="details">Offer valid till 21st Dec</li>
+                <li class="details">Get {{popoverData.offer.offerPercent}}% Off</li>
+                <li class="details">Offer valid till {{popoverData.end_date[2]}}, {{monthShort[popoverData.end_date[1]-1]}}</li>
             </ul>
         </div>
         <div class="box2">
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="box4">
-            <button (click)="applyOfferCode(popoverData.code, orderId)" class="applyButton">APPLY</button>
+            <button (click)="applyOfferCode(popoverData.offer.code, orderId)" class="applyButton">APPLY</button>
         </div>
     </div>
     <div class="rectangle">
