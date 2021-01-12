@@ -17,6 +17,7 @@ import { PICK_FORMATS } from './shared/date-picker-formate';
 import { DatePickerService } from './services/date-picker/date-picker.service';
 import { HttpInterceptorService } from './shared/interceptors/http.interceptor';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     ReactiveFormsModule,
     SharedComponentsModule,
     ReactiveFormsModule,
-    FormsModule
+    PipesModule
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },

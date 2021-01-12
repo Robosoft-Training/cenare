@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { StringSlicePipe } from './string-slice/string-slice.pipe';
 import { FilterMenuPipe } from './filter/filter-menu.pipe';
 import { DateFormatePipe } from './date-formate/date-formate.pipe';
+import { FilterOffersPipe } from './offers/filter-offers.pipe';
 
 @NgModule({
   declarations: [
     StringSlicePipe,
     FilterMenuPipe,
-    DateFormatePipe
+    DateFormatePipe,
+    FilterOffersPipe
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { DateFormatePipe } from './date-formate/date-formate.pipe';
   exports: [
     StringSlicePipe,
     FilterMenuPipe,
-    DateFormatePipe
+    DateFormatePipe,
+    FilterOffersPipe
   ]
 })
 export class PipesModule { }

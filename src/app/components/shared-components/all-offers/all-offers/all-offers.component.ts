@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { AddressService } from 'src/app/services/address-details/address.service';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
+import { OffersService } from 'src/app/services/offers/offers.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 
 @Component({
@@ -10,6 +12,7 @@ import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 export class AllOffersComponent implements OnInit {
 
   menuSearch = '';
+  adress = "";
 
   offerslist: IDealsOffers[] = [
     {
@@ -21,7 +24,13 @@ export class AllOffersComponent implements OnInit {
     }
   ];
 
-  // offerslist: any = [];
+  popoverData = {
+    code: '',
+    offerPercent: 0,
+    offerImagePath: '',
+    offerTitle: '',
+    offerId: 0
+  }
 
   cards = {
     code: "",
@@ -30,37 +39,6 @@ export class AllOffersComponent implements OnInit {
     offerPercent: "",
     offerTitle: ""
   }
-
-  cardlist: any = [
-    {
-      code: "CDB33",
-      offerId: "CDB33",
-      offerImagePath: "../../../../../assets/images/offer_bg_3.jpg",
-      offerPercent: "39",
-      offerTitle: "So good Wednesday"
-    },
-    {
-      code: "ABC12",
-      offerId: "ABC12",
-      offerImagePath: "../../../../../assets/images/offer_bg_2.jpg",
-      offerPercent: "40",
-      offerTitle: "Everyday WOW! Value So good Wednesday So good Wednesday"
-    },
-    {
-      code: "ABC56",
-      offerId: "ABC56",
-      offerImagePath: "../../../../../assets/images/offer_bg_1.png",
-      offerPercent: "20",
-      offerTitle: "So good Wednesday"
-    },
-    {
-      code: "XYZ79",
-      offerId: "XYZ79",
-      offerImagePath: "../../../../../assets/images/offer_bg_4.jpg",
-      offerPercent: "35",
-      offerTitle: "So good Wednesday"
-    }
-  ];
 
   outlets: any = [
     {
@@ -79,13 +57,28 @@ export class AllOffersComponent implements OnInit {
 
   constructor(
     private elementRef: ElementRef,
-    private allOffersService: DealsOffersService
+    private allOffersService: DealsOffersService,
+    private adressService: AddressService,
+    private offerService: OffersService
   ) { }
 
-  displayImage(offer, count) {
-    this.clickedCount = count;
-    this.clickedOffer = offer;
+  getOfferDetails = (offerId) => {
+    this.offerService.getOffersById(offerId).subscribe(
+      data => {
+        console.log(data.endDate);
+      }
+    );
+  }
+
+  displayImage(count) {
+    this.popoverData = this.offerslist[count];
+    this.getOfferDetails(this.popoverData.offerId);
     this.isOpen = !this.isOpen;
+  }
+
+  displayPopover = (count) => {
+    this.popoverData = this.offerslist[count];
+    this.getOfferDetails(this.popoverData.offerId);
   }
 
   close() {
@@ -99,9 +92,12 @@ export class AllOffersComponent implements OnInit {
   ngOnInit(): void {
     this.allOffersService.getDealsOffers().subscribe(
       (data: any) => {
-        console.log(data)
         this.offerslist = data.resultList;
-        console.log(this.offerslist)
+      }
+    );
+    this.adressService.getPrimaryAddress().subscribe(
+      data => {
+        this.adress = data.area + ", " + data.city;
       }
     );
   }
@@ -117,8 +113,9 @@ export class AllOffersComponent implements OnInit {
       $("#left").addClass('leftArrow');
       $("#right").removeClass('right');
       $("#right").addClass('rightArrow');
-      console.log(this.clickedCount);
+      this.displayPopover(this.clickedCount);
     }
+
   }
 
   rightArrow() {
@@ -132,7 +129,7 @@ export class AllOffersComponent implements OnInit {
       $("#right").addClass('rightArrow');
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
-      console.log(this.clickedCount);
+      this.displayPopover(this.clickedCount);
     }
   }
 

@@ -35,4 +35,18 @@ export class OffersService {
         retry(3)
       );
   }
+
+  getOffersById = (offerId): Observable<any> => {
+    console.log(offerId);
+    const url = `${this.apiBaseUrl}offers/getOfferById`;
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('offerId', offerId);
+
+    return this.httpClient.get<any[]>(url, { params: httpParams })
+      .pipe(
+        tap((data: any) => {
+        }),
+        retry(3)
+      );
+  }
 }

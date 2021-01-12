@@ -19,6 +19,8 @@ import { OffersComponent } from './empty-scenario/offers/offers.component';
 import { OrderTrackComponent } from './order-track/order-track.component';
 import { OfferComponent } from './all-offers/offers/offers.component';
 import { AllOffersComponent } from './all-offers/all-offers/all-offers.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -36,13 +38,15 @@ import { AllOffersComponent } from './all-offers/all-offers/all-offers.component
     OffersComponent,
     OrderTrackComponent,
     OfferComponent,
-    AllOffersComponent
+    AllOffersComponent,
   ],
   imports: [
     CommonModule,
     AngularMaterialsModule,
     FormsModule,
     ReactiveFormsModule,
+    PipesModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent,
@@ -54,7 +58,7 @@ import { AllOffersComponent } from './all-offers/all-offers/all-offers.component
     LoadingComponent,
     OffersComponent,
     AllOffersComponent,
-    OfferComponent
+    OfferComponent,
   ],
   providers: [
     { provide: DateAdapter, useClass: DatePickerService },
