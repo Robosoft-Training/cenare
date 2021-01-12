@@ -49,12 +49,11 @@ export class UserProfileService {
     return this.httpClient.post<any[]>(url, formData);
   }
   
-  getUserOrders = (): Observable<IUserOrders[]> => {
-    const url = `${this.apiBaseUrl}userDetails/getUserOrders?status=active`;
+  getUserOrders = (status = 'active'): Observable<IUserOrders[]> => {
+    const url = `${this.apiBaseUrl}userDetails/getUserOrders?status=${status}`;
     return this.httpClient.get<IUserOrders[]>(url)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
         retry(3)
       );

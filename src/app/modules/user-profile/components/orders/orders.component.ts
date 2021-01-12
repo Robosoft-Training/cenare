@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/order-details/cart.service'
 })
 export class OrdersComponent implements OnInit {
 
+  status = 'Active';
   orders = [{
     "orderNumber": 0,
     "restaurant_name": "",
@@ -27,12 +28,17 @@ export class OrdersComponent implements OnInit {
     private cartService: CartService
   ) { }
 
-  ngOnInit(): void {
-    this.userProfileService.getUserOrders().subscribe(
+  loadOrders = (status) => {
+    this.status = status
+    this.userProfileService.getUserOrders(status).subscribe(
       (data: any) => {
         this.orders = data.resultList;
       }
     )
+  }
+
+  ngOnInit(): void {
+   this.loadOrders('active');
   }
 
   changeStarColor(clickID: number) {
