@@ -24,11 +24,11 @@
             <button class="add-new-button">ADD NEW</button>
         </div>
         <div class="address-section">
-            <div class="d-flex flex-column address-card">
+            <div class="d-flex flex-column address-card" *ngFor="let item of userAddress">
                 <div class="d-flex img-check">
                     <img class="img" src="assets/images/icn_check.png">
                 </div>
-                <label class="address-type">Home</label>
+                <label class="address-type">{{item.address_label}}</label>
                 <label class="address-text">Downtown Burj Khalifa, Dubai, UAE</label>
                 <div class="d-flex button-section">
                     <button class="btn">Edit</button>

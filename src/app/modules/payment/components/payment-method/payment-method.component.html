@@ -139,13 +139,93 @@
     </div>
     <div class="items-in-order">
         <label class="heading-text">Items in your order from</label>
-        <div class="d-flex order-card">
+        <div class="d-flex order-card" (click)="getDetails()" data-bs-toggle="modal"
+        data-bs-target="#orderDetailsModal">
             <div class="d-flex flex-column">
                 <label class="restuarant-name">The Boutique Kitchen</label>
                 <label class="address">Shiekh Zayed Road, Dubai, UAE</label>
             </div>
             <div>
                 <img class="arrow-img" src="../../assets/images/icn_right_arrow.png">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="order-details">
+                    <div class="d-flex order-details-heading">
+                        <label class="text">Order Details</label>
+                        <button type="button" class="btn-close btn-close-position" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="details-items">
+                        <label class="card-heading-text">Items</label>
+                        <div class="d-flex flex-column border item-card">
+                            <div class="border-bottom card-template" *ngFor="let item of cartList">
+                                <div class="card-top">
+                                    <img *ngIf="item.category === 'vegetarian'" src="assets/images/icn_veg.png" />
+                                    <img *ngIf="item.category === 'non vegetarian'" src="assets/images/icn_non_veg.png" />
+                                    <label class="meal-name">{{item.item_name}}</label>
+                                </div>
+                                <div class="d-flex card-bottom">
+                                    <div class="d-flex flex-column bottom-details">
+                                        <label class="cost">Rs.{{item.price}}</label>
+                                        <label class="add-on">Add On : Avacado, Seasoned Grilled Chicken, Grilled
+                                            Salmon</label>
+                                        <label class="quantity">Quantity : {{item.quantity}}</label>
+                                    </div>
+                                    <div class="d-flex flex-column bottom-meal-cost">
+                                        <label class="total-cost">Rs.{{item.menu_price}}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="details-amount">
+                        <label class="card-heading-text">Amount</label>
+                        <div class="border details-amount-card">
+                            <div class="d-flex border-bottom card-amount-details">
+                                <div class="row text-left">
+                                    <label class="paid-text">Paid</label>
+                                    <label class="sub-text">Items total</label>
+                                    <label class="sub-text">Fees/ Charges</label>
+                                    <label class="sub-text">Discount</label>
+                                </div>
+                                <div class="row text-right">
+                                    <label class="total-amount-text">INR {{toPayAmount}}</label>
+                                    <label class="sub-text">INR {{totalAmount}}</label>
+                                    <label class="sub-text">INR {{00}}</label>
+                                    <label class="sub-text">INR {{disCountAmount}}</label>
+                                </div>
+                            </div>
+                            <div class="d-flex card-payment-mode">
+                                <label class="payment-mode-text">Payment Mode</label>
+                                <label class="payment-type">Credit/Debit Card</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-delivery">
+                        <label class="card-heading-text">Delivery Details</label>
+                        <div class="border delivery-card">
+                            <div class="row">
+                                <label class="heading-text">Delivery Location</label>
+                                <label class="info-text">Downtown Burj Khalifa, Dubai, UAE</label>
+                            </div>
+                            <div class="border divider"></div>
+                            <div class="row">
+                                <label class="heading-text">Date & Time</label>
+                                <label class="info-text">Today @ 11.30</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

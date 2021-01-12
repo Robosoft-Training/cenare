@@ -1,6 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from 'events';
+import { data } from 'jquery';
+import { AddressService } from 'src/app/services/address-details/address.service';
 import { PaymentService } from 'src/app/services/payment/payment.service';
+import { IAllUserAddress } from 'src/app/shared/interfaces/IAllUserAddress';
 
 @Component({
   selector: 'app-choose-adress',
@@ -29,14 +32,27 @@ export class ChooseAdressComponent implements OnInit {
   ]
 
   selected = '+91';
+  userAddress: IAllUserAddress[] = [{
+    address_id: 0,
+    user_id: 0,
+    city: "",
+    area: "",
+    address: "",
+    address_label: "",
+    landmark: "",
+    primary_address: true
+  }];
 
   constructor(
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private addressService: AddressService
   ) { }
-  
-  ngOnInit(): void {}
 
-  submitDetails(){
+  ngOnInit(): void { 
+    this.getAllUserAddress();
+  }
+
+  submitDetails() {
     if (!(this.name)) {
       this.nameError = true;
     }
@@ -51,7 +67,16 @@ export class ChooseAdressComponent implements OnInit {
     }
   }
 
-  setCountryFlag(code:any){
+  setCountryFlag(code: any) {
     console.log(code);
+  }
+  getAllUserAddress() {
+    this.addressService.getAllAddress().subscribe(
+      (data: any) => {
+        console.log("xYZ", data);
+        
+        this.userAddress = data.resultList;
+      }
+    );
   }
 }

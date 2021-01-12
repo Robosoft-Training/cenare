@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { retry, tap } from 'rxjs/operators';
+import { IAllUserReviews } from 'src/app/shared/interfaces/IAllUserReviews';
 import { IUserOrders } from 'src/app/shared/interfaces/IUserOrders';
 import { IUserProfileDetails } from 'src/app/shared/interfaces/IUserProfileDetails';
 import { environment } from 'src/environments/environment';
@@ -59,4 +60,16 @@ export class UserProfileService {
         retry(3)
       );
   }
+
+  getAllUserReviews = (): Observable<IAllUserReviews[]> => {
+    const url = `${this.apiBaseUrl}userDetails/getUserReviews`;
+    return this.httpClient.get<IAllUserReviews[]>(url)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
 }
+

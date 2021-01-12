@@ -25,7 +25,7 @@
 
         .radio-btn {
           margin-top: 12px;
-          
+
         }
 
         .icon {
@@ -56,13 +56,15 @@
           height: 12px;
           width: 40px;
           position: relative;
-          right:-270px;
-          top:-16px;
+          right: -270px;
+          top: -16px;
         }
       }
-      .text-box-padding{
+
+      .text-box-padding {
         padding-bottom: 8px;
       }
+
       .text-box-mini {
         width: 15%;
       }
@@ -173,6 +175,7 @@
 
         .security-code {
           width: 30%;
+          padding-bottom: 8px;
 
           ::ng-deep .mat-form-field-empty.mat-form-field-label {
             color: $white;
@@ -198,6 +201,8 @@
 
         .info-icon {
           margin-left: 16px;
+          height: 20px;
+          width: 20.07px;
         }
       }
     }
@@ -312,6 +317,8 @@
   }
 
   .items-in-order {
+    cursor: pointer;
+
     .order-card {
       border-radius: 6px;
       background-color: #FFFFFF;
@@ -354,4 +361,5 @@
     margin-bottom: 16px;
   }
 }
+
 @include custom-radio-button;
