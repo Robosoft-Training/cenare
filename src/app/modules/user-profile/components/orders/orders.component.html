@@ -23,7 +23,8 @@
             <!-- <label class="status">Out for Delivery</label> -->
         </div>
         <div class="d-flex card-buttons">
-            <button class="details-button" (click)="getDetails(item.orderNumber)" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">DETAILS</button>
+            <button class="details-button" (click)="getDetails(item.orderNumber)" data-bs-toggle="modal"
+                data-bs-target="#orderDetailsModal">DETAILS</button>
             <button class="status-button" routerLink="/status/{{item.orderNumber}}">STATUS</button>
         </div>
     </div>
@@ -43,20 +44,21 @@
                     <div class="details-items">
                         <label class="card-heading-text">Items</label>
                         <div class="d-flex flex-column border item-card">
-                            <div class="border-bottom card-template">
+                            <div class="border-bottom card-template" *ngFor="let item of cartList">
                                 <div class="card-top">
-                                    <img src="assets/images/icn_non_veg.png">
-                                    <label class="meal-name">Chili Cheese Meal</label>
+                                    <img *ngIf="item.category === 'vegetarian'" src="assets/images/icn_veg.png" />
+                                    <img *ngIf="item.category === 'non vegetarian'" src="assets/images/icn_non_veg.png" />
+                                    <label class="meal-name">{{item.item_name}}</label>
                                 </div>
                                 <div class="d-flex card-bottom">
                                     <div class="d-flex flex-column bottom-details">
-                                        <label class="cost">INR 100.00</label>
+                                        <label class="cost">Rs.{{item.price}}</label>
                                         <label class="add-on">Add On : Avacado, Seasoned Grilled Chicken, Grilled
                                             Salmon</label>
-                                        <label class="quantity">Quantity : 1</label>
+                                        <label class="quantity">Quantity : {{item.quantity}}</label>
                                     </div>
                                     <div class="d-flex flex-column bottom-meal-cost">
-                                        <label class="total-cost">INR 100.00</label>
+                                        <label class="total-cost">Rs.{{item.menu_price}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +105,7 @@
                     <div class="d-flex flex-column rating">
                         <label class="card-heading-text">Rate your Delivery</label>
                         <div class="d-flex flex-row select-rating">
-                           
+
                             <div class="d-flex star grey-color" id="1" (click)="changeStarColor(1)">
                                 <label class="star-count-text">&#9733; 1</label>
                             </div>

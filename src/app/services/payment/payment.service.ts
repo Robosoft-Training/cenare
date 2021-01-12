@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,23 +15,29 @@ export class PaymentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  chooseAdress = (nextForm) => {
+  chooseAdress(nextForm: any){
     this.nextFormRequest.next(nextForm);
   }
-
-  // applyOffer = (code, orderId) => {
-  //   console.log(code, orderId);
-  //   const url = `${this.apiBaseUrl}userAddress/addAddress`;
-  //   const postBody = {
-  //     code,
-  //     order
-  //   };
-  //   return this.httpClient.post<any[]>(url, postBody)
-  //     .pipe(
-  //       tap(data => {
-  //         console.log(data);
-  //       }),
-  //       retry(3)
-  //     );
-  // }
+  chooseAddress = (orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode) :Observable<any> => {
+    console.log(orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode);
+    
+    const url = `${this.apiBaseUrl}Deliverydetails/addOrderDeliveryDetails`;
+    const postBody = {
+      order_number: orderNumber, 
+      delivery_type: deliveryType, 
+      delivery_instruction: deliveryInstruction, 
+      delivery_address: deliveryAddress, 
+      name: name, 
+      phone_number: phoneNumber, 
+      country_code: countryCode
+    };
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+  
 }

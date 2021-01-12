@@ -5,14 +5,14 @@
             <div class="d-flex flex-column flex-wrap delivery-type-card">
                 <img class="icon" src="assets/images/icn_deliver.png">
                 <div class="radio-btn">
-                    <input type="radio" id="deliver-to-me" name="radio-button" class="radio-icon">
+                    <input type="radio" id="deliver-to-me" name="radio-button" class="radio-icon"  [(ngModel)]="deliveryType" value="deliver-to-me" >
                     <label for="deliver-to-me" class="radio-button-text">Deliver to me</label><br>
                 </div>
             </div>
             <div class="d-flex flex-column flex-wrap delivery-type-card">
                 <img class="icon" src="assets/images/icn_pick_up.png">
                 <div class="radio-btn">
-                    <input type="radio" id="pick-up" name="radio-button" class="radio-icon">
+                    <input type="radio" id="pick-up" name="radio-button" class="radio-icon" [(ngModel)]="deliveryType" value="pick-up">
                     <label for="pick-up" class="radio-button-text">Pick up</label><br>
                 </div>
             </div>
@@ -20,16 +20,16 @@
     </div>
     <div class="address">
         <div class="d-flex address-header">
-            <label class="section-heading">My Addresses (2)</label>
-            <button class="add-new-button">ADD NEW</button>
+            <label class="section-heading">My Addresses ({{userAddress.length}})</label>
+            <button class="add-new-button" (click)="openDialog('addAddress')">ADD NEW</button>
         </div>
-        <div class="address-section">
-            <div class="d-flex flex-column address-card">
+        <div class="d-flex address-section flex-wrap">
+            <div class="d-flex flex-column address-card" *ngFor="let item of userAddress" (click)="setPrimaryAddress(item.address_id)">
                 <div class="d-flex img-check">
-                    <img class="img" src="assets/images/icn_check.png">
+                    <img class="img" src="assets/images/icn_check.png" *ngIf="(selectedAddressId===item.address_id) || (item.primary_address && selectedAddressId === 0)">
                 </div>
-                <label class="address-type">Home</label>
-                <label class="address-text">Downtown Burj Khalifa, Dubai, UAE</label>
+                <label class="address-type">{{item.address_label}}</label>
+                <label class="address-text">{{item.address}}, {{item.area}}, {{item.city}}</label>
                 <div class="d-flex button-section">
                     <button class="btn">Edit</button>
                     <button class="btn">Delete</button>
@@ -39,7 +39,7 @@
     </div>
     <div class="contact-details">
         <label class="section-heading mb-3">Contact Details</label>
-        <form class="d-flex flex-column form">
+        <form class="d-flex flex-column form" name="form">
             <mat-form-field class="name-text-box mb-3">
                 <mat-label>Name</mat-label>
                 <input class="name-text-box text-box-padding" matInput [(ngModel)]="name" placeholder="Name" name="user-name" type="text">
@@ -48,8 +48,8 @@
             <div class="d-flex mb-3">
                 <mat-form-field class="code-drop-down">
                     <mat-label>Mobile No.</mat-label>
-                    <img class="country-flag" src="assets/images/country-flag/{{selected}}.png" />
-                    <mat-select [(value)]="selected" class="drop">
+                    <img class="country-flag" src="assets/images/country-flag/{{countryCode}}.png" />
+                    <mat-select [(value)]="countryCode" class="drop">
                         <mat-option *ngFor="let countryCode of flagImageUrlArray" [value]="countryCode.code">
                             <img class="img" [src]="countryCode.url" />
                             {{countryCode.code}}
@@ -63,7 +63,7 @@
             </div>
             <mat-form-field class="delivery-inst-text-box">
                 <mat-label>Delivery instructions?</mat-label>
-                <input class="text-box-padding" matInput placeholder="Mention it here…">
+                <input class="text-box-padding" matInput placeholder="Mention it here…" [(ngModel)]="deliveryInstructions" name="delivery-instructions">
             </mat-form-field>
         </form>
     </div>

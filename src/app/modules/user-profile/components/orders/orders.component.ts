@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import * as $ from 'jquery';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 import { CartService } from 'src/app/services/order-details/cart.service'
+import { ICartItems } from 'src/app/shared/interfaces/ICartItems';
 
 @Component({
   selector: 'app-orders',
@@ -18,10 +19,24 @@ export class OrdersComponent implements OnInit {
     "numOFItems": 0,
     "totalAmount": 0
   }];
+  
+  cartList: ICartItems[] = [
+    {
+      order_number: '',
+      item_name: '',
+      price: '',
+      menu_price: '',
+      menu_id: '',
+      category: '',
+      restaurant_id: '',
+      quantity: ''
+    }
+  ];
 
   totalAmount = 0;
   disCountAmount = 0;
   toPayAmount = 0;
+  isLoggedIn = false;
 
   constructor(
     private userProfileService: UserProfileService,
@@ -72,6 +87,7 @@ export class OrdersComponent implements OnInit {
     this.cartService.getAllCartData(orderNumber).subscribe(
       data => {
         console.log(data);
+        this.cartList = data.resultList;
       }
     );
     this.cartService.getAmmountDetails(orderNumber).subscribe(
@@ -82,4 +98,5 @@ export class OrdersComponent implements OnInit {
       }
     );
   }
+
 }

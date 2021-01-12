@@ -55,7 +55,7 @@
                     <div (click)="addCoockingInstructions()" class="choose-btn">CHOOSE ADDRESS</div>
                 </div>
                 <span *ngIf="formType==='chooseAdress'">
-                    <app-choose-adress #child1></app-choose-adress>
+                    <app-choose-adress [orderNumber]="orderNumber" #child1></app-choose-adress>
                     <div class="buttons-field">
                         <div (click)="showFormsType('cartItems', true)" class="add-btn"><span class="btn-text">BACK</span>
                         </div>

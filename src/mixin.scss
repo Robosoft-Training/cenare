@@ -750,3 +750,29 @@
         top: -0.2em;
     }
 }
+
+@mixin grey-text-box {
+    
+    ::ng-deep .mat-form-field-empty.mat-form-field-label {
+        color: #858585;
+      }
+
+      ::ng-deep input.mat-input-element {
+        color: #858585;
+      }
+
+
+      ::ng-deep .mat-form-field .mat-form-field-label {
+        color: #858585 !important;
+      }
+
+      ::ng-deep .mat-form-field-underline {
+        background-color: $black !important;
+        opacity: 0.53;
+      }
+
+      ::ng-deep .mat-form-field-ripple {
+        background-color: $black !important;
+        opacity: 0;
+      }
+}

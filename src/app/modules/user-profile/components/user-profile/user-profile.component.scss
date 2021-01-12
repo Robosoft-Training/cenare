@@ -8,7 +8,7 @@
 
   .profile {
     margin-top: 2em;
-    // padding-top: 10px;
+    
     .profile-img {
       width: 7em;
       height: 7em;
@@ -64,17 +64,30 @@
           line-height: 22px;
         }
 
-        .img {
+        .phone-img {
           padding-right: 16px;
-          width: 2.5em;
-          height: 1em;
+          height: 30px;
+          width: 40px;
         }
 
+        .mail-img {
+          padding-right: 16px;
+          height: 25px;
+          width: 40px;
+        }
+
+        .info-img {
+          padding-right: 16px;
+          height: 25px;
+          width: 40px;
+        }
+        
         .border {
           box-sizing: border-box;
           border: 1px solid $white;
           opacity: 0.37;
           margin: 0px 16px;
+          height: 21px;
         }
 
         .credit-score-text {

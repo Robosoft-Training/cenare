@@ -71,10 +71,10 @@
         }
 
         .form {
-          margin-top: 36px;
           .error{
             color: red;
           }
+          @include grey-text-box;
         }
       }
 
@@ -82,7 +82,9 @@
         box-sizing: border-box;
         border: 1px solid #A4A4A4;
         opacity: 0.53;
-        margin-top: 58px;
+        margin-top: 88px;
+        margin-bottom: 32px;
+
       }
 
       .card-right {

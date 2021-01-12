@@ -19,9 +19,7 @@ export class AddressService {
     const url = `${this.apiBaseUrl}userAddress/getPrimaryAddress`;
     return this.httpClient.get<any[]>(url)
       .pipe(
-        tap(data => {
-          // console.log(data);
-        }),
+        tap(data => {}),
         retry(3)
       );
   }
@@ -32,6 +30,7 @@ export class AddressService {
       .pipe(
         tap(data => {
           this.adressDataListSource.next(data);
+
         }),
         retry(3)
       );
@@ -69,7 +68,6 @@ export class AddressService {
         retry(3)
       );
   }
- 
  editAddress = (address,address_label,area,city,landmark): Observable<any> => {
     console.log(address,address_label,area,city,landmark);
     const url = `${this.apiBaseUrl}userAddress/editAddress`;

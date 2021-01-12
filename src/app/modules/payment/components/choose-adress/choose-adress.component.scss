@@ -92,19 +92,22 @@
     }
 
     .address-section {
+      margin-top: 8px;
+      justify-content: space-between;
       .address-card {
-        width: 50%;
+        width: 49%;
         border-radius: 6px;
         background-color: $white;
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
         padding: 8px 8px 8px 16px;
-
+        margin-top: 8px;
         &:hover {
           cursor: pointer;
         }
 
         .img-check {
           justify-content: flex-end;
+          height: 16px;
 
           .img {
             height: 16px;
@@ -159,6 +162,8 @@
 
   .contact-details {
     .form {
+      @include grey-text-box;
+
       .error {
         color: red;
       }
@@ -204,7 +209,8 @@
           margin-right: 8px;
         }
       }
-      .text-box-padding{
+
+      .text-box-padding {
         padding-bottom: 8px;
       }
     }
@@ -214,4 +220,213 @@
 .img {
   width: 2em;
   height: 2em;
+}
+
+//modal
+.order-details {
+  border-radius: 8px;
+  padding: 16px;
+
+  .order-details-heading {
+    justify-content: space-between;
+
+    .text {
+      color: #4C4C4C;
+      font-family: $openSans;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.34px;
+      line-height: 33px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-close-position {
+      position: relative;
+      top: -16px;
+      left: 16px;
+    }
+  }
+
+  .card-heading-text {
+    color: #565454;
+    font-family: $openSans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
+  .details-items {
+    .item-card {
+      border-radius: 5px;
+
+      .card-template {
+        margin: 16px;
+
+        .card-top {
+          .meal-name {
+            color: #2D2D2D;
+            font-family: $openSans;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 19px;
+            margin-left: 8px;
+          }
+        }
+
+        .card-bottom {
+          margin-bottom: 8px;
+
+          .bottom-details {
+            justify-content: space-evenly;
+
+            .cost {
+              color: #2D2D2D;
+              font-family: $openSans;
+              font-size: 12px;
+              letter-spacing: 0;
+              line-height: 27px;
+            }
+
+            .add-on {
+              color: #9B9B9B;
+              font-family: $openSans;
+              font-size: 11px;
+              letter-spacing: 0;
+              line-height: 15px;
+
+            }
+
+            .quantity {
+              color: #9B9B9B;
+              font-family: $openSans;
+              font-size: 11px;
+              letter-spacing: 0;
+              line-height: 15px;
+              padding-top: 4px;
+            }
+          }
+
+          .bottom-meal-cost {
+            justify-content: flex-end;
+            width: 100%;
+
+            .total-cost {
+              color: #2D2D2D;
+              font-family: $openSans;
+              font-size: 12px;
+              font-weight: 600;
+              letter-spacing: 0;
+              line-height: 17px;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .details-amount {
+    .details-amount-card {
+      padding: 16px;
+
+      .card-amount-details {
+        justify-content: space-between;
+
+        .sub-text {
+          color: #9B9B9B;
+          font-family: $openSans;
+          ;
+          font-size: 12px;
+          letter-spacing: 0;
+          line-height: 27px;
+        }
+
+        .text-right {
+          text-align: right;
+        }
+
+        .text-left {
+          text-align: left;
+        }
+
+        .paid-text {
+          color: #223136;
+          font-family: $openSans;
+          ;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 22px;
+
+        }
+
+        .total-amount-text {
+          color: #223136;
+          font-family: $openSans;
+          ;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 22px;
+        }
+      }
+
+      .card-payment-mode {
+        justify-content: space-between;
+        margin-top: 8px;
+
+        .payment-mode-text {
+          color: #223136;
+          font-family: $openSans;
+          ;
+          font-size: 16px;
+          letter-spacing: 0;
+          line-height: 22px;
+        }
+
+        .payment-type {
+          color: #223136;
+          font-family: $openSans;
+          ;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 0;
+          line-height: 22px;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .details-delivery {
+    .delivery-card {
+      padding: 16px;
+
+      .heading-text {
+        color: #9B9B9B;
+        font-family: $openSans;
+        ;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 17px;
+      }
+
+      .info-text {
+        color: #223136;
+        font-family: $openSans;
+        ;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 22px;
+      }
+
+      .divider {
+        margin: 16px 0px;
+      }
+    }
+  }
 }

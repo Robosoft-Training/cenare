@@ -1,6 +1,12 @@
+import { Input } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EventEmitter } from 'events';
+import { data } from 'jquery';
+import { AddAddressComponent } from 'src/app/modules/user-profile/components/add-address/add-address.component';
+import { AddressService } from 'src/app/services/address-details/address.service';
 import { PaymentService } from 'src/app/services/payment/payment.service';
+import { IAllUserAddress } from 'src/app/shared/interfaces/IAllUserAddress';
 
 @Component({
   selector: 'app-choose-adress',
@@ -8,11 +14,15 @@ import { PaymentService } from 'src/app/services/payment/payment.service';
   styleUrls: ['./choose-adress.component.scss']
 })
 export class ChooseAdressComponent implements OnInit {
-
+  @Input() orderNumber: any;
   name = null;
   phoneNumber: any = "";
   nameError = false;
   phoneNumberError = false;
+  selectedAddressId = 0;
+  deliveryType = "";
+  deliveryInstructions = "";
+  address = "";
   flagImageUrlArray = [
     {
       code: "+91",
@@ -28,15 +38,29 @@ export class ChooseAdressComponent implements OnInit {
     }
   ]
 
-  selected = '+91';
+  countryCode = '+91';
+  userAddress: IAllUserAddress[] = [{
+    address_id: 0,
+    user_id: 0,
+    city: "",
+    area: "",
+    address: "",
+    address_label: "",
+    landmark: "",
+    primary_address: false
+  }];
 
   constructor(
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private addressService: AddressService,
+    public dialog: MatDialog
   ) { }
-  
-  ngOnInit(): void {}
 
-  submitDetails(){
+  ngOnInit(): void {
+    this.getAllUserAddress();
+  }
+
+  submitDetails() {
     if (!(this.name)) {
       this.nameError = true;
     }
@@ -47,11 +71,40 @@ export class ChooseAdressComponent implements OnInit {
     else {
       this.nameError = false;
       this.phoneNumberError = false;
-      this.paymentService.chooseAdress('payment-methods');
+      this.userAddress.forEach(address => {
+        if ((this.selectedAddressId === 0 && address.primary_address) || (address.address_id === this.selectedAddressId))
+        {
+          this.address = address.address + ", " + address.area + "," + address.city;
+        }
+      });
+
+      this.paymentService.chooseAddress(this.orderNumber, this.deliveryType, this.deliveryInstructions, this.address,this.name, this.phoneNumber, this.countryCode).subscribe(
+        (msg)=>{
+          console.log(msg);
+          this.paymentService.chooseAdress('payment-methods')
+        }
+      );
     }
   }
 
-  setCountryFlag(code:any){
+  setCountryFlag(code: any) {
     console.log(code);
   }
+  getAllUserAddress() {
+    this.addressService.getAllAddress().subscribe(
+      (data: any) => {
+        this.userAddress = data.resultList;
+      }
+    );
+  }
+  openDialog(formType: any): void {
+    this.dialog.open(AddAddressComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+  }
+
+  setPrimaryAddress(id: any) {
+    console.log("card clic", id);
+    this.selectedAddressId = id;
+  }
+
+
 }
