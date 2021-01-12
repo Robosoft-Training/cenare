@@ -18,19 +18,15 @@ export class UserGalleryService {
   currentUserGalleryDataList: any;
 
   constructor(
-    private httpClient: HttpClient,
-    private localStorageService: LocalStorageService
+    private httpClient: HttpClient
   ) { }
 
-  getRestaurantGalleryItems = (restaurantID): Observable<any> => {
-    console.log(restaurantID);
+  getRestaurantGalleryItems = (): Observable<any> => {
     const url = `${this.apiBaseUrl}userDetails/getGalleryImages`;
-
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
-          this.currentUserGalleryDataList = { ...data };
-          // this.galleryDataListSource.next(this.currentGalleryDataList);
+         console.log(data);
         }),
         retry(3)
       );

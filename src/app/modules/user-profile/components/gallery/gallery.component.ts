@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { MenuListService } from 'src/app/services/resraurant-details/menu-list/menu-list.service';
+import { UserGalleryService } from 'src/app/services/user-profile/user-gallery.service';
 import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 
 @Component({
@@ -20,6 +20,7 @@ export class GalleryComponent implements OnInit {
     'assets/images/TandooriChicken.jpg',
     'assets/images/uttapam.jpg'
   ];
+
   groupedMenuList: any = {
     key: 0
   };
@@ -39,22 +40,15 @@ export class GalleryComponent implements OnInit {
     }
   ];
 
-  imageName: any = [
-    "Vada",
-    "Tandoori Chicken",
-    "Uttapam"
-  ];
-
   constructor(
-    private menuListService: MenuListService,
+    private userGalleryService: UserGalleryService,
   ) { }
 
   ngOnInit(): void {
-    this.menuListService.currentMenuDataListSource.subscribe(
+    this.userGalleryService.getRestaurantGalleryItems().subscribe(
       (data: any) => {
         // this.menuList = data.resultList;
-        this.createAnArray(data.resultList)
-        this.itemName(data.resultList)
+        this.imageList = data.resultList;
       }
     );
     $("#left").addClass('left');
@@ -69,18 +63,9 @@ export class GalleryComponent implements OnInit {
     )
   }
 
-  itemName(datalist) {
-    datalist.forEach(
-      (data: any) => {
-        this.imageName.push(data.menu.item_name)
-      }
-    )
-  }
-
   displayImage(imageUrl, count) {
     this.clickedCount = count;
     this.clickedImage = imageUrl;
-    this.clickedImageName = this.imageName[this.clickedCount];
     this.isOpen1 = !this.isOpen1;
   }
 
@@ -95,7 +80,6 @@ export class GalleryComponent implements OnInit {
     }
     else {
       this.clickedImage = this.imageList[--this.clickedCount];
-      this.clickedImageName = this.imageName[this.clickedCount];
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
       $("#right").removeClass('right');
@@ -112,7 +96,6 @@ export class GalleryComponent implements OnInit {
     }
     else {
       this.clickedImage = this.imageList[++this.clickedCount];
-      this.clickedImageName = this.imageName[this.clickedCount];
       $("#right").removeClass('right');
       $("#right").addClass('rightArrow');
       $("#left").removeClass('left');
