@@ -8,6 +8,7 @@ import { mergeMap, startWith, map } from 'rxjs/operators';
 import { myFilter } from 'src/app/modules/home-page/components/home-page-header/home-page-header.component';
 import { Router } from '@angular/router';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
+import { AddressService } from 'src/app/services/address-details/address.service';
 
 @Component({
   selector: 'app-add-address',
@@ -41,6 +42,7 @@ export class AddAddressComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private restaurantLisService: RestaurantListService,
+    private adressService: AddressService
   ) { }
 
   loadCurrentLocation = () => {
@@ -112,6 +114,11 @@ export class AddAddressComponent implements OnInit {
       this.area.error = '';
       this.address.error = '';
       this.addressLabel.error = '';
+      this.adressService.addAddress(this.address.value, this.addressLabel.value, this.area.value, this.city.value, this.userSearchSelections.locationName).subscribe(
+        msg => {
+          this.adressService.getAllAddress().subscribe();
+        }
+      );
     }
   }
 

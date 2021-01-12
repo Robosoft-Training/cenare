@@ -6,23 +6,23 @@
   <div class="ordersCard" *ngFor="let card of cardlist; let i=index;">
     <div class="rectangle1" align="right">
       <div class="primary">
-        <input type="radio" class="checkActive" id={{i}} name="tabs" checked="checked">
+        <input (click)="updatePrimaryCard(card.user_card_id)" type="radio" class="checkActive" id={{i}} name="tabs" [checked]="card.primary_card?'checked':''">
         <label class="primaryActive1" for={{i}}>Primary</label>
       </div>
     </div>
     <div class="rectangle2">
       <div class="box">
-        <img class="image" [src]="card.icon" alt="">
+        <img class="image" src="assets/images/visa_icon.png" alt="">
       </div>
       <div class="cardDetails">
-        <p class="cardNumber">{{card.cardNumber}}</p>
-        <p class="cardName">{{card.cardName}}</p>
+        <p class="cardNumber">{{card.card_number}}</p>
+        <p class="cardName">Visa</p>
       </div>
     </div>
     <div class="rectangle3" align="right">
       <div class="box1">
         <p class="edit">Edit</p>
-        <p class="delete">Delete</p>
+        <p (click)="deleteCard(card.user_card_id)" class="delete">Delete</p>
       </div>
     </div>
   </div>

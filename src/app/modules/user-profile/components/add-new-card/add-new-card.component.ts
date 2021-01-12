@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { PaymentService } from 'src/app/services/payment-methods/payment.service';
 
 @Component({
   selector: 'app-add-new-card',
@@ -21,12 +20,11 @@ export class AddNewCardComponent implements OnInit {
   currentMonth = new Date().getMonth() + 1;
 
   constructor(
-    public dialogRef: MatDialogRef<AddNewCardComponent>,
+    private paymentService: PaymentService,
+    public dialogRef: MatDialogRef<AddNewCardComponent>
   ) { }
 
   ngOnInit(): void {
-    console.log(this.currentYear);
-    console.log(this.currentMonth);
   }
 
   onNoClick(): void {
@@ -68,6 +66,11 @@ export class AddNewCardComponent implements OnInit {
       this.expiryMonth.error = '';
       this.expiryYear.error = '';
       this.cvv.error = '';
+      this.paymentService.addCard(this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+        msg => {
+          this.paymentService.getUsersAllCards().subscribe();
+        }
+      );
     }
   }
 
