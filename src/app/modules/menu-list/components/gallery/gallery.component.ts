@@ -38,7 +38,7 @@ export class GalleryComponent implements OnInit {
   imageList: any = [];
   imageName: any = [];
   increaseCount = () => { 
-    this.sliceCount += (this.menuList.length - this.sliceCount);
+    this.sliceCount += (this.imageList.length - this.sliceCount);
   }
 
   close() {

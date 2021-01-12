@@ -1,16 +1,16 @@
 <div class="breadcrumb-container">
     <div class="container-fluid">
-    <div class="row">
-    <div class="col-1 col-xl-2"></div>
-    <div class="col-10 col-xl-8">
-    <div class="breadcrumb-area">
-        <div class="breadcrumb-area-list d-flex" *ngFor="let item of breadCrumbList;">
-            <div class="arrow-mark px-2" *ngIf="item !== 'Home'">&gt;</div>
-            <span class="product-description text-capitalize">{{ item }}</span>
+        <div class="row">
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-10 col-xl-8">
+                <div class="breadcrumb-area">
+                    <div class="breadcrumb-area-list d-flex" *ngFor="let item of breadCrumbList;">
+                        <div class="arrow-mark px-2" *ngIf="item !== 'Home'">&gt;</div>
+                        <span class="product-description text-capitalize">{{ item }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 col-xl-2"></div>
         </div>
     </div>
-    </div>
-    <div class="col-1 col-xl-2"></div>
-    </div>
-</div>
 </div>
