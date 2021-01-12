@@ -10,6 +10,7 @@ import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 export class GalleryComponent implements OnInit {
 
   isOpen = false;
+  sliceCount = 10;
 
   groupedMenuList: any = {
     key: 0
@@ -30,6 +31,9 @@ export class GalleryComponent implements OnInit {
     }
   ];
 
+  increaseCount = () => { 
+    this.sliceCount += (this.menuList.length - this.sliceCount);
+  }
 
   displayImage() {
     this.isOpen = !this.isOpen;

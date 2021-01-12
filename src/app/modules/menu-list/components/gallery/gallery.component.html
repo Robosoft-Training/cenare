@@ -8,11 +8,11 @@
         <img class="arrow" src="assets/images/right_arrow.png" alt="">
       </div>
     </div>
-    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5" *ngFor="let item of menuList">
+    <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5" *ngFor="let item of menuList.slice(0, sliceCount)">
       <img src="{{ item.menu.item_image_path }}" alt="" (click)="displayImage()">
     </div>
     <div class="rectangle2" align="right">
-      <p class="viewMore">View more ></p>
+      <p class="viewMore" *ngIf="!(sliceCount === this.menuList.length)" (click)="increaseCount()">View more ></p>
     </div>
   </div>
 </div>
