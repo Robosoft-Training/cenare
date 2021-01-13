@@ -6,20 +6,6 @@
   <p class="heading">Add New Card</p>
   <p class="text">Enter Credit/Debit card details</p>
 
-  <mat-form-field>
-    <mat-label>Card number</mat-label>
-    <div style="display: block;  position: relative;">
-      <input matInput>
-    </div>
-    <img class="icon" src="assets/images/Visa_small_icon.png" alt="">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Name on card</mat-label>
-    <div style="display: block;  position: relative;">
-      <input matInput>
-    </div>
-  </mat-form-field>
   <form>
 
     <!-- Card number -->
@@ -27,7 +13,7 @@
     <mat-form-field>
       <mat-label>Card number</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput class="input js-number" type="text" name="cardNumber" minlength="16" maxlength="16" 
+        <input matInput class="input js-number" type="text" name="cardNumber" minlength="16" maxlength="16"
           onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cardNumber" required
           title="Please enter correct year" [(ngModel)]="cardNumber.value" [class.invalid]="cardNumber.error" />
       </div>
@@ -54,8 +40,7 @@
         <div style="display: block;  position: relative;">
           <input matInput class="input" type="text" maxlength="2" pattern="\d{1,2}" name="expiryMonth"
             [min]="currentMonth" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-            title="Please enter correct month" [(ngModel)]="expiryMonth.value"
-            [class.invalid]="expiryMonth.error" />
+            title="Please enter correct month" [(ngModel)]="expiryMonth.value" [class.invalid]="expiryMonth.error" />
         </div>
       </mat-form-field>
       <mat-hint *ngIf="expiryMonth.error" class="error2">{{expiryMonth.error}}</mat-hint>
