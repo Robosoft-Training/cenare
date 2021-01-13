@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { UserGalleryService } from 'src/app/services/user-profile/user-gallery.service';
-import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
+import { UserGalleryService } from 'src/app/services/user-profile/user-gallery.service'; 
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
+
 export class GalleryComponent implements OnInit {
 
   isOpen1 = false;
@@ -15,52 +15,26 @@ export class GalleryComponent implements OnInit {
   clickedImageName: any = null;
   clickedCount = 0;
 
-  imageList = [
-    'assets/images/Vada.jpg',
-    'assets/images/TandooriChicken.jpg',
-    'assets/images/uttapam.jpg'
-  ];
-
+  imageList: any = [];
+  imageName: any = [];
+ 
   groupedMenuList: any = {
     key: 0
   };
 
-  menuList: IMenuList[] = [
-    {
-      menu: {
-        menu_id: 0,
-        item_name: '',
-        cook_time: 0,
-        category: '',
-        course: '',
-        desrcription: '',
-        item_image_path: ''
-      },
-      price: 0
-    }
-  ];
-
   constructor(
-    private userGalleryService: UserGalleryService,
+    private userGalleryService: UserGalleryService, 
   ) { }
 
   ngOnInit(): void {
-    this.userGalleryService.getRestaurantGalleryItems().subscribe(
+    this.userGalleryService.getRestaurantGalleryItems().subscribe( 
       (data: any) => {
-        // this.menuList = data.resultList;
-        this.imageList = data.resultList;
+        this.imageList = data.resultList; 
+        console.log(this.imageList)
       }
     );
     $("#left").addClass('left');
     $("#left").removeClass('leftArrow');
-  }
-
-  createAnArray(datalist) {
-    datalist.forEach(
-      (data: any) => {
-        this.imageList.push(data.menu.item_image_path)
-      }
-    )
   }
 
   displayImage(imageUrl, count) {
@@ -75,8 +49,8 @@ export class GalleryComponent implements OnInit {
 
   leftArrow() {
     if (this.clickedCount === 0) {
-      $('#left').addClass('left');
-      $('#left').removeClass('leftArrow');
+      $('#left').addClass('left'); 
+      $('#left').removeClass('leftArrow'); 
     }
     else {
       this.clickedImage = this.imageList[--this.clickedCount];
@@ -91,8 +65,8 @@ export class GalleryComponent implements OnInit {
 
   rightArrow() {
     if (this.clickedCount === this.imageList.length - 1) {
-      $('#right').addClass('right');
-      $('#right').removeClass('rightArrow');
+      $('#right').addClass('right'); 
+      $('#right').removeClass('rightArrow'); 
     }
     else {
       this.clickedImage = this.imageList[++this.clickedCount];
@@ -104,4 +78,4 @@ export class GalleryComponent implements OnInit {
       console.log(this.clickedImageName)
     }
   }
-}
+} 

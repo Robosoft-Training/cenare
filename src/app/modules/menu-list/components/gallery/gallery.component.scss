@@ -12,14 +12,15 @@
     margin-left: 0px;
 
     .rectangle1 {
-      width: 95%;
+      width: 93%;
+      padding: 0%;
       margin-bottom: 20px;
 
       .allPhotosButton {
         height: 35px;
-        width: 100px;
+        width: 170px;
         display: flex;
-        margin-right: 24px;
+        margin-right: 0%;
         background: #FFFFFF;
         outline: none;
         border: 0px;
@@ -27,7 +28,6 @@
         justify-content: center;
 
         .buttonText {
-          width: 69px;
           color: #4A4A4A;
           font-family: $openSansSemibold;
           font-size: 12px;
@@ -36,7 +36,8 @@
           line-height: 19px;
           margin-top: auto;
           margin-bottom: auto;
-          margin-left: -4px;
+          margin-left: 0px;
+          cursor: pointer;
         }
 
         .arrow {
@@ -45,6 +46,29 @@
           margin-left: 8px;
           margin-top: auto;
           margin-bottom: auto;
+        }
+
+        .dropdown-menu {
+          padding: 0%;
+          position: unset;
+
+          .dropdown-item {
+            color: $darkGray;
+            font-family: $openSans;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.11px;
+            padding: 14px;
+            cursor: pointer;
+             
+            &:active {
+              background: $calenderTheme;
+            }
+          }
+
+          .line {
+            border-bottom: 1px solid $grey;
+          }
         }
       }
     }
@@ -62,7 +86,9 @@
 
     .rectangle2 {
       width: 95%;
-cursor: pointer;
+      padding: 0%;
+      cursor: pointer;
+
       .viewMore {
         background: linear-gradient(138.33deg, #fa4878 80%, #FEB456 100%);
         -webkit-background-clip: text;
@@ -72,7 +98,7 @@ cursor: pointer;
         font-weight: 600;
         letter-spacing: -0.17px;
         line-height: 20px;
-        margin-right: 24px;
+        margin-right: 0px;
       }
     }
   }
@@ -92,10 +118,10 @@ cursor: pointer;
 }
 
 .box2 {
-  height: 85vh;
-  width: 80vw;
-  margin-top: -88%;
-  margin-left: -25.5%;
+  height: 112vh;
+  width: 70vw;
+  margin-top: -85%;
+  margin-left: -3%;
   position: relative;
   background: transparent;
   opacity: 1;
@@ -110,8 +136,8 @@ cursor: pointer;
     margin-top: 5%;
 
     .selectedImage {
-      height: 100%;
-      width: 100%;
+      height: 560px;
+      width: 850px;
       border-radius: 6px;
       margin: auto;
       opacity: 1;
@@ -122,13 +148,13 @@ cursor: pointer;
       width: 16px;
       position: relative;
       margin-top: -1%;
-      margin-left: 100%;
+      margin-left: 850px;
       cursor: pointer;
     }
 
     .imageDetails {
       height: 10%;
-      width: 100%;
+      width: 850px;
       display: flex;
       margin-top: 5px;
       justify-content: space-between;
@@ -228,7 +254,7 @@ cursor: pointer;
           border-radius: 0px 8px 8px 0px;
           border: none;
           // pointer-events: none;
-          color:#CFCFCF;
+          color: #CFCFCF;
         }
       }
     }
@@ -250,10 +276,10 @@ cursor: pointer;
   }
 
   .box2 {
-    height: 75vh;
-    width: 80vw;
-    margin-top: -88%;
-    margin-left: -36%;
+    height: 650px;
+    width: 800px;
+    margin-top: -75%;
+    margin-left: 4%;
     position: relative;
     background: transparent;
     opacity: 1;
@@ -264,12 +290,12 @@ cursor: pointer;
       height: 65vh;
       width: 51vw;
       content: fill;
-      margin-left: 25%;
+      margin-left: 50px;
       margin-top: 0%;
 
       .selectedImage {
-        height: 100%;
-        width: 100%;
+        height: 450px;
+        width: 700px;
         border-radius: 8px;
         margin: auto;
         opacity: 1;
@@ -280,13 +306,13 @@ cursor: pointer;
         width: 14px;
         position: relative;
         margin-top: -1%;
-        margin-left: 100%;
+        margin-left: 700px;
         cursor: pointer;
       }
 
       .imageDetails {
         height: 10%;
-        width: 100%;
+        width: 700px;
         display: flex;
         margin-top: 5px;
         justify-content: space-between;
@@ -408,10 +434,10 @@ cursor: pointer;
   }
 
   .box2 {
-    height: 75vh;
-    width: 80vw;
-    margin-top: -145%;
-    margin-left: -36%;
+    height: 850px;
+    width: 650px;
+    margin-top: -110%;
+    margin-left: 8%;
     position: relative;
     background: transparent;
     opacity: 1;
@@ -423,12 +449,12 @@ cursor: pointer;
       height: 59vh;
       width: 50vw;
       content: fill;
-      margin-left: 25%;
+      margin-left: 50px;
       margin-top: 4%;
 
       .selectedImage {
-        height: 85%;
-        width: 100%;
+        height: 380px;
+        width: 550px;
         border-radius: 4px;
         margin: auto;
         opacity: 1;
@@ -439,13 +465,13 @@ cursor: pointer;
         width: 14px;
         position: relative;
         margin-top: -0.8%;
-        margin-left: 100%;
+        margin-left: 550px;
         cursor: pointer;
       }
 
       .imageDetails {
         height: 10%;
-        width: 101%;
+        width: 550px;
         display: flex;
         margin-top: 5px;
         justify-content: space-between;
@@ -558,7 +584,7 @@ cursor: pointer;
   .screen {
     height: 400vh;
     width: 150vw;
-    margin-top: -200%;
+    margin-top: -250%;
     margin-left: -30%;
     position: fixed;
     background: black;
@@ -567,25 +593,26 @@ cursor: pointer;
   }
 
   .box2 {
-    height: 75vh;
-    width: 80vw;
+    height: 800px;
+    width: 500px;
     margin-top: -145%;
-    margin-left: -37%;
+    margin-left: 5%;
     position: relative;
     background: transparent;
     opacity: 1;
     z-index: 2020;
+    border: 1px solid transparent;
 
     .dialog {
       height: 55vh;
       width: 50vw;
       content: fill;
-      margin-left: 25%;
+      margin-left: 25px;
       margin-top: 4%;
 
       .selectedImage {
-        height: 85%;
-        width: 100%;
+        height: 320px;
+        width: 450px;
         border-radius: 4px;
         margin: auto;
         opacity: 1;
@@ -596,13 +623,13 @@ cursor: pointer;
         width: 14px;
         position: relative;
         margin-top: -0.8%;
-        margin-left: 100%;
+        margin-left: 450px;
         cursor: pointer;
       }
 
       .imageDetails {
         height: 10%;
-        width: 101%;
+        width: 450px;
         display: flex;
         margin-top: 5px;
         justify-content: space-between;
@@ -724,14 +751,15 @@ cursor: pointer;
   }
 
   .box2 {
-    height: 50vh;
-    width: 60vw;
+    height: 700px;
+    width: 450px;
     margin-top: -140%;
-    margin-left: 0%;
+    margin-left: -3%;
     position: relative;
     background: transparent;
     opacity: 1;
     z-index: 2020;
+    border: 1px solid transparent;
 
     .dialog {
       height: 35vh;
@@ -741,10 +769,10 @@ cursor: pointer;
       margin-top: 0%;
 
       .selectedImage {
-        height: 85%;
-        width: 100%;
+        height: 300px;
+        width: 420px;
         border-radius: 4px;
-        margin: auto;
+        margin-left: 15px;
         opacity: 1;
       }
 
@@ -753,15 +781,16 @@ cursor: pointer;
         width: 14px;
         position: relative;
         margin-top: -0.8%;
-        margin-left: 100%;
+        margin-left: 436px;
         cursor: pointer;
       }
 
       .imageDetails {
         height: 10%;
-        width: 101%;
+        width: 422px;
         display: flex;
         margin-top: 5px;
+        margin-left: 5%;
         justify-content: space-between;
         border: 2px solid transparent;
 

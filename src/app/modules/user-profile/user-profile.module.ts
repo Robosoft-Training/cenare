@@ -13,7 +13,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { AddAddressComponent } from './components/add-address/add-address.component';
 import { AddNewCardComponent } from './components/add-new-card/add-new-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+// import { OrderDetailsComponent } from './components/order-details/order-details.component';
 @NgModule({
   declarations: [
     UserProfileComponent,
@@ -24,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReviewsComponent,
     GalleryComponent,
     AddAddressComponent,
-    AddNewCardComponent
+    AddNewCardComponent,
+    // OrderDetailsComponent
   ],
   imports: [
     CommonModule,

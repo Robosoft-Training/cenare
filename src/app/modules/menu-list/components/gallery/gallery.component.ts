@@ -9,6 +9,7 @@ import { IMenuList } from 'src/app/shared/interfaces/IMenuList';
 })
 export class GalleryComponent implements OnInit {
 
+  status = 'All Photos';
   isOpen1 = false;
   clickedImage: any = null;
   clickedImageName: any = null;
@@ -59,6 +60,15 @@ export class GalleryComponent implements OnInit {
     );
     $("#left").addClass('left');
     $("#left").removeClass('leftArrow');
+  }
+
+  loadImages = (status) => {
+    this.status = status
+    // this.userProfileService.getUserOrders(status).subscribe(
+    //   (data: any) => {
+    //     this.orders = data.resultList;
+    //   }
+    // )
   }
 
   createAnArray(datalist) {

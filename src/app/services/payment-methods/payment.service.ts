@@ -109,7 +109,7 @@ export class PaymentService {
 
   getCardById = (cardId): Observable<any> => {
     console.log(cardId);
-    const url = `${this.apiBaseUrl}payments/getCardById`;
+    const url = `${this.apiBaseUrl}payments/getCardById?cardId=${cardId}`;
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
