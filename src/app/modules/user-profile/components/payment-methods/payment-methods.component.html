@@ -15,7 +15,7 @@
         <img class="image" src="assets/images/visa_icon.png" alt="">
       </div>
       <div class="cardDetails">
-        <p class="cardNumber">{{card.card_number}}</p>
+        <p class="cardNumber">{{card.card_number.toString().substring(0,4)}} XXXX XXXX {{card.card_number.toString().substring(12,16)}}</p>
         <p class="cardName">Visa</p>
       </div>
     </div>
