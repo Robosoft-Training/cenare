@@ -154,6 +154,7 @@ export class PaymentService {
   chooseAdress(nextForm: any){
     this.nextFormRequest.next(nextForm);
   }
+
   chooseAddress = (orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode) :Observable<any> => {
     console.log(orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode);
     const url = `${this.apiBaseUrl}orders/addDeliveryDetails`;
@@ -165,6 +166,24 @@ export class PaymentService {
       name: name, 
       phone_number: phoneNumber, 
       country_code: countryCode
+    };
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
+  payForOrder = (orderNumber, amount, cvv, card_number):Observable<any> => {
+    console.log(orderNumber, amount, cvv, card_number);
+    const url = `${this.apiBaseUrl}payments/payForOrder`;
+    const postBody = {
+      orderNumber,
+      amount,
+      cvv,
+      card_number
     };
     return this.httpClient.post<any[]>(url, postBody)
       .pipe(

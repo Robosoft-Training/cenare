@@ -15,95 +15,80 @@
         </div>
     </div>
     <span *ngIf="!(paymentType === 'cod')">
-        <!-- <div class="add-new-card">
-        <label class="heading-text">Enter Credit/Debit card details</label>
-        <form class="d-flex flex-column form">
-            <mat-form-field class="text-box">
-                <mat-label>Card number</mat-label>
-                <input type="text" matInput [formControl]="cardNumberFormControl" [errorStateMatcher]="matcher"
-                    placeholder="Card number">
-                <img class="visa-icon" src="../../../../../assets/images/icn_visa.png">
-                <mat-error
-                    *ngIf="cardNumberFormControl.hasError('pattern') && !cardNumberFormControl.hasError('required')">
-                    Please enter a valid card number
-                </mat-error>
-                <mat-error *ngIf="cardNumberFormControl.hasError('required')">Card number is required</mat-error>
-            </mat-form-field>
-            <mat-form-field class="text-box">
-                <mat-label>Name on card</mat-label>
-                <input class="text-box-padding" type="text" matInput [formControl]="nameOnCardFormControl" [errorStateMatcher]="matcher"
-                    placeholder="Card number">
-                <mat-error *ngIf="nameOnCardFormControl.hasError('required')">Name on card is required</mat-error>
-            </mat-form-field>
+        <span *ngIf="!cardlist">
+            <div class="add-new-card">
+                <label class="heading-text">Enter Credit/Debit card details</label>
+                <form class="d-flex flex-column form">
+                    <mat-form-field class="text-box">
+                        <mat-label>Card number</mat-label>
+                        <input type="text" matInput placeholder="Card number" name="cardno"
+                            [(ngModel)]="cardNumber.value" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <img class="visa-icon" src="assets/images/icn_visa.png">
+                        <mat-hint *ngIf="cardNumber.error" class="error1">{{cardNumber.error}}</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="text-box">
+                        <mat-label>Name on card</mat-label>
+                        <input class="text-box-padding" type="text" matInput placeholder="Card number" name="name"
+                            [(ngModel)]="name.value">
+                        <mat-hint *ngIf="name.error" class="error1">{{name.error}}</mat-hint>
+                    </mat-form-field>
 
-            <div class="d-flex bottom-text-box">
-                <mat-form-field class="text-box-mini">
-                    <mat-label>Expiry</mat-label>
-                    <input class="text-box-padding" type="text" matInput [formControl]="expiryMonthFormControl" [errorStateMatcher]="matcher"
-                        placeholder="MM">
-                    <mat-error *ngIf="expiryMonthFormControl.hasError('required')">Expiry month is required
-                    </mat-error>
-                    <mat-error
-                        *ngIf="expiryMonthFormControl.hasError('pattern') && !expiryMonthFormControl.hasError('required')">
-                        Please enter a month
-                    </mat-error>
-                </mat-form-field>
-                <label class="dash">/</label>
-                <mat-form-field class="text-box-mini">
-                    <input class="text-box-padding" type="text" matInput [formControl]="expiryYearFormControl" [errorStateMatcher]="matcher"
-                        placeholder="YYYY">
-                    <mat-error *ngIf="expiryYearFormControl.hasError('required')">Expiry year is required
-                    </mat-error>
-                    <mat-error
-                        *ngIf="expiryYearFormControl.hasError('pattern') && !expiryYearFormControl.hasError('required')">
-                        Please enter a valid year
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field class="text-box-medium">
-                    <mat-label>Security code</mat-label>
-                    <input class="text-box-padding" type="text" matInput [formControl]="securityCodeFormControl" [errorStateMatcher]="matcher"
-                        placeholder="Card number">
-                    <mat-error *ngIf="securityCodeFormControl.hasError('required')">Security code is required
-                    </mat-error>
-                    <mat-error
-                        *ngIf="securityCodeFormControl.hasError('pattern') && !securityCodeFormControl.hasError('required')">
-                        Please enter a valid security code
-                    </mat-error>
-                </mat-form-field>
-            </div>
-
-        </form>
-        <div>
-            <input type="radio" class="save-radio-button">
-            <label class="save-card-text">Add this card to saved cards</label>
-        </div>
-    </div> -->
-        <div class="cards">
-            <div class="d-flex card-top">
-                <label class="heading-text">My Card</label>
-                <button class="add-new-button" (click)="openDialog('addNewCard')">ADD NEW</button>
-            </div>
-            <div class="d-flex existing-cards flex-wrap">
-                <div class="d-flex flex-column user-card" *ngFor="let card of cardlist">
-                    <div class="d-flex card-image">
-                        <img src="assets/images/icn_visa_bg_white.png">
-                        <img class="tick-icon" src="assets/images/icn_check.png">
-                    </div>
-                    <label class="card-number">{{card.card_number.toString().substring(0,2)}}XX XXXX XXXX {{card.card_number.toString().substring(12,16)}}</label>
-                    <div>
-                        <label class="card-text">{{card.name_on_card}}</label>
-                        <label class="card-text">Expiry: {{card.expiry_month}}/{{card.expiry_year}}</label>
-                    </div>
-                    <div>
-                        <mat-form-field class="security-code" color="accent-white">
-                            <input class="text-box" type="text" matInput placeholder="Enter CVV"
-                                [formControl]="securityCodeFormControl" [errorStateMatcher]="matcher">
+                    <div class="d-flex bottom-text-box">
+                        <mat-form-field class="text-box-mini">
+                            <mat-label>Expiry</mat-label>
+                            <input class="text-box-padding" type="text" matInput placeholder="MM" name="expiryMonth"
+                                [(ngModel)]="expiryMonth.value">
+                            <mat-hint *ngIf="expiryMonth.error" class="error2">{{expiryMonth.error}}</mat-hint>
                         </mat-form-field>
-                        <img class="info-icon" src="assets/images/icn_info_small.png">
+                        <label class="dash">/</label>
+                        <mat-form-field class="text-box-mini">
+                            <input class="text-box-padding" type="text" matInput placeholder="YYYY" name="expiryYear"
+                                [(ngModel)]="expiryYear.value">
+                            <mat-hint *ngIf="expiryYear.error" class="error2">{{expiryYear.error}}</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field class="text-box-medium">
+                            <mat-label>Security code</mat-label>
+                            <input class="text-box-padding" type="text" matInput placeholder="Card number" name="cvv"
+                                [(ngModel)]="cvv.value">
+                            <mat-hint *ngIf="cvv.error" class="error1">{{cvv.error}}</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </form>
+                <div>
+                    <input type="radio" [(ngModel)]="saveCard" value="save" class="save-radio-button">
+                    <label class="save-card-text">Add this card to saved cards</label>
+                </div>
+            </div>
+        </span>
+        <span *ngIf="cardlist">
+            <div class="cards">
+                <div class="d-flex card-top">
+                    <label class="heading-text">My Card</label>
+                    <button class="add-new-button" (click)="openDialog('addNewCard')">ADD NEW</button>
+                </div>
+                <div class="d-flex existing-cards flex-wrap">
+                    <div class="d-flex flex-column user-card" *ngFor="let card of cardlist"
+                        (click)="chooseCard(card.user_card_id)">
+                        <div class="d-flex card-image">
+                            <img src="assets/images/icn_visa_bg_white.png">
+                            <img class="tick-icon" src="assets/images/icn_check.png">
+                        </div>
+                        <label class="card-number">{{card.card_number.toString().substring(0,2)}}XX XXXX XXXX
+                            {{card.card_number.toString().substring(12,16)}}</label>
+                        <div>
+                            <label class="card-text">{{card.name_on_card}}</label>
+                            <label class="card-text">Expiry: {{card.expiry_month}}/{{card.expiry_year}}</label>
+                        </div>
+                        <div>
+                            <mat-form-field class="security-code" color="accent-white">
+                                <input class="text-box" type="text" matInput placeholder="Enter CVV">
+                            </mat-form-field>
+                            <img class="info-icon" src="assets/images/icn_info_small.png">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </span>
     </span>
     <div class="d-flex user-credits">
         <div class="d-flex credits-left">

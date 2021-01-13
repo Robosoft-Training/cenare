@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { data } from 'jquery';
 import { AddNewCardComponent } from 'src/app/modules/user-profile/components/add-new-card/add-new-card.component';
@@ -27,17 +27,25 @@ export class PaymentMethodComponent implements OnInit {
 
   @Input() orderNumber: any;
   @Input() restaurentId: any;
-  cardNumberFormControl = new FormControl('', [Validators.required, Validators.pattern('[0-9]{8}')]);
-  nameOnCardFormControl = new FormControl('', Validators.required);
-  expiryMonthFormControl = new FormControl('', [Validators.required,Validators.pattern('[0-9]{2}')]);
-  expiryYearFormControl = new FormControl('', [Validators.required,Validators.pattern('[0-9]{4}')]);
-  securityCodeFormControl = new FormControl('', [Validators.required,Validators.pattern('[0-9]{3}')]);
+  @Input() payAmount: any;
+  @Input() discAmmount: any;
 
   matcher = new MyErrorStateMatcher();
   paymentType = 'cod';
   adress = "";
   restaurantName: any = "";
   restaurantAdress: any = "";
+  cardId: any = 0;
+  saveCard: any = 'not-save';
+
+  cvv = { value: '', error: '' };
+  name = { value: '', error: '' };
+  cardNumber = { value: '', error: '' };
+  expiryMonth: any = { value: '', error: '' };
+  expiryYear: any = { value: '', error: '' };
+
+  currentYear = new Date().getFullYear();
+  currentMonth = new Date().getMonth() + 1;
 
   cartList: ICartItems[] = [
     {
@@ -70,9 +78,9 @@ export class PaymentMethodComponent implements OnInit {
   totalAmount = 0;
   disCountAmount = 0;
   toPayAmount = 0;
-  
+
   constructor(
-    private cartService: CartService, 
+    private cartService: CartService,
     private localStorageService: LocalStorageService,
     private adressService: AddressService,
     private paymentService: PaymentService,
@@ -94,7 +102,7 @@ export class PaymentMethodComponent implements OnInit {
     this.adressService.getAllAddress().subscribe(
       (data: any) => {
         data.resultList.forEach(adress => {
-          if(adress.address_id.toString() === adressId) {
+          if (adress.address_id.toString() === adressId) {
             this.adress = adress.address + ', ' + adress.area + ', ' + adress.city;
           }
         });
@@ -124,12 +132,16 @@ export class PaymentMethodComponent implements OnInit {
       this.restaurantOverviewService.getRestaurantDetails(this.restaurentId).subscribe(
         data => {
           this.restaurantName = data.restaurant_name;
-         this.restaurantAdress = data.restaurant_address;
+          this.restaurantAdress = data.restaurant_address;
         }
       );
     }, 0);
   }
 
+  chooseCard = (cardId) => {
+    this.cardId = cardId;
+    console.log(cardId);
+  }
 
   openDialog(formType: any): void {
     this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType } });
@@ -137,5 +149,82 @@ export class PaymentMethodComponent implements OnInit {
 
   changeAdress = () => {
     this.paymentService.chooseAdress('chooseAdress');
+  }
+
+  submitDetails = () => {
+    let cvv;
+    let cardNumber;
+    if (this.cardlist.length > 0) {
+      this.cardlist.forEach(card => {
+        if (card.user_card_id === this.cardId) {
+          cvv = card.security_card;
+          cardNumber = card.card_number;
+        }
+      });
+
+      setTimeout(() => {
+        this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, cvv, cardNumber).subscribe(
+          msg => {
+            console.log(msg);
+          }
+        );
+      }, 0);
+    }
+    else {
+
+      if (!this.cardNumber.value || this.cardNumber.value.length < 16) {
+        this.cardNumber.error = 'Card number is required';
+      }
+      else if (!this.name.value) {
+        this.cardNumber.error = '';
+        this.name.error = 'Name is required';
+      }
+      else if (!this.expiryMonth.value) {
+        this.name.error = '';
+        this.expiryMonth.error = 'Please enter month';
+      }
+      else if (!this.expiryYear.value) {
+        this.expiryMonth.error = '';
+        this.expiryYear.error = 'Please enter year';
+      }
+      else if (!this.cvv.value) {
+        this.expiryYear.error = '';
+        this.cvv.error = 'Please enter CVV';
+      }
+      else if (this.expiryMonth.value < 1 || this.expiryMonth.value > 12) {
+        this.cvv.error = '';
+        this.expiryMonth.error = 'Enter correct month';
+      }
+      else if (this.expiryYear.value < this.currentYear) {
+        this.expiryYear.error = 'Enter correct year';
+      }
+      else if (this.expiryYear.value === this.currentYear) {
+        if (this.expiryMonth.value > this.currentMonth) {
+          this.expiryMonth.error = "Enter correct month"
+        }
+      }
+      else {
+        this.name.error = '';
+        this.cardNumber.error = '';
+        this.expiryMonth.error = '';
+        this.expiryYear.error = '';
+        this.cvv.error = '';
+        if (this.saveCard === 'save') {
+          console.log("Saved");
+          this.paymentService.addCard(this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+            msg => {
+              this.paymentService.getUsersAllCards().subscribe();
+            }
+          );
+        }
+        setTimeout(() => {
+          this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, this.cvv.value, this.cardNumber.value).subscribe(
+            msg => {
+              console.log(msg);
+            }
+          );
+        }, 0);
+      }
+    }
   }
 }

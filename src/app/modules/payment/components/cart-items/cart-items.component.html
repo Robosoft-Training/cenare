@@ -4,7 +4,7 @@
     <div class="heading">
         <p *ngIf="formType==='cartItems'">{{restaurantName}}</p>
         <p *ngIf="formType==='chooseAdress'">Choose Address</p>
-        <p *ngIf="formType==='choosePaymentMethod'">Payment</p>
+        <p *ngIf="formType==='payment-methods'">Payment</p>
     </div>
     <div *ngIf="formType==='cartItems'" class="sub-heading">
         <p>Estimated Delivery time - {{deliveryTime}} - {{deliveryTime+10}} min</p>
@@ -63,11 +63,11 @@
                     </div>
                 </span>
                 <span *ngIf="formType==='payment-methods'">
-                    <app-payment-method [orderNumber]="orderNumber" [restaurentId]="restaurentId" #child2></app-payment-method>
+                    <app-payment-method [orderNumber]="orderNumber" [restaurentId]="restaurentId"  [discAmmount]="discountAmmount" [payAmount]="toPayAmmount" #child2></app-payment-method>
                     <div class="buttons-field">
                         <div (click)="showFormsType('chooseAdress', true)" class="add-btn"><span class="btn-text">BACK</span>
                         </div>
-                        <div class="choose-btn">PAY NOW</div>
+                        <div (click)="child2.submitDetails()"  class="choose-btn">PAY NOW</div>
                     </div>
                 </span>
             </div>
