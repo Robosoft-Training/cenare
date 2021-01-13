@@ -14,6 +14,8 @@ import { AddAddressComponent } from './components/add-address/add-address.compon
 import { AddNewCardComponent } from './components/add-new-card/add-new-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { EditAddressComponent } from './components/edit-address/edit-address.component';
+import { EditCardComponent } from './components/edit-card/edit-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     GalleryComponent,
     AddAddressComponent,
     AddNewCardComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    EditAddressComponent,
+    EditCardComponent
   ],
   imports: [
     CommonModule,
