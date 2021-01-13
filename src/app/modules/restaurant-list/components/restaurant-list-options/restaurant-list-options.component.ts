@@ -34,6 +34,7 @@ export class RestaurantListOptionsComponent implements OnInit {
 
   currentTime: any;
   sortType = 'random';
+  showBy = 'All';
   arrayLength = 0;
   imageplaceHolder = '../assets/images/rest_placeholder.png';
 
@@ -105,6 +106,7 @@ export class RestaurantListOptionsComponent implements OnInit {
   }
 
   sortinAlphabetically = (sortType) => {
+    this.showBy = sortType;
     this.deatilsArray = this.sortingService.sortingAlphabetically(this.deatilsArray, sortType);
   }
 
