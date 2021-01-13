@@ -146,7 +146,9 @@ export class PaymentRightBarComponent implements OnInit {
 
     this.adressService.getPrimaryAddress().subscribe(
       data => {
-        this.adress = data.area + ", " + data.city;
+        if (data) {
+          this.adress = data.area + ", " + data.city;
+        }
       }
     );
   }

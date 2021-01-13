@@ -90,7 +90,7 @@ export class PaymentService {
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
-          
+
         }),
         retry(3)
       );
@@ -113,7 +113,7 @@ export class PaymentService {
     return this.httpClient.get<any[]>(url)
       .pipe(
         tap(data => {
-          
+
         }),
         retry(3)
       );
@@ -151,20 +151,20 @@ export class PaymentService {
       );
   }
 
-  chooseAdress(nextForm: any){
+  chooseAdress(nextForm: any) {
     this.nextFormRequest.next(nextForm);
   }
 
-  chooseAddress = (orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode) :Observable<any> => {
+  chooseAddress = (orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode): Observable<any> => {
     console.log(orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode);
     const url = `${this.apiBaseUrl}orders/addDeliveryDetails`;
     const postBody = {
-      order_number: orderNumber, 
-      delivery_type: deliveryType, 
-      delivery_instruction: deliveryInstruction, 
-      delivery_address: deliveryAddress, 
-      name: name, 
-      phone_number: phoneNumber, 
+      order_number: orderNumber,
+      delivery_type: deliveryType,
+      delivery_instruction: deliveryInstruction,
+      delivery_address: deliveryAddress,
+      name: name,
+      phone_number: phoneNumber,
       country_code: countryCode
     };
     return this.httpClient.post<any[]>(url, postBody)
@@ -176,7 +176,7 @@ export class PaymentService {
       );
   }
 
-  payForOrder = (orderNumber, amount, cvv, card_number):Observable<any> => {
+  payForOrder = (orderNumber, amount, cvv, card_number): Observable<any> => {
     console.log(orderNumber, amount, cvv, card_number);
     const url = `${this.apiBaseUrl}payments/payForOrder`;
     const postBody = {
@@ -193,4 +193,22 @@ export class PaymentService {
         retry(3)
       );
   }
+
+  rateForDelivery = (deliveryAddress, deliveryReview, deliveryRating, orderNumber): Observable<any> => {
+   const url = `${this.apiBaseUrl}orders/addOrderDeliveryDetails?orderNumber=${orderNumber}`;
+    const postBody = {
+      dateTime: '0000-00-00',
+      deliveryAddress,
+      deliveryRating,
+      deliveryReview
+    };
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
 }

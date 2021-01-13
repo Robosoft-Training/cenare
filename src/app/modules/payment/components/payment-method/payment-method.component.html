@@ -72,7 +72,7 @@
                         (click)="chooseCard(card.user_card_id)">
                         <div class="d-flex card-image">
                             <img src="assets/images/icn_visa_bg_white.png">
-                            <img class="tick-icon" src="assets/images/icn_check.png">
+                            <img *ngIf="(cardId===card.user_card_id) || (card.primary_card && cardId === 0)" class="tick-icon" src="assets/images/icn_check.png">
                         </div>
                         <label class="card-number">{{card.card_number.toString().substring(0,2)}}XX XXXX XXXX
                             {{card.card_number.toString().substring(12,16)}}</label>

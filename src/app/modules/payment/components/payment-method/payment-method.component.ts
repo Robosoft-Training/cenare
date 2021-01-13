@@ -144,7 +144,7 @@ export class PaymentMethodComponent implements OnInit {
   }
 
   openDialog(formType: any): void {
-    this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+    this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType, cardId: '0' } });
   }
 
   changeAdress = () => {
@@ -166,12 +166,14 @@ export class PaymentMethodComponent implements OnInit {
         this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, cvv, cardNumber).subscribe(
           msg => {
             console.log(msg);
+            if(msg.message === "Payment successful"){
+              location.reload();
+            }
             this.name.error = 'Please enter valied data';
             this.cardNumber.error = 'Please enter valied data';
             this.expiryMonth.error = 'Please enter valied data';
             this.expiryYear.error = 'Please enter valied data';
             this.cvv.error = 'Please enter valied data';
-            location.reload();
           }
         );
       }, 0);
@@ -227,12 +229,14 @@ export class PaymentMethodComponent implements OnInit {
           this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, this.cvv.value, this.cardNumber.value).subscribe(
             msg => {
               console.log(msg);
+              if(msg.message === "Payment successful"){
+                location.reload();
+              }
               this.name.error = 'Please enter valied data';
               this.cardNumber.error = 'Please enter valied data';
               this.expiryMonth.error = 'Please enter valied data';
               this.expiryYear.error = 'Please enter valied data';
               this.cvv.error = 'Please enter valied data';
-              location.reload();
             }
           );
         }, 0);

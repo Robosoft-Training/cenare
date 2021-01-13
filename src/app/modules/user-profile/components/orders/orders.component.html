@@ -93,7 +93,7 @@
                         <div class="border delivery-card">
                             <div class="row">
                                 <label class="heading-text">Delivery Location</label>
-                                <label class="info-text">Downtown Burj Khalifa, Dubai, UAE</label>
+                                <label class="info-text">{{adress}}</label>
                             </div>
                             <div class="border divider"></div>
                             <div class="row">
@@ -125,11 +125,11 @@
                         <form class="d-flex flex-column form">
                             <mat-form-field class="text-box">
                                 <mat-label class="input-label">Write a review</mat-label>
-                                <input matInput placeholder="Start writing your review" class="input-placeholder">
+                                <input matInput [(ngModel)]="review" name="review" placeholder="Start writing your review" class="input-placeholder">
                             </mat-form-field>
                         </form>
                         <div class="d-flex submit-btn">
-                            <button class="btn">SUBMIT</button>
+                            <button (click)="submitReview()" class="btn">SUBMIT</button>
                         </div>
                     </div>
                 </div>
