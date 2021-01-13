@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddressService } from 'src/app/services/address-details/address.service';
 import { AddAddressComponent } from '../add-address/add-address.component';
+import { EditAddressComponent } from '../edit-address/edit-address.component';
 
 @Component({
   selector: 'app-address',
@@ -56,4 +57,9 @@ export class AddressComponent implements OnInit {
   openDialog(formType: any): void {
     this.dialog.open(AddAddressComponent, { panelClass: 'custom-dialog-container', data: { formType } });
   }
+
+  openDialog1(formType: any): void {
+    this.dialog.open(EditAddressComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+  }
+  
 }
