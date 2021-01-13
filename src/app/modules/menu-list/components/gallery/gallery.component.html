@@ -4,8 +4,13 @@
   <div class="rectangle row">
     <div class="rectangle1 col-lg-12 col-md-12 col-sm-12 col-xs-12" align="right">
       <div class="allPhotosButton">
-        <p class="buttonText">All Photos</p>
+        <p class="buttonText" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">{{status}}</p>
         <img class="arrow" src="assets/images/right_arrow.png" alt="">
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a (click)="loadImages('All Photos')" class="dropdown-item line">All Photos</a></li>
+          <li><a (click)="loadImages('Added by Restaurant')" class="dropdown-item line">Added by Restaurant</a></li>
+          <li><a (click)="loadImages('Added by Customers')" class="dropdown-item">Added by Customers</a></li>
+      </ul>
       </div>
     </div>
     <div class="column col-lg-2 col-md-3 col-sm-4 col-xs-5" *ngFor="let item of imageList.slice(0, sliceCount); let i=index;">
