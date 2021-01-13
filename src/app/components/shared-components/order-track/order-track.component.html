@@ -1,10 +1,11 @@
 <app-nav-bar pageName="order-status"></app-nav-bar>
-<app-top-search-bar pageName="order-status"></app-top-search-bar>
+<div class="bread-crumbs" style="margin-left: 19px; width:1900px;">
 <app-breadcrumbs pageName="order-status"></app-breadcrumbs>
-
-<div class="container">
+</div>
+<div class="container-fluid tracker">
   <div class="row">
     <div class="col-md-4">
+      <label class="order-id">Order id: 1234567890</label>
       <div *ngIf="formType==='card'" class="card">
         <img class="image" src="assets/order_status_order_accepted_illustration.png">
         <label>View info</label>
@@ -25,8 +26,6 @@
         <button class="chat">CHAT</button>
         <button class="details" (click)="showFormType('card1')">ORDER DETAILS</button>
       </div>
-
-
       <div *ngIf="formType==='card1'">
         <div class="card">
           <img class="image" src="assets/order_status_order_accepted_illustration@3x.png">
@@ -55,11 +54,11 @@
           <label>View info</label>
           <img class="stat" src="assets/check_green copy 2@3x.png">
           <label class="text">Order accepted</label>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="accept">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat1" src="assets/track_line.png">
           <img class="stat2" src="assets/orange-time-icon.png">
           <label class="kitchen1">Order in kitchen</label>
-          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat3" src="assets/track_line.png">
           <img class="stat4" src="assets/grey_time_icon_status@3x.png">
           <label class="pick">Order ready for pick-up</label>
@@ -78,11 +77,11 @@
           <label>View info</label>
           <img class="stat" src="assets/check_green copy 2@3x.png">
           <label class="text">Order accepted</label>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="accept">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat1" src="assets/track_line.png">
           <img class="stat2" src="assets/check_green copy 2@3x.png">
           <label class="kitchen1">Order in kitchen</label>
-          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat3" src="assets/track_line.png">
           <img class="stat4" src="assets/orange-time-icon.png">
           <label class="pick1">Order ready for pick-up</label>
@@ -101,17 +100,17 @@
           <label>View info</label>
           <img class="stat" src="assets/check_green copy 2@3x.png">
           <label class="text">Order accepted</label>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="accept">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat1" src="assets/track_line.png">
           <img class="stat2" src="assets/check_green copy 2@3x.png">
           <label class="kitchen1">Order in kitchen</label>
-          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat3" src="assets/track_line.png">
           <img class="stat4" src="assets/orange-time-icon.png">
           <label class="pick1">Order out for delivery</label>
           <p class="track">Track Order</p>
           <p class="info">View info</p>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="accept">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat5" src="assets/track_line.png">
           <img class="stat6" src="assets/grey_time_icon_status@3x.png">
           <label class="delivery">Waiting for Delivery</label>
@@ -127,20 +126,20 @@
           <label>View info</label>
           <img class="stat" src="assets/check_green copy 2@3x.png">
           <label class="status">Order accepted</label>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="accept">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat1" src="assets/track_line.png">
           <img class="stat2" src="assets/check_green copy 2@3x.png">
           <label class="kitchen1">Order in kitchen</label>
-          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat3" src="assets/track_line.png">
           <img class="stat4" src="assets/check_green copy 2@3x.png">
           <label class="pick1">Order out for delivery</label>
-          <label class="date1">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date1">January 01,2021 at<br> 04:20:25 PM</label>
           <p class="info">View info</p>
           <img class="stat5" src="assets/track_line.png">
           <img class="stat6" src="assets/check_green copy 2@3x.png">
           <label class="delivery1">Order has delivered</label>
-          <label class="date2">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date2">January 01,2021 at<br> 04:20:25 PM</label>
           <div class="line"></div>
           <button class="order">BACK TO ORDERS</button>
           <button class="chat">CHAT</button>
@@ -153,19 +152,19 @@
           <label>View info</label>
           <img class="stat" src="assets/check_green copy 2@3x.png">
           <label class="status">Order accepted</label>
-          <label class="accept">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="accept">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat1" src="assets/track_line.png">
           <img class="stat2" src="assets/check_green copy 2@3x.png">
           <label class="kitchen1">Order in kitchen</label>
-          <label class="date">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat3" src="assets/track_line.png">
           <img class="stat4" src="assets/check_green copy 2@3x.png">
           <label class="pick1">Order out for delivery</label>
-          <label class="date1">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date1">January 01,2021 at<br> 04:20:25 PM</label>
           <img class="stat5" src="assets/track_line.png">
           <img class="stat6" src="assets/order_cancel_iconn.png">
           <label class="delivery1">Order is undelivered</label>
-          <label class="date2">January 1,2021 at<br> 4:20:25 PM</label>
+          <label class="date2">January 01,2021 at<br> 04:20:25 PM</label>
           <div class="line"></div>
           <button class="order">BACK TO ORDERS</button>
           <button class="chat">CHAT</button>

@@ -68,6 +68,8 @@ h2 {
         .description {
             margin: 0em 1.8em;
             @include descriptions();
+            font-size: 15px !important;
+           
         }
 
         .outlets {
