@@ -13,6 +13,7 @@
   margin-bottom: 30px;
   text-transform: capitalize;
 }
+
 .container-fluid {
   width: 100%;
   border-radius: 6px;
@@ -37,8 +38,8 @@
         width: 60px;
         color: $headerText;
         font-family: $openSansSemibold;
-        font-size: 16px;
-        font-weight: 600;
+        font-size: 18px;
+        font-weight: bold;
         letter-spacing: 0;
         line-height: 27px;
         margin-left: 16px;
@@ -48,7 +49,7 @@
         height: 22px;
         color: #F57C00;
         font-family: $openSans;
-        font-size: 13px;
+        font-size: 14px;
         letter-spacing: 0;
         line-height: 22px;
         margin-right: 7%;
@@ -73,10 +74,10 @@
       letter-spacing: -0.18px;
       line-height: 19px;
       text-align: center;
-      margin-left: 18px;
+      width: 86%;
+      margin-left: 7%;
       margin-top: 24px;
       height: 35px;
-      width: 84%;
       border-radius: 6px;
       color: #FDA5A3;
       border: 2px solid #FDA5A3;
@@ -108,13 +109,13 @@ body {
   width: 100%;
   height: 45px;
   display: flex;
+  justify-content: space-between;
   cursor: pointer;
   user-select: none;
 }
 
 .tab {
   height: 19px;
-  width: 260px;
   line-height: 19px;
   color: #5E5E5E;
   font-family: $openSansSemibold;
@@ -128,7 +129,7 @@ body {
 }
 
 .cross {
-  margin-right: 16px;
+  margin-right: 8%;
 }
 
 .cross:before,
@@ -213,7 +214,7 @@ input:checked~.questions {
   height: 19px;
   color: #606060;
   font-family: $openSansSemibold;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.24px;
   line-height: 19px;
@@ -224,7 +225,7 @@ input:checked~.questions {
   height: 19px;
   color: #606060;
   font-family: $openSansSemibold;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.24px;
   line-height: 19px;
@@ -232,31 +233,51 @@ input:checked~.questions {
 }
 
 .radioChecked:checked+.optionChecked:before {
-  margin-right: 10px;
-  margin-left: -24px;
+  font-size: 16px;
+  margin-right: 8px;
+  margin-left: -22px;
   background: white;
-  margin-top: 0.5px;
+  margin-top: 0px;
   content: url(../../../../../assets/images/filter_checkbox.png);
-  position: absolute;
+}
+
+.radioChecked {
+  font-size: 16px;
+  margin-right: 0px;
+  margin-left: 0px;
+  background: white;
+  margin-top: 0px;
+  content: url(../../../../../assets/images/fa_circle_thin.png);
 }
 
 .radioButton:checked+.optionLabel:before {
-  margin-right: 10px;
-  margin-left: -24px;
+  margin-right: 8px;
+  margin-left: -22px;
   background: white;
-  margin-top: 0.5px;
+  margin-top: 0px;
   content: url(../../../../../assets/images/radio_selected.png);
-  position: absolute;
+}
+
+.radioButton {
+  margin-right: 0px;
+  margin-left: 0px;
+  background: white;
+  margin-top: 0px;
+  content: url(../../../../../assets/images/fa_circle_thin.png);
 }
 
 :checked+.optionChecked {
+  position: relative;
   color: #F78713;
-  font-size: 10px;
+  font-size: 12px;
+  margin-top: 0px;
 }
 
 :checked+.optionLabel {
+  position: relative;
   color: #F78713;
-  font-size: 10px;
+  font-size: 12px;
+  margin-top: 0px;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -381,7 +402,7 @@ input:checked~.questions {
     line-height: 19px;
     color: #5E5E5E;
     font-family: $openSansSemibold;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0;
     line-height: 19px;
@@ -391,7 +412,7 @@ input:checked~.questions {
   }
 
   .cross {
-    margin-right: 18px;
+    margin-right: 8%;
   }
 
   .cross:before,
@@ -477,52 +498,73 @@ input:checked~.questions {
     height: 19px;
     color: #606060;
     font-family: $openSansSemibold;
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
     letter-spacing: -0.24px;
     line-height: 19px;
     margin-left: 10px;
+    margin-top: -2px;
   }
 
   .optionChecked {
     height: 19px;
     color: #606060;
     font-family: $openSansSemibold;
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
     letter-spacing: -0.24px;
     line-height: 19px;
     margin-left: 10px;
+    margin-top: -2px;
+  }
+
+  .radioChecked {
+    content: url(../../../../../assets/images/fa_circle_thin.png);
+    font-size: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+    background: white;
+    margin-top: 1px;
   }
 
   .radioChecked:checked+.optionChecked:before {
     content: url(../../../../../assets/images/filter_checkbox.png);
     font-size: 16px;
     margin-right: 8px;
-    margin-left: -24px;
+    margin-left: -22px;
     background: white;
-    position: absolute;
-    margin-top: 1px;
+    margin-top: 0px;
+  }
+
+  .radioButton {
+    margin-right: 0px;
+    margin-left: 0px;
+    background: white;
+    margin-top: 0px;
+    color: #F78713;
+    content: url(../../../../../assets/images/fa_circle_thin.png);
   }
 
   .radioButton:checked+.optionLabel:before {
     margin-right: 8px;
-    margin-left: -24px;
+    margin-left: -22px;
     background: white;
-    margin-top: 0.5px;
+    margin-top: 0px;
     color: #F78713;
     content: url(../../../../../assets/images/radio_selected.png);
-    position: absolute;
   }
 
   :checked+.optionChecked {
+    position: relative;
     color: #F78713;
-    font-size: 12px;
+    font-size: 12.5px;
+    margin-top: 0px;
   }
 
   :checked+.optionLabel {
+    position: relative;
     color: #F78713;
-    font-size: 12px;
-    margin-top: -20px;
+    font-size: 12.5px;
+    margin-top: -5px;
   }
 }
