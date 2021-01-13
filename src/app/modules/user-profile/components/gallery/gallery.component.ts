@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { UserGalleryService } from 'src/app/services/user-profile/user-gallery.service';
+import { UserGalleryService } from 'src/app/services/user-profile/user-gallery.service'; 
 
 @Component({
   selector: 'app-gallery',
@@ -17,19 +17,19 @@ export class GalleryComponent implements OnInit {
 
   imageList: any = [];
   imageName: any = [];
-
+ 
   groupedMenuList: any = {
     key: 0
   };
 
   constructor(
-    private userGalleryService: UserGalleryService,
+    private userGalleryService: UserGalleryService, 
   ) { }
 
   ngOnInit(): void {
-    this.userGalleryService.getRestaurantGalleryItems().subscribe(
+    this.userGalleryService.getRestaurantGalleryItems().subscribe( 
       (data: any) => {
-        this.imageList = data.resultList;
+        this.imageList = data.resultList; 
         console.log(this.imageList)
       }
     );
@@ -49,8 +49,8 @@ export class GalleryComponent implements OnInit {
 
   leftArrow() {
     if (this.clickedCount === 0) {
-      $('#left').addClass('left');
-      $('#left').removeClass('leftArrow');
+      $('#left').addClass('left'); 
+      $('#left').removeClass('leftArrow'); 
     }
     else {
       this.clickedImage = this.imageList[--this.clickedCount];
@@ -65,8 +65,8 @@ export class GalleryComponent implements OnInit {
 
   rightArrow() {
     if (this.clickedCount === this.imageList.length - 1) {
-      $('#right').addClass('right');
-      $('#right').removeClass('rightArrow');
+      $('#right').addClass('right'); 
+      $('#right').removeClass('rightArrow'); 
     }
     else {
       this.clickedImage = this.imageList[++this.clickedCount];
@@ -78,4 +78,4 @@ export class GalleryComponent implements OnInit {
       console.log(this.clickedImageName)
     }
   }
-}
+} 
