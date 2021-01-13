@@ -96,11 +96,12 @@
   width: 80vw;
   margin-top: -42%;
   margin-left: -34%;
-  position: relative;
+  position: absolute;
   background: transparent;
   opacity: 1;
   z-index: 2020;
   border: 1px solid transparent;
+
 
   .dialog {
     height: 470px;
@@ -108,7 +109,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
-
+    
     .cancel {
       height: 16px;
       width: 16px;
@@ -123,6 +124,7 @@
       width: 100%;
       border-radius: 6px;
       margin: auto;
+      margin-left: 60px;
       opacity: 1;
     }
 
