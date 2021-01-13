@@ -1,7 +1,7 @@
 <app-progress-bar></app-progress-bar>
 
 <div class="cart-items-container">
-    <div class="heading">
+    <div class="heading mt-3" style="font-size: 18px; font-weight: 600;">
         <p *ngIf="formType==='cartItems'">{{restaurantName}}</p>
         <p *ngIf="formType==='chooseAdress'">Choose Address</p>
         <p *ngIf="formType==='payment-methods'">Payment</p>
@@ -59,7 +59,7 @@
                     <div class="buttons-field">
                         <div (click)="showFormsType('cartItems', true)" class="add-btn"><span class="btn-text">BACK</span>
                         </div>
-                        <div (click)="child1.submitDetails()" class="choose-btn">CHOOSE PAYMENT</div>
+                        <div (click)="child1.submitDetails()" class="choose-btn" style="width:168px;">CHOOSE PAYMENT</div>
                     </div>
                 </span>
                 <span *ngIf="formType==='payment-methods'">

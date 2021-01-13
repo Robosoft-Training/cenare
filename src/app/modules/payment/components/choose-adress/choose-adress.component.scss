@@ -54,8 +54,8 @@
 
   .section-heading {
     color: $black;
-    font-family: "Open Sans";
-    font-size: 17px;
+    font-family: $openSans;
+    font-size: 15px;
     letter-spacing: -0.41px;
     line-height: 23px;
     margin-top: 30px;
@@ -73,7 +73,7 @@
         height: 30px;
         width: 96px;
         border-radius: 15px;
-        font-family: "Open Sans";
+        font-family: $openSans;
         font-size: 14px;
         font-weight: 600;
         letter-spacing: -0.2px;
@@ -81,7 +81,9 @@
         text-align: center;
         margin-top: 30px;
         border: 1px solid#ff8c7d;
-        color: #ff8c7d;
+        background: linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
         background-color: $white;
         @include focus;
 
@@ -129,7 +131,7 @@
           font-size: 14px;
           letter-spacing: -0.24px;
           line-height: 19px;
-          width: 70%;
+          width: 100%;
         }
 
         .button-section {

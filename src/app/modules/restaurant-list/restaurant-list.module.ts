@@ -8,6 +8,7 @@ import { RestaurantListOptionsComponent } from './components/restaurant-list-opt
 import { SharedComponentsModule } from 'src/app/components/shared-components/shared-components.module';
 import { AngularMaterialsModule } from '../angular-materials/angular-materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedComponentsModule,
     AngularMaterialsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class RestaurantListModule { }

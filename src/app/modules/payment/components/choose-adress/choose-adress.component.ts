@@ -108,7 +108,7 @@ export class ChooseAdressComponent implements OnInit {
     );
   }
   openDialog(formType: any): void {
-    this.dialog.open(AddAddressComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+    this.dialog.open(AddAddressComponent, { panelClass: 'custom-dialog-container', data: { formType, addressId:'0'} });
   }
   openEditDialog(formType, addressId): void {
     this.dialog.open(AddAddressComponent, { panelClass: 'custom-dialog-container', data: { formType, addressId } });

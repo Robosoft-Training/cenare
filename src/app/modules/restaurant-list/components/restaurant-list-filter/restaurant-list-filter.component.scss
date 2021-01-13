@@ -5,13 +5,13 @@
   height: 34px;
   width: 224px;
   color: #636364;
-  font-family: $openSansSemibold;
+  font-family: $openSans;
   font-size: 20px;
-  font-weight: 600;
   letter-spacing: 0;
   line-height: 34px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   text-transform: capitalize;
+  margin-top: 20px;
 }
 
 .container-fluid {
@@ -206,7 +206,7 @@ input:checked~.questions {
 }
 
 input:checked~.questions {
-  max-height: 500px;
+  max-height: 30px;
   transition: 1s;
 }
 
@@ -289,12 +289,12 @@ input:checked~.questions {
     height: 34px;
     width: 224px;
     color: #636364;
-    font-family: $openSansSemibold;
+    font-family: $openSans;
     font-size: 20px;
-    font-weight: 600;
     letter-spacing: 0;
     line-height: 34px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 20px;
   }
 
   .container {
@@ -501,9 +501,9 @@ input:checked~.questions {
   .optionLabel {
     height: 19px;
     color: #606060;
-    font-family: $openSansSemibold;
+    font-family: $openSans;
     font-size: 12.5px;
-    font-weight: 600;
+    font-weight: 200;
     letter-spacing: -0.24px;
     line-height: 19px;
     margin-left: 10px;
@@ -513,9 +513,9 @@ input:checked~.questions {
   .optionChecked {
     height: 19px;
     color: #606060;
-    font-family: $openSansSemibold;
+    font-family: $openSans;
     font-size: 12.5px;
-    font-weight: 600;
+    font-weight: 200;
     letter-spacing: -0.24px;
     line-height: 19px;
     margin-left: 10px;
@@ -534,8 +534,8 @@ input:checked~.questions {
   .radioChecked:checked+.optionChecked:before {
     content: url(../../../../../assets/images/filter_checkbox.png);
     font-size: 16px;
-    margin-right: 8px;
-    margin-left: -22px;
+    margin-right: 9px;
+    margin-left: -23px;
     background: white;
     margin-top: 0px;
   }
@@ -550,8 +550,8 @@ input:checked~.questions {
   }
 
   .radioButton:checked+.optionLabel:before {
-    margin-right: 8px;
-    margin-left: -22px;
+    margin-right: 9px;
+    margin-left: -23px;
     background: white;
     margin-top: 0px;
     color: #F78713;
