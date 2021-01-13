@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCardComponent } from '../add-new-card/add-new-card.component';
 import { PaymentService } from 'src/app/services/payment-methods/payment.service';
+import { EditCardComponent } from '../edit-card/edit-card.component';
 
 @Component({
   selector: 'app-payment-methods',
@@ -76,6 +77,10 @@ export class PaymentMethodsComponent implements OnInit {
 
   openDialog(formType: any): void {
     this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+  }
+
+  openDialog1(formType: any): void {
+    this.dialog.open(EditCardComponent, { panelClass: 'custom-dialog-container', data: { formType } });
   }
 
 }
