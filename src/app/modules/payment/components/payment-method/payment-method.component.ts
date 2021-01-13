@@ -37,6 +37,7 @@ export class PaymentMethodComponent implements OnInit {
   restaurantAdress: any = "";
   cardId: any = 0;
   saveCard: any = 'not-save';
+  isCardExists = false;
 
   cvv = { value: '', error: '' };
   name = { value: '', error: '' };
@@ -94,6 +95,10 @@ export class PaymentMethodComponent implements OnInit {
     this.paymentService.currentCardDataListSource.subscribe(
       (data: any) => {
         this.cardlist = data.resultList;
+        console.log(this.cardlist);
+        if (this.cardlist && this.cardlist.length > 0) {
+          this.isCardExists = true;
+        }
         console.log(data);
       });
 
@@ -155,18 +160,24 @@ export class PaymentMethodComponent implements OnInit {
     let cvv;
     let cardNumber;
     if (this.cardlist.length > 0) {
-      this.cardlist.forEach(card => {
-        if (card.user_card_id === this.cardId) {
-          cvv = card.security_card;
-          cardNumber = card.card_number;
-        }
-      });
+
+      if (!this.cvv.value) {
+        this.cvv.error = 'Please enter CVV';
+      }
+      else {
+        this.cardlist.forEach(card => {
+          if (card.user_card_id === this.cardId) {
+            cvv = this.cvv.value;
+            cardNumber = card.card_number;
+          }
+        });
+      }
 
       setTimeout(() => {
         this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, cvv, cardNumber).subscribe(
           msg => {
             console.log(msg);
-            if(msg.message === "Payment successful"){
+            if (msg.message === "Payment successful") {
               location.reload();
             }
             this.name.error = 'Please enter valied data';
@@ -229,7 +240,7 @@ export class PaymentMethodComponent implements OnInit {
           this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, this.cvv.value, this.cardNumber.value).subscribe(
             msg => {
               console.log(msg);
-              if(msg.message === "Payment successful"){
+              if (msg.message === "Payment successful") {
                 location.reload();
               }
               this.name.error = 'Please enter valied data';

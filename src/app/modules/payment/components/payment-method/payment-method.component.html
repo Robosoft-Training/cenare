@@ -15,7 +15,7 @@
         </div>
     </div>
     <span *ngIf="!(paymentType === 'cod')">
-        <span *ngIf="!cardlist">
+        <span *ngIf="!isCardExists">
             <div class="add-new-card">
                 <label class="heading-text">Enter Credit/Debit card details</label>
                 <form class="d-flex flex-column form">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </span>
-        <span *ngIf="cardlist">
+        <span *ngIf="isCardExists">
             <div class="cards">
                 <div class="d-flex card-top">
                     <label class="heading-text">My Card</label>
@@ -82,9 +82,9 @@
                         </div>
                         <div>
                             <mat-form-field class="security-code" color="accent-white">
-                                <input class="text-box" type="text" matInput placeholder="Enter CVV">
+                                <input [(ngModel)]="cvv.value" class="text-box" type="text" matInput placeholder="Enter CVV">
                             </mat-form-field>
-                            <mat-hint *ngIf="cvv.error" class="error1">Error</mat-hint>
+                            <mat-hint *ngIf="cvv.error" class="error1">{{cvv.error}}</mat-hint>
                             <img class="info-icon" src="assets/images/icn_info_small.png">
                         </div>
                     </div>
