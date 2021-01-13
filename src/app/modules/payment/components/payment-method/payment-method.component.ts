@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewCardComponent } from 'src/app/modules/user-profile/components/add-new-card/add-new-card.component';
 import { AddressService } from 'src/app/services/address-details/address.service';
@@ -10,13 +8,6 @@ import { PaymentService } from 'src/app/services/payment-methods/payment.service
 import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
 import { ICartItems } from 'src/app/shared/interfaces/ICartItems';
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 @Component({
   selector: 'app-payment-method',
   templateUrl: './payment-method.component.html',
@@ -28,9 +19,8 @@ export class PaymentMethodComponent implements OnInit {
   @Input() restaurentId: any;
   @Input() payAmount: any;
   @Input() discAmmount: any;
-  paymentError = false;
 
-  matcher = new MyErrorStateMatcher();
+  paymentError = false;
   paymentType = 'cod';
   adress = "";
   restaurantName: any = "";
@@ -95,9 +85,11 @@ export class PaymentMethodComponent implements OnInit {
     this.paymentService.currentCardDataListSource.subscribe(
       (data: any) => {
         this.cardlist = data.resultList;
-        console.log(this.cardlist);
         if (this.cardlist && this.cardlist.length > 0) {
           this.isCardExists = true;
+          this.cardlist.forEach(card => {
+            card.security_card = ""
+          });
         }
         console.log(data);
       });
@@ -161,18 +153,17 @@ export class PaymentMethodComponent implements OnInit {
     let cardNumber;
     if (this.cardlist.length > 0) {
 
-      if (!this.cvv.value) {
-        this.cvv.error = 'Please enter CVV';
-      }
-      else {
+      
         this.cardlist.forEach(card => {
+          console.log(this.cardId, card.user_card_id);
           if (card.user_card_id === this.cardId) {
-            cvv = this.cvv.value;
+            cvv = card.security_card;
             cardNumber = card.card_number;
+            console.log(cvv, cardNumber);
           }
         });
-      }
-
+      
+      
       setTimeout(() => {
         this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, cvv, cardNumber).subscribe(
           msg => {

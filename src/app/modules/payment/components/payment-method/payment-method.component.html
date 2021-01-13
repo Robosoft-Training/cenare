@@ -82,7 +82,7 @@
                         </div>
                         <div>
                             <mat-form-field class="security-code" color="accent-white">
-                                <input [(ngModel)]="cvv.value" class="text-box" type="text" [name]="card.user_card_id" matInput placeholder="Enter CVV">
+                                <input [(ngModel)]="card.security_card" class="text-box" type="text" name="name_{{card.user_card_id}}" id="{{card.user_card_id}}" matInput placeholder="Enter CVV">
                             </mat-form-field>
                             <mat-hint *ngIf="cvv.error" class="error1">{{cvv.error}}</mat-hint>
                             <img class="info-icon" src="assets/images/icn_info_small.png">
