@@ -50,24 +50,24 @@ export class PaymentService {
       );
   }
 
-  editPaymentCard = (card_image, card_number, expiry_month, expiry_year, name_on_card, primary_card, security_card, user_card_id, user_id): Observable<any> => {
-    console.log(card_image, card_number, expiry_month, expiry_year, name_on_card, primary_card, security_card, user_card_id, user_id);
-    const url = `${this.apiBaseUrl}payments/editPaymentCard`;
+  editPaymentCard = (userCardId, card_number, expiry_month, expiry_year, name_on_card, security_card): Observable<any> => {
+    console.log(card_number, expiry_month, expiry_year, name_on_card, security_card);
+    const url = `${this.apiBaseUrl}payments/editPaymentCard?userCardId=${userCardId}`;
     const putBody = {
-      card_image,
+      card_image: "",
       card_number,
       expiry_month,
       expiry_year,
       name_on_card,
-      primary_card,
+      primary_card: false,
       security_card,
-      user_card_id,
-      user_id
+      user_card_id: userCardId,
+      user_id: 0
     };
     return this.httpClient.put<any[]>(url, putBody)
       .pipe(
         tap(data => {
-          
+          console.log(data);
         }),
         retry(3)
       );

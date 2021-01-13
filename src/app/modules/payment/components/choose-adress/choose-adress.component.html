@@ -31,7 +31,7 @@
                 <label class="address-type">{{item.address_label}}</label>
                 <label class="address-text">{{item.address}}, {{item.area}}, {{item.city}}</label>
                 <div class="d-flex button-section">
-                    <button class="btn">Edit</button>
+                    <button class="btn" (click)="openEditDialog('addAddress', adress.address_id)">Edit</button>
                     <button class="btn" (click)="deleteAdress(item.address_id)">Delete</button>
                 </div>
             </div>

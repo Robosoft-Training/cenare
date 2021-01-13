@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { data } from 'jquery';
 import { AddNewCardComponent } from 'src/app/modules/user-profile/components/add-new-card/add-new-card.component';
 import { AddressService } from 'src/app/services/address-details/address.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
@@ -29,6 +28,7 @@ export class PaymentMethodComponent implements OnInit {
   @Input() restaurentId: any;
   @Input() payAmount: any;
   @Input() discAmmount: any;
+  paymentError = false;
 
   matcher = new MyErrorStateMatcher();
   paymentType = 'cod';
@@ -166,6 +166,12 @@ export class PaymentMethodComponent implements OnInit {
         this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, cvv, cardNumber).subscribe(
           msg => {
             console.log(msg);
+            this.name.error = 'Please enter valied data';
+            this.cardNumber.error = 'Please enter valied data';
+            this.expiryMonth.error = 'Please enter valied data';
+            this.expiryYear.error = 'Please enter valied data';
+            this.cvv.error = 'Please enter valied data';
+            location.reload();
           }
         );
       }, 0);
@@ -221,6 +227,12 @@ export class PaymentMethodComponent implements OnInit {
           this.paymentService.payForOrder(this.orderNumber, this.payAmount - this.discAmmount, this.cvv.value, this.cardNumber.value).subscribe(
             msg => {
               console.log(msg);
+              this.name.error = 'Please enter valied data';
+              this.cardNumber.error = 'Please enter valied data';
+              this.expiryMonth.error = 'Please enter valied data';
+              this.expiryYear.error = 'Please enter valied data';
+              this.cvv.error = 'Please enter valied data';
+              location.reload();
             }
           );
         }, 0);

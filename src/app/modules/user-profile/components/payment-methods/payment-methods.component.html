@@ -21,7 +21,7 @@
     </div>
     <div class="rectangle3" align="right">
       <div class="box1">
-        <p class="edit">Edit</p>
+        <p (click)="openEditDialog('addNewCard', card.user_card_id)" class="edit">Edit</p>
         <p (click)="deleteCard(card.user_card_id)" class="delete">Delete</p>
       </div>
     </div>

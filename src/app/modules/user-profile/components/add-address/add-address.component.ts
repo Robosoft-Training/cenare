@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocationDataService } from 'src/app/services/location/location-data.service';
 import { ILocation } from 'src/app/shared/interfaces/Ilocation';
@@ -42,7 +42,8 @@ export class AddAddressComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private restaurantLisService: RestaurantListService,
-    private adressService: AddressService
+    private adressService: AddressService,
+    @Inject(MAT_DIALOG_DATA) public data: { formType: string, addressId: string }
   ) { }
 
   loadCurrentLocation = () => {
@@ -114,11 +115,21 @@ export class AddAddressComponent implements OnInit {
       this.area.error = '';
       this.address.error = '';
       this.addressLabel.error = '';
-      this.adressService.addAddress(this.address.value, this.addressLabel.value, this.area.value, this.city.value, this.userSearchSelections.locationName).subscribe(
-        msg => {
-          this.adressService.getAllAddress().subscribe();
-        }
-      );
+
+      if(this.data.addressId === '0'){
+        this.adressService.addAddress(this.address.value, this.addressLabel.value, this.area.value, this.city.value, this.userSearchSelections.locationName).subscribe(
+          msg => {
+            this.adressService.getAllAddress().subscribe();
+          }
+        );
+      }
+      else {
+        this.adressService.editAddress(this.address.value, this.addressLabel.value, this.area.value, this.city.value, this.userSearchSelections.locationName, this.data.addressId).subscribe(
+          msg => {
+            this.adressService.getAllAddress().subscribe();
+          }
+        );
+      }
     }
   }
 
@@ -139,5 +150,20 @@ export class AddAddressComponent implements OnInit {
         startWith(''),
         map(value => this._filterGroup(value))
       );
+
+    if (this.data.addressId !== '0') {
+      this.adressService.getAllAddress().subscribe(
+        dataList => {
+          dataList.resultList.forEach(address => {
+            if (address.address_id === this.data.addressId) {
+              this.city.value = address.city;
+              this.area.value = address.area;
+              this.address.value = address.address;
+              this.addressLabel.value = address.address_label;
+            }
+          });
+        }
+      );
+    }
   }
 }

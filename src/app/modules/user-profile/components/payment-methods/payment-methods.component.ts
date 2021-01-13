@@ -75,7 +75,11 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   openDialog(formType: any): void {
-    this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType } });
+    this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType, cardId: '0' } });
+  }
+
+  openEditDialog(formType: any, cardId): void {
+    this.dialog.open(AddNewCardComponent, { panelClass: 'custom-dialog-container', data: { formType, cardId } });
   }
 
 }

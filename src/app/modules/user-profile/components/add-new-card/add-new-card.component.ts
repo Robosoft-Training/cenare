@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PaymentService } from 'src/app/services/payment-methods/payment.service';
 
 @Component({
@@ -21,10 +21,22 @@ export class AddNewCardComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
-    public dialogRef: MatDialogRef<AddNewCardComponent>
+    public dialogRef: MatDialogRef<AddNewCardComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { formType: string, cardId: string }
   ) { }
 
   ngOnInit(): void {
+    if (this.data.cardId !== '0') {
+      this.paymentService.getCardById(this.data.cardId).subscribe(
+        data => {
+          this.cvv.value = data.security_card;
+          this.name.value = data.name_on_card;
+          this.cardNumber.value = data.card_number;
+          this.expiryMonth.value = data.expiry_month;
+          this.expiryYear.value = data.expiry_year;
+        }
+      );
+    }
   }
 
   onNoClick(): void {
@@ -32,8 +44,6 @@ export class AddNewCardComponent implements OnInit {
   }
 
   saveCard(): void {
-    console.log(this.currentMonth);
-    console.log(this.currentYear);
     if (!this.cardNumber.value) {
       this.cardNumber.error = 'Card number is required';
     }
@@ -66,11 +76,20 @@ export class AddNewCardComponent implements OnInit {
       this.expiryMonth.error = '';
       this.expiryYear.error = '';
       this.cvv.error = '';
-      this.paymentService.addCard(this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
-        msg => {
-          this.paymentService.getUsersAllCards().subscribe();
-        }
-      );
+      if (this.data.cardId === '0') {
+        this.paymentService.addCard(this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+          msg => {
+            this.paymentService.getUsersAllCards().subscribe();
+          }
+        );
+      }
+      else {
+        this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+          msg => {
+            this.paymentService.getUsersAllCards().subscribe();
+          }
+        );
+      }
     }
   }
 

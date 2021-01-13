@@ -22,7 +22,8 @@
                     <mat-form-field class="text-box">
                         <mat-label>Card number</mat-label>
                         <input type="text" matInput placeholder="Card number" name="cardno"
-                            [(ngModel)]="cardNumber.value" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            [(ngModel)]="cardNumber.value"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         <img class="visa-icon" src="assets/images/icn_visa.png">
                         <mat-hint *ngIf="cardNumber.error" class="error1">{{cardNumber.error}}</mat-hint>
                     </mat-form-field>
@@ -83,6 +84,7 @@
                             <mat-form-field class="security-code" color="accent-white">
                                 <input class="text-box" type="text" matInput placeholder="Enter CVV">
                             </mat-form-field>
+                            <mat-hint *ngIf="cvv.error" class="error1">Error</mat-hint>
                             <img class="info-icon" src="assets/images/icn_info_small.png">
                         </div>
                     </div>

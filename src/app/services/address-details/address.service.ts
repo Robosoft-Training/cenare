@@ -67,9 +67,9 @@ export class AddressService {
         retry(3)
       );
   }
- editAddress = (address,address_label,area,city,landmark): Observable<any> => {
+ editAddress = (address,address_label,area,city,landmark, addressId): Observable<any> => {
     console.log(address,address_label,area,city,landmark);
-    const url = `${this.apiBaseUrl}userAddress/editAddress`;
+    const url = `${this.apiBaseUrl}userAddress/editAddress?addressId=${addressId}`;
     const putBody = {
       address,
       address_label,
