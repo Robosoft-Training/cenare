@@ -27,7 +27,7 @@
     <mat-form-field>
       <mat-label>Card number</mat-label>
       <div style="display: block;  position: relative;">
-        <input matInput class="input js-number" type="text" name="cardNumber" minlength="16" maxlength="16"
+        <input matInput id="credit-card" class="input js-number" type="text" name="cardNumber" minlength="19" maxlength="19"
           onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cardNumber" required
           title="Please enter correct year" [(ngModel)]="cardNumber.value" [class.invalid]="cardNumber.error" />
       </div>

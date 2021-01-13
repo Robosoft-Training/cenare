@@ -37,6 +37,12 @@ export class AddNewCardComponent implements OnInit {
         }
       );
     }
+
+    $('#credit-card').on('keypress change', function () {
+      $(this).val(function (index, value) {
+        return value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
+      });
+    });
   }
 
   onNoClick(): void {
@@ -77,14 +83,14 @@ export class AddNewCardComponent implements OnInit {
       this.expiryYear.error = '';
       this.cvv.error = '';
       if (this.data.cardId === '0') {
-        this.paymentService.addCard(this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+        this.paymentService.addCard(this.cardNumber.value.replace(/ /g,''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
           msg => {
             this.paymentService.getUsersAllCards().subscribe();
           }
         );
       }
       else {
-        this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value, this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+        this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value.replace(/ /g,''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
           msg => {
             this.paymentService.getUsersAllCards().subscribe();
           }
