@@ -83,4 +83,12 @@ export class LocalStorageService {
     return localStorage.getItem('crave-serviceRatings');
   }
 
+  setAdressId = (adressId) => {
+    localStorage.setItem('crave-adressId', adressId);
+  }
+
+  getAdressId = () => {
+    return localStorage.getItem('crave-adressId');
+  }
+
 }

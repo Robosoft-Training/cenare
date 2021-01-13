@@ -5,7 +5,7 @@
             <div class="d-flex flex-column flex-wrap delivery-type-card">
                 <img class="icon" src="assets/images/icn_deliver.png">
                 <div class="radio-btn">
-                    <input type="radio" id="deliver-to-me" name="radio-button" class="radio-icon"  [(ngModel)]="deliveryType" value="deliver-to-me" >
+                    <input type="radio" id="deliver-to-me" name="radio-button" class="radio-icon"  [(ngModel)]="deliveryType" value="deliver-to-me" checked>
                     <label for="deliver-to-me" class="radio-button-text">Deliver to me</label><br>
                 </div>
             </div>
@@ -20,7 +20,7 @@
     </div>
     <div class="address">
         <div class="d-flex address-header">
-            <label class="section-heading">My Addresses ({{userAddress.length}})</label>
+            <label *ngIf="userAddress" class="section-heading">My Addresses ({{userAddress.length}})</label>
             <button class="add-new-button" (click)="openDialog('addAddress')">ADD NEW</button>
         </div>
         <div class="d-flex address-section flex-wrap">
@@ -32,7 +32,7 @@
                 <label class="address-text">{{item.address}}, {{item.area}}, {{item.city}}</label>
                 <div class="d-flex button-section">
                     <button class="btn">Edit</button>
-                    <button class="btn">Delete</button>
+                    <button class="btn" (click)="deleteAdress(item.address_id)">Delete</button>
                 </div>
             </div>
         </div>

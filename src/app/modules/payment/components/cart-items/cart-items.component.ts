@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CartService } from 'src/app/services/order-details/cart.service';
-import { PaymentService } from 'src/app/services/payment/payment.service';
+import { PaymentService } from 'src/app/services/payment-methods/payment.service';
 import { RestaurantOverviewService } from 'src/app/services/resraurant-details/restaurant-overview/restaurant-overview.service';
 import { ICartItems } from 'src/app/shared/interfaces/ICartItems';
 
@@ -72,7 +72,6 @@ export class CartItemsComponent implements OnInit {
         this.totalAmmount = data.total_amount;
         this.toPayAmmount = data.to_pay;
         this.discountAmmount = data.discount;
-        // this.restaurentId = 1;
       }
     )
   }

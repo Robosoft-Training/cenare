@@ -30,7 +30,6 @@ export class AddressService {
       .pipe(
         tap(data => {
           this.adressDataListSource.next(data);
-
         }),
         retry(3)
       );

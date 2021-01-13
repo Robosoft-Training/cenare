@@ -1,11 +1,10 @@
 import { Input } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EventEmitter } from 'events';
-import { data } from 'jquery';
 import { AddAddressComponent } from 'src/app/modules/user-profile/components/add-address/add-address.component';
 import { AddressService } from 'src/app/services/address-details/address.service';
-import { PaymentService } from 'src/app/services/payment/payment.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { PaymentService } from 'src/app/services/payment-methods/payment.service';
 import { IAllUserAddress } from 'src/app/shared/interfaces/IAllUserAddress';
 
 @Component({
@@ -20,7 +19,7 @@ export class ChooseAdressComponent implements OnInit {
   nameError = false;
   phoneNumberError = false;
   selectedAddressId = 0;
-  deliveryType = "";
+  deliveryType = "deliver-to-me";
   deliveryInstructions = "";
   address = "";
   flagImageUrlArray = [
@@ -53,11 +52,17 @@ export class ChooseAdressComponent implements OnInit {
   constructor(
     private paymentService: PaymentService,
     private addressService: AddressService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
     this.getAllUserAddress();
+    this.addressService.currentAdressDataListSource.subscribe(
+      (data: any) => {
+        this.userAddress = data.resultList;
+      }
+    );
   }
 
   submitDetails() {
@@ -71,15 +76,15 @@ export class ChooseAdressComponent implements OnInit {
     else {
       this.nameError = false;
       this.phoneNumberError = false;
-      this.userAddress.forEach(address => {
-        if ((this.selectedAddressId === 0 && address.primary_address) || (address.address_id === this.selectedAddressId))
-        {
-          this.address = address.address + ", " + address.area + "," + address.city;
-        }
-      });
-
-      this.paymentService.chooseAddress(this.orderNumber, this.deliveryType, this.deliveryInstructions, this.address,this.name, this.phoneNumber, this.countryCode).subscribe(
-        (msg)=>{
+      this.userAddress.forEach(
+        address => {
+          if ((this.selectedAddressId === 0 && address.primary_address) || (address.address_id === this.selectedAddressId)) {
+            this.address = address.address + ", " + address.area + "," + address.city;
+            this.localStorageService.setAdressId(address.address_id);
+          }
+        });
+        this.paymentService.chooseAddress(this.orderNumber, this.deliveryType, this.deliveryInstructions, this.address, this.name, this.phoneNumber, this.countryCode).subscribe(
+        (msg) => {
           console.log(msg);
           this.paymentService.chooseAdress('payment-methods')
         }
@@ -90,10 +95,15 @@ export class ChooseAdressComponent implements OnInit {
   setCountryFlag(code: any) {
     console.log(code);
   }
+  
   getAllUserAddress() {
-    this.addressService.getAllAddress().subscribe(
-      (data: any) => {
-        this.userAddress = data.resultList;
+    this.addressService.getAllAddress().subscribe();
+  }
+  deleteAdress = (adressId) => {
+    this.addressService.deleteAddress(adressId).subscribe(
+      msg => {
+        this.addressService.getAllAddress().subscribe();
+        this.getAllUserAddress();
       }
     );
   }

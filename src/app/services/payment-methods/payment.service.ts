@@ -14,6 +14,9 @@ export class PaymentService {
   cardDataListSource = new BehaviorSubject({});
   currentCardDataListSource = this.cardDataListSource.asObservable();
 
+  nextFormRequest = new BehaviorSubject('cartItems');
+  nextFormRequestObserver = this.nextFormRequest.asObservable();
+
   addCard = (card_number, expiry_month, expiry_year, name_on_card, security_card): Observable<any> => {
     console.log(card_number, expiry_month, expiry_year, name_on_card, security_card);
     const url = `${this.apiBaseUrl}payments/addCard`;
@@ -138,6 +141,30 @@ export class PaymentService {
       card_number,
       cvv,
       orderNumber
+    };
+    return this.httpClient.post<any[]>(url, postBody)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+        retry(3)
+      );
+  }
+
+  chooseAdress(nextForm: any){
+    this.nextFormRequest.next(nextForm);
+  }
+  chooseAddress = (orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode) :Observable<any> => {
+    console.log(orderNumber, deliveryType, deliveryInstruction, deliveryAddress, name, phoneNumber, countryCode);
+    const url = `${this.apiBaseUrl}orders/addDeliveryDetails`;
+    const postBody = {
+      order_number: orderNumber, 
+      delivery_type: deliveryType, 
+      delivery_instruction: deliveryInstruction, 
+      delivery_address: deliveryAddress, 
+      name: name, 
+      phone_number: phoneNumber, 
+      country_code: countryCode
     };
     return this.httpClient.post<any[]>(url, postBody)
       .pipe(
