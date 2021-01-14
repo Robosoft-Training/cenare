@@ -84,22 +84,20 @@ export class AddNewCardComponent implements OnInit {
       this.expiryMonth.error = '';
       this.expiryYear.error = '';
       this.cvv.error = '';
-      let cardType = this.cardIdendifyService.findCardType(this.cardNumber.value.replace(/ /g, ''));
-      console.log(cardType);
-      // if (this.data.cardId === '0') {
-      //   this.paymentService.addCard(this.cardNumber.value.replace(/ /g, ''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
-      //     msg => {
-      //       this.paymentService.getUsersAllCards().subscribe();
-      //     }
-      //   );
-      // }
-      // else {
-      //   this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value.replace(/ /g, ''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
-      //     msg => {
-      //       this.paymentService.getUsersAllCards().subscribe();
-      //     }
-      //   );
-      // }
+      if (this.data.cardId === '0') {
+        this.paymentService.addCard(this.cardNumber.value.replace(/ /g, ''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+          msg => {
+            this.paymentService.getUsersAllCards().subscribe();
+          }
+        );
+      }
+      else {
+        this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value.replace(/ /g, ''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+          msg => {
+            this.paymentService.getUsersAllCards().subscribe();
+          }
+        );
+      }
     }
   }
 }
