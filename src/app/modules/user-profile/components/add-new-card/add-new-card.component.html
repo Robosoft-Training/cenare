@@ -28,11 +28,11 @@
       <mat-label>Card number</mat-label>
       <div style="display: block;  position: relative;">
         <input matInput id="credit-card" class="input js-number" type="text" name="cardNumber" minlength="19" maxlength="19"
-          onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cardNumber" required
+        onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cardNumber" required
           title="Please enter correct year" [(ngModel)]="cardNumber.value" [class.invalid]="cardNumber.error" />
       </div>
       <mat-hint *ngIf="cardNumber.error" class="error1">{{cardNumber.error}}</mat-hint>
-      <img class="icon" src="../../../../../assets/images/Visa_small_icon.png" alt="">
+      <img class="icon" src="assets/images/Visa_small_icon.png" alt="">
     </mat-form-field>
 
     <!-- Name on card -->

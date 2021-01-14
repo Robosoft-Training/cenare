@@ -5,7 +5,7 @@ import { startWith, map, flatMap, mergeMap } from 'rxjs/operators';
 import { ILocation } from 'src/app/shared/interfaces/Ilocation';
 import { locationsList } from 'src/app/shared/locationsList';
 import { RestaurantListService } from 'src/app/services/restaurant-list/restaurant-list.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { LocationComponent } from 'src/app/components/shared-components/empty-scenario/location/location.component';
 import { MatDialog } from '@angular/material/dialog';
 

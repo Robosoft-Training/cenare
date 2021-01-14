@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CardIdentifierService } from 'src/app/services/card-identifier/card-identifier.service';
 import { PaymentService } from 'src/app/services/payment-methods/payment.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class AddNewCardComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
+    private cardIdendifyService: CardIdentifierService,
     public dialogRef: MatDialogRef<AddNewCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { formType: string, cardId: string }
   ) { }
@@ -82,21 +84,22 @@ export class AddNewCardComponent implements OnInit {
       this.expiryMonth.error = '';
       this.expiryYear.error = '';
       this.cvv.error = '';
-      if (this.data.cardId === '0') {
-        this.paymentService.addCard(this.cardNumber.value.replace(/ /g,''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
-          msg => {
-            this.paymentService.getUsersAllCards().subscribe();
-          }
-        );
-      }
-      else {
-        this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value.replace(/ /g,''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
-          msg => {
-            this.paymentService.getUsersAllCards().subscribe();
-          }
-        );
-      }
+      let cardType = this.cardIdendifyService.findCardType(this.cardNumber.value.replace(/ /g, ''));
+      console.log(cardType);
+      // if (this.data.cardId === '0') {
+      //   this.paymentService.addCard(this.cardNumber.value.replace(/ /g, ''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+      //     msg => {
+      //       this.paymentService.getUsersAllCards().subscribe();
+      //     }
+      //   );
+      // }
+      // else {
+      //   this.paymentService.editPaymentCard(this.data.cardId, this.cardNumber.value.replace(/ /g, ''), this.expiryMonth.value, this.expiryYear.value, this.name.value, this.cvv.value).subscribe(
+      //     msg => {
+      //       this.paymentService.getUsersAllCards().subscribe();
+      //     }
+      //   );
+      // }
     }
   }
-
 }
