@@ -94,8 +94,8 @@
 .box2 {
   height: 85vh;
   width: 80vw;
-  margin-top: -42%;
-  margin-left: -34%;
+  margin-top: -20%;
+  margin-left: -22%;
   position: absolute;
   background: transparent;
   opacity: 1;
@@ -115,7 +115,7 @@
       width: 16px;
       position: relative;
       margin-top: -1%;
-      margin-left: 100%;
+      margin-left: 110%;
       cursor: pointer;
     }
 
@@ -135,6 +135,7 @@
       margin-top: 5px;
       justify-content: space-between;
       border: 2px solid transparent;
+      margin-left: 65px;
 
       .rectangle2 {
         width: 85%;
@@ -180,6 +181,7 @@
         border-radius: 12px;
         background: transparent;
         border: none;
+        
 
         .leftArrow {
           font-size: 20px;
@@ -204,7 +206,7 @@
           border-radius: 8px 0px 0px 8px;
           border: none;
           border-right: 1px solid #cacaca;
-          // pointer-events: none;
+           pointer-events: none;
           color: #CFCFCF;
         }
 
@@ -229,7 +231,7 @@
           outline: none;
           border-radius: 0px 8px 8px 0px;
           border: none;
-          // pointer-events: none;
+           pointer-events: none;
           color: #CFCFCF;
         }
       }
@@ -291,7 +293,7 @@
         display: flex;
         margin-top: 5px;
         justify-content: space-between;
-        border: 2px solid transparent;
+        border: 2px solid red;
 
         .rectangle2 {
           width: 89%;
@@ -336,7 +338,8 @@
           z-index: 2020;
           border-radius: 12px;
           background: transparent;
-          border: none;
+          border: red;
+
 
           .leftArrow {
             font-size: 20px;
@@ -361,7 +364,7 @@
             border-radius: 8px 0px 0px 8px;
             border: none;
             border-right: 1px solid #cacaca;
-            // pointer-events: none;
+            pointer-events: none;
             color: #CFCFCF;
           }
 
@@ -386,7 +389,7 @@
             outline: none;
             border-radius: 0px 8px 8px 0px;
             border: none;
-            // pointer-events: none;
+             pointer-events: none;
             color: #CFCFCF;
           }
         }

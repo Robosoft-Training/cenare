@@ -18,10 +18,10 @@
             <div class="brand-image-container w-sm-100" *ngFor="let item of dealsOffers.slice(0,4); let i = index;">
                 <span (click)="displayImage(i)" [hidden]="!(offerCardNo === i)">
                     <img src="{{item.offer.offerImagePath}}" class="brand-image" />
-                    <img class="apply-code" src="assets/images/apply-code.png" />
+                    <img class="apply-code" src="assets/images/icn_check.png" />
                     <div class="offer-title">
                         <span class="title">
-                            Flat {{item.offer.offerPercent}}% off
+                            Flat {{item.offer.offerPercent}}% Off
                             <span class="offer-text">{{item.offer.code}}</span>
                         </span>
                         <ul class="offer-details">

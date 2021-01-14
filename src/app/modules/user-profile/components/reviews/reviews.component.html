@@ -8,7 +8,7 @@
       </div>
 
     </div>
-    <p class="description">{{item.description}}</p>
+    <p class="description">{{!(item.description===' null')?item.description:''}}</p>
     <div class="d-flex rectangle">
       <p class="date">{{item.date}}</p>
       <div class="like">

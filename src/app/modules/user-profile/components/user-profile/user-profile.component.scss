@@ -5,28 +5,32 @@
   background-image: url('../../../../../assets/images/user_profile_cover_image.png');
   background-repeat: no-repeat;
   margin-top: 3.8em;
+  height: 13em;
+ 
 
   .profile {
     margin-top: 2em;
+    margin-left: 110px;
     
     .profile-img {
-      width: 7em;
-      height: 7em;
+      width: 6em;
+      height: 6em;
       box-sizing: border-box;
       border: 3px solid $white;
       box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
       border-radius: 50%;
+      margin-top: 8px;
     }
 
     .profile-details {
       justify-content: space-between;
-      margin-left: 54px;
+      margin-left: 42px;
 
       .details-top {
         .name {
           color: $white;
           font-family: $openSans;
-          font-size: 25px;
+          font-size: 22px;
           font-weight: bolder;
           letter-spacing: 0;
           line-height: 42px;
@@ -56,6 +60,7 @@
 
       .details-bottom {
         width: 100%;
+        margin-top: 6px;
         .text {
           color: $white;
           font-family: $openSans;
@@ -66,20 +71,22 @@
 
         .phone-img {
           padding-right: 16px;
-          height: 30px;
-          width: 40px;
+          height: 20px;
+          width: 30px;
         }
 
         .mail-img {
           padding-right: 16px;
-          height: 25px;
-          width: 40px;
+          height: 15px;
+          width: 35px;
+          margin-top: 2px;
         }
 
         .info-img {
           padding-right: 16px;
-          height: 25px;
-          width: 40px;
+          height: 15px;
+          width: 30px;
+          margin-top: 5px;
         }
         
         .border {
@@ -93,7 +100,7 @@
         .credit-score-text {
           color: $white;
           font-family: $openSans;
-          font-size: 24px;
+          font-size: 18px;
           font-weight: bold;
           letter-spacing: 0;
           line-height: 22px;
@@ -111,7 +118,7 @@
     font-weight: bolder;
     font-size: 10px;
     letter-spacing: 0.9px;
-    margin-top: 75px;
+    margin-top: 40px;
     margin-bottom: 8px;
 
     .active {

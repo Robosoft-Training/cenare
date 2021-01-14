@@ -13,6 +13,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { AddAddressComponent } from './components/add-address/add-address.component';
 import { AddNewCardComponent } from './components/add-new-card/add-new-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 // import { OrderDetailsComponent } from './components/order-details/order-details.component';
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularMaterialsModule,
     SharedComponentsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class UserProfileModule { }

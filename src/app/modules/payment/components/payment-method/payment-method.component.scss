@@ -312,6 +312,7 @@
 
       .divider {
         margin: 16px 0px;
+        opacity: 0.4;
       }
     }
   }
@@ -541,14 +542,6 @@
     .delivery-card {
       padding: 16px;
 
-      .heading-text {
-        color: #9B9B9B;
-        font-family: $openSans;;
-        font-size: 12px;
-        letter-spacing: 0;
-        line-height: 17px;
-      }
-
       .info-text {
         text-transform: capitalize;
         color: #223136;
@@ -624,4 +617,11 @@
       }
     }
   }
+}
+.heading-text {
+  color: #9B9B9B;
+  font-family: $openSans;;
+  font-size: 10px;
+  letter-spacing: 0;
+  line-height: 17px;
 }

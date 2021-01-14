@@ -18,7 +18,7 @@
       position: absolute;
       background-color: white;
       width: 10em;
-      left: 280px;
+      left: 350px;
       top: -7px;
       height: 25em;
       bottom: 0px;
@@ -753,16 +753,15 @@
   .rectangle {
     width: 70px;
     height: 38px;
-    // position: relative;
-    z-index: 2020;
+    position: relative;
+    //z-index: 2020;
     border-radius: 12px;
-    background: transparent;
+    background:transparent;
     border: none;
     padding: 0px;
     border: 2px solid transparent;
-    position: absolute;
     margin-top: 167px;
-    left: 59%;
+    left: 75%;
     z-index: 3001;
 
     .leftArrow {

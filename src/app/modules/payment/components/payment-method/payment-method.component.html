@@ -64,7 +64,7 @@
         <span *ngIf="isCardExists">
             <div class="cards">
                 <div class="d-flex card-top">
-                    <label class="heading-text">My Card</label>
+                    <label class="heading-text"style="font-size: 16px;">My Card</label>
                     <button class="add-new-button" (click)="openDialog('addNewCard')">ADD NEW</button>
                 </div>
                 <div class="d-flex existing-cards flex-wrap">
@@ -107,7 +107,7 @@
         </div>
     </div>
     <div class="details-delivery">
-        <label class="heading-text">Delivery Details</label>
+        <label class="heading-text" style="font-size: 16px;">Delivery Details</label>
         <div class="border delivery-card">
             <div class="row">
                 <label class="sub-heading-text">Delivery Location</label>
@@ -127,12 +127,12 @@
         </div>
     </div>
     <div class="items-in-order">
-        <label class="heading-text">Items in your order from</label>
+        <label class="heading-text" style="font-size:16px;">Items in your order from</label>
         <div class="d-flex order-card" (click)="getDetails()" data-bs-toggle="modal"
             data-bs-target="#orderDetailsModal">
             <div class="d-flex flex-column">
-                <label class="restuarant-name">{{restaurantName}}</label>
-                <label class="address">{{restaurantAdress}}</label>
+                <label class="restuarant-name" style="font-size: 14px;">{{restaurantName}}</label>
+                <label class="address" style="font-size:12px;">{{restaurantAdress}}</label>
             </div>
             <div>
                 <img class="arrow-img" src="assets/images/icn_right_arrow.png">
