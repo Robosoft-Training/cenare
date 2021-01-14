@@ -45,7 +45,7 @@
         </div>
           <div class="row rectangle">
             <div class="col-lg-6 col-md-6 col-sm-12 search-box">
-              <img class="search-icon" src="../../../../../assets/images/icn_search.png" />
+              <img class="search-icon" src="assets/images/icn_search.png" />
               <input class="input" placeholder="Search for Offers" [(ngModel)]="menuSearch">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 box">
@@ -53,7 +53,7 @@
               <div class="rectangle1 col-lg-8 col-md-8 col-sm-6">
                 <p class="text">Delivering food to</p>
                 <div class="addressBox">
-                  <img src="../../../../../assets/images/icn_pin.png" alt="">
+                  <img src="assets/images/icn_pin.png" alt="">
                   <p class="address">{{ adress }}</p>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                 <p class="offerTitle" id="title">{{cards.offerTitle}}</p>
                 <div class="box2">
                   <p class="code" id="code">{{cards.code}}</p>
-                  <p class="viewDetails" (click)="displayImage(cards, i)">View details</p>
+                  <p class="viewDetails" (click)="displayImage(i)">View details</p>
                 </div>
                 <button class="apply">APPLY</button>
               </div>
@@ -87,7 +87,7 @@
 <div *ngIf="isOpen" class="screen">
   <div class="dialog">
     <button class="close" mat-button mat-dialog-close>
-      <img class="close" (click)="close()" src="../../../../../assets/images/dismiss_button_white.png" alt="">
+      <img class="close" (click)="close()" src="assets/images/dismiss_button_white.png" alt="">
     </button>
     <p class="title">{{popoverData.offerTitle}}</p>
     <p class="code">{{popoverData.code}}</p>
@@ -102,7 +102,7 @@
     <div class="box2">
       <p class="heading2">Delivering food to</p>
       <div class="addressBox">
-        <img src="../../../../../assets/images/icn_pin.png" alt="">
+        <img src="assets/images/icn_pin.png" alt="">
         <p class="address">{{adress}}</p>
       </div>
     </div>
@@ -118,7 +118,7 @@
     </div>
   </div>
   <div class="rectangle">
-    <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow()"></button>
-    <button class="fa fa-angle-right rightArrow" id="right" (click)="rightArrow()"></button>
+    <button class="fa fa-angle-left" [ngClass]="clickedCount<=0?'left':'leftArrow'" id="left" (click)="leftArrow(-1)"></button>
+    <button class="fa fa-angle-right" [ngClass]="clickedCount===cardlist.length-1?'right':'rightArrow'" id="right" (click)="leftArrow(1)"></button>
   </div>
 </div>

@@ -36,8 +36,6 @@ export class OfferComponent implements OnInit {
   menuSearch = '';
   adress = "";
 
-  offerslist: any = [];
-
   popoverData = {
     code: '',
     offerPercent: 0,
@@ -81,10 +79,10 @@ export class OfferComponent implements OnInit {
     this.popoverData = this.cardlist[count];
   }
 
-  displayImage(offer, count) {
+  displayImage(count) {
+    this.clickedCount = count;
     this.popoverData = this.cardlist[count];
     this.isOpen = !this.isOpen;
-    this.leftArrow();
   }
 
   close() {
@@ -167,32 +165,26 @@ export class OfferComponent implements OnInit {
     this.formType = formName;
   }
 
-  leftArrow() {
-    if (this.clickedCount === 0) {
+  leftArrow(co) {
+    this.clickedCount += co;
+    if (this.clickedCount <= 0) {
+      this.clickedOffer = this.cardlist[this.clickedCount];
       $("#left").addClass('left');
       $("#left").removeClass('leftArrow');
-    }
-    else {
-      this.clickedOffer = this.cardlist[--this.clickedCount];
-      $("#left").removeClass('left');
-      $("#left").addClass('leftArrow');
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
       this.displayPopover(this.clickedCount);
     }
-  }
-
-  rightArrow() {
-    if (this.clickedCount === this.cardlist.length - 1) {
+    else if (this.clickedCount === this.cardlist.length - 1) {
+      this.clickedOffer = this.cardlist[this.clickedCount];
       $("#right").addClass('right');
       $("#right").removeClass('rightArrow');
+      this.displayPopover(this.clickedCount);
     }
     else {
-      this.clickedOffer = this.cardlist[++this.clickedCount];
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
+      this.clickedOffer = this.cardlist[this.clickedCount];
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
+      $("#right").removeClass('right');
+      $("#right").addClass('rightArrow');
       this.displayPopover(this.clickedCount);
     }
   }

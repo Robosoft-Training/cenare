@@ -3,14 +3,17 @@
     <div class="d-flex details">
       <p class="restuarant-name">{{item.restaurant_name}}</p>
       <div class="ratingBox">
+        <div class="ratingBox"
+        [ngClass]="{'ratingBox-green':item.food_rating>=4, 'ratingBox-yellow':item.food_rating<=3, 'ratingBox-red':item.food_rating<3}">
         <img class="whiteStar">
-        <div class="starNumber">{{item.food_rating}}</div>
+        <div class="starNumber" >{{item.food_rating}}</div>
+        </div>
       </div>
 
     </div>
-    <p class="description">{{!(item.description===' null')?item.description:''}}</p>
+    <p class="description">{{!(item.description===' null' || item.description==='null')?item.description:''}}</p>
     <div class="d-flex rectangle">
-      <p class="date">{{item.date}}</p>
+      <p class="date">{{!(item.date===' null' || item.date==='null')?item.date:''}}</p>
       <div class="like">
         <img class="likeButton" src="assets/images/like_inactive.png">
         <p class="likeNumber">1</p>

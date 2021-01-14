@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="rectangle3">
-          <button class="fa fa-angle-left leftArrow" id="left" (click)="leftArrow(-1)"></button>
+          <button class="fa fa-angle-left" [ngClass]="clickedCount<=0?'left':'leftArrow'" id="left" (click)="leftArrow(-1)"></button>
           <button class="fa fa-angle-right rightArrow" id="right" (click)="leftArrow(1)"></button>
         </div>
       </div>

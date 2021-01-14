@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { AddressService } from 'src/app/services/address-details/address.service';
 import { DealsOffersService } from 'src/app/services/deals-offers/deals-offers.service';
-import { OffersService } from 'src/app/services/offers/offers.service';
 import { IDealsOffers } from 'src/app/shared/interfaces/IDealsOffers';
 
 @Component({
@@ -13,7 +12,7 @@ export class AllOffersComponent implements OnInit {
 
   menuSearch = '';
   adress = "";
-  
+
   offerslist: IDealsOffers[] = [
     {
       code: '',
@@ -59,10 +58,10 @@ export class AllOffersComponent implements OnInit {
     private elementRef: ElementRef,
     private allOffersService: DealsOffersService,
     private adressService: AddressService,
-    private offerService: OffersService
   ) { }
 
   displayImage(count) {
+    this.clickedCount = count;
     this.popoverData = this.offerslist[count];
     this.isOpen = !this.isOpen;
   }
@@ -92,35 +91,27 @@ export class AllOffersComponent implements OnInit {
     );
   }
 
-  leftArrow() {
-    if (this.clickedCount === 0) {
+  leftArrow(co) {
+    this.clickedCount += co;
+    if (this.clickedCount <= 0) {
+      this.clickedOffer = this.offerslist[this.clickedCount];
       $("#left").addClass('left');
       $("#left").removeClass('leftArrow');
-    }
-    else {
-      this.clickedOffer = this.offerslist[--this.clickedCount];
-      $("#left").removeClass('left');
-      $("#left").addClass('leftArrow');
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
       this.displayPopover(this.clickedCount);
     }
-
-  }
-
-  rightArrow() {
-    if (this.clickedCount === this.offerslist.length - 1) {
+    else if (this.clickedCount === this.offerslist.length - 1) {
+      this.clickedOffer = this.offerslist[this.clickedCount];
       $("#right").addClass('right');
       $("#right").removeClass('rightArrow');
+      this.displayPopover(this.clickedCount);
     }
     else {
-      this.clickedOffer = this.offerslist[++this.clickedCount];
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
+      this.clickedOffer = this.offerslist[this.clickedCount];
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
+      $("#right").removeClass('right');
+      $("#right").addClass('rightArrow');
       this.displayPopover(this.clickedCount);
     }
   }
-
 }

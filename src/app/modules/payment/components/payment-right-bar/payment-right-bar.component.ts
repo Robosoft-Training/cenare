@@ -86,6 +86,7 @@ export class PaymentRightBarComponent implements OnInit {
   }
 
   displayImage(count) {
+    this.clickedCount = count;
     this.popoverData = this.dealsOffers[count];
     this.isOpen = !this.isOpen;
   }
@@ -110,32 +111,23 @@ export class PaymentRightBarComponent implements OnInit {
     }, 1500);
   }
 
-  leftArrow() {
-    if (this.clickedCount === 0) {
+  leftArrow(co) {
+    this.clickedCount += co;
+    console.log(this.clickedCount, co);
+    if (this.clickedCount <= 0) {
       $("#left").addClass('left');
       $("#left").removeClass('leftArrow');
     }
-    else {
-      this.clickedOffer = this.dealsOffers[--this.clickedCount];
-      $("#left").removeClass('left');
-      $("#left").addClass('leftArrow');
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
-      this.displayPopover(this.clickedCount);
-    }
-  }
-
-  rightArrow() {
-    if (this.clickedCount === this.dealsOffers.length - 1) {
+    else if (this.clickedCount === this.dealsOffers.length - 1) {
       $("#right").addClass('right');
       $("#right").removeClass('rightArrow');
     }
     else {
-      this.clickedOffer = this.dealsOffers[++this.clickedCount];
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
+      this.clickedOffer = this.dealsOffers[this.clickedCount];
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
+      $("#right").removeClass('right');
+      $("#right").addClass('rightArrow');
       this.displayPopover(this.clickedCount);
     }
   }

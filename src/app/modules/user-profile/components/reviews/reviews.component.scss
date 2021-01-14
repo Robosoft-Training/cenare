@@ -30,7 +30,6 @@
     .ratingBox {
       padding: 4px;
       border-radius: 4px;
-      background-color: #5FB700;
       display: flex;
 
       .whiteStar {
@@ -51,6 +50,18 @@
         line-height: 17px;
         padding: 0px 8px;
       }
+    }
+
+    .ratingBox-green {
+      background-color: #5FB700;
+    }
+
+    .ratingBox-yellow {
+      background-color: $orange;
+    }
+
+    .ratingBox-red {
+      background-color: $red;
     }
   }
 
@@ -105,44 +116,3 @@
     }
   }
 }
-
-// @media (min-width: 1300px) and (max-width: 1500px) {
-
-//   .left {
-//     width: 90%;
-//     min-width: 300px;
-//     border-radius: 8px;
-//     padding-left: 0%;
-//   }
-// }
-
-
-// @media (min-width: 1100px) and (max-width: 1300px) {
-
-//   .left {
-//     width: 90%;
-//     min-width: 300px;
-//     border-radius: 8px;
-//     padding-left: 0%;
-//   }
-// }
-
-// @media (min-width: 800px) and (max-width: 1100px) {
-
-//   .left {
-//     width: 90%;
-//     min-width: 300px;
-//     border-radius: 8px;
-//     padding-left: 0%;
-//   }
-// }
-
-// @media (max-width: 800px) {
-
-//   .left {
-//     width: 90%;
-//     min-width: 300px;
-//     border-radius: 8px;
-//     padding-left: 0%;
-//   }
-// }

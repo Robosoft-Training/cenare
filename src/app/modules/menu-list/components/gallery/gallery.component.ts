@@ -90,45 +90,34 @@ export class GalleryComponent implements OnInit {
   displayImage(imageUrl, count) {
     this.clickedCount = count;
     this.clickedImage = imageUrl;
-    this.clickedImageName = this.imageName[this.clickedCount];
     this.isOpen1 = !this.isOpen1;
+    this.leftArrow(this.clickedCount)
   }
-
+  
   close1() {
     this.isOpen1 = !this.isOpen1;
   }
 
-  leftArrow() {
-    if (this.clickedCount === 0) {
-      $("#left").addClass('left');
-      $("#left").removeClass('leftArrow');
+  leftArrow(co=0) {
+    this.clickedCount+=co
+    if (this.clickedCount <=0) {
+      $('#left').addClass('left'); 
+      $('#left').removeClass('leftArrow'); 
+      this.clickedImage = this.imageList[this.clickedCount];
     }
+    else if
+      (this.clickedCount === this.imageList.length - 1) {
+        $('#right').addClass('right'); 
+        $('#right').removeClass('rightArrow'); 
+        this.clickedImage = this.imageList[this.clickedCount];
+      }
+    
     else {
-      this.clickedImage = this.imageList[--this.clickedCount];
-      this.clickedImageName = this.imageName[this.clickedCount];
+      this.clickedImage = this.imageList[this.clickedCount];
       $("#left").removeClass('left');
       $("#left").addClass('leftArrow');
       $("#right").removeClass('right');
       $("#right").addClass('rightArrow');
-      console.log(this.clickedCount);
-      console.log(this.clickedImageName)
-    }
-  }
-
-  rightArrow() {
-    if (this.clickedCount === this.imageList.length - 1) {
-      $("#right").addClass('right');
-      $("#right").removeClass('rightArrow');
-    }
-    else {
-      this.clickedImage = this.imageList[++this.clickedCount];
-      this.clickedImageName = this.imageName[this.clickedCount];
-      $("#right").removeClass('right');
-      $("#right").addClass('rightArrow');
-      $("#left").removeClass('left');
-      $("#left").addClass('leftArrow');
-      console.log(this.clickedCount);
-      console.log(this.clickedImageName)
     }
   }
 }
