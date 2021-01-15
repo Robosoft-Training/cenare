@@ -130,7 +130,7 @@
         <img *ngFor="let url of imageUrls" [src]="url" class="selected-images mt-2 mb-3">
       </div>
       <div class="rectangle4">
-        <button *ngIf="!isLoading" (click)="submitReview()" class="submit">Submit</button>
+        <button *ngIf="!isLoading" (click)="submitReview()" class="submit">SUBMIT</button>
         <div *ngIf="isLoading" class="d-flex align-items-center justify-content-center">
           <app-loading></app-loading>
         </div>

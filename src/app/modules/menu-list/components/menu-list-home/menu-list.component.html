@@ -21,7 +21,7 @@
                             <label class="order"> &#8226; INR{{cost}} min order</label>
                             <img class="timings" src="assets/time_icon.png">
                             <label
-                                class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+"-"+closeTime[0]+":"+closeTime[1]+closeTime[1]}}</label>
+                                class="open">{{openTime[0]+":"+openTime[1]+openTime[1]+' AM'+" - "+(closeTime[0]-12)+":"+closeTime[1]+closeTime[1]+' PM'}}</label>
                             <label class="delivery">Delivery for last 5 orders</label>
                             <button *ngIf="rating1"
                                 [ngClass]="{'star-green':rating1>=4, 'star-orange':rating1<=3, 'star-red':rating1<3}"
